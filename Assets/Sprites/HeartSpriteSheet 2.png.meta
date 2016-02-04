@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: fb54bc21c22f94720a878823fe4aad9b
+timeCreated: 1449601966
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HeartSpriteSheet 2_0
+    21300002: HeartSpriteSheet 2_1
+    21300004: HeartSpriteSheet 2_2
+    21300006: HeartSpriteSheet 2_3
+    21300008: HeartSpriteSheet 2_4
+    21300010: HeartSpriteSheet 2_5
+    21300012: HeartSpriteSheet 2_6
+    21300014: HeartSpriteSheet 2_7
+    21300016: HeartSpriteSheet 2_8
+    21300018: HeartSpriteSheet 2_9
+    21300020: HeartSpriteSheet 2_10
+    21300022: HeartSpriteSheet 2_11
+    21300024: HeartSpriteSheet 2_12
+    21300026: HeartSpriteSheet 2_13
+    21300028: HeartSpriteSheet 2_14
+    21300030: HeartSpriteSheet 2_15
+    21300032: HeartSpriteSheet 2_16
+    21300034: HeartSpriteSheet 2_17
+    21300036: HeartSpriteSheet 2_18
+    21300038: HeartSpriteSheet 2_19
+    21300040: HeartSpriteSheet 2_20
+    21300042: HeartSpriteSheet 2_21
+    21300044: HeartSpriteSheet 2_22
+    21300046: HeartSpriteSheet 2_23
+    21300048: HeartSpriteSheet 2_24
+    21300050: HeartSpriteSheet 2_25
+    21300052: HeartSpriteSheet 2_26
+    21300054: HeartSpriteSheet 2_27
+    21300056: HeartSpriteSheet 2_28
+    21300058: HeartSpriteSheet 2_29
+    21300060: HeartSpriteSheet 2_30
+    21300062: HeartSpriteSheet 2_31
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: HeartSpriteSheet 2_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 2815
+        width: 323
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_1
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 2818
+        width: 323
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_2
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 2820
+        width: 323
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_3
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 2824
+        width: 323
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_4
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 2409
+        width: 323
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_5
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 2423
+        width: 323
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_6
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 2420
+        width: 323
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_7
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 2424
+        width: 323
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 2030
+        width: 386
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_9
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 2030
+        width: 386
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_10
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 2030
+        width: 386
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_11
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 2030
+        width: 386
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1630
+        width: 386
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_13
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 1630
+        width: 386
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_14
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 1630
+        width: 386
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_15
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 1630
+        width: 386
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_16
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 1215
+        width: 323
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_17
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 1204
+        width: 323
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_18
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 1240
+        width: 323
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_19
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 1254
+        width: 323
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 830
+        width: 386
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_21
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 801
+        width: 371
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_22
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 885
+        width: 361
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_23
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 895
+        width: 297
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 430
+        width: 386
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_25
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 401
+        width: 371
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_26
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 485
+        width: 361
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_27
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 495
+        width: 297
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_28
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 15
+        width: 323
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_29
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 0
+        width: 323
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_30
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 46
+        width: 323
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeartSpriteSheet 2_31
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 63
+        width: 323
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

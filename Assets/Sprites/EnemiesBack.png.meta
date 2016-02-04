@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: eb635239140f64eeab2169f8b2f88aa5
+timeCreated: 1449604603
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: EnemiesBack_0
+    21300002: EnemiesBack_1
+    21300004: EnemiesBack_2
+    21300006: EnemiesBack_3
+    21300008: EnemiesBack_4
+    21300010: EnemiesBack_5
+    21300012: EnemiesBack_6
+    21300014: EnemiesBack_7
+    21300016: EnemiesBack_8
+    21300018: EnemiesBack_9
+    21300020: EnemiesBack_10
+    21300022: EnemiesBack_11
+    21300024: EnemiesBack_12
+    21300026: EnemiesBack_13
+    21300028: EnemiesBack_14
+    21300030: EnemiesBack_15
+    21300032: EnemiesBack_16
+    21300034: EnemiesBack_17
+    21300036: EnemiesBack_18
+    21300038: EnemiesBack_19
+    21300040: EnemiesBack_18
+    21300042: EnemiesBack_19
+    21300044: EnemiesBack_20
+    21300046: EnemiesBack_21
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: EnemiesBack_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1279
+        width: 313
+        height: 259
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_1
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 1284
+        width: 313
+        height: 254
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_2
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1291
+        width: 313
+        height: 247
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_3
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 1300
+        width: 313
+        height: 238
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_4
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 880
+        width: 313
+        height: 258
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_5
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 866
+        width: 313
+        height: 272
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_6
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 866
+        width: 313
+        height: 272
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_7
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 840
+        width: 313
+        height: 298
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_8
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 880
+        width: 313
+        height: 258
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_9
+      rect:
+        serializedVersion: 2
+        x: 2035
+        y: 866
+        width: 313
+        height: 272
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_10
+      rect:
+        serializedVersion: 2
+        x: 2435
+        y: 845
+        width: 312
+        height: 293
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_11
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 829
+        width: 313
+        height: 309
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_12
+      rect:
+        serializedVersion: 2
+        x: 3232
+        y: 813
+        width: 317
+        height: 323
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 541
+        width: 227
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_15
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 541
+        width: 227
+        height: 139
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_16
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 540
+        width: 227
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_17
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 542
+        width: 227
+        height: 155
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_18
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 140
+        width: 227
+        height: 132
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_19
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 140
+        width: 227
+        height: 132
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_20
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 140
+        width: 227
+        height: 132
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnemiesBack_21
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 140
+        width: 227
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
