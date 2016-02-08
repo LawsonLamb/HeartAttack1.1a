@@ -652,6 +652,7 @@
      <Compile Include="Assets\Tile Editor\Scripts\Class\TileSet.cs" />
      <Compile Include="Assets\Tile Editor\Scripts\Class\TileSetManager.cs" />
      <Compile Include="Assets\_Scripts\Audio\AudioOptions.cs" />
+     <Compile Include="Assets\_Scripts\CameraTrigger.cs" />
      <Compile Include="Assets\_Scripts\Database\ItemDataBase.cs" />
      <Compile Include="Assets\_Scripts\Enemy\AttackAction.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Attacker.cs" />
@@ -713,7 +714,6 @@
      <None Include="Assets\Resources\Letters.txt" />
      <None Include="Assets\Asset Store\Particles\Cartoon FX\CartoonFX Releases Notes.txt" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\CartoonFX2 Releases Notes.txt" />
-     <None Include="Assets\Resources\Item_Data.xml" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Add.shader" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\!JMO Assets Readme.txt" />
      <None Include="Assets\Asset Store\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
