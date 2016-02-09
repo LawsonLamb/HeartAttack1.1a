@@ -101,13 +101,13 @@ public class Player_Control : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			GetComponent<SoundEffects>().PlaySound (0);
+//			GetComponent<SoundEffects>().PlaySound (0);
 			canAttack = true;
 			anim.SetBool ("Attack", canAttack);
 		}
 		
 		if (Input.GetKeyUp (KeyCode.Space)) {
-			GetComponent<SoundEffects>().PlaySound (0);
+			//GetComponent<SoundEffects>().PlaySound (0);
 			canAttack = false;
 			anim.SetBool ("Attack", canAttack);
 		}

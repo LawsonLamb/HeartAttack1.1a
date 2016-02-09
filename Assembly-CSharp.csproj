@@ -604,11 +604,6 @@
      <Compile Include="Assets\Asset Store\Particles\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
      <Compile Include="Assets\Asset Store\Particles\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
      <Compile Include="Assets\Asset Store\Particles\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
-     <Compile Include="Assets\Asset Store\Standard Assets\2D\Scripts\Camera2DFollow.cs" />
-     <Compile Include="Assets\Asset Store\Standard Assets\2D\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\Asset Store\Standard Assets\2D\Scripts\Platformer2DUserControl.cs" />
-     <Compile Include="Assets\Asset Store\Standard Assets\2D\Scripts\PlatformerCharacter2D.cs" />
-     <Compile Include="Assets\Asset Store\Standard Assets\2D\Scripts\Restarter.cs" />
      <Compile Include="Assets\Asset Store\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
      <Compile Include="Assets\Asset Store\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Asset Store\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
