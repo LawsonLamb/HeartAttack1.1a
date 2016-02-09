@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{53FE9323-BB04-F5A3-4CF8-75545EAE1644}") = "HeartAttack1.1a", "Assembly-CSharp.csproj", "{FD9F75B2-D589-A757-4A20-60083CB95B5C}"
+EndProject
+Project("{53FE9323-BB04-F5A3-4CF8-75545EAE1644}") = "HeartAttack1.1a", "Assembly-CSharp-Editor.csproj", "{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD9F75B2-D589-A757-4A20-60083CB95B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9F75B2-D589-A757-4A20-60083CB95B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9F75B2-D589-A757-4A20-60083CB95B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9F75B2-D589-A757-4A20-60083CB95B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
