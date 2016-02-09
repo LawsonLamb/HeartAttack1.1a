@@ -53,4 +53,12 @@ public class AttackDatabase : MonoBehaviour {
 		attacks.Add (new Attacks ("Spec Att 2_5", 29, 6, 6, 0, Attacks.AttackType.Special));
 	}
 
+	public Attacks GetAttByName(string name){
+
+		for (int i =0; i < attacks.Count; i++) {
+			if(attacks[i].attName == name)
+				return attacks[i];
+		}
+		return null;
+	}
 }

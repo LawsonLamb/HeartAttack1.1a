@@ -688,8 +688,10 @@
      <Compile Include="Assets\_Scripts\New Scripts\AttackDatabase.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\AttackManager.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Attacks.cs" />
+     <Compile Include="Assets\_Scripts\New Scripts\HUD.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\ItemData.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Items.cs" />
+     <Compile Include="Assets\_Scripts\New Scripts\PickedItem.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Player.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Points.cs" />
      <Compile Include="Assets\_Scripts\PerfectPixel.cs" />

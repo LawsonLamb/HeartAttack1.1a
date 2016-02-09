@@ -36,8 +36,13 @@ public class Player : MonoBehaviour {
 	public GameObject statbox;
 	bool On = false;
 
+	GameObject database;
+	ItemData item;
 	// Use this for initialization
 	void Start () {
+
+		database = GameObject.FindGameObjectWithTag ("Database");
+		item = database.GetComponent<ItemData> ();
 
 		//Creates all the Special Skill Load Boxes.
 		for (int s = 0; s < sLoads; s++){
@@ -113,7 +118,7 @@ public class Player : MonoBehaviour {
 				for(int i = 0; i< sLoads; i++){
 					speicalLoadList [i].GetComponent<Image> ().color = Color.yellow;
 				}
-				//Attacks.UseSpecialAtt (mDmg);
+				AttackManager.UseSpecialAtt (mDmg);
 				specialCoolDown = true;
 			}
 		} else {
@@ -141,69 +146,81 @@ public class Player : MonoBehaviour {
 		 *your Regular Skill.*/
 		if (magicLoadList [0].GetComponent<Image> ().color != Color.white) {
 			if (Input.GetKeyDown (KeyCode.UpArrow)) {
-				/*Once you press the arrow key then you will lose a bit of mana [the Magic 
-				 *load will change to green for 1/2 full and White for empty]. You will 
-				 *then shoot your Regular Skill, as well as restart the time for the magic restoration.*/
-				for (int i = 0; i < mLoads; i++) {
-					if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
-						magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
-						mTimer = 5f;
-						return;
-					} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
-						magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
-						mTimer = 5f;
-						return;
+				/*Once you press the arrow key then you will lose a bit of mana, depending 
+				 *on the currRegAtt, [the Magic load will change to green for 1/2 full and 
+				 *White for empty]. You will then shoot your Regular Skill, as well as 
+				 *restart the time for the magic restoration.*/
+				for (int j = 0; j < AttackManager.currRegAtt.manaUse; j++) {
+					for (int i = 0; i < mLoads; i++) {
+						if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
+							mTimer = 5f;
+							i = mLoads;
+						} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
+							mTimer = 5f;
+							i = mLoads;
+						}
 					}
 				}
-				//Attacks.UseRegAtt (dmg);
+				AttackManager.UseRegAtt (dmg);
 			} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
-				/*Once you press the arrow key then you will lose a bit of mana [the Magic 
-				 *load will change to green for 1/2 full and White for empty]. You will 
-				 *then shoot your Regular Skill, as well as restart the time for the magic restoration.*/
-				for (int i = 0; i < mLoads; i++) {
-					if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
-						magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
-						mTimer = 5f;
-						return;
-					} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
-						magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
-						mTimer = 5f;
-						return;
+				/*Once you press the arrow key then you will lose a bit of mana, depending 
+				 *on the currRegAtt, [the Magic load will change to green for 1/2 full and 
+				 *White for empty]. You will then shoot your Regular Skill, as well as 
+				 *restart the time for the magic restoration.*/
+				for (int j = 0; j < AttackManager.currRegAtt.manaUse; j++) {
+					for (int i = 0; i < mLoads; i++) {
+						if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
+							mTimer = 5f;
+							i = mLoads;
+						} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
+							mTimer = 5f;
+							i = mLoads;
+						}
 					}
 				}
-				//Attacks.UseRegAtt (dmg);
+				AttackManager.UseRegAtt (dmg);
 			} else if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-				/*Once you press the arrow key then you will lose a bit of mana [the Magic 
-				 *load will change to green for 1/2 full and White for empty]. You will 
-				 *then shoot your Regular Skill, as well as restart the time for the magic restoration.*/
-				for (int i = 0; i < mLoads; i++) {
-					if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
-						magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
-						mTimer = 5f;
-						return;
-					} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
-						magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
-						mTimer = 5f;
-						return;
+				/*Once you press the arrow key then you will lose a bit of mana, depending 
+				 *on the currRegAtt, [the Magic load will change to green for 1/2 full and 
+				 *White for empty]. You will then shoot your Regular Skill, as well as 
+				 *restart the time for the magic restoration.*/
+				for (int j = 0; j < AttackManager.currRegAtt.manaUse; j++) {
+					for (int i = 0; i < mLoads; i++) {
+						if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
+							mTimer = 5f;
+							i = mLoads;
+						} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
+							mTimer = 5f;
+							i = mLoads;
+						}
 					}
 				}
-				//Attacks.UseRegAtt (dmg);
+				AttackManager.UseRegAtt (dmg);
 			} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
-				/*Once you press the arrow key then you will lose a bit of mana [the Magic 
-				 *load will change to green for 1/2 full and White for empty]. You will 
-				 *then shoot your Regular Skill, as well as restart the time for the magic restoration.*/
-				for (int i = 0; i < mLoads; i++) {
-					if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
-						magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
-						mTimer = 5f;
-						return;
-					} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
-						magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
-						mTimer = 5f;
-						return;
+				/*Once you press the arrow key then you will lose a bit of mana, depending 
+				 *on the currRegAtt, [the Magic load will change to green for 1/2 full and 
+				 *White for empty]. You will then shoot your Regular Skill, as well as 
+				 *restart the time for the magic restoration.*/
+				for (int j = 0; j < AttackManager.currRegAtt.manaUse; j++) {
+					for (int i = 0; i < mLoads; i++) {
+						if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
+							mTimer = 5f;
+							i = mLoads;
+						} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
+							mTimer = 5f;
+							i = mLoads;
+						}
 					}
 				}
-				//Attacks.UseRegAtt (dmg);
+				AttackManager.UseRegAtt (dmg);
 			} else {
 				/*If you are out of magic [The last Mana Load, the one furthest to the 
 				left, is white], then nothing will happen.*/
@@ -212,6 +229,14 @@ public class Player : MonoBehaviour {
 
 		//Calling the fuction for restoring your magic.
 		RestoreMana ();
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			if (item.item [8].itemStock > 0) {
+				print ("Used Waterballoon");
+			} else {
+				print ("You are out of Waterballoons");
+			}
+		}
 	}
 
 	void TakeDamage () {
@@ -227,10 +252,10 @@ public class Player : MonoBehaviour {
 				for (int i = 0; i < hLoads; i++) {
 					if (healthLoadList [(hLoads - 1) - i].GetComponent<Image> ().color == Color.red) {
 						healthLoadList [(hLoads - 1) - i].GetComponent<Image> ().color = Color.gray;
-						return;
+						i = hLoads;
 					} else if (healthLoadList [(hLoads - 1) - i].GetComponent<Image> ().color == Color.gray) {
 						healthLoadList [(hLoads - 1) - i].GetComponent<Image> ().color = Color.black;
-						return;
+						i = hLoads;
 					}
 				}
 			}
@@ -256,10 +281,10 @@ public class Player : MonoBehaviour {
 					for (int i = 0; i < hLoads; i++) {
 						if (healthLoadList [i].GetComponent<Image> ().color == Color.black) {
 							healthLoadList [i].GetComponent<Image> ().color = Color.gray;
-							return;
+							i = hLoads;
 						} else if (healthLoadList [i].GetComponent<Image> ().color == Color.gray) {
 							healthLoadList [i].GetComponent<Image> ().color = Color.red;
-							return;
+							i = hLoads;
 						}
 					}
 				}
@@ -273,10 +298,10 @@ public class Player : MonoBehaviour {
 					for (int i = 0; i < hLoads; i++) {
 						if (healthLoadList [i].GetComponent<Image> ().color == Color.black) {
 							healthLoadList [i].GetComponent<Image> ().color = Color.gray;
-							return;
+							i = hLoads;
 						} else if (healthLoadList [i].GetComponent<Image> ().color == Color.gray) {
 							healthLoadList [i].GetComponent<Image> ().color = Color.red;
-							return;
+							i = hLoads;
 						}
 					}
 				}
@@ -300,11 +325,11 @@ public class Player : MonoBehaviour {
 						if (magicLoadList [i].GetComponent<Image> ().color == Color.white) {
 							magicLoadList [i].GetComponent<Image> ().color = Color.green;
 							mTimer = 5f;
-							return;
+							i = mLoads;
 						} else if (magicLoadList [i].GetComponent<Image> ().color == Color.green) {
 							magicLoadList [i].GetComponent<Image> ().color = Color.blue;
 							mTimer = 5f;
-							return;
+							i = mLoads;
 						}
 					}	
 				}
@@ -322,11 +347,11 @@ public class Player : MonoBehaviour {
 						if (magicLoadList [i].GetComponent<Image> ().color == Color.white) {
 							magicLoadList [i].GetComponent<Image> ().color = Color.green;
 							mTimer = 5f;
-							return;
+							i = mLoads;
 						} else if (magicLoadList [i].GetComponent<Image> ().color == Color.green) {
 							magicLoadList [i].GetComponent<Image> ().color = Color.blue;
 							mTimer = 5f;
-							return;
+							i = mLoads;
 						}
 					}	
 				}
