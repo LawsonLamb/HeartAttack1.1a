@@ -13,10 +13,10 @@ public class ItemData : MonoBehaviour {
 		item.Add (new Items ("Heart Key", 1, 25, 0, 0.0f, 0.0f, false, Items.ItemType.Key));
 
 		item.Add (new Items ("Blood", 2, 10, 0, 0.0f, 0.0f, false, Items.ItemType.Consumable));
-		item.Add (new Items ("Speed Pill", 3, 15, 0, 10.0f, 0.10f, false, Items.ItemType.Consumable));
-		item.Add (new Items ("Defense Pill", 4, 15, 0, 10.0f, 10.0f, false, Items.ItemType.Consumable));
-		item.Add (new Items ("Damage Pill", 5, 20, 0, 10.0f, 10.0f, false, Items.ItemType.Consumable));
-		item.Add (new Items ("M.Damage Pill", 6, 20, 0, 10f, 0.10f, false, Items.ItemType.Consumable));
+		item.Add (new Items ("Speed Pill", 3, 0, 0, 10.0f, 0.10f, false, Items.ItemType.Consumable));
+		item.Add (new Items ("Defense Pill", 4, 0, 0, 10.0f, 10.0f, false, Items.ItemType.Consumable));
+		item.Add (new Items ("Damage Pill", 5, 0, 0, 10.0f, 10.0f, false, Items.ItemType.Consumable));
+		item.Add (new Items ("M.Damage Pill", 6, 0, 0, 10f, 0.10f, false, Items.ItemType.Consumable));
 
 		item.Add (new Items ("Coin", 7, 0, 0, 0.0f, 0.0f, false, Items.ItemType.Pickup));
 		item.Add (new Items ("Waterballoon", 8, 15, 1, 5.0f, 50.0f, false, Items.ItemType.Pickup));
@@ -42,6 +42,7 @@ public class ItemData : MonoBehaviour {
 		return null;
 
 	}
+
 	public Items GetItemByName(string name){
 
 		for (int i =0; i < item.Count; i++) {

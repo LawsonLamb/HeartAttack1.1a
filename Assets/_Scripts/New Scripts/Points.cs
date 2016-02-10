@@ -96,7 +96,7 @@ public class Points : MonoBehaviour {
 			if ((heart > 0) && (heart <= 8)) {
 				if (heart % 2 == 0) {
 					heartUp += 1;
-					Player.AddHealthIcon (heartUp);
+					HUD.AddHealthIcon (heartUp);
 					Player.UpdateStatus (attack, heart, skill, speed);
 				} else {
 					Player.UpdateStatus (attack, heart, skill, speed);
@@ -106,7 +106,7 @@ public class Points : MonoBehaviour {
 			if ((skill > 0) && (skill <= 8)) {
 				if (skill % 2 == 0) {
 					manaUp += 1;
-					Player.AddManaIcon (manaUp);
+					HUD.AddManaIcon (manaUp);
 					Player.UpdateStatus (attack, heart, skill, speed);
 					AttackManager.ChangeSpecialAtt (skill);
 				} else {
