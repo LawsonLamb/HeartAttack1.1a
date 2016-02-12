@@ -13,7 +13,7 @@ public class Items {
 	public float itemDuration;
 	public float itemsChange;
 	public bool openIt;
-	public Sprite sprite;
+	public Sprite itemIcon;
 	public ItemType itemType;
 
 	public enum ItemType
@@ -38,5 +38,12 @@ public class Items {
 		itemsChange = change;
 		openIt = open;
 		itemType = type;
+	}
+
+	void Start() {
+	}
+
+	public void AddScripts() {
+		item.AddComponent<PickedItem> ();
 	}
 }

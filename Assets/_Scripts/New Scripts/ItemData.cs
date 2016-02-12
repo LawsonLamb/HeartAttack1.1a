@@ -8,7 +8,8 @@ public class ItemData : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//item.Add (new Items (name, id, price, stock, items duration, amount it changes something, opens something, type));
+		//item.Add (new Items (string name, int id, int price, int stock, float duration, float change, bool open, ItemType type))
+
 		item.Add (new Items ("Key", 0, 5, 0, 0.0f, 0.0f, false, Items.ItemType.Key));
 		item.Add (new Items ("Heart Key", 1, 25, 0, 0.0f, 0.0f, false, Items.ItemType.Key));
 
@@ -16,10 +17,10 @@ public class ItemData : MonoBehaviour {
 		item.Add (new Items ("Speed Pill", 3, 0, 0, 10.0f, 0.10f, false, Items.ItemType.Consumable));
 		item.Add (new Items ("Defense Pill", 4, 0, 0, 10.0f, 10.0f, false, Items.ItemType.Consumable));
 		item.Add (new Items ("Damage Pill", 5, 0, 0, 10.0f, 10.0f, false, Items.ItemType.Consumable));
-		item.Add (new Items ("M.Damage Pill", 6, 0, 0, 10f, 0.10f, false, Items.ItemType.Consumable));
+		item.Add (new Items ("M.Damage Pill", 6, 0, 0, 10.0f, 0.10f, false, Items.ItemType.Consumable));
 
 		item.Add (new Items ("Coin", 7, 0, 0, 0.0f, 0.0f, false, Items.ItemType.Pickup));
-		item.Add (new Items ("Waterballoon", 8, 15, 1, 5.0f, 50.0f, false, Items.ItemType.Pickup));
+		item.Add (new Items ("Waterballoon", 8, 15, 1, 10.0f, 50f, false, Items.ItemType.Pickup));
 		item.Add (new Items ("Discounter", 9, 30, 0, 0.0f, 0.0f, false, Items.ItemType.Pickup));
 		item.Add (new Items ("Map", 10, 25, 10, 0.0f, 0.0f, false, Items.ItemType.Pickup));
 		item.Add (new Items ("Hidden Passage", 11, 20, 0, 0.0f, 0.0f, false, Items.ItemType.Pickup));
@@ -30,8 +31,25 @@ public class ItemData : MonoBehaviour {
 		item.Add (new Items ("Spec Att 0_1", 15, 0, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
 		item.Add (new Items ("Spec Att 1_1", 16, 30, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
 		item.Add (new Items ("Spec Att 2_1", 17, 50, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
-	}
 
+		//Permit Perks
+		//After 10 hits (under change float) you restore 1 health
+		item.Add (new Items ("Transfusion", 18, 50, 0, 0, 10.0f, false, Items.ItemType.Pickup));
+
+		//Increases Speed
+		item.Add (new Items ("Adrenalin", 19, 50, 0, 0, 0.20f, false, Items.ItemType.Pickup));
+
+		//Increases Defesne
+		item.Add (new Items ("Pace Maker", 20, 50, 0, 0, 0.20f, false, Items.ItemType.Pickup));
+
+		//Increases Damage
+		item.Add (new Items ("Defibrillator", 19, 50, 0, 0, 0.20f, false, Items.ItemType.Pickup));
+
+		//Increases M.Damage
+		item.Add (new Items ("Aloe Vera", 20, 50, 0, 0, 0.20f, false, Items.ItemType.Pickup));
+
+	}
+		
 	public Items GetItemByID(int id){
 
 		for(int i =0; i< item.Count;i++){

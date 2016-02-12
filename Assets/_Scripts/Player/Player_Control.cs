@@ -16,12 +16,11 @@ public class Player_Control : MonoBehaviour {
 	public float SkillRotation;
 	int directionType;
 	public float rayDistince;
-	public UI_Player uiPlayer;
 
 	public GameObject sounds;
 	// Use this for initialization
 	void Start () {
-		uiPlayer = GetComponent<UI_Player>();
+		//uiPlayer = GetComponent<UI_Player>();
 		anim = GetComponent<Animator> ();
 	}
 
@@ -123,13 +122,13 @@ public class Player_Control : MonoBehaviour {
 	public void Shoot (Transform Spell) {
 		
 		//if (Time.time > timeSpawnSkill) {
-		if(uiPlayer.Current_Love>0){
+		//if(uiPlayer.Current_Love>0){
 			
-			Instantiate(Spell.GetComponent<UI_Spell>().spell,this.transform.position,Quaternion.Euler(0,0,SkillRotation));
-			uiPlayer.DecreaseLove(50);
+//			Instantiate(Spell.GetComponent<UI_Spell>().spell,this.transform.position,Quaternion.Euler(0,0,SkillRotation));
+			//uiPlayer.DecreaseLove(50);
 			//timeSpawnSkill = Time.time + 1/skillSpawnRate;
 		//}
-		}
+		//}
 		
 	}
 

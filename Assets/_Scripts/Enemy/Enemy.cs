@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour {
 	void Death(){
 
 		GetComponent<Loot>().DropLoot();
-		GameObject.FindGameObjectWithTag("Player").GetComponent<Leveling_System>().AddXP(10);
+//		GameObject.FindGameObjectWithTag("Player").GetComponent<Leveling_System>().AddXP(10);
 		Destroy(this.gameObject);
 
 	}

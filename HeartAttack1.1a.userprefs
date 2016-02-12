@@ -1,20 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/New Scripts/PickedItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/New Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/_Scripts/New Scripts/Player.cs" Line="237" Column="38" />
-      <File FileName="Assets/_Scripts/New Scripts/AttackManager.cs" Line="146" Column="34" />
-      <File FileName="Assets/_Scripts/New Scripts/AttackDatabase.cs" Line="56" Column="23" />
-      <File FileName="Assets/_Scripts/New Scripts/PickedItem.cs" Line="20" Column="36" />
-      <File FileName="Assets/_Scripts/New Scripts/ItemData.cs" Line="45" Column="2" />
-      <File FileName="Assets/_Scripts/New Scripts/HUD.cs" Line="29" Column="23" />
+      <File FileName="Assets/_Scripts/New Scripts/EnviornmentDatabase.cs" Line="32" Column="20" />
+      <File FileName="Assets/_Scripts/New Scripts/Foe/Foes.cs" Line="17" Column="1" />
+      <File FileName="Assets/_Scripts/New Scripts/Foe/FoeDatabase.cs" Line="12" Column="1" />
+      <File FileName="Assets/_Scripts/New Scripts/HUD.cs" Line="121" Column="39" />
+      <File FileName="Assets/_Scripts/New Scripts/Player.cs" Line="306" Column="27" />
+      <File FileName="Assets/_Scripts/New Scripts/Points.cs" Line="105" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/kayodeakingbade/HeartAttack1.1a/Assets/_Scripts/New Scripts/PickedItem.cs" line="31" column="1" />
-      <Breakpoint file="/Users/kayodeakingbade/HeartAttack1.1a/Assets/_Scripts/New Scripts/PickedItem.cs" line="29" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -68,7 +68,7 @@ public class Attacker : MonoBehaviour {
 	
 	[ContextMenu("Damage")]
 	public void TestDMG(){
-		player.gameObject.GetComponent<UI_Player>().Hit (enemy.damage);
+		//player.gameObject.GetComponent<UI_Player>().Hit (enemy.damage);
 
 	}
 	void  OnCollisionEnter2D(Collision2D coll){

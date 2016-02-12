@@ -7,11 +7,15 @@ public class HUD : MonoBehaviour {
 
 	//public GameObject map;
 	public GameObject coinDisplay;
+	public GameObject miniCoinDisplay;
 	public static GameObject staticCoinDisplay;
+	public static GameObject miniStaticCoinDisplay;
 	public static Items coin;
 
 	public GameObject wbDisplay;
+	public GameObject miniWBDisplay;
 	public static GameObject staticWBDisplay;
+	public static GameObject miniStaticWBDisplay;
 	public static Items waterballon;
 
 	public GameObject keyDisplay;
@@ -25,6 +29,9 @@ public class HUD : MonoBehaviour {
 	GameObject database;
 	static ItemData itemData;
 
+	public GameObject mainHUD;
+	public GameObject miniHUD;
+	bool mainHUDopen = true;
 	// Use this for initialization
 	void Start () {
 	
@@ -32,20 +39,34 @@ public class HUD : MonoBehaviour {
 		itemData = database.GetComponent<ItemData> ();
 		staticCoinDisplay = coinDisplay;
 		staticWBDisplay = wbDisplay;
+		miniStaticCoinDisplay = miniCoinDisplay;
+		miniStaticWBDisplay = miniWBDisplay;
 		staticKeyDisplay = keyDisplay;
 		staticHKeyDisplay = hkeyDisplay;
+
+		mainHUD.SetActive (mainHUDopen);
+		miniHUD.SetActive (!mainHUDopen);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown(KeyCode.T)) {
+			mainHUDopen = !mainHUDopen;
+			mainHUD.SetActive (mainHUDopen);
+			miniHUD.SetActive (!mainHUDopen);
+		}
 	}
 
 	public static void DisplayUpdate(){
 
+		/*Takes the Display for each item and updates them according to the 
+		amount they have in stock. Also formats it in a x### mannor.*/
 		coin = itemData.GetItemByID (7);
 		staticCoinDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", coin.itemStock);
+		miniStaticCoinDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", coin.itemStock);
 
 		waterballon = itemData.GetItemByID (8);
+		staticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
 		staticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
 
 		key = itemData.GetItemByID (0);
@@ -55,22 +76,26 @@ public class HUD : MonoBehaviour {
 		staticHKeyDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", hkey.itemStock);
 	}
 
-	public static void TakeDamage () {
+	public static void TakeDamage (float healthLoss) {
 
 		/*If your health isn't at zero, [your last Health Load, the one furthest to the 
 		 *left, isn't black] then you can take damage.*/
 		if (Player.healthLoadList [0].GetComponent<Image> ().color != Color.black) {
 			/*Once you press the 1 key then you will lose a bit of health [the Health 
 			*Load will change to gray for 1/2 full and black for empty].*/
+			for (int j = 0; j < healthLoss; j++) {
 				for (int i = 0; i < Player.hLoads; i++) {
 					if (Player.healthLoadList [(Player.hLoads - 1) - i].GetComponent<Image> ().color == Color.red) {
 						Player.healthLoadList [(Player.hLoads - 1) - i].GetComponent<Image> ().color = Color.gray;
+						Player.miniHealthLoadList [(Player.hLoads - 1) - i].GetComponent<Image> ().color = Color.gray;
 						i = Player.hLoads;
 					} else if (Player.healthLoadList [(Player.hLoads - 1) - i].GetComponent<Image> ().color == Color.gray) {
 						Player.healthLoadList [(Player.hLoads - 1) - i].GetComponent<Image> ().color = Color.black;
+						Player.miniHealthLoadList [(Player.hLoads - 1) - i].GetComponent<Image> ().color = Color.black;
 						i = Player.hLoads;
 					}
 				}
+			}
 		} else {
 			/*If you are out of health [the last Health load, the one furthest to the 
 			 *left, isn't black] then you are dead.*/
@@ -85,18 +110,20 @@ public class HUD : MonoBehaviour {
 		 *restore magic starting from the left most. It will only work if your 
 		 *magic isn't full [the right most Magic Load isn't blue]. Magic will 
 		 *restore to green 1/2 Magic and blue full Magic*/
-		if (Points.skill % 4 == 0) {
+		if ((Points.skill == 0) || (Points.skill == 1) || (Points.skill == 4) || (Points.skill == 5) || (Points.skill == 8)) {
 			if (Player.magicLoadList [Player.mLoads - 1].GetComponent<Image> ().color != Color.blue) {
 				Player.mTimer -= 0.05f;
 				if (Player.mTimer <= 0) {
 					for (int i = 0; i < Player.mLoads; i++) {
 						if (Player.magicLoadList [i].GetComponent<Image> ().color == Color.white) {
 							Player.magicLoadList [i].GetComponent<Image> ().color = Color.green;
-							Player.mTimer = 5f;
+							Player.miniMagicLoadList [i].GetComponent<Image> ().color = Color.green;
+							Player.mTimer = Player.reMTimer;
 							i = Player.mLoads;
 						} else if (Player.magicLoadList [i].GetComponent<Image> ().color == Color.green) {
 							Player.magicLoadList [i].GetComponent<Image> ().color = Color.blue;
-							Player.mTimer = 5f;
+							Player.miniMagicLoadList [i].GetComponent<Image> ().color = Color.blue;
+							Player.mTimer = Player.reMTimer;
 							i = Player.mLoads;
 						}
 					}	
@@ -114,11 +141,13 @@ public class HUD : MonoBehaviour {
 					for (int i = 0; i < Player.mLoads; i++) {
 						if (Player.magicLoadList [i].GetComponent<Image> ().color == Color.white) {
 							Player.magicLoadList [i].GetComponent<Image> ().color = Color.green;
-							Player.mTimer = 5f;
+							Player.miniMagicLoadList [i].GetComponent<Image> ().color = Color.green;
+							Player.mTimer = Player.reMTimer;
 							i =Player.mLoads;
 						} else if (Player.magicLoadList [i].GetComponent<Image> ().color == Color.green) {
 							Player.magicLoadList [i].GetComponent<Image> ().color = Color.blue;
-							Player.mTimer = 5f;
+							Player.miniMagicLoadList [i].GetComponent<Image> ().color = Color.blue;
+							Player.mTimer = Player.reMTimer;
 							i = Player.mLoads;
 						}
 					}	
@@ -132,9 +161,11 @@ public class HUD : MonoBehaviour {
 		/*If the coresponding x is divisable by two it will make all the Health Loads red.*/
 		if (x % 2 == 0) {
 			Player.healthLoadList [Player.hLoads - 1].GetComponent<Image> ().color = Color.red;
+			Player.miniHealthLoadList [Player.hLoads - 1].GetComponent<Image> ().color = Color.red;
 			for (int i = 0; i < Player.hLoads; i++) {
 				if (i < (Player.hLoads - 1)) {
 					Player.healthLoadList [i].GetComponent<Image> ().color = Color.red;
+					Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.red;
 				}
 			}
 
@@ -150,13 +181,21 @@ public class HUD : MonoBehaviour {
 			newHLoad.GetComponent<Image> ().color = Color.gray;
 			Player.healthLoadList.Add (newHLoad);
 
+			GameObject newMHLoad = Instantiate (Player.miniStaticHealthLoad);
+			newMHLoad.name = Player.miniStaticHealthLoad.name + (Player.hLoads - 1);
+			newMHLoad.transform.SetParent (Player.miniStaticHealthArea.transform);
+			newMHLoad.GetComponent<Image> ().color = Color.gray;
+			Player.miniHealthLoadList.Add (newMHLoad);
+
 			for(int i = 0; i < Player.hLoads; i++){
 
 				if (i < (Player.hLoads - 1)) {
 					Player.healthLoadList [i].GetComponent<Image> ().color = Color.red;
+					Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.red;
 				}
 
 				Player.healthLoadList [i].GetComponent<RectTransform> ().localPosition = new Vector3 (i * 30, 0, 0);
+				Player.miniHealthLoadList [i].GetComponent<RectTransform> ().localPosition = new Vector3 (i * 20, 0, 0);
 			}
 		} 
 
@@ -168,9 +207,11 @@ public class HUD : MonoBehaviour {
 		 *blue.*/
 		if (x % 2 == 0) {
 			Player.magicLoadList [Player.mLoads - 1].GetComponent<Image> ().color = Color.blue;
+			Player.miniMagicLoadList [Player.mLoads - 1].GetComponent<Image> ().color = Color.blue;
 			for (int i = 0; i < Player.mLoads; i++) {
 				if (i < (Player.mLoads - 1)) {
 					Player.magicLoadList [i].GetComponent<Image> ().color = Color.blue;
+					Player.miniMagicLoadList [i].GetComponent<Image> ().color = Color.blue;
 				}
 			}
 
@@ -186,11 +227,19 @@ public class HUD : MonoBehaviour {
 			newMLoad.GetComponent<Image> ().color = Color.green;
 			Player.magicLoadList.Add (newMLoad);
 
+			GameObject newMMLoad = Instantiate (Player.miniStaticMagicLoad);
+			newMMLoad.name =	Player.miniStaticMagicLoad.name + (Player.mLoads - 1);
+			newMMLoad.transform.SetParent (Player.miniStaticMagicArea.transform);
+			newMMLoad.GetComponent<Image> ().color = Color.green;
+			Player.miniMagicLoadList.Add (newMMLoad);
+
 			for (int i = 0; i < Player.mLoads; i++) {
 				if (i < (Player.mLoads - 1)) {
 					Player.magicLoadList [i].GetComponent<Image> ().color = Color.blue;
+					Player.miniMagicLoadList [i].GetComponent<Image> ().color = Color.blue;
 				}
 				Player.magicLoadList [i].GetComponent<RectTransform> ().localPosition = new Vector3 (i * 30, -40, 0);
+				Player.miniMagicLoadList [i].GetComponent<RectTransform> ().localPosition = new Vector3 (i * 20, 0, 0);
 			}
 		}
 

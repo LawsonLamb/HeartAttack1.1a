@@ -47,7 +47,7 @@ public class EnemySpell : MonoBehaviour {
 	
 		if(enemy.tag =="Player"){
 
-			enemy.GetComponent<UI_Player>().Hit(Damage);
+//			enemy.GetComponent<UI_Player>().Hit(Damage);
 			Destroy(this.gameObject);
 
 		}
@@ -57,7 +57,7 @@ public class EnemySpell : MonoBehaviour {
 		enemy = col.gameObject;
 		if(enemy.tag =="Player"){
 
-			enemy.GetComponent<UI_Player>().Hit(Damage);
+//			enemy.GetComponent<UI_Player>().Hit(Damage);
 			Destroy(this.gameObject);
 			
 		}

@@ -25,15 +25,15 @@ public class PlayerUI_Manager : MonoBehaviour {
 	void _input(){
 
 		if(Input.GetKeyDown(InventoryKey)){
-			InventoryPanel.GetComponent<Panel>().Toggle();
+//			InventoryPanel.GetComponent<Panel>().Toggle();
 
 		}
 		if(Input.GetKeyDown(statKey)){
-			StatusPanel.GetComponent<Panel>().Toggle();
+		//	StatusPanel.GetComponent<Panel>().Toggle();
 
 		}
 		if(Input.GetKeyDown(PauseKey)){
-			PausePanel.GetComponent<Panel>().Toggle();
+		//	PausePanel.GetComponent<Panel>().Toggle();
 
 		}
 

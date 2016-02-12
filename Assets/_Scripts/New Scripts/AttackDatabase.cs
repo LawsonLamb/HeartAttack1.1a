@@ -8,10 +8,10 @@ public class AttackDatabase : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//attacks.Add (new Attacks(name, id, shoots fired, speed, cost, type));
+		//attacks.Add (new Attacks(string name, int id, int fireAmount, float speed, int manaCost, AttackType type));
 
 		//The default regular skill the player can use
-		attacks.Add (new Attacks ("Reg Att 0_1", 0, 1, 1, 1, Attacks.AttackType.Regular));
+		attacks.Add (new Attacks ("Reg Att 0_1", 0, 1, 1, 1, Attacks.	AttackType.Regular));
 		attacks.Add (new Attacks ("Reg Att 0_2", 1, 1, 2, 2, Attacks.AttackType.Regular));
 		attacks.Add (new Attacks ("Reg Att 0_3", 2, 2, 3, 2, Attacks.AttackType.Regular));
 		attacks.Add (new Attacks ("Reg Att 0_4", 3, 2, 4, 3, Attacks.AttackType.Regular));
@@ -51,6 +51,7 @@ public class AttackDatabase : MonoBehaviour {
 		attacks.Add (new Attacks ("Spec Att 2_3", 27, 6, 6, 0, Attacks.AttackType.Special));
 		attacks.Add (new Attacks ("Spec Att 2_4", 28, 6, 6, 0, Attacks.AttackType.Special));
 		attacks.Add (new Attacks ("Spec Att 2_5", 29, 6, 6, 0, Attacks.AttackType.Special));
+
 	}
 
 	public Attacks GetAttByName(string name){
