@@ -11,10 +11,6 @@ public class PickedItem : MonoBehaviour {
 	AttackDatabase attData;
 	Items item;
 
-	Items buff;
-	bool buffActive;
-	float time;
-	float saveTime;
 	// Use this for initialization
 	void Start () {
 	
@@ -26,18 +22,11 @@ public class PickedItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Alpha5)) {
-			PickUp ();
-		}
-
-		if (buffActive == true) {
-			time -= 0.05f;
-			CoolDownBuff();
-		}
+		
 	}
 
 	void PickUp() {
-		
+
 		item = itemData.GetItemByName (name);
 		print (item.itemName);
 		if (item.itemType == Items.ItemType.Skill) {
@@ -68,6 +57,7 @@ public class PickedItem : MonoBehaviour {
 		if ((item.itemID == 7) || (item.itemID == 8)) {
 			item.itemStock += 1;
 		}
+
 		if((item.itemID >= 9) && (item.itemID <= 11)) {
 			item.openIt = true;
 		}
@@ -75,6 +65,15 @@ public class PickedItem : MonoBehaviour {
 		if (item.itemID == 9) {
 			for (int i = 0; i < itemData.item.Count; i++) {
 				itemData.item [i].itemPrice = (itemData.item [i].itemPrice / 2);
+			}
+		}
+
+		if ((item.itemID >= 18) && (item.itemID <= 22)) {
+			if (item.itemStock <= 0) {
+				PermItems (item);
+				item.itemStock += 1;
+			} else {
+				DropItem (item);
 			}
 		}
 	}
@@ -113,12 +112,15 @@ public class PickedItem : MonoBehaviour {
 				for (int i = 0; i < Player.hLoads; i++) {
 					if (Player.healthLoadList [i].GetComponent<Image> ().color == Color.black) {
 						Player.healthLoadList [i].GetComponent<Image> ().color = Color.gray;
+						Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.gray;
 						i = Player.hLoads;
 					} else if (Player.healthLoadList [i].GetComponent<Image> ().color == Color.gray) {
 						Player.healthLoadList [i].GetComponent<Image> ().color = Color.red;
+						Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.red;
 						i = Player.hLoads;
 					}
 				}
+				print ("Healed");
 			} else {
 				DropItem (item);
 			}
@@ -133,12 +135,16 @@ public class PickedItem : MonoBehaviour {
 				for (int i = 0; i < Player.hLoads; i++) {
 					if (Player.healthLoadList [i].GetComponent<Image> ().color == Color.black) {
 						Player.healthLoadList [i].GetComponent<Image> ().color = Color.gray;
+						Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.gray;
 						i = Player.hLoads;
 					} else if (Player.healthLoadList [i].GetComponent<Image> ().color == Color.gray) {
 						Player.healthLoadList [i].GetComponent<Image> ().color = Color.red;
+						Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.red;
 						i = Player.hLoads;
 					}
 				}
+				print ("Healed");
+
 			} else {
 				DropItem (item);
 			}
@@ -148,10 +154,14 @@ public class PickedItem : MonoBehaviour {
 	void DropItem (Items drop) {
 
 		//Once attack has a gameobject dropped will equal it
-		GameObject dropped = new GameObject();
-
-		dropped.name = drop.itemName;
-		dropped.AddComponent<PickedItem> ();
+		drop.item = new GameObject();
+		drop.item.name = drop.itemName;
+		drop.item.AddComponent<SpriteRenderer> ().sprite =  drop.itemIcon;
+		drop.item.AddComponent<PickedItem> ();
+		drop.item.AddComponent<BoxCollider2D> ();
+		drop.item.AddComponent<Rigidbody2D> ();
+		drop.item.transform.localScale = new Vector3 (5, 5, 1);
+		drop.item.transform.localPosition = new Vector3 (Random.Range(0,8), Random.Range(0,8), 0);
 	}
 
 	void QuickBuff (Items item) {
@@ -165,28 +175,34 @@ public class PickedItem : MonoBehaviour {
 		} else {
 			Player.mDmg += item.itemsChange;
 		}
-		buffActive = item.openIt;
-		time = item.itemDuration;
-		saveTime = item.itemDuration;
-		buff = item;
+		Player.buff = item;
+		Player.bTimer = Player.buff.itemDuration;
+		Player.saveBTimer = Player.bTimer;
 	}
 
-	void CoolDownBuff () {
+	void OnCollisionEnter2D (Collision2D col) {
 
-		if (time >= 0) {
-		} else {
-			if (buff.itemID == 3) {
-				Player.speed -= buff.itemsChange;
-			} else if (item.itemID == 4) {
-				Player.def -= buff.itemsChange;
-			} else if (item.itemID == 5) {
-				Player.dmg -= buff.itemsChange;
-			} else {
-				Player.mDmg -= buff.itemsChange;
-			}
-			buff.openIt = buffActive;
-			buff.itemDuration = saveTime;
-			buffActive = false;
+		if (col.gameObject.tag == "Player") {
+			PickUp ();
 		}
+	}
+
+	void PermItems (Items item) {
+
+		HUD.AddPermIcon (item);
+		if(item.itemID == 18) {
+			item.openIt = true;
+		}
+
+		if (item.itemID == 19) {
+			Player.speed += item.itemsChange;
+		} else if (item.itemID == 20) {
+			Player.def += item.itemsChange;
+		} else if (item.itemID == 21) {
+			Player.dmg += item.itemsChange;
+		} else if (item.itemID == 20) {
+			Player.mDmg += item.itemsChange;
+		}
+
 	}
 }

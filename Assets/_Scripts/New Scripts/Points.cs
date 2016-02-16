@@ -14,6 +14,12 @@ public class Points : MonoBehaviour {
 
 	int manaUp;
 	int heartUp;
+
+	public GameObject attAdd;
+	public GameObject heartAdd;
+	public GameObject skillAdd;
+	public GameObject speedAdd;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -22,6 +28,7 @@ public class Points : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		DeactivateAll ();
 	}
 
 	public void PressedButt () {
@@ -171,9 +178,18 @@ public class Points : MonoBehaviour {
 				this.gameObject.SetActive (false);
 			}
 		}
-
+			
 		//Updates the points display.
 		pointAmountDisplay.GetComponent<Text> ().text = Player.points + "/30";
 	
+	}
+
+	void DeactivateAll() {
+		if((Player.points == 0) || ((attack + heart + skill + speed) == 30)) {
+			attAdd.gameObject.SetActive (false);
+			heartAdd.gameObject.SetActive (false);
+			skillAdd.gameObject.SetActive (false);
+			speedAdd.gameObject.SetActive (false);
+		}
 	}
 }

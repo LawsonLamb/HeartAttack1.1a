@@ -17,6 +17,7 @@ public class AttackManager : MonoBehaviour {
 
 	public static Attacks currRegAtt;
 	public static Attacks currSpecAtt;
+
 	// Use this for initialization
 	void Start () {
 
@@ -94,14 +95,24 @@ public class AttackManager : MonoBehaviour {
 				}
 			}
 		}
-
-		print (currRegAtt.attName);
 	}
 
-	public static void UseRegAtt (float x) {
+	public static void UseRegAtt (int x, Transform firePoint) {
 
 		/*This will use what ever the currRegAtt information is, in order to determine the 
 		 * fire rate, how much to shoot, how much mana is used, and what sprite to fire*/
+		for (int i = 0; i < currRegAtt.amountFired; i++) {
+			currRegAtt.attack = new GameObject ();
+			currRegAtt.attack.name = currRegAtt.attName;
+			currRegAtt.attack.AddComponent<SpriteRenderer> ().sprite = currRegAtt.attIcon;
+			currRegAtt.attack.AddComponent<CircleCollider2D> ();
+			currRegAtt.attack.AddComponent<Rigidbody2D> ();
+			currRegAtt.attack.AddComponent<SkillBullet> ();
+			SkillBullet.direction = x;
+			currRegAtt.attack.transform.localScale = new Vector3 (4, 4, 1);
+			currRegAtt.attack.transform.position = firePoint.position;
+			currRegAtt.attack.transform.rotation = firePoint.rotation;
+		}
 		print (currRegAtt.attID);
 		print (currRegAtt.attName);
 		print (currRegAtt.attSpeed);
@@ -160,11 +171,9 @@ public class AttackManager : MonoBehaviour {
 				}
 			}
 		}
-
-		print (currSpecAtt.attName);
 	}
 
-	public static void UseSpecialAtt (float x) {
+	public static void UseSpecialAtt (int x) {
 
 		/*This will use what ever the currSpecAtt information is, in order to determine the 
 		 * fire rate, how much to shoot, how much mana is used, and what sprite to fire*/

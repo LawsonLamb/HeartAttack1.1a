@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 public class Items {
 
@@ -38,12 +39,7 @@ public class Items {
 		itemsChange = change;
 		openIt = open;
 		itemType = type;
-	}
 
-	void Start() {
 	}
-
-	public void AddScripts() {
-		item.AddComponent<PickedItem> ();
-	}
+		
 }

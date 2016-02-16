@@ -32,6 +32,7 @@ public class HUD : MonoBehaviour {
 	public GameObject mainHUD;
 	public GameObject miniHUD;
 	bool mainHUDopen = true;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -67,7 +68,7 @@ public class HUD : MonoBehaviour {
 
 		waterballon = itemData.GetItemByID (8);
 		staticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
-		staticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
+		miniStaticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
 
 		key = itemData.GetItemByID (0);
 		staticKeyDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", key.itemStock);
@@ -245,5 +246,15 @@ public class HUD : MonoBehaviour {
 
 	}
 
+	public static void AddPermIcon (Items item) {
+
+		GameObject parent = GameObject.Find ("Icon_Area");
+		item.item = new GameObject ();
+		item.item.gameObject.transform.SetParent (parent.gameObject.transform);
+		item.item.transform.localPosition = new Vector3 (0, ((parent.transform.childCount-1) * -40), 0);
+		item.item.AddComponent<Image> ().sprite = item.itemIcon;
+		item.item.name = item.itemName;
+		item.item.GetComponent<RectTransform> ().sizeDelta = new Vector2(35, 35);
+	}
 		
 }

@@ -58,6 +58,15 @@ public class Player : MonoBehaviour {
 
 	GameObject database;
 	ItemData item;
+
+	Vector3 pos;
+
+	public static Items buff = new Items ();
+	public static float bTimer;
+	public static float saveBTimer;
+
+	public GameObject statText;
+	public static Transform firePoint;
 	// Use this for initialization
 	void Start () {
 
@@ -125,21 +134,35 @@ public class Player : MonoBehaviour {
 		specialCoolDown = false;
 		reMTimer = mTimer;
 		reSTimer = sTimer;
+
+		pos = gameObject.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		//Turn on and off your stat box (Will later be controlled by a NPC).
-		if (Input.GetKeyDown (KeyCode.S)) {
+		if (Input.GetKeyDown (KeyCode.P)) {
 			On = !On;
 			statbox.SetActive (On);
 		}
 
-		//Using Regualr and Special skills also has restoring your magic inside
+		//Using Regualr and Special skills also has restoring your magic inside.
 		PlayerAttType ();
 
+		//How the player will move around the screen.
+		PlayerMovement ();
 
+		if (buff.openIt == true) {
+			bTimer -= 0.05f;
+			CoolDownBuff ();
+		}
+
+		if (item.item [18].openIt == true) {
+			Transfusion ();
+		}
+		statText.GetComponent<Text> ().text = "Your Current Stats are: " + "\n M.Dmg: " + mDmg  + "\n Dmg: " + dmg
+			+ "\n Defense: " + def  + "\n Speed: " + speed;
 	}
 
 	void PlayerAttType () {
@@ -153,7 +176,7 @@ public class Player : MonoBehaviour {
 				for(int i = 0; i< sLoads; i++){
 					speicalLoadList [i].GetComponent<Image> ().color = Color.yellow;
 				}
-				AttackManager.UseSpecialAtt (mDmg);
+				AttackManager.UseSpecialAtt (1);
 				sTimer = reSTimer;
 				specialCoolDown = true;
 				energy = 0;
@@ -205,7 +228,8 @@ public class Player : MonoBehaviour {
 						}
 					}
 				}
-				AttackManager.UseRegAtt (dmg);
+				firePoint = gameObject.transform.GetChild (0).gameObject.transform;
+				AttackManager.UseRegAtt (0, firePoint);
 			} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
 				/*Once you press the arrow key then you will lose a bit of mana, depending 
 				 *on the currRegAtt, [the Magic load will change to green for 1/2 full and 
@@ -226,28 +250,8 @@ public class Player : MonoBehaviour {
 						}
 					}
 				}
-				AttackManager.UseRegAtt (dmg);
-			} else if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-				/*Once you press the arrow key then you will lose a bit of mana, depending 
-				 *on the currRegAtt, [the Magic load will change to green for 1/2 full and 
-				 *White for empty]. You will then shoot your Regular Skill, as well as 
-				 *restart the time for the magic restoration.*/
-				for (int j = 0; j < AttackManager.currRegAtt.manaUse; j++) {
-					for (int i = 0; i < mLoads; i++) {
-						if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
-							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
-							miniMagicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
-							mTimer = reMTimer;
-							i = mLoads;
-						} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
-							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
-							miniMagicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
-							mTimer = reMTimer;
-							i = mLoads;
-						}
-					}
-				}
-				AttackManager.UseRegAtt (dmg);
+				firePoint = gameObject.transform.GetChild (2).gameObject.transform;
+				AttackManager.UseRegAtt (1, firePoint);
 			} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
 				/*Once you press the arrow key then you will lose a bit of mana, depending 
 				 *on the currRegAtt, [the Magic load will change to green for 1/2 full and 
@@ -268,7 +272,30 @@ public class Player : MonoBehaviour {
 						}
 					}
 				}
-				AttackManager.UseRegAtt (dmg);
+				firePoint = gameObject.transform.GetChild (1).gameObject.transform;
+				AttackManager.UseRegAtt (2, firePoint);
+			} else if (Input.GetKeyDown (KeyCode.LeftArrow)) {
+				/*Once you press the arrow key then you will lose a bit of mana, depending 
+				 *on the currRegAtt, [the Magic load will change to green for 1/2 full and 
+				 *White for empty]. You will then shoot your Regular Skill, as well as 
+				 *restart the time for the magic restoration.*/
+				for (int j = 0; j < AttackManager.currRegAtt.manaUse; j++) {
+					for (int i = 0; i < mLoads; i++) {
+						if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.blue) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
+							miniMagicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.green;
+							mTimer = reMTimer;
+							i = mLoads;
+						} else if (magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color == Color.green) {
+							magicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
+							miniMagicLoadList [(mLoads - 1) - i].GetComponent<Image> ().color = Color.white;
+							mTimer = reMTimer;
+							i = mLoads;
+						}
+					}
+				}
+				firePoint = gameObject.transform.GetChild (3).gameObject.transform;
+				AttackManager.UseRegAtt (3, firePoint);
 			} else {
 				/*If you are out of magic [The last Mana Load, the one furthest to the 
 				left, is white], then nothing will happen.*/
@@ -310,9 +337,54 @@ public class Player : MonoBehaviour {
 	void CreateWaterBallons (Items item) {
 		/*Makes the bomb active and creates a new gameobject and names it Dropped Bomb*/
 		item.openIt = true;
-		GameObject wb = new GameObject ();
-		wb.gameObject.name = "Dropped " + item.itemName;
-		wb.AddComponent<WaterBalloons> ();
+		item.item = new GameObject();
+		item.item.gameObject.name = "Dropped " + item.itemName;
+		item.item.AddComponent<SpriteRenderer> ().sprite =   item.itemIcon;
+		item.item.AddComponent<PickedItem> ();
+		item.item.AddComponent<BoxCollider2D> ();
+		item.item.AddComponent<Rigidbody2D> ();
+		item.item.AddComponent<WaterBalloons> ();
+		item.item.transform.localScale = new Vector3 (5, 5, 1);
+		item.item.transform.localPosition = new Vector3 (Random.Range(0,8), Random.Range(0,8), 0);
 	}
 
+	void PlayerMovement () {
+
+		if (Input.GetKey (KeyCode.W)) {
+			pos.y += speed;
+		} else if (Input.GetKey (KeyCode.A)) {
+			pos.x -= speed;
+		} else if (Input.GetKey (KeyCode.S)) {
+			pos.y -= speed;
+		} else if (Input.GetKey (KeyCode.D)) {
+			pos.x += speed;
+		} else {
+		}
+
+		gameObject.transform.position = pos;
+
+	}
+
+	void CoolDownBuff () {
+	
+		if (bTimer >= 0) {
+		} else {
+			if (buff.itemID == 3) {
+				Player.speed -= buff.itemsChange;
+			} else if (buff.itemID == 4) {
+				Player.def -= buff.itemsChange;
+			} else if (buff.itemID == 5) {
+				Player.dmg -= buff.itemsChange;
+			} else {
+				Player.mDmg -= buff.itemsChange;
+			}
+			buff.openIt = false;
+			buff.itemDuration = saveBTimer;
+		}
+
+	}
+
+	void Transfusion () {
+		print ("I Can steal love");
+	}
 }

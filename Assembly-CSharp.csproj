@@ -689,11 +689,13 @@
      <Compile Include="Assets\_Scripts\New Scripts\Foe\Spliter.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Foe\Summoner.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\HUD.cs" />
-     <Compile Include="Assets\_Scripts\New Scripts\ItemData.cs" />
-     <Compile Include="Assets\_Scripts\New Scripts\Items.cs" />
-     <Compile Include="Assets\_Scripts\New Scripts\PickedItem.cs" />
+     <Compile Include="Assets\_Scripts\New Scripts\Item\GenRandom.cs" />
+     <Compile Include="Assets\_Scripts\New Scripts\Item\ItemData.cs" />
+     <Compile Include="Assets\_Scripts\New Scripts\Item\Items.cs" />
+     <Compile Include="Assets\_Scripts\New Scripts\Item\PickedItem.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Player.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Points.cs" />
+     <Compile Include="Assets\_Scripts\New Scripts\SkillBullet.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\WaterBalloons.cs" />
      <Compile Include="Assets\_Scripts\PerfectPixel.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerDirection.cs" />
