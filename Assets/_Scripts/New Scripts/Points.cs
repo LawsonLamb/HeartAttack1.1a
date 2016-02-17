@@ -185,6 +185,8 @@ public class Points : MonoBehaviour {
 	}
 
 	void DeactivateAll() {
+		/*If you don't have any points or you've already used all 30 points attainable 
+		 *throught out the game then the add buttons disappear.*/
 		if((Player.points == 0) || ((attack + heart + skill + speed) == 30)) {
 			attAdd.gameObject.SetActive (false);
 			heartAdd.gameObject.SetActive (false);

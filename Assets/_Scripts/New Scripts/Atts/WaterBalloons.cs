@@ -31,10 +31,8 @@ public class WaterBalloons : MonoBehaviour {
 		 *turn the bomb active off and destory the object.*/
 		if (item.itemDuration >= 0) {
 		} else {
-			print (item.itemsChange);
 			//If player is in radius
 			HUD.TakeDamage (1f);
-			print ("Used Waterballoon");
 			item.itemDuration = 5.0f;
 			item.openIt = false;
 			Destroy (this.gameObject);

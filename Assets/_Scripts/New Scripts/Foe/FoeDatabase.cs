@@ -26,6 +26,15 @@ public class FoeDatabase : MonoBehaviour {
 	
 	}
 
+	public void FindSprites() {
+
+		for (int i = 0; i < foe.Count; i++) {
+			if (foe[i].foeID == i) {
+				foe[i].foeImage = Resources.Load <Sprite> ("Icons/Foes/Foe_" + i); 
+			}
+		}
+	}
+
 	public Foes GetFoeByID(int id){
 
 		for(int i =0; i< foe.Count;i++){

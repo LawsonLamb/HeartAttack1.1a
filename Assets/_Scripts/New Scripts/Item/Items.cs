@@ -41,5 +41,16 @@ public class Items {
 		itemType = type;
 
 	}
+
+	public void CreateGameObject () {
+		item = new GameObject ();
+		item.name = itemName;
+		item.AddComponent<SpriteRenderer> ().sprite = itemIcon;
+		item.AddComponent<PickedItem> ();
+		item.AddComponent<BoxCollider2D> ();
+		item.AddComponent<Rigidbody2D> ();
+		item.transform.localScale = new Vector3 (5, 5, 1);
+		item.transform.localPosition = new Vector3 (Random.Range(0,8), Random.Range(0,8), 0);
+	}
 		
 }

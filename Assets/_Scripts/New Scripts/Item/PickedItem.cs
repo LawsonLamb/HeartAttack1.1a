@@ -28,7 +28,6 @@ public class PickedItem : MonoBehaviour {
 	void PickUp() {
 
 		item = itemData.GetItemByName (name);
-		print (item.itemName);
 		if (item.itemType == Items.ItemType.Skill) {
 			Skills (item);
 		} else if (item.itemType == Items.ItemType.Pickup) {
@@ -38,6 +37,7 @@ public class PickedItem : MonoBehaviour {
 		} else {
 			item.itemStock += 1;
 		}
+		Player.UpdateStatus (Points.attack, Points.heart, Points.skill, Points.speed);
 		HUD.DisplayUpdate ();
 		Destroy (this.gameObject);
 	}
@@ -86,18 +86,39 @@ public class PickedItem : MonoBehaviour {
 		}
 
 		item.openIt = true;
-		Attacks att = attData.GetAttByName (item.itemName);
-		Items oldAtt;
+		Attacks newAtt = attData.GetAttByName (item.itemName);
+		Attacks oldAtt = new Attacks ();
+		Items oldItem = new Items ();
 
-		if (att.attType == Attacks.AttackType.Regular) {
-			oldAtt = itemData.GetItemByName (AttackManager.currRegAtt.attName);
-			AttackManager.currRegAtt = att;
+		if (newAtt.attType == Attacks.AttackType.Regular) {
+			oldAtt = AttackManager.currRegAtt;
+
+			if ((oldAtt.attID >= 0) && (oldAtt.attID <= 4)) {
+				oldItem = itemData.GetItemByName(attData.attacks [0].attName);
+			} else if ((oldAtt.attID >= 10) && (oldAtt.attID <= 14)) {
+				oldItem = itemData.GetItemByName(attData.attacks [10].attName);
+			} else if ((oldAtt.attID >= 20) && (oldAtt.attID <= 24)) {
+				oldItem = itemData.GetItemByName(attData.attacks [20].attName);
+			}
+			AttackManager.currRegAtt = newAtt;
+			AttackManager.regSkillImage.GetComponent<Image>().sprite = AttackManager.currRegAtt.attIcon;
+			AttackManager.ChangeRegAtt (Points.attack);
 		} else {
-			oldAtt = itemData.GetItemByName (AttackManager.currSpecAtt.attName);
-			AttackManager.currSpecAtt = att;
+			oldAtt = AttackManager.currSpecAtt;
+
+			if ((oldAtt.attID >= 5) && (oldAtt.attID <= 9)) {
+				oldItem = itemData.GetItemByName(attData.attacks [5].attName);
+			} else if ((oldAtt.attID >= 15) && (oldAtt.attID <= 19)) {
+				oldItem = itemData.GetItemByName(attData.attacks [15].attName);
+			} else if ((oldAtt.attID >= 25) && (oldAtt.attID <= 29)) {
+				oldItem = itemData.GetItemByName(attData.attacks [25].attName);
+			}
+			AttackManager.currSpecAtt = newAtt;
+			AttackManager.specSkillImage.GetComponent<Image>().sprite = AttackManager.currSpecAtt.attIcon;
+			AttackManager.ChangeSpecialAtt (Points.skill);
 		}
 
-		DropItem(oldAtt);
+		DropItem(oldItem);
 	}
 
 	void PickUpHealth () {
@@ -120,7 +141,6 @@ public class PickedItem : MonoBehaviour {
 						i = Player.hLoads;
 					}
 				}
-				print ("Healed");
 			} else {
 				DropItem (item);
 			}
@@ -143,8 +163,6 @@ public class PickedItem : MonoBehaviour {
 						i = Player.hLoads;
 					}
 				}
-				print ("Healed");
-
 			} else {
 				DropItem (item);
 			}
@@ -192,17 +210,15 @@ public class PickedItem : MonoBehaviour {
 		HUD.AddPermIcon (item);
 		if(item.itemID == 18) {
 			item.openIt = true;
-		}
-
-		if (item.itemID == 19) {
-			Player.speed += item.itemsChange;
+		} else if (item.itemID == 19) {
+			Player.adren += item.itemsChange;
 		} else if (item.itemID == 20) {
-			Player.def += item.itemsChange;
+			Player.pMaker += item.itemsChange;
 		} else if (item.itemID == 21) {
-			Player.dmg += item.itemsChange;
-		} else if (item.itemID == 20) {
-			Player.mDmg += item.itemsChange;
+			Player.defib += item.itemsChange;
+		} else if (item.itemID == 22) {
+			Player.aVera += item.itemsChange;
 		}
-
+			
 	}
 }

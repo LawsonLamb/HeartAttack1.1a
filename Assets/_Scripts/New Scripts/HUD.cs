@@ -51,6 +51,8 @@ public class HUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		//Allows you to tab down the HUD
 		if (Input.GetKeyDown(KeyCode.T)) {
 			mainHUDopen = !mainHUDopen;
 			mainHUD.SetActive (mainHUDopen);
@@ -65,16 +67,22 @@ public class HUD : MonoBehaviour {
 		coin = itemData.GetItemByID (7);
 		staticCoinDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", coin.itemStock);
 		miniStaticCoinDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", coin.itemStock);
+		staticCoinDisplay.GetComponent<Image> ().sprite = coin.itemIcon;
+		miniStaticCoinDisplay.GetComponent<Image> ().sprite = coin.itemIcon;
 
 		waterballon = itemData.GetItemByID (8);
 		staticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
 		miniStaticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
+		staticWBDisplay.GetComponent<Image> ().sprite = waterballon.itemIcon;
+		miniStaticWBDisplay.GetComponent<Image> ().sprite = waterballon.itemIcon;
 
 		key = itemData.GetItemByID (0);
 		staticKeyDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", key.itemStock);
+		staticKeyDisplay.GetComponent<Image> ().sprite = key.itemIcon;
 
 		hkey = itemData.GetItemByID (1);
 		staticHKeyDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", hkey.itemStock);
+		staticHKeyDisplay.GetComponent<Image> ().sprite = hkey.itemIcon;
 	}
 
 	public static void TakeDamage (float healthLoss) {
@@ -248,6 +256,7 @@ public class HUD : MonoBehaviour {
 
 	public static void AddPermIcon (Items item) {
 
+		//Creates a Perm Item Icon on the right hand side of the screen.
 		GameObject parent = GameObject.Find ("Icon_Area");
 		item.item = new GameObject ();
 		item.item.gameObject.transform.SetParent (parent.gameObject.transform);

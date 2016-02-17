@@ -11,10 +11,12 @@ public class Player : MonoBehaviour {
 	List<GameObject> speicalLoadList = new List<GameObject> ();
 	float energy = 90;
 	float energyDec;
-	float sTimer = 10f;
+	float sTimer = 20f;
 	public static float reSTimer;
+	public static float preCoolDown = 10f;
 	int sLoads = 5;
 	bool specialCoolDown;
+	bool preSpecialCoolDown;
 
 	public GameObject magicLoad;
 	public GameObject magicArea;
@@ -32,7 +34,6 @@ public class Player : MonoBehaviour {
 	public static float reMTimer;
 	public static int mLoads = 3;
 
-
 	public GameObject healthLoad;
 	public GameObject healthArea;
 	public GameObject miniHealthLoad;
@@ -48,9 +49,16 @@ public class Player : MonoBehaviour {
 	public static int hLoads = 3;
 
 	public static float dmg = 7f;
+	public static float defib = 0f;
+
 	public static float mDmg = 10f;
+	public static float aVera = 0f;
+
 	public static float def = 1.0f;
+	public static float pMaker = 0f;
+
 	public static float speed = .05f;
+	public static float adren = 0f;
 
 	public static int points = 30;
 	public GameObject statbox;
@@ -58,6 +66,7 @@ public class Player : MonoBehaviour {
 
 	GameObject database;
 	ItemData item;
+	AttackDatabase attData;
 
 	Vector3 pos;
 
@@ -70,8 +79,10 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		//Find the Databases
 		database = GameObject.FindGameObjectWithTag ("Database");
 		item = database.GetComponent<ItemData> ();
+		attData = database.GetComponent<AttackDatabase> ();
 
 		//Creates all the Special Skill Load Boxes.
 		for (int s = 0; s < sLoads; s++){
@@ -82,6 +93,7 @@ public class Player : MonoBehaviour {
 			speicalLoadList.Add (newSLoad);
 		}
 
+		//Lets the Mini Specail Load bar have something to use for decreasing.
 		energyDec = energy / sLoads;
 
 		//So you can access the Magic Load Boxes. 
@@ -132,10 +144,13 @@ public class Player : MonoBehaviour {
 
 		//Makes sure when you start that you can use your Special Skill.
 		specialCoolDown = false;
+		preSpecialCoolDown = false;
 		reMTimer = mTimer;
 		reSTimer = sTimer;
 
+		//Used to allow the player to move around on the screen.
 		pos = gameObject.transform.position;
+
 	}
 	
 	// Update is called once per frame
@@ -153,56 +168,30 @@ public class Player : MonoBehaviour {
 		//How the player will move around the screen.
 		PlayerMovement ();
 
+		//Any Buff items that were picked up, so they can be cooled down.
 		if (buff.openIt == true) {
 			bTimer -= 0.05f;
 			CoolDownBuff ();
 		}
 
+		//If you picked up the Transfusion Perm Item.
 		if (item.item [18].openIt == true) {
 			Transfusion ();
 		}
+
+		//Just a display so I can check status stuff.
 		statText.GetComponent<Text> ().text = "Your Current Stats are: " + "\n M.Dmg: " + mDmg  + "\n Dmg: " + dmg
 			+ "\n Defense: " + def  + "\n Speed: " + speed;
+
+		print (defib);
+		print (pMaker);
+		print (aVera);
+		print (adren);
 	}
 
 	void PlayerAttType () {
 	
-		/*If you aren't waiting for your Special Skill to cool down then when 
-		 *you press Q you will turn alll the Special Skill Loads to yellow. As
-		 *well as use your Specail Skill, the players current magic damage will 
-		 *also be sent, and the Special Skill begin to cool down.*/
-		if (specialCoolDown == false) {
-			if (Input.GetKeyDown (KeyCode.Q)) {
-				for(int i = 0; i< sLoads; i++){
-					speicalLoadList [i].GetComponent<Image> ().color = Color.yellow;
-				}
-				AttackManager.UseSpecialAtt (1);
-				sTimer = reSTimer;
-				specialCoolDown = true;
-				energy = 0;
-				miniSpecialLoad.transform.localScale = new Vector3 (energy, 1, 1);
-			}
-		} else {
-			/*The Specail Skill is being cool down so a timer will decrease and it 
-			 *will slowly change the Specail Skill Loads from Yellow back to white. 
-			 *Starting from the bottom, once the load on top has been turned white 
-			 *the cool down will be deactivated.*/
-			sTimer -= .05f;
-			if (sTimer <= 0) {
-				for (int i = 0; i < sLoads; i++) {
-					if (speicalLoadList [i].GetComponent<Image> ().color == Color.yellow) {
-						energy += energyDec;
-						miniSpecialLoad.transform.localScale = new Vector3 (energy/90, 1, 1);
-						speicalLoadList [i].GetComponent<Image> ().color = Color.white;
-						if (speicalLoadList [4].GetComponent<Image> ().color == Color.white) {
-							specialCoolDown = false;
-						}
-						sTimer = reSTimer;
-						return;
-					}
-				}
-			}
-		}
+		Special ();
 
 		/*If you arent compeletly out of magic to use [the last Magic Load, the farthest
 		 *to the left, isn't white], then You can use any of the arrow keys to shoot 
@@ -228,6 +217,9 @@ public class Player : MonoBehaviour {
 						}
 					}
 				}
+				/*Finds the point in with the ability will come out of. Sends that as well 
+				 *as the direction (so the item knows if its going up, down, left, or right) 
+				 *to the attack manager.*/
 				firePoint = gameObject.transform.GetChild (0).gameObject.transform;
 				AttackManager.UseRegAtt (0, firePoint);
 			} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
@@ -250,6 +242,9 @@ public class Player : MonoBehaviour {
 						}
 					}
 				}
+				/*Finds the point in with the ability will come out of. Sends that as well 
+				 *as the direction (so the item knows if its going up, down, left, or right) 
+				 *to the attack manager.*/
 				firePoint = gameObject.transform.GetChild (2).gameObject.transform;
 				AttackManager.UseRegAtt (1, firePoint);
 			} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
@@ -272,6 +267,9 @@ public class Player : MonoBehaviour {
 						}
 					}
 				}
+				/*Finds the point in with the ability will come out of. Sends that as well 
+				 *as the direction (so the item knows if its going up, down, left, or right) 
+				 *to the attack manager.*/
 				firePoint = gameObject.transform.GetChild (1).gameObject.transform;
 				AttackManager.UseRegAtt (2, firePoint);
 			} else if (Input.GetKeyDown (KeyCode.LeftArrow)) {
@@ -294,6 +292,9 @@ public class Player : MonoBehaviour {
 						}
 					}
 				}
+				/*Finds the point in with the ability will come out of. Sends that as well 
+				 *as the direction (so the item knows if its going up, down, left, or right) 
+				 *to the attack manager.*/
 				firePoint = gameObject.transform.GetChild (3).gameObject.transform;
 				AttackManager.UseRegAtt (3, firePoint);
 			} else {
@@ -319,17 +320,82 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	void Special() {
+
+		/*If you aren't waiting for your Special Skill to cool down then when 
+		 *you press Q you will turn alll the Special Skill Loads to yellow. As
+		 *well as use your Specail Skill, the players current magic damage will 
+		 *also be sent, and the Special Skill begin to cool down.*/
+		if ((preSpecialCoolDown == false) && (specialCoolDown == false)) {
+			if (Input.GetKeyDown (KeyCode.Q)) {
+				for(int i = 0; i< sLoads; i++){
+					speicalLoadList [i].GetComponent<Image> ().color = Color.yellow;
+				}
+				firePoint = gameObject.transform.GetChild (4).gameObject.transform;
+				AttackManager.UseSpecialAtt (4, firePoint);
+				sTimer = reSTimer;
+				energy = 0;
+				miniSpecialLoad.transform.localScale = new Vector3 (energy, 1, 1);
+				preSpecialCoolDown = true;
+			}
+		} 
+
+		if(preSpecialCoolDown == true) {
+			print (preCoolDown);
+			preCoolDown -= .05f;
+			if (preCoolDown <= 0) {
+				if ((AttackManager.currSpecAtt.attID >= 5) && (AttackManager.currSpecAtt.attID <= 9)) {
+					Player.dmg -= 45f;
+					Player.mDmg -= 50f;
+					Player.def -= 5.0f;
+					Player.speed -= .25f;
+					gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+					print ("Your stats are unbuffed.");
+				} else if ((AttackManager.currSpecAtt.attID >= 15) && (AttackManager.currSpecAtt.attID <= 19)) {
+				} else if ((AttackManager.currSpecAtt.attID >= 25) && (AttackManager.currSpecAtt.attID <= 29)) {
+					print ("Cupid Will be destoryed.");
+					Destroy (GameObject.Find ("Cupid_Follower"));
+				}
+				specialCoolDown = true;
+				preCoolDown += 10f;
+				preSpecialCoolDown = false;
+			}
+		}
+
+		if (specialCoolDown == true) {
+			/*The Specail Skill is being cool down so a timer will decrease and it 
+			 *will slowly change the Specail Skill Loads from Yellow back to white. 
+			 *Starting from the bottom, once the load on top has been turned white 
+			 *the cool down will be deactivated.*/
+			sTimer -= .05f;
+			if (sTimer <= 0) {
+				for (int i = 0; i < sLoads; i++) {
+					if (speicalLoadList [i].GetComponent<Image> ().color == Color.yellow) {
+						energy += energyDec;
+						miniSpecialLoad.transform.localScale = new Vector3 (energy/90, 1, 1);
+						speicalLoadList [i].GetComponent<Image> ().color = Color.white;
+						if (speicalLoadList [4].GetComponent<Image> ().color == Color.white) {
+							specialCoolDown = false;
+						}
+						sTimer = reSTimer;
+						return;
+					}
+				}
+			}
+		}
+	}
+
 	public static void UpdateStatus (int x, int y, int z, int k) {
 
 		//Takes the coresponding x (attack), y (heart), z (skill), and k(speed) and Updates the player stats when called.
-		dmg =  7 + (x * 3f);
+		dmg =  (7 + defib) + (x * 3f);
 
-		def = 1.0f + (y * 0.5f);
+		def = (1.0f + pMaker) + (y * 0.5f);
 
 		reMTimer = 5f - (z * 0.5f);
-		mDmg = 10 + (z * 5f);
+		mDmg = (10 + aVera) + (z * 5f);
 
-		speed = 0.05f + (k * 0.05f);
+		speed = (0.05f + adren) + (k * 0.05f);
 		reSTimer = 10f - (k * 0.625f);
 
 	}
@@ -339,17 +405,18 @@ public class Player : MonoBehaviour {
 		item.openIt = true;
 		item.item = new GameObject();
 		item.item.gameObject.name = "Dropped " + item.itemName;
-		item.item.AddComponent<SpriteRenderer> ().sprite =   item.itemIcon;
-		item.item.AddComponent<PickedItem> ();
+		item.item.AddComponent<SpriteRenderer> ().sprite = item.itemIcon;
 		item.item.AddComponent<BoxCollider2D> ();
 		item.item.AddComponent<Rigidbody2D> ();
 		item.item.AddComponent<WaterBalloons> ();
 		item.item.transform.localScale = new Vector3 (5, 5, 1);
-		item.item.transform.localPosition = new Vector3 (Random.Range(0,8), Random.Range(0,8), 0);
+		firePoint = gameObject.transform.GetChild (3).gameObject.transform;
+		item.item.transform.localPosition = firePoint.position;
 	}
 
 	void PlayerMovement () {
 
+		//Just a basic way for the player to move around the screen.
 		if (Input.GetKey (KeyCode.W)) {
 			pos.y += speed;
 		} else if (Input.GetKey (KeyCode.A)) {
@@ -367,8 +434,13 @@ public class Player : MonoBehaviour {
 
 	void CoolDownBuff () {
 	
+
 		if (bTimer >= 0) {
+			//If cool down was called but you still have time in your timer nothing will happen
 		} else {
+			/*Once the timer hits zero it will check with buff was activated and return your 
+			 *stats back to how they should be without the buff. It will also rest the buff 
+			 *items information.*/
 			if (buff.itemID == 3) {
 				Player.speed -= buff.itemsChange;
 			} else if (buff.itemID == 4) {
@@ -385,6 +457,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Transfusion () {
+		/*Once you pick this up after 10 enemy kills you will restore half health.*/
 		print ("I Can steal love");
 	}
 }

@@ -25,22 +25,22 @@ public class ItemData : MonoBehaviour {
 		item.Add (new Items ("Map", 10, 25, 10, 0.0f, 0.0f, false, Items.ItemType.Pickup));
 		item.Add (new Items ("Hidden Passage", 11, 20, 0, 0.0f, 0.0f, false, Items.ItemType.Pickup));
 
-		item.Add (new Items ("Reg Att 0_1", 12, 0, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
-		item.Add (new Items ("Reg Att 1_1", 13, 30, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
-		item.Add (new Items ("Reg Att 2_1", 14, 50, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
-		item.Add (new Items ("Spec Att 0_1", 15, 0, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
-		item.Add (new Items ("Spec Att 1_1", 16, 30, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
-		item.Add (new Items ("Spec Att 2_1", 17, 50, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
+		item.Add (new Items ("Regular Shot_1", 12, 0, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
+		item.Add (new Items ("Double Shot_1", 13, 30, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
+		item.Add (new Items ("Barrage_1", 14, 50, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
+		item.Add (new Items ("Enrage_1", 15, 0, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
+		item.Add (new Items ("Restore_1", 16, 30, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
+		item.Add (new Items ("Cupid_1", 17, 50, 0, 0.0f, 0.0f, false, Items.ItemType.Skill));
 
 		//Permit Perks
 		//After 10 hits (under change float) you restore 1 health
 		item.Add (new Items ("Transfusion", 18, 50, 0, 0, 10.0f, false, Items.ItemType.Pickup));
 
 		//Increases Speed
-		item.Add (new Items ("Adrenalin", 19, 50, 0, 0, 0.25f, false, Items.ItemType.Pickup));
+		item.Add (new Items ("Adrenalin", 19, 50, 0, 0, 0.125f, false, Items.ItemType.Pickup));
 
 		//Increases Defesne
-		item.Add (new Items ("Pace Maker", 20, 50, 0, 0, 2.5f, false, Items.ItemType.Pickup));
+		item.Add (new Items ("Pace Maker", 20, 50, 0, 0, 1.25f, false, Items.ItemType.Pickup));
 
 		//Increases Damage
 		item.Add (new Items ("Defibrillator", 21, 50, 0, 0, 25.0f, false, Items.ItemType.Pickup));

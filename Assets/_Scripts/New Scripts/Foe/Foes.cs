@@ -41,13 +41,15 @@ public class Foes {
 		foeType1 = type1;
 		foeType2 = type2;
 	}
+		
+	public void CreateGameObject () {
 
-	void Start(){
-		Init ();
-	}
-
-	void Init() {
-
+		foe = new GameObject ();
+		foe.name = foeName;
+		foe.AddComponent<SpriteRenderer> ().sprite = foeImage;
+		foe.AddComponent<Rigidbody2D> ();
+		foe.AddComponent<Collider2D> ();
+		foe.tag = "Foes";
 		foe.AddComponent<Physical> ();
 		if ((foeType1 == FoeType.Boss) || (foeType2 == FoeType.Boss)) {
 			foe.AddComponent<Boss> ();
