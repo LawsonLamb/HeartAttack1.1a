@@ -31,6 +31,7 @@ public class HUD : MonoBehaviour {
 
 	public GameObject mainHUD;
 	public GameObject miniHUD;
+	int hudCase = 0;
 	bool mainHUDopen = true;
 
 	// Use this for initialization
@@ -54,9 +55,14 @@ public class HUD : MonoBehaviour {
 
 		//Allows you to tab down the HUD
 		if (Input.GetKeyDown(KeyCode.T)) {
-			mainHUDopen = !mainHUDopen;
-			mainHUD.SetActive (mainHUDopen);
-			miniHUD.SetActive (!mainHUDopen);
+			if (hudCase == 0) {
+				hudCase = 1;
+			} else if (hudCase == 1) {
+				hudCase = 2;
+			} else {
+				hudCase = 0;
+			}
+			SwitchHUD ();
 		}
 	}
 
@@ -265,5 +271,22 @@ public class HUD : MonoBehaviour {
 		item.item.name = item.itemName;
 		item.item.GetComponent<RectTransform> ().sizeDelta = new Vector2(35, 35);
 	}
-		
+
+	public void SwitchHUD () {
+
+		switch (hudCase) {
+		case 0:
+			mainHUD.SetActive (mainHUDopen);
+			miniHUD.SetActive (!mainHUDopen);
+			break;
+		case 1:
+			mainHUD.SetActive (!mainHUDopen);
+			miniHUD.SetActive (mainHUDopen);
+			break;
+		case 2:
+			mainHUD.SetActive (!mainHUDopen);
+			miniHUD.SetActive (!mainHUDopen);
+			break;
+		}
+	}
 }

@@ -62,7 +62,7 @@ public class Player : MonoBehaviour {
 
 	public static int points = 30;
 	public GameObject statbox;
-	bool On = false;
+	public static bool On = false;
 
 	GameObject database;
 	ItemData item;
@@ -76,6 +76,8 @@ public class Player : MonoBehaviour {
 
 	public GameObject statText;
 	public static Transform firePoint;
+
+	public static int enemyKillCount = 0;
 	// Use this for initialization
 	void Start () {
 
@@ -150,17 +152,13 @@ public class Player : MonoBehaviour {
 
 		//Used to allow the player to move around on the screen.
 		pos = gameObject.transform.position;
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		//Turn on and off your stat box (Will later be controlled by a NPC).
-		if (Input.GetKeyDown (KeyCode.P)) {
-			On = !On;
-			statbox.SetActive (On);
-		}
+		statbox.SetActive (On);
 
 		//Using Regualr and Special skills also has restoring your magic inside.
 		PlayerAttType ();
@@ -183,10 +181,7 @@ public class Player : MonoBehaviour {
 		statText.GetComponent<Text> ().text = "Your Current Stats are: " + "\n M.Dmg: " + mDmg  + "\n Dmg: " + dmg
 			+ "\n Defense: " + def  + "\n Speed: " + speed;
 
-		print (defib);
-		print (pMaker);
-		print (aVera);
-		print (adren);
+
 	}
 
 	void PlayerAttType () {
@@ -345,11 +340,37 @@ public class Player : MonoBehaviour {
 			preCoolDown -= .05f;
 			if (preCoolDown <= 0) {
 				if ((AttackManager.currSpecAtt.attID >= 5) && (AttackManager.currSpecAtt.attID <= 9)) {
-					Player.dmg -= 45f;
-					Player.mDmg -= 50f;
-					Player.def -= 5.0f;
-					Player.speed -= .25f;
-					gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+					if (AttackManager.currSpecAtt.attID == 5) {
+						Player.dmg -= 45f;
+						Player.mDmg -= 50f;
+						Player.def -= 5.0f;
+						Player.speed -= .25f;
+						GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+					} else if (AttackManager.currSpecAtt.attID == 6) {
+						Player.dmg -= 50f;
+						Player.mDmg -= 55f;
+						Player.def -= 5.5f;
+						Player.speed -= .5f;
+						GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+					} else if (AttackManager.currSpecAtt.attID == 7) {
+						Player.dmg -= 55f;
+						Player.mDmg -= 60f;
+						Player.def -= 6.0f;
+						Player.speed -= .75f;
+						GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+					} else if (AttackManager.currSpecAtt.attID == 8) {
+						Player.dmg -= 60f;
+						Player.mDmg -= 65f;
+						Player.def -= 6.5f;
+						Player.speed -= 1.0f;
+						GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+					}  else {
+						Player.dmg -= 65f;
+						Player.mDmg -= 70f;
+						Player.def -= 7.0f;
+						Player.speed -= 1.25f;
+						GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
+					}
 					print ("Your stats are unbuffed.");
 				} else if ((AttackManager.currSpecAtt.attID >= 15) && (AttackManager.currSpecAtt.attID <= 19)) {
 				} else if ((AttackManager.currSpecAtt.attID >= 25) && (AttackManager.currSpecAtt.attID <= 29)) {
@@ -458,6 +479,53 @@ public class Player : MonoBehaviour {
 
 	void Transfusion () {
 		/*Once you pick this up after 10 enemy kills you will restore half health.*/
+		if (enemyKillCount == 10) {
+		/*If you have increased your health into a full health box [the Health 
+		 *Load is default red for every 4 points into your heart stats] you will 
+		 *restore health starting from the left most. It will only work if your 
+		 *health isn't full [the right most Health Load isn't red]. Health will 
+		 *restore to gray 1/2 Health and red full health*/
+			if (Points.heart % 4 == 0) {
+				if (healthLoadList [hLoads - 1].GetComponent<Image> ().color != Color.red) {
+					for (int i = 0; i < hLoads; i++) {
+						if (healthLoadList [i].GetComponent<Image> ().color == Color.black) {
+							healthLoadList [i].GetComponent<Image> ().color = Color.gray;
+							miniHealthLoadList [i].GetComponent<Image> ().color = Color.gray;
+							i = hLoads;
+						} else if (healthLoadList [i].GetComponent<Image> ().color == Color.gray) {
+							healthLoadList [i].GetComponent<Image> ().color = Color.red;
+							miniHealthLoadList [i].GetComponent<Image> ().color = Color.red;
+							i = hLoads;
+						}
+					}
+				} else {
+				}
+
+			} else {
+				/*If you haven't increased your health into a full health box [the Health 
+			 *Load is default gray for every 2 points into your heart stats] you will 
+			 *restore health starting from the left most. It will only work if your 
+			 *health isn't full [the right most Health Load isn't gray]. Health will 
+			 *restore to gray 1/2 Health and red full health*/
+				if (healthLoadList [hLoads - 1].GetComponent<Image> ().color != Color.gray) {
+					for (int i = 0; i < hLoads; i++) {
+						if (healthLoadList [i].GetComponent<Image> ().color == Color.black) {
+							healthLoadList [i].GetComponent<Image> ().color = Color.gray;
+							miniHealthLoadList [i].GetComponent<Image> ().color = Color.gray;
+							i = hLoads;
+						} else if (healthLoadList [i].GetComponent<Image> ().color == Color.gray) {
+							healthLoadList [i].GetComponent<Image> ().color = Color.red;
+							miniHealthLoadList [i].GetComponent<Image> ().color = Color.red;
+							i = hLoads;
+						}
+					}
+				} else {
+				}
+			}
+			enemyKillCount = 0;
+		}
 		print ("I Can steal love");
+		print (enemyKillCount);
 	}
+		
 }

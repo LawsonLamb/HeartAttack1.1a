@@ -18,9 +18,8 @@ public class Enviornment {
 	public enum EnvType {
 
 		Door,
-		SecretPassage,
 		Hazard,
-		Obsticals,
+		Obstical,
 		NPC,
 
 	}
@@ -36,5 +35,27 @@ public class Enviornment {
 		passable = pass;
 		timer = time;
 		envType = type;
+	}
+
+	public void CreateGameObject() {
+	
+		obj = new GameObject ();
+		obj.name = objName;
+		obj.AddComponent<SpriteRenderer> ().sprite = objImage;
+		obj.AddComponent<Rigidbody2D> ();
+		obj.AddComponent<Collider2D> ();
+		obj.tag = "Foes";
+		if (envType == EnvType.Door) {
+			obj.AddComponent<Doors> ();
+		} else if (envType == EnvType.Hazard) {
+			obj.AddComponent<Hazards> ();
+		} else if (envType == EnvType.NPC) {
+			obj.AddComponent<NPCs> ();
+			obj.AddComponent<GenRandom> ();
+			obj.GetComponent<Collider2D> ().isTrigger = true;
+		} else {
+			obj.AddComponent<Obsticals> ();
+			obj.AddComponent<GenRandom> ();
+		}
 	}
 }

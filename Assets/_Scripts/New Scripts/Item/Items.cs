@@ -7,6 +7,7 @@ using System.IO;
 public class Items {
 
 	public GameObject item;
+	public GameObject priceDisplay;
 	public string itemName;
 	public int itemID;
 	public int itemPrice;
@@ -42,7 +43,7 @@ public class Items {
 
 	}
 
-	public void CreateGameObject () {
+	public void CreateGameObject (string name, int i) {
 		item = new GameObject ();
 		item.name = itemName;
 		item.AddComponent<SpriteRenderer> ().sprite = itemIcon;
@@ -50,7 +51,12 @@ public class Items {
 		item.AddComponent<BoxCollider2D> ();
 		item.AddComponent<Rigidbody2D> ();
 		item.transform.localScale = new Vector3 (5, 5, 1);
-		item.transform.localPosition = new Vector3 (Random.Range(0,8), Random.Range(0,8), 0);
+		if (name == "LoveBooth") {
+			item.transform.localPosition = new Vector3 (GameObject.Find (name).transform.localPosition.x + 3, GameObject.Find (name).transform.localPosition.y, 0);
+		} else if (name == "Enemy") {
+		} else {
+			item.transform.localPosition = new Vector3 (5 * i, 0, 0);
+		}
 	}
 		
 }

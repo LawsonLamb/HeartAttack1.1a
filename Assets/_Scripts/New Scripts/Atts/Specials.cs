@@ -41,17 +41,58 @@ public class Specials : MonoBehaviour {
 
 	void Enrage () {
 
-		Player.preCoolDown = 10f;
-		Player.dmg += 45f;
-		Player.mDmg += 50f;
-		Player.def += 5.0f;
-		Player.speed += .25f;
-		GameObject.Find("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.green;
+		if (att.attID == 5) {
+			Player.preCoolDown = 10f;
+			Player.dmg += 45f;
+			Player.mDmg += 50f;
+			Player.def += 5.0f;
+			Player.speed += .25f;
+			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.blue;
+		} else if (att.attID == 6) {
+			Player.preCoolDown = 15f;
+			Player.dmg += 50f;
+			Player.mDmg += 55f;
+			Player.def += 5.5f;
+			Player.speed += .5f;
+			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
+		} else if (att.attID == 7) {
+			Player.preCoolDown = 20f;
+			Player.dmg += 55f;
+			Player.mDmg += 60f;
+			Player.def += 6.0f;
+			Player.speed += .75f;
+			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.green;
+		} else if (att.attID == 8) {
+			Player.preCoolDown = 25f;
+			Player.dmg += 60f;
+			Player.mDmg += 65f;
+			Player.def += 6.5f;
+			Player.speed += 1.0f;
+			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.gray;
+		} else {
+			Player.preCoolDown = 30f;
+			Player.dmg += 65f;
+			Player.mDmg += 70f;
+			Player.def += 7.0f;
+			Player.speed += 1.25f;
+			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.black;
+		}
 		print ("Your stats are buffed until cool down is over.");
+
 	}
 	void Restore () {
 
-		Player.preCoolDown = 10f;
+		if (att.attID == 15) {
+			Player.preCoolDown = 10f;
+		} else if (att.attID == 15) {
+			Player.preCoolDown = 8f;
+		} else if (att.attID == 15) {
+			Player.preCoolDown = 6f;
+		} else if (att.attID == 15) {
+			Player.preCoolDown = 4f;
+		} else {
+			Player.preCoolDown = 2f;
+		}
 
 		for (int i = 0; i < Player.hLoads; i++) {
 			if (i < (Player.hLoads - 1)) {
@@ -71,7 +112,17 @@ public class Specials : MonoBehaviour {
 	}
 	void Cupid () {
 
-		Player.preCoolDown = 10f;
+		if (att.attID == 25) {
+			Player.preCoolDown = 10f;
+		} else if (att.attID == 26) {
+			Player.preCoolDown = 15f;
+		} else if (att.attID == 27) {
+			Player.preCoolDown = 20f;
+		} else if (att.attID == 28) {
+			Player.preCoolDown = 25f;
+		} else {
+			Player.preCoolDown = 30f;
+		}
 
 		GameObject cupid = new GameObject ();
 		cupid.name = "Cupid_Follower";

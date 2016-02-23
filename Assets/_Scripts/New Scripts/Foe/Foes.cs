@@ -53,26 +53,19 @@ public class Foes {
 		foe.AddComponent<Physical> ();
 		if ((foeType1 == FoeType.Boss) || (foeType2 == FoeType.Boss)) {
 			foe.AddComponent<Boss> ();
-		}
-		if ((foeType1 == FoeType.Clinger) || (foeType2 == FoeType.Clinger)) {
+		} else if ((foeType1 == FoeType.Clinger) || (foeType2 == FoeType.Clinger)) {
 			foe.AddComponent<Clinger> ();
-		}
-		if ((foeType1 == FoeType.Enviornment) || (foeType2 == FoeType.Enviornment)) {
+		} else if ((foeType1 == FoeType.Enviornment) || (foeType2 == FoeType.Enviornment)) {
 			foe.AddComponent<Area> ();
-		}
-		if ((foeType1 == FoeType.Runner) || (foeType2 == FoeType.Runner)) {
+		} else if ((foeType1 == FoeType.Runner) || (foeType2 == FoeType.Runner)) {
 			foe.AddComponent<Runner> ();
-		}
-		if ((foeType1 == FoeType.Shooter) || (foeType2 == FoeType.Shooter)) {
+		} else if ((foeType1 == FoeType.Shooter) || (foeType2 == FoeType.Shooter)) {
 			foe.AddComponent<Shooter> ();
-		}
-		if ((foeType1 == FoeType.Spliter) || (foeType2 == FoeType.Spliter)) {
+		} else if ((foeType1 == FoeType.Spliter) || (foeType2 == FoeType.Spliter)) {
 			foe.AddComponent<Spliter> ();
-		}
-		if ((foeType1 == FoeType.Summoner) || (foeType2 == FoeType.Summoner)) {
+		} else if ((foeType1 == FoeType.Summoner) || (foeType2 == FoeType.Summoner)) {
 			foe.AddComponent<Summoner> ();
-		}
-		if ((foeType1 == FoeType.Null) || (foeType2 == FoeType.Null)) {
+		} else {
 		}
 	}
 }

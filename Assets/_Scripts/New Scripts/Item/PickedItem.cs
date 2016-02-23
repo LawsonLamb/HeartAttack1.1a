@@ -37,7 +37,6 @@ public class PickedItem : MonoBehaviour {
 		} else {
 			item.itemStock += 1;
 		}
-		Player.UpdateStatus (Points.attack, Points.heart, Points.skill, Points.speed);
 		HUD.DisplayUpdate ();
 		Destroy (this.gameObject);
 	}
@@ -179,7 +178,7 @@ public class PickedItem : MonoBehaviour {
 		drop.item.AddComponent<BoxCollider2D> ();
 		drop.item.AddComponent<Rigidbody2D> ();
 		drop.item.transform.localScale = new Vector3 (5, 5, 1);
-		drop.item.transform.localPosition = new Vector3 (Random.Range(0,8), Random.Range(0,8), 0);
+		drop.item.transform.localPosition = new Vector3 (GameObject.Find ("Player").transform.localPosition.x, GameObject.Find ("Player").transform.localPosition.y - 5, 0);
 	}
 
 	void QuickBuff (Items item) {
@@ -219,6 +218,7 @@ public class PickedItem : MonoBehaviour {
 		} else if (item.itemID == 22) {
 			Player.aVera += item.itemsChange;
 		}
+		Player.UpdateStatus (Points.attack, Points.heart, Points.skill, Points.speed);
 			
 	}
 }
