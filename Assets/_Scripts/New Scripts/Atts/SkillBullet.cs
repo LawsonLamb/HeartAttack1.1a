@@ -6,10 +6,12 @@ public class SkillBullet : MonoBehaviour {
 	float speed;
 	float speedX;
 	float speedY;
+	float lifeSpan = 75f;
 	GameObject database;
 	AttackDatabase attData;
 	Attacks att;
 	public static int direction;
+	public static float dmg;
 	// Use this for initialization
 	void Start () {
 
@@ -40,7 +42,18 @@ public class SkillBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		speedY -= 0.025f;
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (speedX, speedY);
 
+		lifeSpan -= 0.5f;
+		if (lifeSpan <= 0) {
+			Destroy (gameObject);
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D col) {
+		if (col.gameObject.tag == "Foe") {
+			Destroy (gameObject);
+		}
 	}
 }

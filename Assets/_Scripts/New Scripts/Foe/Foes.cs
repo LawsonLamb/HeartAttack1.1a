@@ -48,8 +48,9 @@ public class Foes {
 		foe.name = foeName;
 		foe.AddComponent<SpriteRenderer> ().sprite = foeImage;
 		foe.AddComponent<Rigidbody2D> ();
-		foe.AddComponent<Collider2D> ();
-		foe.tag = "Foes";
+		foe.AddComponent<CircleCollider2D> ().isTrigger = true;
+		foe.GetComponent<CircleCollider2D> ().radius = 2f;
+		foe.tag = "Foe";
 		foe.AddComponent<Physical> ();
 		if ((foeType1 == FoeType.Boss) || (foeType2 == FoeType.Boss)) {
 			foe.AddComponent<Boss> ();

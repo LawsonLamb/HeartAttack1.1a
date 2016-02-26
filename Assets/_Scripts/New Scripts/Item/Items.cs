@@ -53,7 +53,8 @@ public class Items {
 		item.transform.localScale = new Vector3 (5, 5, 1);
 		if (name == "LoveBooth") {
 			item.transform.localPosition = new Vector3 (GameObject.Find (name).transform.localPosition.x + 3, GameObject.Find (name).transform.localPosition.y, 0);
-		} else if (name == "Enemy") {
+		} else if (name == "Foe") {
+			item.transform.localPosition = new Vector3 (GameObject.FindGameObjectWithTag(name).transform.localPosition.x, GameObject.FindGameObjectWithTag (name).transform.localPosition.y, 0);
 		} else {
 			item.transform.localPosition = new Vector3 (5 * i, 0, 0);
 		}

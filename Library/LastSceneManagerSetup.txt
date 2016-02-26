@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< Updated upstream
 - path: Assets/Scenes/Header_Test.unity
-=======
-- path: Assets/Scenes/CameraTest.unity
->>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
