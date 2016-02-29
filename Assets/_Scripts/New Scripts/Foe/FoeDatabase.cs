@@ -20,9 +20,9 @@ public class FoeDatabase : MonoBehaviour {
 		foe.Add (new Foes ("Pack", 6, 20f, 0.15f, 2, Foes.FoeType.Spliter, Foes.FoeType.Clinger));
 		foe.Add (new Foes ("Chilly Burger", 7, 20f, 0.15f, 2, Foes.FoeType.Spliter, Foes.FoeType.Enviornment));
 
-		foe.Add (new Foes ("Saddness", 8, 150f, 0.20f, 2, Foes.FoeType.Boss, Foes.FoeType.Enviornment));
-		foe.Add (new Foes ("Depression", 9, 150f, 0.20f, 2, Foes.FoeType.Boss, Foes.FoeType.Clinger));
-		foe.Add (new Foes ("Low Selfestem", 10, 150f, 0.20f, 2, Foes.FoeType.Boss, Foes.FoeType.Summoner));
+		foe.Add (new Foes ("Saddness", 8, 20f, 0.20f, 2, Foes.FoeType.Boss, Foes.FoeType.Enviornment));
+		foe.Add (new Foes ("Depression", 9, 400f, 0.20f, 2, Foes.FoeType.Boss, Foes.FoeType.Clinger));
+		foe.Add (new Foes ("Low Selfestem", 10, 600f, 0.20f, 2, Foes.FoeType.Boss, Foes.FoeType.Summoner));
 	
 	}
 

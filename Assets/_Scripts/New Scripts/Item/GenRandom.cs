@@ -28,7 +28,7 @@ public class GenRandom : MonoBehaviour {
 			
 	}
 
-	void CreateRandomItem (string name) {
+	public static void CreateRandomItem (string name) {
 
 		for (int i = 0; i < 1; i++) {
 			int j = itemData.item[Random.Range(0,23)].itemID;

@@ -38,7 +38,7 @@ public class Attacks {
 			attack.AddComponent<SpriteRenderer> ().sprite = attIcon;
 		}
 		if (attType == AttackType.Regular) {
-			attack.AddComponent<CircleCollider2D> ();
+			attack.AddComponent<CircleCollider2D> ().isTrigger = true;
 			attack.AddComponent<SkillBullet> ();
 			attack.AddComponent<Rigidbody2D> ();
 			SkillBullet.direction = direction;
@@ -48,5 +48,6 @@ public class Attacks {
 		attack.transform.localScale = new Vector3 (4, 4, 1);
 		attack.transform.position = firePoint.position;
 		attack.transform.rotation = firePoint.rotation;
+		attack.tag = "Bullet";
 	}
 }

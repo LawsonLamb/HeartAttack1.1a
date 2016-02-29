@@ -43,36 +43,36 @@ public class Specials : MonoBehaviour {
 
 		if (att.attID == 5) {
 			Player.preCoolDown = 10f;
-			Player.dmg += 45f;
-			Player.mDmg += 50f;
+			Player.dmg += 10f;
+			Player.mDmg += 5f;
 			Player.def += 5.0f;
 			Player.speed += .25f;
 			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.blue;
 		} else if (att.attID == 6) {
 			Player.preCoolDown = 15f;
-			Player.dmg += 50f;
-			Player.mDmg += 55f;
+			Player.dmg += 15f;
+			Player.mDmg += 10f;
 			Player.def += 5.5f;
 			Player.speed += .5f;
 			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.cyan;
 		} else if (att.attID == 7) {
 			Player.preCoolDown = 20f;
-			Player.dmg += 55f;
-			Player.mDmg += 60f;
+			Player.dmg += 20f;
+			Player.mDmg += 15f;
 			Player.def += 6.0f;
 			Player.speed += .75f;
 			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.green;
 		} else if (att.attID == 8) {
 			Player.preCoolDown = 25f;
-			Player.dmg += 60f;
-			Player.mDmg += 65f;
+			Player.dmg += 25f;
+			Player.mDmg += 20f;
 			Player.def += 6.5f;
 			Player.speed += 1.0f;
 			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.gray;
 		} else {
 			Player.preCoolDown = 30f;
-			Player.dmg += 65f;
-			Player.mDmg += 70f;
+			Player.dmg += 30f;
+			Player.mDmg += 25f;
 			Player.def += 7.0f;
 			Player.speed += 1.25f;
 			GameObject.Find ("Player").gameObject.GetComponent<SpriteRenderer> ().color = Color.black;

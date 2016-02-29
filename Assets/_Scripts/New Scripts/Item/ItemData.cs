@@ -43,10 +43,10 @@ public class ItemData : MonoBehaviour {
 		item.Add (new Items ("Pace Maker", 20, 50, 0, 0, 1.25f, false, Items.ItemType.Pickup));
 
 		//Increases Damage
-		item.Add (new Items ("Defibrillator", 21, 50, 0, 0, 25.0f, false, Items.ItemType.Pickup));
+		item.Add (new Items ("Defibrillator", 21, 50, 0, 0, 2.5f, false, Items.ItemType.Pickup));
 
 		//Increases M.Damage
-		item.Add (new Items ("Aloe Vera", 22, 50, 0, 0, 25.0f, false, Items.ItemType.Pickup));
+		item.Add (new Items ("Aloe Vera", 22, 50, 0, 0, 2.5f, false, Items.ItemType.Pickup));
 
 		FindSprites ();
 	}

@@ -44,7 +44,7 @@ public class Enviornment {
 		obj.AddComponent<SpriteRenderer> ().sprite = objImage;
 		obj.AddComponent<Rigidbody2D> ();
 		obj.AddComponent<Collider2D> ();
-		obj.tag = "Foes";
+		//obj.tag = "Objects";
 		if (envType == EnvType.Door) {
 			obj.AddComponent<Doors> ();
 		} else if (envType == EnvType.Hazard) {

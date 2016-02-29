@@ -208,6 +208,7 @@ public class PickedItem : MonoBehaviour {
 
 		HUD.AddPermIcon (item);
 		if(item.itemID == 18) {
+			Player.enemyKillCount = 0;
 			item.openIt = true;
 		} else if (item.itemID == 19) {
 			Player.adren += item.itemsChange;
