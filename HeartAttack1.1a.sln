@@ -1,9 +1,11 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{53FE9323-BB04-F5A3-4CF8-75545EAE1644}") = "HeartAttack1.1a", "Assembly-CSharp.csproj", "{FD9F75B2-D589-A757-4A20-60083CB95B5C}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartAttack1.1a.CSharp.Plugins", "HeartAttack1.1a.CSharp.Plugins.csproj", "{6649D6EB-34B3-3750-546C-288D35E54996}"
 EndProject
-Project("{53FE9323-BB04-F5A3-4CF8-75545EAE1644}") = "HeartAttack1.1a", "Assembly-CSharp-Editor.csproj", "{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartAttack1.1a.CSharp", "HeartAttack1.1a.CSharp.csproj", "{68D040FD-A0EC-3004-5967-6842A04E1FCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartAttack1.1a.CSharp.Editor", "HeartAttack1.1a.CSharp.Editor.csproj", "{D1B6C382-A8CA-7920-7845-6C8C8835661B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,19 +13,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FD9F75B2-D589-A757-4A20-60083CB95B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD9F75B2-D589-A757-4A20-60083CB95B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD9F75B2-D589-A757-4A20-60083CB95B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD9F75B2-D589-A757-4A20-60083CB95B5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3B63E98-74B2-0C78-D5F0-926C5D757A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6649D6EB-34B3-3750-546C-288D35E54996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6649D6EB-34B3-3750-546C-288D35E54996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6649D6EB-34B3-3750-546C-288D35E54996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6649D6EB-34B3-3750-546C-288D35E54996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68D040FD-A0EC-3004-5967-6842A04E1FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D040FD-A0EC-3004-5967-6842A04E1FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D040FD-A0EC-3004-5967-6842A04E1FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D040FD-A0EC-3004-5967-6842A04E1FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B6C382-A8CA-7920-7845-6C8C8835661B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B6C382-A8CA-7920-7845-6C8C8835661B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B6C382-A8CA-7920-7845-6C8C8835661B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B6C382-A8CA-7920-7845-6C8C8835661B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
