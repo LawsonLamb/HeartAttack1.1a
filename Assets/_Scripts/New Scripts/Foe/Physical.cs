@@ -25,6 +25,7 @@ public class Physical : MonoBehaviour {
 	public static float healthBarAmount;
 	int hudCase = 0;
 	bool mainHUDopen = true;
+	bool bossIsAlive = false;
 	// Use this for initialization
 	void Start () {
 
@@ -38,22 +39,23 @@ public class Physical : MonoBehaviour {
 		statFoeHealthBar = foeHealthBar;
 		SetFoeStats (foe);
 
-		miniFoeHUD.SetActive (mainHUDopen);
-		foeHUD.SetActive (!mainHUDopen);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown(KeyCode.T)) {
-			if (hudCase == 0) {
-				hudCase = 1;
-			} else if (hudCase == 1) {
-				hudCase = 2;
-			} else {
-				hudCase = 0;
+		if (bossIsAlive == true) {
+			if (Input.GetKeyDown (KeyCode.T)) {
+				if (hudCase == 0) {
+					hudCase = 1;
+				} else if (hudCase == 1) {
+					hudCase = 2;
+				} else {
+					hudCase = 0;
+				}
+				SwitchHUD ();
 			}
-			SwitchHUD ();
 		}
 	}
 
@@ -62,6 +64,9 @@ public class Physical : MonoBehaviour {
 		if ((foe.foeID >= 8) && (foe.foeID <= 10)) {
 			Summoner.fullHealth = health;
 			healthBarAmount = health / 100;
+			miniFoeHUD.SetActive (mainHUDopen);
+			foeHUD.SetActive (!mainHUDopen);
+			bossIsAlive = true;
 			Boss.SetHUD (statFoeHUD, statMiniFoeHUD, statFoeHealthBar, statMiniFoeHealthBar, healthBarAmount, foe);
 		}
 		speed = foe.foeSpeed;
@@ -74,16 +79,23 @@ public class Physical : MonoBehaviour {
 			HUD.TakeDamage (dmg);
 		} else if (col.gameObject.tag == "Bullet") {
 			health -= Player.dmg;
-			print (health);
 			if ((foe.foeID >= 8) && (foe.foeID <= 10)) {
 				Boss.LoseHealth (healthBarAmount, health);
 			}
 			if (health <= 0) {
 				Player.enemyKillCount += 1;
+				if ((foe.foeID >= 8) && (foe.foeID <= 10)) {
+					LevelManager.IncandCheckExp (50);
+				} else {
+					LevelManager.IncandCheckExp (5);
+				} 
 				if ((foe.foeID >= 5) && (foe.foeID <= 7)) {
 					Spliter.SplitUp (id);
 				}
 				GenRandom.CreateRandomItem (gameObject.tag);
+				miniFoeHUD.SetActive (!mainHUDopen);
+				foeHUD.SetActive (!mainHUDopen);
+				bossIsAlive = false;
 				Destroy (gameObject);
 			}
 		}

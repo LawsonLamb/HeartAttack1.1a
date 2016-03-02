@@ -60,7 +60,7 @@ public class Player : MonoBehaviour {
 	public static float speed = .05f;
 	public static float adren = 0f;
 
-	public static int points = 30;
+	public static int points = 0;
 	public GameObject statbox;
 	public static bool On = false;
 
@@ -78,6 +78,7 @@ public class Player : MonoBehaviour {
 	public static Transform firePoint;
 
 	public static int enemyKillCount = 0;
+
 	// Use this for initialization
 	void Start () {
 
@@ -180,7 +181,6 @@ public class Player : MonoBehaviour {
 		//Just a display so I can check status stuff.
 		statText.GetComponent<Text> ().text = "Your Current Stats are: " + "\n M.Dmg: " + mDmg  + "\n Dmg: " + dmg
 			+ "\n Defense: " + def  + "\n Speed: " + speed;
-
 
 	}
 

@@ -7,6 +7,7 @@ public class Points : MonoBehaviour {
 	GameObject amountBar;
 	GameObject pointDisplay;
 	public GameObject pointAmountDisplay;
+	public static GameObject statPointAmountDisplay;
 	public static int attack; //Regular skill
 	public static int heart;
 	public static int skill;	//Special skill
@@ -19,10 +20,18 @@ public class Points : MonoBehaviour {
 	public GameObject heartAdd;
 	public GameObject skillAdd;
 	public GameObject speedAdd;
+	public static GameObject statAttAdd;
+	public static GameObject statHeartAdd;
+	public static GameObject statSkillAdd;
+	public static GameObject statSpeedAdd;
 
 	// Use this for initialization
 	void Start () {
 	
+		statAttAdd = attAdd;
+		statHeartAdd = heartAdd;
+		statSkillAdd = skillAdd;
+		statSpeedAdd = speedAdd;
 	}
 	
 	// Update is called once per frame
@@ -192,6 +201,15 @@ public class Points : MonoBehaviour {
 			heartAdd.gameObject.SetActive (false);
 			skillAdd.gameObject.SetActive (false);
 			speedAdd.gameObject.SetActive (false);
+		}
+	}
+
+	public static void ActivateAll() {
+		if (Player.points > 0) {
+			statAttAdd.gameObject.SetActive (true);
+			statHeartAdd.gameObject.SetActive (true);
+			statSkillAdd.gameObject.SetActive (true);
+			statSpeedAdd.gameObject.SetActive (true);
 		}
 	}
 }

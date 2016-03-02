@@ -63,6 +63,7 @@
      <None Include="Assets\Asset Store\Particles\JMO Assets\!JMO Assets Readme.txt" />
      <None Include="Assets\Asset Store\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Asset Store\Particles\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+     <None Include="Assets\link.xml" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
      <None Include="Assets\Asset Store\2D Hand Painted - Dungeon Tileset\Readme.txt" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />
