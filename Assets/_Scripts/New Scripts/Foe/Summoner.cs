@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[RequireComponent(typeof(Foe))]
 public class Summoner : MonoBehaviour {
 
-	/*Summons other enemies. For now the only enemy that can be summoned are: 
+    /*Summons other enemies. For now the only enemy that can be summoned are: 
 	 *Colestrol (ID: 1)
 	 *Cluster (ID: 5)*/
+<<<<<<< HEAD
+    public GameObject test;
+    public int xRange = 3;
+    int oldXran;
+    int oldYran;
+=======
 	GameObject database;
 	FoeDatabase foeData;
 	Foes foeOne;
@@ -16,6 +22,7 @@ public class Summoner : MonoBehaviour {
 	float fullMagic = 500;
 	public static float fullHealth;
 
+>>>>>>> bb824e919f4479bf1add26ea1b0ce4aa5f50917b
 	// Use this for initialization
 	void Start () {
 		database = GameObject.FindGameObjectWithTag ("Database");
@@ -25,6 +32,11 @@ public class Summoner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
+	
+
+
+=======
 
 		if (Physical.health >= (fullHealth/2)) {
 			magic += 0.5f;
@@ -100,5 +112,47 @@ public class Summoner : MonoBehaviour {
 			print ("Created 0 Colestrol and 4 Cluster");
 			break;
 		}
+>>>>>>> bb824e919f4479bf1add26ea1b0ce4aa5f50917b
 	}
+    [ContextMenu("Summon")]
+    void Summon()
+    {
+        int xRan = Random.Range(-xRange, xRange);
+        int yRan = Random.Range(-xRange, xRange);
+
+        if(xRan==oldXran && yRan == oldXran)
+        {
+            Summon();
+        }
+      else if (xRan == 0 && yRan == 0)
+        {
+            Summon();
+        }
+
+        else {
+           
+
+            print("X: " + xRan + "  Y: " + yRan);
+            CreateGameObjects(xRan, yRan);
+        }
+        oldXran = xRan;
+        oldYran = yRan;
+
+
+    }
+
+    void  CreateGameObjects(int x, int y)
+    {
+        float posX = transform.position.x + (float)x;
+        float posY = transform.position.x + (float)y;
+
+        print("POS: " + posX + " , " + posY);
+
+        Vector3 pos = new Vector3(posX, posY, 0.0f);
+
+        GameObject go = Instantiate(test, transform.position, Quaternion.identity) as GameObject;
+
+        go.transform.parent = this.transform;
+        go.transform.localPosition = pos;
+    }
 }

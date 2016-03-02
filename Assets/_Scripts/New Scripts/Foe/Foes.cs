@@ -15,21 +15,23 @@ public class Foes {
 	public FoeType foeType1;
 	public FoeType foeType2;
 
-	public enum FoeType {
+public enum FoeType
+{
+    Spliter,
+    Enviornment,
+    Physical,
+    Shooter,
+    Clinger,
+    Runner,
+    Summoner,
+    Boss,
+    Null,
 
-		Spliter,
-		Enviornment,
-		Physical,
-		Shooter,
-		Clinger,
-		Runner,
-		Summoner,
-		Boss,
-		Null,
+}
 
-	}
+    public Foes () {
 
-	public Foes () {
+
 	}
 
 	public Foes (string name, int id, float health, float speed, int dmg, FoeType type1, FoeType type2) {
@@ -40,6 +42,7 @@ public class Foes {
 		foeDmg = dmg;
 		foeType1 = type1;
 		foeType2 = type2;
+
 	}
 		
 	public void CreateGameObject () {

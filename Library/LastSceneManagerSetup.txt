@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
+- path: Assets/Scenes/AiTest.unity
+=======
 - path: Assets/Scenes/Header_Test.unity
+>>>>>>> bb824e919f4479bf1add26ea1b0ce4aa5f50917b
   isLoaded: 1
   isActive: 1

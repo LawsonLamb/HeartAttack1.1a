@@ -637,6 +637,7 @@
      <Compile Include="Assets\Asset Store\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\Asset Store\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Asset Store\Standard Assets\Utility\WaypointProgressTracker.cs" />
+     <Compile Include="Assets\Fire Projectile.cs" />
      <Compile Include="Assets\Tile Editor\Scripts\Class\ColliderInfo.cs" />
      <Compile Include="Assets\Tile Editor\Scripts\Class\CollisionType.cs" />
      <Compile Include="Assets\Tile Editor\Scripts\Class\Tile.cs" />
@@ -691,6 +692,7 @@
      <Compile Include="Assets\_Scripts\New Scripts\Foe\Area.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Foe\Boss.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Foe\Clinger.cs" />
+     <Compile Include="Assets\_Scripts\New Scripts\Foe\Foe.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Foe\FoeDatabase.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Foe\Foes.cs" />
      <Compile Include="Assets\_Scripts\New Scripts\Foe\Physical.cs" />
@@ -724,6 +726,7 @@
      <None Include="Assets\Asset Store\Particles\JMO Assets\!JMO Assets Readme.txt" />
      <None Include="Assets\Asset Store\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Asset Store\Particles\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
      <None Include="Assets\Asset Store\2D Hand Painted - Dungeon Tileset\Readme.txt" />
@@ -739,6 +742,10 @@
  <Reference Include="BehaviorDesignerRuntime">
  <HintPath>/Users/kayodeakingbade/HeartAttack1.1a/Assets/Asset Store/AI/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{DCAFD7A3-D491-9060-CE0F-C886E20A2CFB}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

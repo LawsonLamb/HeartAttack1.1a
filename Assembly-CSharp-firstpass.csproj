@@ -45,17 +45,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\Easy Save 2\ES2Init.cs" />
-     <Compile Include="Assets\Plugins\Easy Save 2\Types\ES2_Sprite.cs" />
+     <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\MoveSample.cs" />
+     <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\RotateSample.cs" />
+     <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\SampleInfo.cs" />
+     <Compile Include="Assets\Plugins\Pixelplacement\iTween\iTween.cs" />
      <None Include="Assets\Resources\Letters.txt" />
      <None Include="Assets\Asset Store\Particles\Cartoon FX\CartoonFX Releases Notes.txt" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\CartoonFX2 Releases Notes.txt" />
-     <None Include="Assets\Easy Save 2\changelog.txt" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Add.shader" />
-     <None Include="Assets\Easy Save 2\readme.txt" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\!JMO Assets Readme.txt" />
      <None Include="Assets\Asset Store\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Asset Store\Particles\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
      <None Include="Assets\Asset Store\2D Hand Painted - Dungeon Tileset\Readme.txt" />
@@ -70,12 +71,6 @@
  </Reference>
  <Reference Include="BehaviorDesignerRuntime">
  <HintPath>/Users/kayodeakingbade/HeartAttack1.1a/Assets/Asset Store/AI/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
- </Reference>
- <Reference Include="MoodkieSecurity">
- <HintPath>/Users/kayodeakingbade/HeartAttack1.1a/Assets/Plugins/MoodkieSecurity.dll</HintPath>
- </Reference>
- <Reference Include="ES2">
- <HintPath>/Users/kayodeakingbade/HeartAttack1.1a/Assets/Plugins/ES2.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -63,6 +63,7 @@
      <None Include="Assets\Asset Store\Particles\JMO Assets\!JMO Assets Readme.txt" />
      <None Include="Assets\Asset Store\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Asset Store\Particles\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Asset Store\Particles\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
      <None Include="Assets\Asset Store\2D Hand Painted - Dungeon Tileset\Readme.txt" />
@@ -107,6 +108,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{DCAFD7A3-D491-9060-CE0F-C886E20A2CFB}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{FD9F75B2-D589-A757-4A20-60083CB95B5C}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

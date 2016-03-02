@@ -44,14 +44,14 @@ public class Enemy : MonoBehaviour {
 	void Death(){
 
 		GetComponent<Loot>().DropLoot();
-//		GameObject.FindGameObjectWithTag("Player").GetComponent<Leveling_System>().AddXP(10);
+
 		Destroy(this.gameObject);
 
 	}
 
 
 	void OnDestory(){
-	//player.GetComponent<Leveling_System>().AddXP(10);
+	
 	}
 
 	public void Hit(int dmg){
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour {
 		health-= dmg;
 		GameObject go =  Instantiate(effect, transform.position, Quaternion.identity) as GameObject;
 		Destroy(go, 1.0f);
-		image.fillAmount =(float)health/(float)maxHealth;
+	//	image.fillAmount =(float)health/(float)maxHealth;
 
 	}
 
