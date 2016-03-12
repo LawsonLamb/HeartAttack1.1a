@@ -56,7 +56,7 @@ public class Player_Control : MonoBehaviour {
 					//GetComponent<SoundEffects> ().PlaySound (3);
 					//	Debug.Log("Hit");
 					//Debug.DrawLine(transform.position,VecDirection*rayDistince, Color.green,1.0f);
-					hit.collider.gameObject.GetComponent<Enemy>().Hit(10);
+			//		hit.collider.gameObject.GetComponent<Enemy>().Hit(10);
 					//	print ("Send dmg");
 					
 				}

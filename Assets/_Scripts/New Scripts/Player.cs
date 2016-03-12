@@ -70,7 +70,7 @@ public class Player : MonoBehaviour {
 
 	Vector3 pos;
 
-	public static Items buff = new Items ();
+	public static Item buff = new Item ();
 	public static float bTimer;
 	public static float saveBTimer;
 
@@ -304,10 +304,10 @@ public class Player : MonoBehaviour {
 		/*If you press Space and you happen to have a bomb in stock it will create the 
 		 *GameObject for it and decrease your bomb stock, else it will do nothing*/
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			if (item.item [8].itemStock > 0) {
+			if (item.item [8].Stock > 0) {
 
 				CreateWaterBallons (item.item[8]);
-				item.item [8].itemStock -= 1;
+				item.item [8].Stock -= 1;
 				HUD.DisplayUpdate ();
 			} else {
 				print ("You are out of Waterballoons");
@@ -421,12 +421,12 @@ public class Player : MonoBehaviour {
 
 	}
 
-	void CreateWaterBallons (Items item) {
+	void CreateWaterBallons (Item item) {
 		/*Makes the bomb active and creates a new gameobject and names it Dropped Bomb*/
 		item.openIt = true;
 		item.item = new GameObject();
-		item.item.gameObject.name = "Dropped " + item.itemName;
-		item.item.AddComponent<SpriteRenderer> ().sprite = item.itemIcon;
+		item.item.gameObject.name = "Dropped " + item.Name;
+		item.item.AddComponent<SpriteRenderer> ().sprite = item.Icon;
 		item.item.AddComponent<BoxCollider2D> ();
 		item.item.AddComponent<Rigidbody2D> ();
 		item.item.AddComponent<WaterBalloons> ();
@@ -462,17 +462,17 @@ public class Player : MonoBehaviour {
 			/*Once the timer hits zero it will check with buff was activated and return your 
 			 *stats back to how they should be without the buff. It will also rest the buff 
 			 *items information.*/
-			if (buff.itemID == 3) {
-				Player.speed -= buff.itemsChange;
-			} else if (buff.itemID == 4) {
-				Player.def -= buff.itemsChange;
-			} else if (buff.itemID == 5) {
-				Player.dmg -= buff.itemsChange;
+			if (buff.ID == 3) {
+				Player.speed -= buff.Change;
+			} else if (buff.ID == 4) {
+				Player.def -= buff.Change;
+			} else if (buff.ID == 5) {
+				Player.dmg -= buff.Change;
 			} else {
-				Player.mDmg -= buff.itemsChange;
+				Player.mDmg -= buff.Change;
 			}
 			buff.openIt = false;
-			buff.itemDuration = saveBTimer;
+			buff.Duration = saveBTimer;
 		}
 
 	}

@@ -6,6 +6,7 @@ using System;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.IO;
+
 [Serializable]
 public class ItemDataBase:ScriptableObject{
 	[SerializeField]
@@ -25,7 +26,7 @@ public class ItemDataBase:ScriptableObject{
 				database[i].ID = i;
 			}
 
-
+         
 		}
 
 
@@ -49,7 +50,7 @@ public class ItemDataBase:ScriptableObject{
 		return database.ElementAt( index );
 	}
 	public static ItemDataBase GetDataBase(){
-		return (ItemDataBase)Resources.Load<ItemDataBase> ("ItemDatBase");
+		return (ItemDataBase)Resources.Load<ItemDataBase> ("ItemDataBase");
 	}
 	public Item GetItemByID(int id){
 		
@@ -64,7 +65,7 @@ public class ItemDataBase:ScriptableObject{
 	public Item GetItemByName(string name){
 
 		for (int i =0; i < database.Count; i++) {
-			if(database[i].name == name)
+			if(database[i].Name == name)
 				return database[i];
 		}
 		return null;
@@ -87,7 +88,7 @@ public class ItemDataBase:ScriptableObject{
 		stream.Close ();
 
 	}
-	*/
+	
 
 	[ContextMenu("Save JSON")]
 	public void Save_ItemsJSON(){
@@ -120,5 +121,7 @@ public class ItemDataBase:ScriptableObject{
 			Debug.Log(i.name);
 		}
 	}
+    */
 }
+
 

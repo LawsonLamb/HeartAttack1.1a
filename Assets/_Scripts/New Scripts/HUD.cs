@@ -10,21 +10,21 @@ public class HUD : MonoBehaviour {
 	public GameObject miniCoinDisplay;
 	public static GameObject staticCoinDisplay;
 	public static GameObject miniStaticCoinDisplay;
-	public static Items coin;
+	public static Item coin;
 
 	public GameObject wbDisplay;
 	public GameObject miniWBDisplay;
 	public static GameObject staticWBDisplay;
 	public static GameObject miniStaticWBDisplay;
-	public static Items waterballon;
+	public static Item waterballon;
 
 	public GameObject keyDisplay;
 	public static GameObject staticKeyDisplay;
-	public static Items key;
+	public static Item key;
 
 	public GameObject hkeyDisplay;
 	public static GameObject staticHKeyDisplay;
-	public static Items hkey;
+	public static Item hkey;
 
 	GameObject database;
 	static ItemData itemData;
@@ -71,24 +71,24 @@ public class HUD : MonoBehaviour {
 		/*Takes the Display for each item and updates them according to the 
 		amount they have in stock. Also formats it in a x### mannor.*/
 		coin = itemData.GetItemByID (7);
-		staticCoinDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", coin.itemStock);
-		miniStaticCoinDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", coin.itemStock);
-		staticCoinDisplay.GetComponent<Image> ().sprite = coin.itemIcon;
-		miniStaticCoinDisplay.GetComponent<Image> ().sprite = coin.itemIcon;
+		staticCoinDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", coin.Stock);
+		miniStaticCoinDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", coin.Stock);
+		staticCoinDisplay.GetComponent<Image> ().sprite = coin.Icon;
+		miniStaticCoinDisplay.GetComponent<Image> ().sprite = coin.Icon;
 
 		waterballon = itemData.GetItemByID (8);
-		staticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
-		miniStaticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.itemStock);
-		staticWBDisplay.GetComponent<Image> ().sprite = waterballon.itemIcon;
-		miniStaticWBDisplay.GetComponent<Image> ().sprite = waterballon.itemIcon;
+		staticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.Stock);
+		miniStaticWBDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", waterballon.Stock);
+		staticWBDisplay.GetComponent<Image> ().sprite = waterballon.Icon;
+		miniStaticWBDisplay.GetComponent<Image> ().sprite = waterballon.Icon;
 
 		key = itemData.GetItemByID (0);
-		staticKeyDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", key.itemStock);
-		staticKeyDisplay.GetComponent<Image> ().sprite = key.itemIcon;
+		staticKeyDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", key.Stock);
+		staticKeyDisplay.GetComponent<Image> ().sprite = key.Icon;
 
 		hkey = itemData.GetItemByID (1);
-		staticHKeyDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", hkey.itemStock);
-		staticHKeyDisplay.GetComponent<Image> ().sprite = hkey.itemIcon;
+		staticHKeyDisplay.transform.GetChild (0).GetComponent<Text> ().text = string.Format("{0:x00#}", hkey.Stock);
+		staticHKeyDisplay.GetComponent<Image> ().sprite = hkey.Icon;
 	}
 
 	public static void TakeDamage (float healthLoss) {
@@ -260,15 +260,15 @@ public class HUD : MonoBehaviour {
 
 	}
 
-	public static void AddPermIcon (Items item) {
+	public static void AddPermIcon (Item item) {
 
 		//Creates a Perm Item Icon on the right hand side of the screen.
 		GameObject parent = GameObject.Find ("Icon_Area");
 		item.item = new GameObject ();
 		item.item.gameObject.transform.SetParent (parent.gameObject.transform);
 		item.item.transform.localPosition = new Vector3 (0, ((parent.transform.childCount-1) * -40), 0);
-		item.item.AddComponent<Image> ().sprite = item.itemIcon;
-		item.item.name = item.itemName;
+		item.item.AddComponent<Image> ().sprite = item.Icon;
+		item.item.name = item.Name;
 		item.item.GetComponent<RectTransform> ().sizeDelta = new Vector2(35, 35);
 	}
 

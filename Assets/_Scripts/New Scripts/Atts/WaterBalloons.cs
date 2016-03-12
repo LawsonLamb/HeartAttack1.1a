@@ -18,22 +18,22 @@ public class WaterBalloons : MonoBehaviour {
 
 		//If there is a bomb that is active it will count down till explosion
 		if (itemData.item [8].openIt == true) {
-			itemData.item [8].itemDuration -= 0.05f;
+			itemData.item [8].Duration -= 0.05f;
 			WaterBallons (itemData.item [8]);
 		}
 
 	}
 
-	void WaterBallons (Items item) {
+	void WaterBallons (Item item) {
 
 		/*Once the timer has hit 0 or less it will cause damage to anything in 
 		 *it's range and then reset the count. It will also update your HUD and 
 		 *turn the bomb active off and destory the object.*/
-		if (item.itemDuration >= 0) {
+		if (item.Duration >= 0) {
 		} else {
 			//If player is in radius
 			HUD.TakeDamage (1f);
-			item.itemDuration = 5.0f;
+			item.Duration = 5.0f;
 			item.openIt = false;
 			Destroy (this.gameObject);
 		}

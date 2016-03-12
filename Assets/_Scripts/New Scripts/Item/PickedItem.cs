@@ -9,7 +9,7 @@ public class PickedItem : MonoBehaviour {
 	GameObject database;
 	ItemData itemData;
 	AttackDatabase attData;
-	Items item;
+	Item item;
 
 	// Use this for initialization
 	void Start () {
@@ -28,66 +28,66 @@ public class PickedItem : MonoBehaviour {
 	void PickUp() {
 
 		item = itemData.GetItemByName (name);
-		if (item.itemType == Items.ItemType.Skill) {
+		if (item.Type == Item.ItemType.Skill) {
 			Skills (item);
-		} else if (item.itemType == Items.ItemType.Pickup) {
+		} else if (item.Type == Item.ItemType.Pickup) {
 			Pickups (item);
-		} else if (item.itemType == Items.ItemType.Consumable) {
+		} else if (item.Type == Item.ItemType.Consumable) {
 			Consumables (item);
 		} else {
-			item.itemStock += 1;
+			item.Stock += 1;
 		}
 		HUD.DisplayUpdate ();
 		Destroy (this.gameObject);
 	}
 
-	void Consumables (Items item) {
-		if (item.itemID == 2) {
+	void Consumables (Item item) {
+		if (item.ID == 2) {
 			PickUpHealth ();
 		}
-		if ((item.itemID >= 3) && (item.itemID <= 6)) {
+		if ((item.ID >= 3) && (item.ID <= 6)) {
 			item.openIt = true;
 			QuickBuff(item);
 		}
 	}
 
-	void Pickups (Items item) {
+	void Pickups (Item item) {
 
-		if ((item.itemID == 7) || (item.itemID == 8)) {
-			item.itemStock += 1;
+		if ((item.ID == 7) || (item.ID == 8)) {
+			item.Stock += 1;
 		}
 
-		if((item.itemID >= 9) && (item.itemID <= 11)) {
+		if((item.ID >= 9) && (item.ID <= 11)) {
 			item.openIt = true;
 		}
 
-		if (item.itemID == 9) {
+		if (item.ID == 9) {
 			for (int i = 0; i < itemData.item.Count; i++) {
-				itemData.item [i].itemPrice = (itemData.item [i].itemPrice / 2);
+				itemData.item [i].Price = (itemData.item [i].Price / 2);
 			}
 		}
 
-		if ((item.itemID >= 18) && (item.itemID <= 22)) {
-			if (item.itemStock <= 0) {
+		if ((item.ID >= 18) && (item.ID <= 22)) {
+			if (item.Stock <= 0) {
 				PermItems (item);
-				item.itemStock += 1;
+				item.Stock += 1;
 			} else {
 				DropItem (item);
 			}
 		}
 	}
 
-	void Skills (Items item) {
+	void Skills (Item item) {
 
 		for (int i = 11; i < 17; i++) {
 			itemData.item [i + 1].openIt = false;
-			itemData.item [i + 1].itemStock = 0;
+			itemData.item [i + 1].Stock = 0;
 		}
 
 		item.openIt = true;
-		Attacks newAtt = attData.GetAttByName (item.itemName);
+		Attacks newAtt = attData.GetAttByName (item.Name);
 		Attacks oldAtt = new Attacks ();
-		Items oldItem = new Items ();
+		Item oldItem = new Item ();
 
 		if (newAtt.attType == Attacks.AttackType.Regular) {
 			oldAtt = AttackManager.currRegAtt;
@@ -168,12 +168,12 @@ public class PickedItem : MonoBehaviour {
 		}
 	}
 
-	void DropItem (Items drop) {
+	void DropItem (Item drop) {
 
 		//Once attack has a gameobject dropped will equal it
 		drop.item = new GameObject();
-		drop.item.name = drop.itemName;
-		drop.item.AddComponent<SpriteRenderer> ().sprite =  drop.itemIcon;
+		drop.item.name = drop.Name;
+		drop.item.AddComponent<SpriteRenderer> ().sprite =  drop.Icon;
 		drop.item.AddComponent<PickedItem> ();
 		drop.item.AddComponent<BoxCollider2D> ();
 		drop.item.AddComponent<Rigidbody2D> ();
@@ -181,19 +181,19 @@ public class PickedItem : MonoBehaviour {
 		drop.item.transform.localPosition = new Vector3 (GameObject.Find ("Player").transform.localPosition.x, GameObject.Find ("Player").transform.localPosition.y - 5, 0);
 	}
 
-	void QuickBuff (Items item) {
+	void QuickBuff (Item item) {
 		
-		if (item.itemID == 3) {
-			Player.speed += item.itemsChange;
-		} else if (item.itemID == 4) {
-			Player.def += item.itemsChange;
-		} else if (item.itemID == 5) {
-			Player.dmg += item.itemsChange;
+		if (item.ID == 3) {
+			Player.speed += item.Change;
+		} else if (item.ID == 4) {
+			Player.def += item.Change;
+		} else if (item.ID == 5) {
+			Player.dmg += item.Change;
 		} else {
-			Player.mDmg += item.itemsChange;
+			Player.mDmg += item.Change;
 		}
 		Player.buff = item;
-		Player.bTimer = Player.buff.itemDuration;
+		Player.bTimer = Player.buff.Duration;
 		Player.saveBTimer = Player.bTimer;
 	}
 
@@ -204,20 +204,20 @@ public class PickedItem : MonoBehaviour {
 		}
 	}
 
-	void PermItems (Items item) {
+	void PermItems (Item item) {
 
 		HUD.AddPermIcon (item);
-		if(item.itemID == 18) {
+		if(item.ID == 18) {
 			Player.enemyKillCount = 0;
 			item.openIt = true;
-		} else if (item.itemID == 19) {
-			Player.adren += item.itemsChange;
-		} else if (item.itemID == 20) {
-			Player.pMaker += item.itemsChange;
-		} else if (item.itemID == 21) {
-			Player.defib += item.itemsChange;
-		} else if (item.itemID == 22) {
-			Player.aVera += item.itemsChange;
+		} else if (item.ID == 19) {
+			Player.adren += item.Change;
+		} else if (item.ID == 20) {
+			Player.pMaker += item.Change;
+		} else if (item.ID == 21) {
+			Player.defib += item.Change;
+		} else if (item.ID == 22) {
+			Player.aVera += item.Change;
 		}
 		Player.UpdateStatus (Points.attack, Points.heart, Points.skill, Points.speed);
 			
