@@ -62,7 +62,6 @@ public class Physical : MonoBehaviour {
 	void SetFoeStats (Foes foe) {
 		health = foe.foeHealth;
 		if ((foe.foeID >= 8) && (foe.foeID <= 10)) {
-			Summoner.fullHealth = health;
 			healthBarAmount = health / 100;
 			miniFoeHUD.SetActive (mainHUDopen);
 			foeHUD.SetActive (!mainHUDopen);
@@ -90,7 +89,11 @@ public class Physical : MonoBehaviour {
 					LevelManager.IncandCheckExp (5);
 				} 
 				if ((foe.foeID >= 5) && (foe.foeID <= 7)) {
+<<<<<<< Updated upstream:Assets/_Scripts/Foe/Physical.cs
 				//	Spliter.SplitUp (id);
+=======
+					//Spliter.SplitUp (id);
+>>>>>>> Stashed changes:Assets/_Scripts/New Scripts/Foe/Physical.cs
 				}
 				GenRandom.CreateRandomItem (gameObject.tag);
 				miniFoeHUD.SetActive (!mainHUDopen);

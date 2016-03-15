@@ -6,11 +6,15 @@ public class Summoner : MonoBehaviour {
     /*Summons other enemies. For now the only enemy that can be summoned are: 
 	 *Colestrol (ID: 1)
 	 *Cluster (ID: 5)*/
+<<<<<<< Updated upstream:Assets/_Scripts/Foe/Summoner.cs
 
+=======
+>>>>>>> Stashed changes:Assets/_Scripts/New Scripts/Foe/Summoner.cs
     public GameObject test;
     public int xRange = 3;
     int oldXran;
     int oldYran;
+<<<<<<< Updated upstream:Assets/_Scripts/Foe/Summoner.cs
 
 	GameObject database;
 	FoeDatabase foeData;
@@ -22,16 +26,16 @@ public class Summoner : MonoBehaviour {
 	float fullMagic = 500;
 	public static float fullHealth;
 
+=======
+>>>>>>> Stashed changes:Assets/_Scripts/New Scripts/Foe/Summoner.cs
 	// Use this for initialization
 	void Start () {
-		database = GameObject.FindGameObjectWithTag ("Database");
-		foeData = database.GetComponent<FoeDatabase> ();
-		parentFoe = this.gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+<<<<<<< Updated upstream:Assets/_Scripts/Foe/Summoner.cs
         /*
 		if (Physical.health >= (fullHealth/2)) {
 			magic += 0.5f;
@@ -111,6 +115,10 @@ public class Summoner : MonoBehaviour {
 >>>>>>> bb824e919f4479bf1add26ea1b0ce4aa5f50917b
 	}
     */
+=======
+	}
+
+>>>>>>> Stashed changes:Assets/_Scripts/New Scripts/Foe/Summoner.cs
     [ContextMenu("Summon")]
     void Summon()
     {
