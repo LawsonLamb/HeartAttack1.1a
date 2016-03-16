@@ -9,10 +9,7 @@ public class Spliter : MonoBehaviour
 	 *Spliter 1: Cluster (ID: 5), splits into 3 Colestrol (ID: 1).
 	 *Spliter 2: Pack (ID: 6), splits into 4 Cigarettes (ID: 3).
 	 *Spliter 3: Chilly Burger (ID: 7), splits into 1 Heart Burn (ID: 0) &  1 Grease Jar (ID: 2).*/
-<<<<<<< Updated upstream:Assets/_Scripts/Foe/Spliter.cs
 
-=======
->>>>>>> Stashed changes:Assets/_Scripts/New Scripts/Foe/Spliter.cs
 
     // Use this for initialization
     public GameObject test;
@@ -77,7 +74,7 @@ public class Spliter : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream:Assets/_Scripts/Foe/Spliter.cs
+
     /*
 	GameObject database;
 	static FoeDatabase foeData;
@@ -120,6 +117,5 @@ public class Spliter : MonoBehaviour
 	}
     */
 
-=======
->>>>>>> Stashed changes:Assets/_Scripts/New Scripts/Foe/Spliter.cs
+
 }
