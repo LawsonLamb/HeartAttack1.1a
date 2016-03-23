@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class TileMap : MonoBehaviour {
 
 	public GameObject TileAsset;
+    Transform Floor;
+    Transform Wall;
     public TileSet tileSet;
 	public int mapWidth =15;
 	public int mapHeight = 9;
@@ -16,9 +18,9 @@ public class TileMap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		Load();
-		FillWalls();
+      Floor =  this.transform.FindChild("Floor");
+		//Load();
+	//	FillWalls();
  
       
     }
@@ -32,18 +34,18 @@ public class TileMap : MonoBehaviour {
 	#region Build Map
 	[ContextMenu("Load")]
 	void Load(){
-		_map = new GameObject[mapWidth,mapHeight];
+        DestoryChildren();
+        CreateGameObject("Walls");
+        CreateGameObject("Floor");
+
+        
+        _map = new GameObject[mapWidth,mapHeight];
 		for(int x=0;x<mapWidth;x++){
 			for(int y=0; y<mapHeight;y++){
 				_map[x,y]= Instantiate(TileAsset,new Vector3(x*texWidth,y*texHeight,0.0f),Quaternion.identity)  as GameObject;
                 _map[x, y].name = "Tile" + x + "," + y;
                 _map[x,y].transform.SetParent(this.transform);
-				bool FlipX;
-				bool FlipY;
-				if(x<=2 && y<=2){
-					FlipX =false;
-					FlipY = true;
-				}
+				
 
 
 			
@@ -55,13 +57,15 @@ public class TileMap : MonoBehaviour {
     [ContextMenu("Fill Floor")]
     void FillFloor()
     {
-        for(int row =2;row< mapWidth- 2; row++)
+        Floor = this.transform.FindChild("Floor");
+        for (int row =2;row< mapWidth- 2; row++)
         {
 
             for(int col =2; col<mapHeight - 2; col++)
             {
                // print(row + ","+ col);
                 _map[row, col].GetComponent<SpriteRenderer>().sprite = tileSet.Floors[1];
+                _map[row, col].transform.SetParent(Floor);
             }
 
 
@@ -107,7 +111,7 @@ public class TileMap : MonoBehaviour {
 					else if(col==1){
 
 
-						setSprite(_map[row, col], tileSet.Walls[8], false, true);
+						//setSprite(_map[row, col], tileSet.Walls[8], false, true);
 					}
 				}
 
@@ -121,8 +125,8 @@ public class TileMap : MonoBehaviour {
 
         setSprite(_map[0, 8], tileSet.Walls[0], false, false);
         setSprite(_map[1, 8], tileSet.Walls[1], false, false);
-		setSprite(_map[0, 7], tileSet.Walls[6], false, false);
-		setSprite(_map[1,7],tileSet.Walls[7],false,false);
+	//	setSprite(_map[0, 7], tileSet.Walls[6], false, false);
+	//	setSprite(_map[1,7],tileSet.Walls[7],false,false);
 
         for (int row = 2; row < mapWidth - 2; row++)
 		{
@@ -136,7 +140,7 @@ public class TileMap : MonoBehaviour {
 
 				else{
 					if(col ==7){
-						setSprite(_map[row, 7], tileSet.Walls[8], true, false);
+					//	setSprite(_map[row, 7], tileSet.Walls[8], true, false);
 					}
 
 					else if(col ==8){
@@ -157,8 +161,8 @@ public class TileMap : MonoBehaviour {
 
         setSprite(_map[13, 0], tileSet.Walls[1], true, true);
         setSprite(_map[14, 0], tileSet.Walls[0], true, true);
-		setSprite(_map[14, 1], tileSet.Walls[6], true, true);
-		setSprite(_map[13,1],tileSet.Walls[7],true,true);
+		//setSprite(_map[14, 1], tileSet.Walls[6], true, true);
+	//	setSprite(_map[13,1],tileSet.Walls[7],true,true);
 
         for (int col = 2; col < mapHeight-2; col++){ 
 
@@ -170,10 +174,10 @@ public class TileMap : MonoBehaviour {
 								else{
 								if(row ==0){
 
-									setSprite(_map[0, col], tileSet.Walls[5], false, false);
+							//		setSprite(_map[0, col], tileSet.Walls[5], false, false);
 								}
 								else if(row ==1){
-									setSprite(_map[1, col], tileSet.Walls[9], false, false);
+							//		setSprite(_map[1, col], tileSet.Walls[9], false, false);
 
 								}
 							}
@@ -188,8 +192,8 @@ public class TileMap : MonoBehaviour {
 
         setSprite(_map[13, 8], tileSet.Walls[1], true, false);
         setSprite(_map[14, 8], tileSet.Walls[0], true, false);
-		setSprite(_map[14, 7], tileSet.Walls[6], true, false);
-		setSprite(_map[13,7],tileSet.Walls[7],true,false);
+		//setSprite(_map[14, 7], tileSet.Walls[6], true, false);
+		//setSprite(_map[13,7],tileSet.Walls[7],true,false);
 
         for (int col = 2; col < mapHeight - 2; col++)
 		{	
@@ -202,11 +206,11 @@ public class TileMap : MonoBehaviour {
 
 				else{
 					if(row ==14){
-						setSprite(_map[14, col], tileSet.Walls[5], true, false);
+					//	setSprite(_map[14, col], tileSet.Walls[5], true, false);
 					}
 
 					else{
-						setSprite(_map[13, col], tileSet.Walls[9], true, true);
+				//		setSprite(_map[13, col], tileSet.Walls[9], true, true);
 
 					}
 
@@ -238,9 +242,96 @@ public class TileMap : MonoBehaviour {
 	}
 
 
-	#endregion
+    #endregion
+    [ContextMenu("set Wall")]
+    void setWall()
+    {
+        Wall = transform.FindChild("Walls");
+        for (int row = 0; row < mapWidth ; row++)
+        {
+            for (int col = 0; col < 2; col++)
+            {
+
+                if (row == 6 || row == 7 || row == 8)
+                {
+
+                }
+
+                else {
+
+                    _map[row, col].transform.SetParent(Wall);
+
+                }
+
+            }
+
+        }
 
 
+        for (int row = 0; row < mapWidth ; row++)
+        {
+            for (int col = 7; col < 9; col++)
+            {
+                if (row == 6 || row == 7 || row == 8)
+                {
+
+                }
+                else
+                {
+                    _map[row, col].transform.SetParent(Wall);
+                }
+
+            }
+        }
+
+
+        for (int col = 0; col < mapHeight ; col++)
+        {
+
+            for (int row = 0; row < 2; row++)
+            {
+
+                if (col == 3 || col == 4 || col == 5)
+                {
+                }
+
+                else
+                {
+                    _map[row, col].transform.SetParent(Wall);
+                }
+
+            }
+        }
+
+
+
+        for (int col = 0; col < mapHeight ; col++)
+        {
+
+            for (int row = 13; row < mapWidth; row++)
+            {
+                if (col == 3 || col == 4 || col == 5)
+                {
+                }
+
+                else
+                {
+                    _map[row, col].transform.SetParent(Wall);
+                }
+            }
+        }
+
+    }
+    [ContextMenu("Destory")]
+    void DestoryChildren()
+    {
+
+        while (this.transform.childCount > 0)
+        {
+            DestroyImmediate(this.transform.GetChild(0).gameObject);
+
+        }
+    }
 
 
 
@@ -249,6 +340,15 @@ public class TileMap : MonoBehaviour {
         go.GetComponent<SpriteRenderer>().sprite = WallSprite;
         go.GetComponent<SpriteRenderer>().flipX = flipx;
         go.GetComponent<SpriteRenderer>().flipY = flipy;
+    }
+
+
+    void CreateGameObject(string Name)
+    {
+        GameObject go = new GameObject();
+        go.name = Name;
+        go.transform.SetParent(this.transform);
+
     }
 
 
