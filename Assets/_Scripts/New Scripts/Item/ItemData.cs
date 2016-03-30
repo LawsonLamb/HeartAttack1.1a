@@ -22,7 +22,7 @@ public class ItemData : MonoBehaviour {
 		item.Add (new Item ("Coin", 7, 0, 0, 0.0f, 0.0f, false, Item.ItemType.Pickup));
 		item.Add (new Item ("Waterballoon", 8, 15, 1, 10.0f, 50f, false, Item.ItemType.Pickup));
 		item.Add (new Item ("Discounter", 9, 30, 0, 0.0f, 0.0f, false, Item.ItemType.Pickup));
-		item.Add (new Item ("Map", 10, 25, 10, 0.0f, 0.0f, false, Item.ItemType.Pickup));
+		item.Add (new Item ("Map", 10, 25, 0, 0.0f, 0.0f, false, Item.ItemType.Pickup));
 		item.Add (new Item ("Hidden Passage", 11, 20, 0, 0.0f, 0.0f, false, Item.ItemType.Pickup));
 
 		item.Add (new Item ("Regular Shot_1", 12, 0, 0, 0.0f, 0.0f, false, Item.ItemType.Skill));

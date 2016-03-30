@@ -11,4 +11,257 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e9581aea21748a096da1a14840e2d8, type: 3}
   m_Name: ItemDataBase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Key
+    ID: 0
+    Price: 5
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 1
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Heart Key
+    ID: 1
+    Price: 25
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 1
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Blood
+    ID: 2
+    Price: 10
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Speed Pill
+    ID: 3
+    Price: 0
+    Stock: 0
+    Duration: 10
+    Change: 0.1
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Defense Pill
+    ID: 4
+    Price: 0
+    Stock: 0
+    Duration: 10
+    Change: 1
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Damage Pill
+    ID: 5
+    Price: 0
+    Stock: 0
+    Duration: 10
+    Change: 10
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: M. Damage Pill
+    ID: 6
+    Price: 0
+    Stock: 0
+    Duration: 10
+    Change: 10
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Coin
+    ID: 7
+    Price: 0
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 3
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Waterballon
+    ID: 8
+    Price: 15
+    Stock: 1
+    Duration: 10
+    Change: 50
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Discounter
+    ID: 9
+    Price: 30
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Map
+    ID: 10
+    Price: 25
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Hidden Passage
+    ID: 11
+    Price: 20
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Regular Shot_1
+    ID: 12
+    Price: 0
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Double Shot_1
+    ID: 13
+    Price: 30
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Barrage_1
+    ID: 14
+    Price: 50
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Enrage_1
+    ID: 15
+    Price: 0
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Restore_1
+    ID: 16
+    Price: 30
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Cupid_1
+    ID: 17
+    Price: 50
+    Stock: 0
+    Duration: 0
+    Change: 0
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Transfusion
+    ID: 18
+    Price: 50
+    Stock: 0
+    Duration: 0
+    Change: 10
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Adrenalin
+    ID: 19
+    Price: 50
+    Stock: 0
+    Duration: 0
+    Change: 0.125
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Pace Maker
+    ID: 20
+    Price: 50
+    Stock: 0
+    Duration: 0
+    Change: 1.25
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Defibrillator
+    ID: 21
+    Price: 50
+    Stock: 0
+    Duration: 0
+    Change: 2.5
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0
+  - item: {fileID: 0}
+    priceDisplay: {fileID: 0}
+    Name: Aloe Vera
+    ID: 22
+    Price: 50
+    Stock: 0
+    Duration: 0
+    Change: 2.5
+    openIt: 0
+    Icon: {fileID: 0}
+    Type: 0

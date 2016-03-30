@@ -25,5 +25,5 @@ MonoBehaviour:
         startIndex: 
         dataPosition: 
         unityObjects: []
-        byteData: []
-        byteDataArray: []
+        byteData: 
+        byteDataArray: 
