@@ -18,7 +18,7 @@ public class TileMap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-      Floor =  this.transform.FindChild("Floor");
+     // Floor =  this.transform.FindChild("Floor");
 		//Load();
 	//	FillWalls();
  
