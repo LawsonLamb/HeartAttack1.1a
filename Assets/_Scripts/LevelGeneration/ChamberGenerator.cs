@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ChamberGenerator : MonoBehaviour {
-	public GameObject RoomPrefab;
+	/*public GameObject RoomPrefab;
 
 	public GameObject [,] Chamber;
 
@@ -138,5 +138,5 @@ public class ChamberGenerator : MonoBehaviour {
 
 
 
-
+*/
 }

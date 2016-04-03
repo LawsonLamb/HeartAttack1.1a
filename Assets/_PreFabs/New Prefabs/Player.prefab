@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 491294}
   - 212: {fileID: 21245332}
-  - 114: {fileID: 11432252}
   - 50: {fileID: 5006118}
   - 58: {fileID: 5863418}
+  - 114: {fileID: 11473600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -117,7 +117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 491294}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &430542
 Transform:
   m_ObjectHideFlags: 1
@@ -153,7 +153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 491294}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &491294
 Transform:
   m_ObjectHideFlags: 1
@@ -167,8 +167,8 @@ Transform:
   - {fileID: 430542}
   - {fileID: 468592}
   - {fileID: 424674}
-  - {fileID: 425016}
   - {fileID: 483866}
+  - {fileID: 425016}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5006118
@@ -202,7 +202,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.93
---- !u!114 &11432252
+--- !u!114 &11473600
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -210,22 +210,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 102352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eaf0e893709944dcbea83e7715f0dd6, type: 3}
+  m_Script: {fileID: 11500000, guid: 22cda9c217c484a4bad9385d6bd14089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  specialLoad: {fileID: 154988, guid: 9c42617158ac64251aa11a5681cbf821, type: 2}
-  specialArea: {fileID: 0}
-  miniSpecialLoad: {fileID: 0}
-  magicLoad: {fileID: 157494, guid: a9c8ccca71c0a4856b77e14cef41be29, type: 2}
-  magicArea: {fileID: 0}
-  miniMagicLoad: {fileID: 113512, guid: cb15f3590826f4b5ab9ddb740ed8c85c, type: 2}
-  miniMagicArea: {fileID: 0}
-  healthLoad: {fileID: 109874, guid: e1040919be5904bd2925094a7b83a160, type: 2}
-  healthArea: {fileID: 0}
-  miniHealthLoad: {fileID: 108164, guid: b7b727ff48c0441a49d84f8c326839b4, type: 2}
-  miniHealthArea: {fileID: 0}
-  statbox: {fileID: 0}
-  statText: {fileID: 0}
+  dmg: 7
+  defib: 0
+  mDmg: 10
+  aVera: 0
+  def: 1
+  pMaker: 0
+  speed: 0.05
+  adren: 0
+  points: 0
+  health: 100
+  maxHealth: 0
+  magic: 100
+  maxMagic: 0
+  energy: 100
+  maxEnergy: 0
+  enemyKillCount: 0
+  tranfusionActive: 0
+  specialCoolDown: 0
+  currlv: 0
+  currExp: 0
+  maxExp: 50
 --- !u!212 &21245332
 SpriteRenderer:
   m_ObjectHideFlags: 1

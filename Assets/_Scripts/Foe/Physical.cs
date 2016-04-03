@@ -13,12 +13,8 @@ public class Physical : MonoBehaviour {
 	float speed;
 	int dmg;
 
-	public GameObject miniFoeHUD;
-	public GameObject miniFoeHealthBar;
 	public GameObject foeHUD;
 	public GameObject foeHealthBar;
-	public static GameObject statMiniFoeHUD;
-	public static GameObject statMiniFoeHealthBar;
 	public static GameObject statFoeHUD;
 	public static GameObject statFoeHealthBar;
 
@@ -26,14 +22,19 @@ public class Physical : MonoBehaviour {
 	int hudCase = 0;
 	bool mainHUDopen = true;
 	bool bossIsAlive = false;
+
+	GameObject displays;
+	GameObject player;
+
+	GenRandom npc;
 	// Use this for initialization
 	void Start () {
 
 		database = GameObject.FindGameObjectWithTag ("Database");
+		displays = GameObject.FindGameObjectWithTag ("Background");
+		player = GameObject.FindGameObjectWithTag ("Player");
 		foeData = database.GetComponent<FoeDatabase> ();
 		foe = foeData.GetFoeByName (this.gameObject.name);
-		statMiniFoeHUD = miniFoeHUD;
-		statMiniFoeHealthBar = miniFoeHealthBar;
 
 		statFoeHUD = foeHUD;
 		statFoeHealthBar = foeHealthBar;
@@ -63,10 +64,9 @@ public class Physical : MonoBehaviour {
 		health = foe.foeHealth;
 		if ((foe.foeID >= 8) && (foe.foeID <= 10)) {
 			healthBarAmount = health / 100;
-			miniFoeHUD.SetActive (mainHUDopen);
 			foeHUD.SetActive (!mainHUDopen);
 			bossIsAlive = true;
-			Boss.SetHUD (statFoeHUD, statMiniFoeHUD, statFoeHealthBar, statMiniFoeHealthBar, healthBarAmount, foe);
+			Boss.SetHUD (statFoeHUD, statFoeHealthBar, healthBarAmount, foe);
 		}
 		speed = foe.foeSpeed;
 		dmg = foe.foeDmg;
@@ -75,18 +75,16 @@ public class Physical : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col) {
 		if (col.gameObject.tag == "Player") {
-			HUD.TakeDamage (dmg);
+			displays.GetComponent<UIScripts>().TakeDamage (dmg);
 		} else if (col.gameObject.tag == "Bullet") {
-			health -= Player.dmg;
 			if ((foe.foeID >= 8) && (foe.foeID <= 10)) {
 				Boss.LoseHealth (healthBarAmount, health);
 			}
 			if (health <= 0) {
-				Player.enemyKillCount += 1;
 				if ((foe.foeID >= 8) && (foe.foeID <= 10)) {
-					LevelManager.IncandCheckExp (50);
+					player.GetComponent<Player>().LevelManager (50);
 				} else {
-					LevelManager.IncandCheckExp (5);
+					player.GetComponent<Player>().LevelManager (5);
 				} 
 				if ((foe.foeID >= 5) && (foe.foeID <= 7)) {
 
@@ -95,8 +93,7 @@ public class Physical : MonoBehaviour {
 					//Spliter.SplitUp (id);
 
 				}
-				GenRandom.CreateRandomItem (gameObject.tag);
-				miniFoeHUD.SetActive (!mainHUDopen);
+				npc.CreateRandomItem (gameObject.tag);
 				foeHUD.SetActive (!mainHUDopen);
 				bossIsAlive = false;
 				Destroy (gameObject);
@@ -107,15 +104,12 @@ public class Physical : MonoBehaviour {
 
 		switch (hudCase) {
 		case 0:
-			miniFoeHUD.SetActive (mainHUDopen);
 			foeHUD.SetActive (!mainHUDopen);
 			break;
 		case 1:
-			miniFoeHUD.SetActive (!mainHUDopen);
 			foeHUD.SetActive (mainHUDopen);
 			break;
 		case 2:
-			miniFoeHUD.SetActive (!mainHUDopen);
 			foeHUD.SetActive (!mainHUDopen);
 			break;
 		}

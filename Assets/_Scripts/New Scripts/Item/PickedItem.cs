@@ -10,13 +10,15 @@ public class PickedItem : MonoBehaviour {
 	ItemData itemData;
 	AttackDatabase attData;
 	Item item;
-
+	UIScripts displays;
 	// Use this for initialization
 	void Start () {
 	
 		database = GameObject.FindGameObjectWithTag ("Database");
+		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
 		itemData = database.GetComponent<ItemData> ();
 		attData = database.GetComponent<AttackDatabase> ();
+
 		name = gameObject.name;
 	}
 	
@@ -37,7 +39,7 @@ public class PickedItem : MonoBehaviour {
 		} else {
 			item.Stock += 1;
 		}
-		HUD.DisplayUpdate ();
+		displays.SackUpdate ();
 		Destroy (this.gameObject);
 	}
 
@@ -90,7 +92,7 @@ public class PickedItem : MonoBehaviour {
 		Item oldItem = new Item ();
 
 		if (newAtt.attType == Attacks.AttackType.Regular) {
-			oldAtt = AttackManager.currRegAtt;
+			oldAtt = displays.currRegSkill;
 
 			if ((oldAtt.attID >= 0) && (oldAtt.attID <= 4)) {
 				oldItem = itemData.GetItemByName(attData.attacks [0].attName);
@@ -99,11 +101,11 @@ public class PickedItem : MonoBehaviour {
 			} else if ((oldAtt.attID >= 20) && (oldAtt.attID <= 24)) {
 				oldItem = itemData.GetItemByName(attData.attacks [20].attName);
 			}
-			AttackManager.currRegAtt = newAtt;
-			AttackManager.regSkillImage.GetComponent<Image>().sprite = AttackManager.currRegAtt.attIcon;
-			AttackManager.ChangeRegAtt (Points.attack);
+			displays.currRegSkill = newAtt;
+			displays.regSkill.sprite = displays.currRegSkill.attIcon;
+			displays.ChangeRegAtt (displays.attPoints);
 		} else {
-			oldAtt = AttackManager.currSpecAtt;
+			oldAtt = displays.currSpecSkill;
 
 			if ((oldAtt.attID >= 5) && (oldAtt.attID <= 9)) {
 				oldItem = itemData.GetItemByName(attData.attacks [5].attName);
@@ -112,9 +114,9 @@ public class PickedItem : MonoBehaviour {
 			} else if ((oldAtt.attID >= 25) && (oldAtt.attID <= 29)) {
 				oldItem = itemData.GetItemByName(attData.attacks [25].attName);
 			}
-			AttackManager.currSpecAtt = newAtt;
-			AttackManager.specSkillImage.GetComponent<Image>().sprite = AttackManager.currSpecAtt.attIcon;
-			AttackManager.ChangeSpecialAtt (Points.skill);
+			displays.currSpecSkill = newAtt;
+			displays.specSkill.sprite = displays.currSpecSkill.attIcon;
+			displays.ChangeSpecAtt (displays.skPoints);
 		}
 
 		DropItem(oldItem);
@@ -127,45 +129,7 @@ public class PickedItem : MonoBehaviour {
 		 *restore health starting from the left most. It will only work if your 
 		 *health isn't full [the right most Health Load isn't red]. Health will 
 		 *restore to gray 1/2 Health and red full health*/
-		if (Points.heart % 4 == 0) {
-			if (Player.healthLoadList [Player.hLoads - 1].GetComponent<Image> ().color != Color.red) {
-				for (int i = 0; i < Player.hLoads; i++) {
-					if (Player.healthLoadList [i].GetComponent<Image> ().color == Color.black) {
-						Player.healthLoadList [i].GetComponent<Image> ().color = Color.gray;
-						Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.gray;
-						i = Player.hLoads;
-					} else if (Player.healthLoadList [i].GetComponent<Image> ().color == Color.gray) {
-						Player.healthLoadList [i].GetComponent<Image> ().color = Color.red;
-						Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.red;
-						i = Player.hLoads;
-					}
-				}
-			} else {
-				DropItem (item);
-			}
 
-		} else {
-			/*If you haven't increased your health into a full health box [the Health 
-			 *Load is default gray for every 2 points into your heart stats] you will 
-			 *restore health starting from the left most. It will only work if your 
-			 *health isn't full [the right most Health Load isn't gray]. Health will 
-			 *restore to gray 1/2 Health and red full health*/
-			if (Player.healthLoadList [Player.hLoads - 1].GetComponent<Image> ().color != Color.gray) {
-				for (int i = 0; i < Player.hLoads; i++) {
-					if (Player.healthLoadList [i].GetComponent<Image> ().color == Color.black) {
-						Player.healthLoadList [i].GetComponent<Image> ().color = Color.gray;
-						Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.gray;
-						i = Player.hLoads;
-					} else if (Player.healthLoadList [i].GetComponent<Image> ().color == Color.gray) {
-						Player.healthLoadList [i].GetComponent<Image> ().color = Color.red;
-						Player.miniHealthLoadList [i].GetComponent<Image> ().color = Color.red;
-						i = Player.hLoads;
-					}
-				}
-			} else {
-				DropItem (item);
-			}
-		}
 	}
 
 	void DropItem (Item drop) {
@@ -183,18 +147,7 @@ public class PickedItem : MonoBehaviour {
 
 	void QuickBuff (Item item) {
 		
-		if (item.ID == 3) {
-			Player.speed += item.Change;
-		} else if (item.ID == 4) {
-			Player.def += item.Change;
-		} else if (item.ID == 5) {
-			Player.dmg += item.Change;
-		} else {
-			Player.mDmg += item.Change;
-		}
-		Player.buff = item;
-		Player.bTimer = Player.buff.Duration;
-		Player.saveBTimer = Player.bTimer;
+
 	}
 
 	void OnCollisionEnter2D (Collision2D col) {
@@ -205,21 +158,6 @@ public class PickedItem : MonoBehaviour {
 	}
 
 	void PermItems (Item item) {
-
-		HUD.AddPermIcon (item);
-		if(item.ID == 18) {
-			Player.enemyKillCount = 0;
-			item.openIt = true;
-		} else if (item.ID == 19) {
-			Player.adren += item.Change;
-		} else if (item.ID == 20) {
-			Player.pMaker += item.Change;
-		} else if (item.ID == 21) {
-			Player.defib += item.Change;
-		} else if (item.ID == 22) {
-			Player.aVera += item.Change;
-		}
-		Player.UpdateStatus (Points.attack, Points.heart, Points.skill, Points.speed);
-			
+		displays.AddPermIcon (item);
 	}
 }

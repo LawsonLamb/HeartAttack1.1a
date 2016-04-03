@@ -4,13 +4,14 @@ using System.Collections;
 
 public class GenRandom : MonoBehaviour {
 
-	public static GameObject database;
-	public static ItemData itemData;
-
+	GameObject database;
+	ItemData itemData;
+	GameObject displays;
 	// Use this for initialization
 	void Start () {
 
 		database = GameObject.FindGameObjectWithTag ("Database");
+		displays = GameObject.FindGameObjectWithTag ("Background");
 		itemData = database.GetComponent<ItemData> ();
 	}
 	
@@ -19,7 +20,7 @@ public class GenRandom : MonoBehaviour {
 
 	}
 
-	public static  void CreateShop (string name) {
+	public void CreateShop (string name) {
 
 		for (int i = 0; i < 3; i++) {
 			int j = itemData.item[Random.Range(0,23)].ID;
@@ -28,7 +29,7 @@ public class GenRandom : MonoBehaviour {
 			
 	}
 
-	public static void CreateRandomItem (string name) {
+	public void CreateRandomItem (string name) {
 
 		for (int i = 0; i < 1; i++) {
 			int j = itemData.item[Random.Range(0,23)].ID;
@@ -36,13 +37,13 @@ public class GenRandom : MonoBehaviour {
 		}
 	}
 
-	public static void LoveBoothItems (string name) {
+	public void LoveBoothItems (string name) {
 
 		for (int i = 0; i < 1; i++) {
 			int j = itemData.item[Random.Range(0,10)].ID;
 			itemData.item [j].CreateGameObject (name, i);
 		}
 		itemData.item [7].Stock -= 1;
-		HUD.DisplayUpdate ();
+		displays.GetComponent<UIScripts>().SackUpdate ();
 	}
 }

@@ -75,4 +75,14 @@ public class AttackDatabase : MonoBehaviour {
 		}
 		return null;
 	}
+
+	public Attacks GetAttByID(int id){
+
+		//goes through the attacks and finds the one coresponding to the name given.
+		for (int i =0; i < attacks.Count; i++) {
+			if(attacks[i].attID == id)
+				return attacks[i];
+		}
+		return null;
+	}
 }

@@ -12,6 +12,7 @@ TagManager:
   - FxTemporaire
   - Bullet
   - Loading Scene
+  - Background
   layers:
   - Default
   - TransparentFX

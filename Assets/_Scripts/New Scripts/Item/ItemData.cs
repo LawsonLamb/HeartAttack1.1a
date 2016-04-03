@@ -55,7 +55,7 @@ public class ItemData : MonoBehaviour {
 		
 		for (int i = 0; i < item.Count; i++) {
 			if (item[i].ID == i) {
-				item[i].Icon = Resources.Load <Sprite> ("Icons/Item/Item_" + i); 
+				item[i].Icon = Resources.Load <Sprite> ("Icons/Items/Item_" + i); 
 			}
 		}
 	}

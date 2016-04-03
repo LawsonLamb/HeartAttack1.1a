@@ -6,10 +6,14 @@ public class WaterBalloons : MonoBehaviour {
 
 	GameObject database;
 	ItemData itemData;
+	GameObject displays;
+	GameObject player;
 	// Use this for initialization
 	void Start () {
 
 		database = GameObject.FindGameObjectWithTag ("Database");
+		player = GameObject.FindGameObjectWithTag ("Player");
+		displays = GameObject.FindGameObjectWithTag ("Background");
 		itemData = database.GetComponent<ItemData> ();
 	}
 	
@@ -32,7 +36,7 @@ public class WaterBalloons : MonoBehaviour {
 		if (item.Duration >= 0) {
 		} else {
 			//If player is in radius
-			HUD.TakeDamage (1f);
+			displays.GetComponent<UIScripts>().TakeDamage (25f);
 			item.Duration = 5.0f;
 			item.openIt = false;
 			Destroy (this.gameObject);

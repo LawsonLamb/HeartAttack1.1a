@@ -8,15 +8,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494864}
-  - 114: {fileID: 11442786}
-  - 114: {fileID: 11412200}
-  - 114: {fileID: 11474180}
   - 50: {fileID: 5001332}
   - 58: {fileID: 5859068}
+  - 114: {fileID: 11427672}
   m_Layer: 0
   m_Name: Background_Files
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Background
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -63,7 +61,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &11412200
+--- !u!114 &11427672
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -71,41 +69,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 171252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25934cb35011d42b5abdb1043e339125, type: 3}
+  m_Script: {fileID: 11500000, guid: 73494b174a86343f8bf056aff5a60eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinDisplay: {fileID: 0}
-  miniCoinDisplay: {fileID: 0}
-  wbDisplay: {fileID: 0}
-  miniWBDisplay: {fileID: 0}
-  keyDisplay: {fileID: 0}
-  hkeyDisplay: {fileID: 0}
-  mainHUD: {fileID: 0}
-  miniHUD: {fileID: 0}
---- !u!114 &11442786
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aadcd00300c164e45a35a433a33fd75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  sack: {fileID: 0}
+  coinText: {fileID: 0}
+  coinIcon: {fileID: 0}
+  waterballonText: {fileID: 0}
+  waterballonIcon: {fileID: 0}
+  keyText: {fileID: 0}
+  keyIcon: {fileID: 0}
+  heartKeyText: {fileID: 0}
+  heartKeyIcon: {fileID: 0}
+  healthBar: {fileID: 0}
+  magicBar: {fileID: 0}
+  specialBar: {fileID: 0}
+  statText: {fileID: 0}
+  statusWin: {fileID: 0}
+  pointText: {fileID: 0}
+  attackStatusArea: {fileID: 0}
+  attPoints: 0
+  heartStatusArea: {fileID: 0}
+  hpPoints: 0
+  skillStatusArea: {fileID: 0}
+  skPoints: 0
+  speedStatusArea: {fileID: 0}
+  spPoints: 0
+  permIcon: {fileID: 11418716, guid: 564498493987a4b77931c0390312fea0, type: 2}
+  transparent: {fileID: 21300000, guid: ca784fab6ab9d41d1a75e866310fa741, type: 3}
   regSkill: {fileID: 0}
   specSkill: {fileID: 0}
---- !u!114 &11474180
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322ddc80b3bd040798b72c53b4c06480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

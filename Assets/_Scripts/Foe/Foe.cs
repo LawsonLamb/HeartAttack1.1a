@@ -18,6 +18,7 @@ public class Foe : MonoBehaviour
 	Foes foe;
     public GameObject player;
     public GameObject damageEffect;
+
     // Use this for initialization
     void Start()
     {
@@ -78,11 +79,10 @@ public class Foe : MonoBehaviour
     void Death()
     {
 		//This is for making all the changes needed to happen when the enemy is destroyed.
-		Player.enemyKillCount += 1;
 		if ((id >= 8) && (id <= 10)) {
-			LevelManager.IncandCheckExp (50);
+			player.GetComponent<Player>().LevelManager (50);
 		} else {
-			LevelManager.IncandCheckExp (5);
+			player.GetComponent<Player>().LevelManager (5);
 		} 
 		if ((id >= 5) && (id <= 7)) {
 			//Spliter.SplitUp (id);
