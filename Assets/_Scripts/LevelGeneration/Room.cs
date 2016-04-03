@@ -13,7 +13,7 @@ public enum RoomType
 
 public class Room : MonoBehaviour {
     public RoomType type;
-//    public List<Region> Regions;
+    public List<Region> Regions;
     GameObject regionsGO;
 	void Start () {
         findRegions();
