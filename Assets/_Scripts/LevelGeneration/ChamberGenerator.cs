@@ -2,15 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-<<<<<<< HEAD
-public class ChamberGenerator : MonoBehaviour {
-	/*public GameObject RoomPrefab;
-=======
-public class Level
-{
->>>>>>> origin/master
-
-}
 
 public class ChamberGenerator : MonoBehaviour
 {
@@ -363,9 +354,7 @@ public class ChamberGenerator : MonoBehaviour
         }
         else {
 
-<<<<<<< HEAD
-*/
-=======
+
             SetRegionType(rooms[i], RegionType.Wall, 2);
         }
     }
@@ -394,5 +383,5 @@ public class ChamberGenerator : MonoBehaviour
         }
 
     }
->>>>>>> origin/master
+
 }

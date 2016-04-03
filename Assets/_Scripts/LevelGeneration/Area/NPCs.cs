@@ -25,10 +25,10 @@ public class NPCs : MonoBehaviour {
 		print ("I will let you save your game");
 	}
 	public void StatusGuy () {
-		Player.On = !Player.On;
+//		Player.On = !Player.On;
 	}
 	public void LoveBooth () {
-		GenRandom.LoveBoothItems (name);
+//		GenRandom.LoveBoothItems (name);
 		areaData.enviornment [12].timer -= 1.0f;
 		if (areaData.enviornment [12].timer <= 0) {
 			Destroy (gameObject);
@@ -51,9 +51,9 @@ public class NPCs : MonoBehaviour {
 
 	void OnTriggerExit2D (Collider2D col) {
 		if (col.gameObject.tag == "Player") {
-			if (Player.On == true) {
-				Player.On = !Player.On;
-			}
+		//	if (Player.On == true) {
+		//		Player.On = !Player.On;
+		//	}
 		}
 	}
 

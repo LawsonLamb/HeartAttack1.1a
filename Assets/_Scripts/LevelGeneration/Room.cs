@@ -13,7 +13,7 @@ public enum RoomType
 
 public class Room : MonoBehaviour {
     public RoomType type;
-//    public List<Region> Regions;
+   public List<Region> Regions;
     GameObject regionsGO;
 	void Start () {
         findRegions();
@@ -30,12 +30,12 @@ public class Room : MonoBehaviour {
     {
         regionsGO = this.transform.FindChild("Regions").gameObject;
        
-       // Regions = new List<Region>();
+       Regions = new List<Region>();
 
         for( int i=0; i < transform.childCount; i++)
         {
 
-           // Regions.Add(regionsGO.transform.GetChild(i).GetComponent<Region>());
+           Regions.Add(regionsGO.transform.GetChild(i).GetComponent<Region>());
         }
 
        
