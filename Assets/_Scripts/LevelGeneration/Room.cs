@@ -6,8 +6,8 @@ public enum RoomType
 {
     Empty,
     Base,
-    Start,
-    End,
+    SPAWN,
+    BOSS,
 
 }
 
@@ -32,7 +32,7 @@ public class Room : MonoBehaviour {
        
        // Regions = new List<Region>();
 
-        for( int i=0; i <= transform.childCount; i++)
+        for( int i=0; i < transform.childCount; i++)
         {
 
            // Regions.Add(regionsGO.transform.GetChild(i).GetComponent<Region>());
