@@ -15,12 +15,15 @@ public class TileMap : MonoBehaviour {
 	public GameObject[,] _map;
 	public float texWidth;
 	public  float texHeight;
-
+	int halfWidth;
+	int halfHeight;
 	// Use this for initialization
 	void Start () {
-     // Floor =  this.transform.FindChild("Floor");
-		//Load();
-	//	FillWalls();
+     Floor =  this.transform.FindChild("Floor");
+		Load();
+		setWall ();
+		FillFloor ();
+		FillWalls();
  
       
     }
@@ -34,10 +37,15 @@ public class TileMap : MonoBehaviour {
 	#region Build Map
 	[ContextMenu("Load")]
 	void Load(){
+		
+		 halfWidth = GetRegion (mapWidth);
+		 halfHeight = GetRegion (mapHeight);
+	
         DestoryChildren();
         CreateGameObject("Walls");
         CreateGameObject("Floor");
-
+		//Floor =  this.transform.FindChild("Floor");
+	
         
         _map = new GameObject[mapWidth,mapHeight];
 		for(int x=0;x<mapWidth;x++){
@@ -52,7 +60,7 @@ public class TileMap : MonoBehaviour {
 
 		}
 	}
-  
+		//FillWalls ();
 	}
     [ContextMenu("Fill Floor")]
     void FillFloor()
@@ -75,27 +83,17 @@ public class TileMap : MonoBehaviour {
     }
     [ContextMenu("Fill Wall")]
     void FillWalls()
-    { /*
-        for(int row = 0; row < 2;row++)
-        {
-            for(int col = 0; col < mapHeight; col++)
-            {
-                 print(row + ","+ col);
-                _map[row, col].GetComponent<SpriteRenderer>().sprite = tileSet.Floors[1];
-            }
-        }
-        */
+    { 
         
-        setSprite(_map[0, 0], tileSet.Walls[0],false,true);
+        setSprite(_map[0, 0], tileSet.Walls[0], false, true);
         setSprite(_map[1, 0], tileSet.Walls[1], false, true);
         setSprite(_map[0, 1], tileSet.Walls[6], false, true);
-		setSprite(_map[1,1],tileSet.Walls[7],false,true);
-
+		setSprite(_map[1, 1], tileSet.Walls[7], false, true);
 
         for (int row = 2; row < mapWidth - 2; row++)
 		{	for(int col =0; col < 2; col++){
 
-				if(row == 6|| row == 7 || row == 8)
+				if(row == halfWidth-1 || row== halfWidth || row == halfWidth+1)
 				{
 					//Doors.Add(_map[row, col]);
 				}
@@ -111,41 +109,36 @@ public class TileMap : MonoBehaviour {
 					else if(col==1){
 
 
-						//setSprite(_map[row, col], tileSet.Walls[8], false, true);
+						setSprite(_map[row, col], tileSet.Walls[8], false, true);
 					}
 				}
 
 			}
           
         }
-
-
-
-
-
-        setSprite(_map[0, 8], tileSet.Walls[0], false, false);
-        setSprite(_map[1, 8], tileSet.Walls[1], false, false);
-	//	setSprite(_map[0, 7], tileSet.Walls[6], false, false);
-	//	setSprite(_map[1,7],tileSet.Walls[7],false,false);
+			
+		setSprite(_map[0, mapHeight-1], tileSet.Walls[0], false, false);
+		setSprite(_map[1, mapHeight-1], tileSet.Walls[1], false, false);
+		setSprite(_map[0, mapHeight-2], tileSet.Walls[6], false, false);
+		setSprite(_map[1, mapHeight-2], tileSet.Walls[7], false, false);
 
         for (int row = 2; row < mapWidth - 2; row++)
 		{
-			for(int col =7; col < 9; col++){
-				if(row == 6|| row == 7 || row == 8)
+			for(int col =mapHeight-2; col <= mapHeight; col++){
+				if(row == halfWidth-1 || row== halfWidth || row == halfWidth+1)
 				{
 
 				//	Doors.Add(_map[row, col]);
 
 				}
-
 				else{
-					if(col ==7){
-					//	setSprite(_map[row, 7], tileSet.Walls[8], true, false);
+					if(col == mapHeight-2){
+						setSprite(_map[row, col], tileSet.Walls[8], true, false);
 					}
 
-					else if(col ==8){
+					else if(col ==mapHeight-1){
 
-						setSprite(_map[row, 8], tileSet.Walls[2], false, false);
+						setSprite(_map[row, col], tileSet.Walls[2], false, false);
 					}
 
 				}
@@ -159,58 +152,60 @@ public class TileMap : MonoBehaviour {
 	
 
 
-        setSprite(_map[13, 0], tileSet.Walls[1], true, true);
-        setSprite(_map[14, 0], tileSet.Walls[0], true, true);
-		//setSprite(_map[14, 1], tileSet.Walls[6], true, true);
-	//	setSprite(_map[13,1],tileSet.Walls[7],true,true);
+        setSprite(_map[mapWidth-2, 0], tileSet.Walls[1], true, true);
+        setSprite(_map[mapWidth-1, 0], tileSet.Walls[0], true, true);
+		setSprite(_map[mapWidth-1, 1], tileSet.Walls[6], true, true);
+		setSprite(_map[mapWidth-2, 1], tileSet.Walls[7], true, true);
 
         for (int col = 2; col < mapHeight-2; col++){ 
+			for(int row =0; row<2;row++){
 
-							for(int row =0; row<2;row++){
-
-								if(col == 3 || col ==4 || col ==5){
+				if(col == halfHeight-1 || col ==halfHeight || col ==halfHeight+1){
 								//Doors.Add(_map[row, col]);
-								}
-								else{
-								if(row ==0){
+								
+				
+				}
+				else{
+				if(row ==0){
 
-							//		setSprite(_map[0, col], tileSet.Walls[5], false, false);
-								}
-								else if(row ==1){
-							//		setSprite(_map[1, col], tileSet.Walls[9], false, false);
+						setSprite(_map[row, col], tileSet.Walls[5], false, false);
+					}
+					else if(row ==1){
+						setSprite(_map[row, col], tileSet.Walls[9], false, false);
 
 								}
 							}
-							}
+					}
          
         }
 
 
-		
 
 
 
-        setSprite(_map[13, 8], tileSet.Walls[1], true, false);
-        setSprite(_map[14, 8], tileSet.Walls[0], true, false);
-		//setSprite(_map[14, 7], tileSet.Walls[6], true, false);
-		//setSprite(_map[13,7],tileSet.Walls[7],true,false);
+
+		setSprite(_map[mapWidth-2, mapHeight-1], tileSet.Walls[1], true, false);
+		setSprite(_map[mapWidth-1, mapHeight-1], tileSet.Walls[0], true, false);
+		setSprite(_map[mapWidth-1, mapHeight-2], tileSet.Walls[6], true, false);
+		setSprite(_map[mapWidth-2, mapHeight-2], tileSet.Walls[7], true, false);
+
 
         for (int col = 2; col < mapHeight - 2; col++)
 		{	
 
-			for(int row =13; row<mapWidth;row++){
+			for(int row =mapWidth-2; row<mapWidth;row++){
 
-				if(col == 3 || col ==4 || col ==5){
+				if(col == halfHeight-1 || col ==halfHeight || col ==halfHeight+1){
 					//Doors.Add(_map[row, col]);
 				}
 
 				else{
-					if(row ==14){
-					//	setSprite(_map[14, col], tileSet.Walls[5], true, false);
+					if(row ==mapWidth-1){
+						setSprite(_map[row, col], tileSet.Walls[5], true, false);
 					}
 
 					else{
-				//		setSprite(_map[13, col], tileSet.Walls[9], true, true);
+					setSprite(_map[row, col], tileSet.Walls[9], true, true);
 
 					}
 
@@ -225,34 +220,19 @@ public class TileMap : MonoBehaviour {
 
     }
 
-	[ContextMenu("Fill Door")]
-	void FillDoors(){
-
-		fill_top();
-
-
-
-
-	}
-	void fill_top(){
-		setSprite(_map[6,8],tileSet.Doors[0],false,false);
-		setSprite(_map[7,8],tileSet.Doors[1],false,false);
-		setSprite(_map[8,8],tileSet.Doors[2],false,false);
-
-	}
 
 
     #endregion
     [ContextMenu("set Wall")]
     void setWall()
-    {
+	{ 
         Wall = transform.FindChild("Walls");
         for (int row = 0; row < mapWidth ; row++)
         {
             for (int col = 0; col < 2; col++)
             {
-
-                if (row == 6 || row == 7 || row == 8)
+				
+				if (row == halfWidth-1 || row== halfWidth || row == halfWidth+1)
                 {
 
                 }
@@ -272,10 +252,10 @@ public class TileMap : MonoBehaviour {
         {
             for (int col = 7; col < 9; col++)
             {
-                if (row == 6 || row == 7 || row == 8)
-                {
+				if (row == halfWidth-1 || row== halfWidth || row == halfWidth+1)
+				{
 
-                }
+				}
                 else
                 {
                     _map[row, col].transform.SetParent(Wall);
@@ -293,6 +273,7 @@ public class TileMap : MonoBehaviour {
 
                 if (col == 3 || col == 4 || col == 5)
                 {
+					
                 }
 
                 else
@@ -312,6 +293,7 @@ public class TileMap : MonoBehaviour {
             {
                 if (col == 3 || col == 4 || col == 5)
                 {
+					
                 }
 
                 else
@@ -350,6 +332,11 @@ public class TileMap : MonoBehaviour {
         go.transform.SetParent(this.transform);
 
     }
+
+	int GetRegion(int Size){
+
+		return Size / 2;
+	}
 
 
 }
