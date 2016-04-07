@@ -56,7 +56,7 @@ public class TileMap : MonoBehaviour {
 		for(int x=0;x<mapWidth;x++){
 			for(int y=0; y<mapHeight;y++){
 				_map[x,y]= Instantiate(TileAsset,new Vector3(x*texWidth,y*texHeight,0.0f),Quaternion.identity)  as GameObject;
-                _map[x, y].name = "Tile" + x + "," + y;
+                _map[x, y].name = "Tile " + x + " , " + y;
                 _map[x,y].transform.SetParent(this.transform);
 				
 
@@ -77,7 +77,7 @@ public class TileMap : MonoBehaviour {
             for(int col =2; col<mapHeight - 2; col++)
             {
                // print(row + ","+ col);
-                _map[row, col].GetComponent<SpriteRenderer>().sprite = tileSet.Floors[1];
+                _map[row, col].GetComponent<SpriteRenderer>().sprite = tileSet.Floors[0];
                 _map[row, col].transform.SetParent(Floor);
             }
 
@@ -264,7 +264,10 @@ public class TileMap : MonoBehaviour {
 
                     _map[row, col].transform.SetParent(Wall);
 
+
                 }
+
+				_map [row, col].GetComponent<Tile> ().isTrigger = false;
 
             }
 
@@ -283,6 +286,7 @@ public class TileMap : MonoBehaviour {
                 {
                     _map[row, col].transform.SetParent(Wall);
                 }
+				_map [row, col].GetComponent<Tile> ().isTrigger = false;
 
             }
         }
@@ -303,8 +307,9 @@ public class TileMap : MonoBehaviour {
                 {
                     _map[row, col].transform.SetParent(Wall);
                 }
-
+				_map [row, col].GetComponent<Tile> ().isTrigger = false;
             }
+
         }
 
 
@@ -323,6 +328,7 @@ public class TileMap : MonoBehaviour {
                 {
                     _map[row, col].transform.SetParent(Wall);
                 }
+				_map [row, col].GetComponent<Tile> ().isTrigger = false;
             }
         }
 

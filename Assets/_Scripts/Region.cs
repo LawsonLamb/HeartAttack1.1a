@@ -74,8 +74,8 @@ public class Region : MonoBehaviour {
             direction = Direction.East;
             tiles = new Transform[3, 2];
             setTiles();
-            //  setRegionEW(flip);
-            setWallEW(true, true);
+             setRegionEW(flip);
+           // setWallEW(true, true);
         }
 
         else if (gameObject.name.Equals("West"))
@@ -85,8 +85,8 @@ public class Region : MonoBehaviour {
             flip[1] = true;
             direction = Direction.West;
                setTiles();
-            setWallEW(false, false);
-            //setRegionEW(flip);
+           // setWallEW(false, false);
+            setRegionEW(flip);
         }
 
 
@@ -274,8 +274,11 @@ public class Region : MonoBehaviour {
 
        int i = 9;
        int j = 6;
+		string layer = "default";
+		bool foreGround = true;
         if (flip[0] && flip[1])
         {
+			foreGround = false;
             i = 6;
             j = 9;
         }
@@ -288,13 +291,24 @@ public class Region : MonoBehaviour {
             {
                 if (col == 0)
                 {
+					if (row == 1) {
+						tiles [row, col].GetComponent<Tile> ().isTrigger = true;
+					}
 
+					if (foreGround) {
+						tiles [row, col].GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
+					}
                     setSprite(tiles[row, col], tileset.Doors[j], flip[0], flip[1]);
                     j++;
                 }
                 else if (col == 1)
                 {
-
+					if (row == 1) {
+						tiles [row, col].GetComponent<Tile> ().isTrigger = true;
+					}
+					if (!foreGround) {
+						tiles [row, col].GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
+					}
                     setSprite(tiles[row, col], tileset.Doors[i], flip[0], flip[1]);
 
                     i++;
