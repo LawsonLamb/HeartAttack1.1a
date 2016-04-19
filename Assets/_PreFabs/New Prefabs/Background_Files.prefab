@@ -11,6 +11,8 @@ GameObject:
   - 50: {fileID: 5001332}
   - 58: {fileID: 5859068}
   - 114: {fileID: 11427672}
+  - 114: {fileID: 11498254}
+  - 114: {fileID: 11428444}
   m_Layer: 0
   m_Name: Background_Files
   m_TagString: Background
@@ -99,6 +101,35 @@ MonoBehaviour:
   transparent: {fileID: 21300000, guid: ca784fab6ab9d41d1a75e866310fa741, type: 3}
   regSkill: {fileID: 0}
   specSkill: {fileID: 0}
+  playerPos: {fileID: 0}
+  playerHealth: {fileID: 0}
+  canvasRect: {fileID: 0}
+  bossUIName: {fileID: 0}
+  cupid: {fileID: 0}
+--- !u!114 &11428444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064dd685e08944ec89c3bfb673131360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11498254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d0f8e07c1ab487090d7f53ba3861bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasActive: 0
+  coolFactor: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

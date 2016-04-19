@@ -5,55 +5,71 @@ using System.Collections.Generic;
 
 public class Boss : MonoBehaviour {
 
-	/*Needs to create a HUD to display the current Health of the enemy*/
-	public static List<GameObject> mainhealthBar = new List<GameObject>();
-	public static float fullHealth;
+	Foes thisfoe;
+	FoeDatabase foeData;
+	UIScripts display;
+	Physical attributes;
+	public float health;
+	public float maxHealth;
+	bool bossIsActive;
+	List<Image> barList = new List<Image>();
+	public int barCount;
+	public float barHealth;
+	public Image initBar;
+	public Image barArea;
+	Image currBar;
 	// Use this for initialization
 	void Start () {
-		
+
+		display = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
+		foeData = GameObject.FindGameObjectWithTag ("Database").GetComponent<FoeDatabase> ();
+		attributes = gameObject.GetComponent<Physical> ();
+		bossIsActive = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
 
-	public static void SetHUD (GameObject mainHUD, GameObject mainBar, float amount, Foes foe ) {
-		mainHUD.transform.GetChild(0).GetChild(0).GetComponent<Image> ().sprite = foe.foeImage;
-		for (int i = 0; i < amount; i++) {
+		if (bossIsActive) {
+			thisfoe = foeData.GetFoeByName (gameObject.name);
+			attributes.SetFoeStats (thisfoe);
+
+			display.bossUIName.text = attributes.name;
+			health = attributes.health;
+			maxHealth = health;
+
+			barCount = (int)health / 100;
+			barHealth = health / barCount;
+			for (int i = 0; i < barCount; i++) {
+				Image newBar = Instantiate (initBar);
+				newBar.name = "Boss Health_Bar" + i;
+				newBar.transform.SetParent (barArea.transform);
+				newBar.transform.localScale = new Vector3 (1, 1, 1);
+				newBar.transform.localPosition = new Vector3 (-245, 0, 0);
+				if (i == 0) {
+					newBar.color = Color.red;
+				} else if (i == 1) {
+					newBar.color = Color.yellow;
+				} else if (i == 2) {
+					newBar.color = Color.green;
+				} else if (i == 3) {
+					newBar.color = Color.blue;
+				} else if (i == 4) {
+					newBar.color = Color.gray;
+				} else if (i == 5) {
+					newBar.color = Color.black;
+				}
+				barList.Add (newBar);
+			}
+			bossIsActive = false;
+		}
 			
-			GameObject newBar = Instantiate (mainBar);
-			newBar.name = mainBar.name + "_" +(0 + i);
-			newBar.transform.SetParent (mainHUD.transform.GetChild (1).transform);
-			newBar.transform.localPosition = new Vector3 (-257.5f, 0, 0);
-			newBar.transform.localScale = new Vector3 (1, 1, 1);
-
-			if (i == 0) {
-				newBar.GetComponent<Image> ().color = Color.red;
-			} else if (i == 1) {
-				newBar.GetComponent<Image> ().color = Color.yellow;
-			} else if (i == 2) {
-				newBar.GetComponent<Image> ().color = Color.green;
-			} else if (i == 3) {
-				newBar.GetComponent<Image> ().color = Color.cyan;
-			} else if (i == 4) {
-				newBar.GetComponent<Image> ().color = Color.blue;
-			} else {
-				newBar.GetComponent<Image> ().color = Color.magenta;
+		if (Input.GetKeyDown (KeyCode.P)) {
+			if (barList [0] != null) {
+				currBar = barList [(barCount - 1)];
+				display.BossTakeDamage (5, currBar);
 			}
-			mainhealthBar.Add (newBar);
 		}
 	}
 
-	public static void LoseHealth (float amount, float health) {
-
-		mainhealthBar[(int)amount - 1].transform.localScale = new Vector3 ((health/100) - (amount - 1), 1, 1);
-		if (mainhealthBar[(int)amount - 1].transform.localScale.x <= 0) {
-			Physical.healthBarAmount -= 1;
-			if(((int)amount - 2) >= 0) {
-				mainhealthBar[(int)amount - 2].transform.localScale = new Vector3 ((health/100) - (amount - 2), 1, 1);
-			}
-			Destroy (mainhealthBar[(int)amount - 1]);
-		}
-	}
 }

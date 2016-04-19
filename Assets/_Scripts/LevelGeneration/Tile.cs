@@ -80,9 +80,9 @@ public class Tile : MonoBehaviour {
     public bool isTrigger
     {
 
-        get { return collider.isTrigger; }
+		get { return GetComponent<BoxCollider2D>().isTrigger; }
 
-        set { collider.isTrigger = value; }
+		set { GetComponent<BoxCollider2D>().isTrigger = value; }
     }
 
 

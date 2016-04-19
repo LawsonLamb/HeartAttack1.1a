@@ -21,7 +21,7 @@ MonoBehaviour:
     Duration: 0
     Change: 0
     openIt: 0
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: ed478881dd74740b9b77a1bd78dfcce2, type: 3}
     Type: 1
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
@@ -36,14 +36,14 @@ MonoBehaviour:
     Type: 1
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
-    Name: Blood
+    Name: Bandages
     ID: 2
     Price: 10
     Stock: 0
     Duration: 0
-    Change: 0
+    Change: 10
     openIt: 0
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 1541d187fbef94b3786d0ebff0079f17, type: 3}
     Type: 0
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
@@ -88,7 +88,7 @@ MonoBehaviour:
     Change: 10
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Coin
@@ -99,17 +99,17 @@ MonoBehaviour:
     Change: 0
     openIt: 0
     Icon: {fileID: 0}
-    Type: 3
+    Type: 0
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
-    Name: Waterballon
+    Name: Waterballoon
     ID: 8
     Price: 15
     Stock: 1
     Duration: 10
     Change: 50
     openIt: 0
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 749c786d1c9ca47dda145e2c84c23eee, type: 3}
     Type: 0
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
     Duration: 0
     Change: 0
     openIt: 0
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300032, guid: b18d5ab41447843ab9c9e32c65f81ab4, type: 3}
     Type: 0
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
     Duration: 0
     Change: 0
     openIt: 0
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300042, guid: b18d5ab41447843ab9c9e32c65f81ab4, type: 3}
     Type: 0
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
@@ -175,7 +175,7 @@ MonoBehaviour:
     Duration: 0
     Change: 0
     openIt: 0
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300044, guid: b18d5ab41447843ab9c9e32c65f81ab4, type: 3}
     Type: 0
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
@@ -206,7 +206,7 @@ MonoBehaviour:
     Price: 50
     Stock: 0
     Duration: 0
-    Change: 0
+    Change: 10
     openIt: 0
     Icon: {fileID: 0}
     Type: 0

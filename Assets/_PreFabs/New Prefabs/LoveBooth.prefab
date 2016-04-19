@@ -9,13 +9,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 415090}
   - 212: {fileID: 21277018}
-  - 114: {fileID: 11473760}
   - 58: {fileID: 5890430}
   - 50: {fileID: 5095738}
-  - 114: {fileID: 11437946}
+  - 114: {fileID: 11408378}
+  - 114: {fileID: 11474904}
   m_Layer: 0
   m_Name: LoveBooth
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &11437946
+--- !u!114 &11408378
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -71,10 +71,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 120278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322ddc80b3bd040798b72c53b4c06480, type: 3}
+  m_Script: {fileID: 11500000, guid: 3782464d543b045cc8346972cc297e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11473760
+  health: 0
+  name: 
+  id: 0
+--- !u!114 &11474904
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -82,9 +85,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 120278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca7a6ad9bb8544689071abc70b86a94, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d79ee0fc979f46769fe240f0ad6b272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  barCount: 0
+  barHealth: 0
+  initBar: {fileID: 11443048, guid: 870c5527f89124dee9862b6a52204b32, type: 2}
+  barArea: {fileID: 0}
 --- !u!212 &21277018
 SpriteRenderer:
   m_ObjectHideFlags: 1

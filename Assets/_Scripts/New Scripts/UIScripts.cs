@@ -65,11 +65,24 @@ public class UIScripts : MonoBehaviour {
 	public Attacks currSpecSkill;
 
 	Item make;
+
+	public GameObject playerPos;
+	public RectTransform playerHealth;
+	public RectTransform canvasRect;
+	Vector3 viewportPoint;
+	Vector3 healthBarPos;
+
+	public Text bossUIName;
+	Boss foeBoss;
+
+	public GameObject cupid; 
 	// Use this for initialization
 	void Start () {
 	
 		database = GameObject.FindGameObjectWithTag ("Database");
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		foeBoss = GameObject.FindGameObjectWithTag ("Boss").GetComponent<Boss> ();
+
 		attData = database.GetComponent<AttackDatabase> ();
 		itemData = database.GetComponent<ItemData> ();
 
@@ -99,24 +112,30 @@ public class UIScripts : MonoBehaviour {
 		itemData.item [12].openIt = true;
 		itemData.item [15].openIt = true;
 
-		make = itemData.item [18];
-		make.CreateGameObject ("blah", 1);
-		make = itemData.item [21];
+		make = itemData.item [17];
 		make.CreateGameObject ("blah", 1);
 
+		viewportPoint = Camera.main.WorldToViewportPoint(playerPos.transform.position);
+		healthBarPos = new Vector2 (
+			((viewportPoint.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+			((viewportPoint.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
+		playerHealth.anchoredPosition = healthBarPos;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+		print (player.coolDown);
 		if (Input.GetKeyDown (KeyCode.T)) {
 			sackactivity = !sackactivity;
 			sack.SetActive (sackactivity);
 		}
 
 		//Just a display so I can check status stuff.
-		//statText.text = "Your Current Stats are: " + "\n M.Dmg: " + mDmg  + "\n Dmg: " + dmg
-		//	+ "\n Defense: " + def  + "\n Speed: " + speed;
+		statText.text = "Your Current Stats are: " + "\n M.Dmg: " + player.mDmg  + "\n Dmg: " + player.dmg
+			+ "\n Defense: " + player.def  + "\n Speed: " + player.speed + "\n Lv: " + player.currlv 
+			+ "\n Exp: " + player.currExp;
+		
 		if (statusWin.activeSelf == true) {
 			pointText.text = player.points + "/30";
 		}
@@ -141,7 +160,17 @@ public class UIScripts : MonoBehaviour {
 			}
 		}
 
+		UpdateHealthBarPosition ();
 
+	}
+
+	void UpdateHealthBarPosition() {
+		Vector3 barPos = new Vector3 (playerPos.transform.position.x, playerPos.transform.position.y + 2);
+		viewportPoint = Camera.main.WorldToViewportPoint(barPos);
+		healthBarPos = new Vector2 (
+			((viewportPoint.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+			((viewportPoint.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
+		playerHealth.anchoredPosition = healthBarPos;
 	}
 
 	public void SackUpdate(){
@@ -170,16 +199,18 @@ public class UIScripts : MonoBehaviour {
 		if (player.health > 0) {
 			player.health -= dmg;
 			float displayHealth = player.health / player.maxHealth;
-			healthBar.transform.localScale = new Vector3 (1, displayHealth, 1);
+			healthBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
 		} else {
 			print ("You Have Died");
 		}
 	}
 
 	public void RestoreHealth(float heal) {
-		player.health += heal;
-		float displayHealth = player.health / player.maxHealth;
-		healthBar.transform.localScale = new Vector3 (1, displayHealth, 1);
+		if (player.health < player.maxHealth) {
+			player.health += heal;
+			float displayHealth = player.health / player.maxHealth;
+			healthBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
+		}
 	}
 
 	public void UseMagic(float cost){
@@ -187,6 +218,7 @@ public class UIScripts : MonoBehaviour {
 			player.magic -= cost;
 			float displayMagic = player.magic / player.maxMagic;
 			magicBar.transform.localScale = new Vector3 (1, displayMagic, 1);
+			player.UseRegularAttack ();
 		} else {
 			print ("You are out of magic");
 		}
@@ -205,24 +237,31 @@ public class UIScripts : MonoBehaviour {
 		player.energy -= player.energy;
 		float displayEnergy = player.energy / player.maxEnergy;
 		specialBar.transform.localScale = new Vector3 (1, displayEnergy, 1);
+		if ((currSpecSkill.attID >= 25) && (currSpecSkill.attID <= 29)) {
+			cupid.SetActive (true);
+		}
+		player.UseSpecialAttack ();
 	}
 
 	public void RestoreSpecial(float restore) {
 		if (player.energy < player.maxEnergy) {
+			player.coolDown += 1;
 			player.energy += restore;
 			float displayEnergy = player.energy / player.maxEnergy;
 			specialBar.transform.localScale = new Vector3 (1, displayEnergy, 1);
 		} else {
+			player.coolDown = 0;
+			specialBar.color = Color.yellow;
 			player.specialCoolDown = false;
 		}
 	}
 
-	public void AddPermIcon (Item item) {
+	public void AddPermIcon (Item permItem) {
 
 		//Creates a Perm Item Icon on the right hand side of the screen.
 		for (int i = 0; i < 5; i++) {
 			if ((icons [i].sprite == null) || (icons [i].sprite == transparent)) {
-				icons [i].sprite = item.Icon;
+				icons [i].sprite = permItem.Icon;
 				return;
 			}
 		}
@@ -448,6 +487,23 @@ public class UIScripts : MonoBehaviour {
 				currSpecSkill = attData.attacks [29];
 				specSkill.sprite = currSpecSkill.attIcon;
 			}
+		}
+	}
+
+	public void BossTakeDamage(float dmg, Image currBar) {
+		if (foeBoss.health > 0) {
+			foeBoss.health -= dmg;
+			foeBoss.barHealth -= dmg;
+			float displayHealth = foeBoss.barHealth / 100;
+			currBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
+			if (currBar.transform.localScale.x <= 0) {
+				foeBoss.barCount -= 1;
+				foeBoss.barHealth = foeBoss.health / foeBoss.barCount;
+				Destroy (currBar.gameObject);
+			}
+		} 
+		if (foeBoss.health <= 0) {
+			print ("Boss is Dead");
 		}
 	}
 }

@@ -5,8 +5,10 @@ public class Player : MonoBehaviour {
 
 	GameObject database;
 	UIScripts displays;
+	Specials spec;
+	ItemData itemData;
 	Vector3 pos;
-	Item buff = new Item();
+	public Item buff = new Item();
 
 	public float dmg = 7f;
 	public float defib = 0f;
@@ -39,19 +41,21 @@ public class Player : MonoBehaviour {
 	float resetSpecialTimer;
 	public bool specialCoolDown = false;
 
-	float buffTimer;
+	public float buffTimer;
 	float resetBuffTimer;
 
-	public int currlv = 0;
+	public int currlv = 1;
 	public int currExp = 0;
 	public int maxExp = 50;
 
+	public int coolDown;
 	// Use this for initialization
 	void Start () {
 
 		database = GameObject.FindGameObjectWithTag ("Database");
 		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
-
+		spec = GameObject.FindGameObjectWithTag ("Background").GetComponent<Specials> ();
+		itemData = database.GetComponent<ItemData> ();
 		maxHealth = health;
 		maxMagic = magic;
 		maxEnergy = energy;
@@ -61,7 +65,6 @@ public class Player : MonoBehaviour {
 
 		//Used to allow the player to move around on the screen.
 		pos = gameObject.transform.position;
-
 	}
 
 	// Update is called once per frame
@@ -80,6 +83,12 @@ public class Player : MonoBehaviour {
 		if (buff.openIt == true) {
 			buffTimer -= 0.05f;
 			CoolDownBuff ();
+		}
+
+		if (Input.GetKeyDown (KeyCode.Q)) {
+			if (itemData.item[8].Stock > 0) {
+				CreateWaterBallons(itemData.item[8]);
+			}
 		}
 	}
 
@@ -114,6 +123,7 @@ public class Player : MonoBehaviour {
 		if (specialCoolDown == false) {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				displays.UseSpecial ();
+				displays.specialBar.color = Color.gray;
 				specialTimer = resetSpecialTimer;
 				specialCoolDown = true;
 			}
@@ -121,6 +131,9 @@ public class Player : MonoBehaviour {
 			specialTimer -= 0.05f;
 			if (specialTimer <= 0) {
 				displays.RestoreSpecial (10);
+				if (coolDown == spec.coolFactor) {
+					spec.RemoveSkill (displays.currSpecSkill);
+				}
 				specialTimer = resetSpecialTimer;
 			}
 		}
@@ -143,7 +156,6 @@ public class Player : MonoBehaviour {
 
 	void CreateWaterBallons (Item item) {
 		/*Makes the bomb active and creates a new gameobject and names it Dropped Bomb*/
-		item.openIt = true;
 		item.item = new GameObject();
 		item.item.gameObject.name = "Dropped " + item.Name;
 		item.item.AddComponent<SpriteRenderer> ().sprite = item.Icon;
@@ -151,6 +163,9 @@ public class Player : MonoBehaviour {
 		item.item.AddComponent<Rigidbody2D> ();
 		item.item.AddComponent<WaterBalloons> ();
 		item.item.transform.localScale = new Vector3 (5, 5, 1);
+		item.openIt = true;
+		item.Stock -= 1;
+		displays.SackUpdate ();
 		//firePoint = gameObject.transform.GetChild (3).gameObject.transform;
 		//item.item.transform.localPosition = firePoint.position;
 	}
@@ -170,7 +185,6 @@ public class Player : MonoBehaviour {
 		}
 
 		gameObject.transform.position = pos;
-
 	}
 
 	void CoolDownBuff () {
@@ -192,7 +206,6 @@ public class Player : MonoBehaviour {
 				mDmg -= buff.Change;
 			}
 			buff.openIt = false;
-			buff.Duration = resetBuffTimer;
 		}
 	}
 
@@ -206,10 +219,12 @@ public class Player : MonoBehaviour {
 		print ("Haven't stolen health");
 	}
 
-	void UseRegularAttack() {
+	public void UseRegularAttack() {
 	}
 
-	void UseSpecialAttack() {
+	public void UseSpecialAttack() {
+		spec.wasActive = true;
+		spec.ActivateSkill (displays.currSpecSkill);
 	}
 
 	public void LevelManager(int expInc) {
@@ -217,9 +232,9 @@ public class Player : MonoBehaviour {
 		currExp += expInc;
 		if (currExp >= maxExp) {
 			currlv += 1;
-			maxExp = 50 + (125 * currlv);
+			maxExp = 50 + (125 * (currlv - 1));
 			currExp = 0;
-			if (currlv <= 10) {
+			if (currlv <= 11) {
 				points += 3;
 			}
 		}

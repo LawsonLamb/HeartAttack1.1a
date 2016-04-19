@@ -13,7 +13,7 @@ public class ItemData : MonoBehaviour {
 		item.Add (new Item ("Key", 0, 5, 0, 0.0f, 0.0f, false, Item.ItemType.Key));
 		item.Add (new Item ("Heart Key", 1, 25, 0, 0.0f, 0.0f, false, Item.ItemType.Key));
 
-		item.Add (new Item ("Blood", 2, 10, 0, 0.0f, 0.0f, false, Item.ItemType.Consumable));
+		item.Add (new Item ("Blood", 2, 10, 0, 0.0f, 10.0f, false, Item.ItemType.Consumable));
 		item.Add (new Item ("Speed Pill", 3, 0, 0, 10.0f, 0.10f, false, Item.ItemType.Consumable));
 		item.Add (new Item ("Defense Pill", 4, 0, 0, 10.0f, 1.0f, false, Item.ItemType.Consumable));
 		item.Add (new Item ("Damage Pill", 5, 0, 0, 10.0f, 10.0f, false, Item.ItemType.Consumable));

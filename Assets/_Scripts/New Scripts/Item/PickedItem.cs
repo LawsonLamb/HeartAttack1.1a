@@ -11,11 +11,18 @@ public class PickedItem : MonoBehaviour {
 	AttackDatabase attData;
 	Item item;
 	UIScripts displays;
+	Specials spec;
+	SpecialItems specIt;
+	Player player;
+
 	// Use this for initialization
 	void Start () {
 	
 		database = GameObject.FindGameObjectWithTag ("Database");
 		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
+		spec = GameObject.FindGameObjectWithTag ("Background").GetComponent<Specials> ();
+		specIt = GameObject.FindGameObjectWithTag ("Background").GetComponent<SpecialItems> ();
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		itemData = database.GetComponent<ItemData> ();
 		attData = database.GetComponent<AttackDatabase> ();
 
@@ -45,11 +52,19 @@ public class PickedItem : MonoBehaviour {
 
 	void Consumables (Item item) {
 		if (item.ID == 2) {
-			PickUpHealth ();
+			PickUpHealth (item);
 		}
 		if ((item.ID >= 3) && (item.ID <= 6)) {
-			item.openIt = true;
-			QuickBuff(item);
+			for (int i = 3; i < 7; i++) {
+				if (itemData.item [i].openIt == false) {
+					item.openIt = true;
+					QuickBuff (item);
+					i = 7;
+				} else {
+					DropItem (item);
+					i = 7;
+				}
+			}
 		}
 	}
 
@@ -61,12 +76,7 @@ public class PickedItem : MonoBehaviour {
 
 		if((item.ID >= 9) && (item.ID <= 11)) {
 			item.openIt = true;
-		}
-
-		if (item.ID == 9) {
-			for (int i = 0; i < itemData.item.Count; i++) {
-				itemData.item [i].Price = (itemData.item [i].Price / 2);
-			}
+			specIt.ActivateItem (item);
 		}
 
 		if ((item.ID >= 18) && (item.ID <= 22)) {
@@ -105,7 +115,9 @@ public class PickedItem : MonoBehaviour {
 			displays.regSkill.sprite = displays.currRegSkill.attIcon;
 			displays.ChangeRegAtt (displays.attPoints);
 		} else {
+
 			oldAtt = displays.currSpecSkill;
+			spec.RemoveSkill (oldAtt);
 
 			if ((oldAtt.attID >= 5) && (oldAtt.attID <= 9)) {
 				oldItem = itemData.GetItemByName(attData.attacks [5].attName);
@@ -122,14 +134,12 @@ public class PickedItem : MonoBehaviour {
 		DropItem(oldItem);
 	}
 
-	void PickUpHealth () {
-
-		/*If you have increased your health into a full health box [the Health 
-		 *Load is default red for every 4 points into your heart stats] you will 
-		 *restore health starting from the left most. It will only work if your 
-		 *health isn't full [the right most Health Load isn't red]. Health will 
-		 *restore to gray 1/2 Health and red full health*/
-
+	void PickUpHealth (Item item) {
+		if (player.health < player.maxHealth) {
+			displays.RestoreHealth (item.Change);
+		} else {
+			DropItem (item);
+		}
 	}
 
 	void DropItem (Item drop) {
@@ -147,7 +157,18 @@ public class PickedItem : MonoBehaviour {
 
 	void QuickBuff (Item item) {
 		
-
+		player.buff = item;
+		player.buffTimer = item.Duration;
+		if (item.ID == 3) {
+			player.speed += item.Change;
+		} else if (item.ID == 4) {
+			player.def += item.Change;
+		} else if (item.ID == 5) {
+			player.dmg += item.Change;
+		} else {
+			player.mDmg += item.Change;
+		}
+			
 	}
 
 	void OnCollisionEnter2D (Collision2D col) {
@@ -157,7 +178,18 @@ public class PickedItem : MonoBehaviour {
 		}
 	}
 
-	void PermItems (Item item) {
-		displays.AddPermIcon (item);
+	void PermItems (Item permItem) {
+		if (permItem.ID == 18) {
+			player.tranfusionActive = true;
+		} else if (permItem.ID == 19) {
+			player.speed += permItem.Change;
+		} else if (permItem.ID == 20) {
+			player.def += permItem.Change;
+		} else if (permItem.ID == 21) {
+			player.dmg += permItem.Change;
+		} else if (permItem.ID == 22) {
+			player.mDmg += permItem.Change;
+		}
+		displays.AddPermIcon (permItem);
 	}
 }

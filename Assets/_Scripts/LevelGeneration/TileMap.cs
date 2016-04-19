@@ -8,19 +8,27 @@ public class TileMap : MonoBehaviour {
 	public GameObject TileAsset;
     Transform Floor;
     Transform Wall;
+    Transform Region;
+    public Transform[] Regions = new Transform[4];
     public TileSet tileSet;
-	public int mapWidth =15;
+	public int mapWidth = 15;
 	public int mapHeight = 9;
 	[SerializeField]
 	public GameObject[,] _map;
 	public float texWidth;
 	public  float texHeight;
+	int halfWidth;
+	int halfHeight;
 
 	// Use this for initialization
 	void Start () {
-     // Floor =  this.transform.FindChild("Floor");
-		//Load();
-	//	FillWalls();
+
+        Floor =  this.transform.FindChild("Floor");
+		Load();
+        createRegions();
+		setWall ();
+		FillFloor ();
+		FillWalls();
  
       
     }
@@ -34,16 +42,21 @@ public class TileMap : MonoBehaviour {
 	#region Build Map
 	[ContextMenu("Load")]
 	void Load(){
+		
+		 halfWidth = GetRegion (mapWidth);
+		 halfHeight = GetRegion (mapHeight);
+	
         DestoryChildren();
         CreateGameObject("Walls");
         CreateGameObject("Floor");
-
+		//Floor =  this.transform.FindChild("Floor");
+	
         
         _map = new GameObject[mapWidth,mapHeight];
 		for(int x=0;x<mapWidth;x++){
 			for(int y=0; y<mapHeight;y++){
 				_map[x,y]= Instantiate(TileAsset,new Vector3(x*texWidth,y*texHeight,0.0f),Quaternion.identity)  as GameObject;
-                _map[x, y].name = "Tile" + x + "," + y;
+                _map[x, y].name = "Tile " + x + " , " + y;
                 _map[x,y].transform.SetParent(this.transform);
 				
 
@@ -52,7 +65,7 @@ public class TileMap : MonoBehaviour {
 
 		}
 	}
-  
+		//FillWalls ();
 	}
     [ContextMenu("Fill Floor")]
     void FillFloor()
@@ -64,7 +77,7 @@ public class TileMap : MonoBehaviour {
             for(int col =2; col<mapHeight - 2; col++)
             {
                // print(row + ","+ col);
-                _map[row, col].GetComponent<SpriteRenderer>().sprite = tileSet.Floors[1];
+                _map[row, col].GetComponent<SpriteRenderer>().sprite = tileSet.Floors[0];
                 _map[row, col].transform.SetParent(Floor);
             }
 
@@ -75,29 +88,20 @@ public class TileMap : MonoBehaviour {
     }
     [ContextMenu("Fill Wall")]
     void FillWalls()
-    { /*
-        for(int row = 0; row < 2;row++)
-        {
-            for(int col = 0; col < mapHeight; col++)
-            {
-                 print(row + ","+ col);
-                _map[row, col].GetComponent<SpriteRenderer>().sprite = tileSet.Floors[1];
-            }
-        }
-        */
-        
-        setSprite(_map[0, 0], tileSet.Walls[0],false,true);
+    {
+        #region South
+        setSprite(_map[0, 0], tileSet.Walls[0], false, true);
         setSprite(_map[1, 0], tileSet.Walls[1], false, true);
         setSprite(_map[0, 1], tileSet.Walls[6], false, true);
-		setSprite(_map[1,1],tileSet.Walls[7],false,true);
-
+		setSprite(_map[1, 1], tileSet.Walls[7], false, true);
 
         for (int row = 2; row < mapWidth - 2; row++)
 		{	for(int col =0; col < 2; col++){
 
-				if(row == 6|| row == 7 || row == 8)
+				if(row == halfWidth-1 || row== halfWidth || row == halfWidth+1)
 				{
-					//Doors.Add(_map[row, col]);
+                    //Doors.Add(_map[row, col]);
+                    _map[row, col].transform.SetParent(Regions[1]);
 				}
 
 				else{
@@ -111,41 +115,38 @@ public class TileMap : MonoBehaviour {
 					else if(col==1){
 
 
-						//setSprite(_map[row, col], tileSet.Walls[8], false, true);
+						setSprite(_map[row, col], tileSet.Walls[8], false, true);
 					}
 				}
 
 			}
           
         }
+        #endregion
 
-
-
-
-
-        setSprite(_map[0, 8], tileSet.Walls[0], false, false);
-        setSprite(_map[1, 8], tileSet.Walls[1], false, false);
-	//	setSprite(_map[0, 7], tileSet.Walls[6], false, false);
-	//	setSprite(_map[1,7],tileSet.Walls[7],false,false);
+        #region North
+        setSprite(_map[0, mapHeight-1], tileSet.Walls[0], false, false);
+		setSprite(_map[1, mapHeight-1], tileSet.Walls[1], false, false);
+		setSprite(_map[0, mapHeight-2], tileSet.Walls[6], false, false);
+		setSprite(_map[1, mapHeight-2], tileSet.Walls[7], false, false);
 
         for (int row = 2; row < mapWidth - 2; row++)
 		{
-			for(int col =7; col < 9; col++){
-				if(row == 6|| row == 7 || row == 8)
+			for(int col =mapHeight-2; col <mapHeight; col++){
+				if(row == halfWidth-1 || row== halfWidth || row == halfWidth+1)
 				{
 
-				//	Doors.Add(_map[row, col]);
+                    _map[row, col].transform.SetParent(Regions[0]);
 
-				}
-
+                }
 				else{
-					if(col ==7){
-					//	setSprite(_map[row, 7], tileSet.Walls[8], true, false);
+					if(col == mapHeight-2){
+						setSprite(_map[row, col], tileSet.Walls[8], true, false);
 					}
 
-					else if(col ==8){
+					else if(col ==mapHeight-1){
 
-						setSprite(_map[row, 8], tileSet.Walls[2], false, false);
+						setSprite(_map[row, col], tileSet.Walls[2], false, false);
 					}
 
 				}
@@ -156,61 +157,63 @@ public class TileMap : MonoBehaviour {
           
         }
 
-	
+        #endregion
 
-
-        setSprite(_map[13, 0], tileSet.Walls[1], true, true);
-        setSprite(_map[14, 0], tileSet.Walls[0], true, true);
-		//setSprite(_map[14, 1], tileSet.Walls[6], true, true);
-	//	setSprite(_map[13,1],tileSet.Walls[7],true,true);
+        #region West
+        setSprite(_map[mapWidth-2, 0], tileSet.Walls[1], true, true);
+        setSprite(_map[mapWidth-1, 0], tileSet.Walls[0], true, true);
+		setSprite(_map[mapWidth-1, 1], tileSet.Walls[6], true, true);
+		setSprite(_map[mapWidth-2, 1], tileSet.Walls[7], true, true);
 
         for (int col = 2; col < mapHeight-2; col++){ 
+			for(int row =0; row<2;row++){
 
-							for(int row =0; row<2;row++){
+				if(col == halfHeight-1 || col ==halfHeight || col ==halfHeight+1){
 
-								if(col == 3 || col ==4 || col ==5){
-								//Doors.Add(_map[row, col]);
-								}
-								else{
-								if(row ==0){
+                    _map[row, col].transform.SetParent(Regions[2]);
 
-							//		setSprite(_map[0, col], tileSet.Walls[5], false, false);
-								}
-								else if(row ==1){
-							//		setSprite(_map[1, col], tileSet.Walls[9], false, false);
+
+                }
+				else{
+				if(row ==0){
+
+						setSprite(_map[row, col], tileSet.Walls[5], false, false);
+					}
+					else if(row ==1){
+						setSprite(_map[row, col], tileSet.Walls[9], false, false);
 
 								}
 							}
-							}
+					}
          
         }
 
 
-		
+        #endregion
 
+        #region East
 
-
-        setSprite(_map[13, 8], tileSet.Walls[1], true, false);
-        setSprite(_map[14, 8], tileSet.Walls[0], true, false);
-		//setSprite(_map[14, 7], tileSet.Walls[6], true, false);
-		//setSprite(_map[13,7],tileSet.Walls[7],true,false);
+        setSprite(_map[mapWidth-2, mapHeight-1], tileSet.Walls[1], true, false);
+		setSprite(_map[mapWidth-1, mapHeight-1], tileSet.Walls[0], true, false);
+		setSprite(_map[mapWidth-1, mapHeight-2], tileSet.Walls[6], true, false);
+		setSprite(_map[mapWidth-2, mapHeight-2], tileSet.Walls[7], true, false);
 
         for (int col = 2; col < mapHeight - 2; col++)
 		{	
 
-			for(int row =13; row<mapWidth;row++){
+			for(int row =mapWidth-2; row<mapWidth;row++){
 
-				if(col == 3 || col ==4 || col ==5){
-					//Doors.Add(_map[row, col]);
-				}
+				if(col == halfHeight-1 || col ==halfHeight || col ==halfHeight+1){
+                    _map[row, col].transform.SetParent(Regions[3]);
+                }
 
 				else{
-					if(row ==14){
-					//	setSprite(_map[14, col], tileSet.Walls[5], true, false);
+					if(row ==mapWidth-1){
+						setSprite(_map[row, col], tileSet.Walls[5], true, false);
 					}
 
 					else{
-				//		setSprite(_map[13, col], tileSet.Walls[9], true, true);
+					setSprite(_map[row, col], tileSet.Walls[9], true, true);
 
 					}
 
@@ -220,39 +223,39 @@ public class TileMap : MonoBehaviour {
           
         }
 
-	
 
+        #endregion
 
     }
 
-	[ContextMenu("Fill Door")]
-	void FillDoors(){
 
-		fill_top();
+    void createRegions()
+    {
 
+       Region = CreateGameObject("Regions", this.transform);
+       Regions[0]=  CreateGameObject("North", Region);
+       Regions[1]=  CreateGameObject("South", Region);
+       Regions[2] = CreateGameObject("West", Region);
+       Regions[3] = CreateGameObject("East", Region);
 
-
-
-	}
-	void fill_top(){
-		setSprite(_map[6,8],tileSet.Doors[0],false,false);
-		setSprite(_map[7,8],tileSet.Doors[1],false,false);
-		setSprite(_map[8,8],tileSet.Doors[2],false,false);
-
-	}
+        Regions[0].gameObject.AddComponent<Region>();
+        Regions[1].gameObject.AddComponent<Region>();
+        Regions[2].gameObject.AddComponent<Region>();
+        Regions[3].gameObject.AddComponent<Region>();
+    }
 
 
     #endregion
     [ContextMenu("set Wall")]
     void setWall()
-    {
+	{ 
         Wall = transform.FindChild("Walls");
         for (int row = 0; row < mapWidth ; row++)
         {
             for (int col = 0; col < 2; col++)
             {
-
-                if (row == 6 || row == 7 || row == 8)
+				
+				if (row == halfWidth-1 || row== halfWidth || row == halfWidth+1)
                 {
 
                 }
@@ -261,7 +264,10 @@ public class TileMap : MonoBehaviour {
 
                     _map[row, col].transform.SetParent(Wall);
 
+
                 }
+
+				_map [row, col].GetComponent<Tile> ().isTrigger = false;
 
             }
 
@@ -272,14 +278,15 @@ public class TileMap : MonoBehaviour {
         {
             for (int col = 7; col < 9; col++)
             {
-                if (row == 6 || row == 7 || row == 8)
-                {
+				if (row == halfWidth-1 || row== halfWidth || row == halfWidth+1)
+				{
 
-                }
+				}
                 else
                 {
                     _map[row, col].transform.SetParent(Wall);
                 }
+				_map [row, col].GetComponent<Tile> ().isTrigger = false;
 
             }
         }
@@ -293,14 +300,16 @@ public class TileMap : MonoBehaviour {
 
                 if (col == 3 || col == 4 || col == 5)
                 {
+					
                 }
 
                 else
                 {
                     _map[row, col].transform.SetParent(Wall);
                 }
-
+				_map [row, col].GetComponent<Tile> ().isTrigger = false;
             }
+
         }
 
 
@@ -312,12 +321,14 @@ public class TileMap : MonoBehaviour {
             {
                 if (col == 3 || col == 4 || col == 5)
                 {
+					
                 }
 
                 else
                 {
                     _map[row, col].transform.SetParent(Wall);
                 }
+				_map [row, col].GetComponent<Tile> ().isTrigger = false;
             }
         }
 
@@ -342,14 +353,28 @@ public class TileMap : MonoBehaviour {
         go.GetComponent<SpriteRenderer>().flipY = flipy;
     }
 
-
     void CreateGameObject(string Name)
     {
         GameObject go = new GameObject();
         go.name = Name;
         go.transform.SetParent(this.transform);
 
+
     }
+
+   Transform CreateGameObject(string Name, Transform Parent)
+    {
+            GameObject go = new GameObject();
+            go.name = Name;
+            go.transform.SetParent(Parent);
+            return go.transform;
+
+        }
+
+     int GetRegion(int Size){
+
+		return Size / 2;
+	}
 
 
 }
