@@ -22,8 +22,6 @@ public class Player : MonoBehaviour {
 	public float speed = .05f;
 	public float adren = 0f;
 
-	public int points = 0;
-
 	public float health = 100;
 	public float maxHealth;
 	public float magic = 100;
@@ -47,8 +45,13 @@ public class Player : MonoBehaviour {
 	public int currlv = 1;
 	public int currExp = 0;
 	public int maxExp = 50;
+	public int points;
 
 	public int coolDown;
+
+	public Transform firePoint;
+	public GameObject blood;
+	int direction;
 	// Use this for initialization
 	void Start () {
 
@@ -96,15 +99,19 @@ public class Player : MonoBehaviour {
 
 		/*Handles the use of regular attacks*/
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+			ChangeDirection(0);
 			displays.UseMagic (10);
 			magicTimer = resetMagicTimer;
 		} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
+			ChangeDirection(1);
 			displays.UseMagic (10);
 			magicTimer = resetMagicTimer;
 		} else if (Input.GetKeyDown (KeyCode.LeftArrow)) {
+			ChangeDirection(3);
 			displays.UseMagic (10);
 			magicTimer = resetMagicTimer;
 		} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
+			ChangeDirection(2);
 			displays.UseMagic (10);
 			magicTimer = resetMagicTimer;
 		}
@@ -114,7 +121,6 @@ public class Player : MonoBehaviour {
 			displays.RestoreMagic (10);
 			magicTimer = resetMagicTimer;
 		}
-		print (magic);
 	}
 
 	void SpecialAttack() {
@@ -219,7 +225,33 @@ public class Player : MonoBehaviour {
 		print ("Haven't stolen health");
 	}
 
+	void ChangeDirection (int direct) {
+		switch (direct) {
+		case 0:
+			firePoint.localPosition = new Vector2 (0, 1.5f);
+			direction = 0;
+			break;
+		case 1:
+			firePoint.localPosition = new Vector2 (0, -1.5f);
+			firePoint.localRotation = new Quaternion (0, 0, 89, 0);
+			direction = 1;
+			break;
+		case 2:
+			firePoint.localPosition = new Vector2 (1.5f, 0);
+			firePoint.localRotation = new Quaternion (0, 0, 0, 0);
+			direction = 2;
+			break;
+		case 3:
+			firePoint.localPosition = new Vector2 (-1.5f, 0);
+			firePoint.localRotation = new Quaternion (0, 180, 0, 0);
+			direction = 3;
+			break;
+		}
+	}
+
 	public void UseRegularAttack() {
+		blood.GetComponent<SkillBullet> ().direction = direction;
+		Instantiate (blood, firePoint.position, firePoint.rotation);
 	}
 
 	public void UseSpecialAttack() {

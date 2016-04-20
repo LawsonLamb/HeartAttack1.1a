@@ -10,11 +10,12 @@ TagManager:
   - Enemy
   - Skills
   - FxTemporaire
-  - Bullet
+  - Blood
   - Loading Scene
   - Background
   - Boss
   - Cupid
+  - Map
   layers:
   - Default
   - TransparentFX

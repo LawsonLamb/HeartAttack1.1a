@@ -30,24 +30,5 @@ public class Attacks {
 		manaUse = manaCost;
 		attType = type;
 	}
-
-	public void CreateGameObject (int direction, Transform firePoint) {
-		attack = new GameObject ();
-		attack.name = attName;
-		if(((attID < 5) || (attID > 9)) && ((attID < 15) || (attID > 19))) {
-			attack.AddComponent<SpriteRenderer> ().sprite = attIcon;
-		}
-		if (attType == AttackType.Regular) {
-			attack.AddComponent<CircleCollider2D> ().isTrigger = true;
-			attack.AddComponent<SkillBullet> ();
-			attack.AddComponent<Rigidbody2D> ();
-			SkillBullet.direction = direction;
-		} else if (attType == AttackType.Special) {
-			attack.AddComponent<Specials> ();
-		}
-		attack.transform.localScale = new Vector3 (4, 4, 1);
-		attack.transform.position = firePoint.position;
-		attack.transform.rotation = firePoint.rotation;
-		attack.tag = "Bullet";
-	}
+		
 }

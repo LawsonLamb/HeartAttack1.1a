@@ -6,14 +6,13 @@ public class SpecialItems : MonoBehaviour {
 	GameObject database;
 	ItemData itemData;
 	Item item;
-	GameObject miniMap;
+	public GameObject miniMap;
 
 	// Use this for initialization
 	void Start () {
 
 		database = GameObject.FindGameObjectWithTag ("Database");
 		itemData = database.GetComponent<ItemData> ();
-		miniMap = GameObject.FindGameObjectWithTag ("Map");
 	}
 	
 	// Update is called once per frame

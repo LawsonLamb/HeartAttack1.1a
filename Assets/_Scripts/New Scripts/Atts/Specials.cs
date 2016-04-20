@@ -35,7 +35,6 @@ public class Specials : MonoBehaviour {
 
 		att.attSpeed = player.speed;
 
-		cupid = GameObject.FindGameObjectWithTag ("Cupid").GetComponent<Cupid> ();
 
 		if ((att.attID >= 5) && (att.attID <= 9)) {
 			Enrage ();
@@ -92,6 +91,8 @@ public class Specials : MonoBehaviour {
 	}
 
 	void Cupid () {
+		cupid = GameObject.FindGameObjectWithTag ("Cupid").GetComponent<Cupid> ();
+
 		if (att.attName == "Cupid_1") {
 			cupid.Summon (1);
 			coolFactor = 2;

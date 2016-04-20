@@ -10,14 +10,18 @@ public class SkillBullet : MonoBehaviour {
 	GameObject database;
 	AttackDatabase attData;
 	Attacks att;
-	public static int direction;
-	public static float dmg;
+	public int direction;
+	public float dmg;
+	UIScripts displays;
+	Animator ani;
 	// Use this for initialization
 	void Start () {
 
 		database = GameObject.FindGameObjectWithTag ("Database");
 		attData = database.GetComponent<AttackDatabase>();
-		att = attData.GetAttByName (this.gameObject.name);
+		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
+		ani = GetComponent<Animator> ();
+		att = attData.GetAttByID (displays.currRegSkill.attID);
 		speed = att.attSpeed;
 		switch (direction) {
 		case 0:
@@ -47,13 +51,17 @@ public class SkillBullet : MonoBehaviour {
 
 		lifeSpan -= 0.5f;
 		if (lifeSpan <= 0) {
-			Destroy (gameObject);
+			ani.SetTrigger ("NoObjectHit");
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
-		if (col.gameObject.tag == "Foe") {
-			Destroy (gameObject);
+		if ((col.gameObject.tag == "Boss") || (col.gameObject.tag == "Foe")){
+			ani.SetTrigger ("ObjectHit");
 		}
+	}
+
+	public void Splat () {
+		Destroy (gameObject);
 	}
 }
