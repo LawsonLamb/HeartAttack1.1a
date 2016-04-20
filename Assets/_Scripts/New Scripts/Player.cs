@@ -8,8 +8,13 @@ public class Player : MonoBehaviour {
 	Specials spec;
 	ItemData itemData;
 	Vector3 pos;
+	private float SkillRotation;
+	private PlayerDirection player_direction;
+	private Vector2 VecDirection;
+	private float animSpeed =0.0f;
+	public Animator anim;
 	public Item buff = new Item();
-
+	//COULD BE PUT IN A STATS STRUCT
 	public float dmg = 7f;
 	public float defib = 0f;
 
@@ -19,7 +24,7 @@ public class Player : MonoBehaviour {
 	public float def = 1.0f;
 	public float pMaker = 0f;
 
-	public float speed = .05f;
+	public float speed = 2.0f;
 	public float adren = 0f;
 
 	public float health = 100;
@@ -62,7 +67,7 @@ public class Player : MonoBehaviour {
 		maxHealth = health;
 		maxMagic = magic;
 		maxEnergy = energy;
-
+		anim = GetComponent<Animator> ();
 		resetMagicTimer = magicTimer;
 		resetSpecialTimer = specialTimer;
 
@@ -101,20 +106,25 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			ChangeDirection(0);
 			displays.UseMagic (10);
+			player_direction = PlayerDirection.UP;
 			magicTimer = resetMagicTimer;
 		} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
+			player_direction = PlayerDirection.DOWN;
 			ChangeDirection(1);
 			displays.UseMagic (10);
 			magicTimer = resetMagicTimer;
 		} else if (Input.GetKeyDown (KeyCode.LeftArrow)) {
+			player_direction = PlayerDirection.LEFT;
 			ChangeDirection(3);
 			displays.UseMagic (10);
 			magicTimer = resetMagicTimer;
 		} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
+			player_direction = PlayerDirection.RIGHT;
 			ChangeDirection(2);
 			displays.UseMagic (10);
 			magicTimer = resetMagicTimer;
 		}
+		SetDirection ();
 
 		magicTimer -= 0.05f;
 		if (magicTimer <= 0) {
@@ -180,15 +190,29 @@ public class Player : MonoBehaviour {
 
 		//Just a basic way for the player to move around the screen.
 		if (Input.GetKey (KeyCode.W)) {
+			animSpeed = 1.0f;
+			SetAnimDirection(1.0f);
 			pos.y += speed;
 		} else if (Input.GetKey (KeyCode.A)) {
+			animSpeed = 1.0f;
+			SetAnimDirection(0.0f);
+			GetComponent<SpriteRenderer>().flipX = true;
 			pos.x -= speed;
 		} else if (Input.GetKey (KeyCode.S)) {
+			
+			animSpeed = 1.0f;
+			SetAnimDirection(-1.0f);
 			pos.y -= speed;
 		} else if (Input.GetKey (KeyCode.D)) {
 			pos.x += speed;
+			SetAnimDirection (0.0f);
+			GetComponent<SpriteRenderer>().flipX = false;
+			animSpeed = 1.0f;
 		} else {
+			animSpeed = 0.0f;
 		}
+
+		SetAnimSpeed(animSpeed);
 
 		gameObject.transform.position = pos;
 	}
@@ -230,20 +254,21 @@ public class Player : MonoBehaviour {
 		case 0:
 			firePoint.localPosition = new Vector2 (0, 1.5f);
 			direction = 0;
+
 			break;
 		case 1:
 			firePoint.localPosition = new Vector2 (0, -1.5f);
-			firePoint.localRotation = new Quaternion (0, 0, 89, 0);
+			firePoint.localRotation = new Quaternion (0, 0, 90, 0);
 			direction = 1;
 			break;
 		case 2:
 			firePoint.localPosition = new Vector2 (1.5f, 0);
-			firePoint.localRotation = new Quaternion (0, 0, 0, 0);
+			firePoint.localRotation = new Quaternion (0, 0, 270, 0);
 			direction = 2;
 			break;
 		case 3:
 			firePoint.localPosition = new Vector2 (-1.5f, 0);
-			firePoint.localRotation = new Quaternion (0, 180, 0, 0);
+			firePoint.localRotation = new Quaternion (0, 0, 180, 0);
 			direction = 3;
 			break;
 		}
@@ -251,7 +276,7 @@ public class Player : MonoBehaviour {
 
 	public void UseRegularAttack() {
 		blood.GetComponent<SkillBullet> ().direction = direction;
-		Instantiate (blood, firePoint.position, firePoint.rotation);
+		Instantiate (blood,this.transform.position,Quaternion.Euler(0,0,SkillRotation) );
 	}
 
 	public void UseSpecialAttack() {
@@ -272,4 +297,44 @@ public class Player : MonoBehaviour {
 		}
 
 	}
+	void SetDirection(){
+
+		switch (player_direction) {
+		case PlayerDirection.UP:
+			VecDirection = Vector2.up;
+			SkillRotation = 0.0f;
+
+			break;
+		case PlayerDirection.DOWN:
+			VecDirection = Vector2.down;
+			SkillRotation = 180.0f;
+
+
+			break;
+		case PlayerDirection.RIGHT:
+			VecDirection = Vector2.right;
+			SkillRotation = -90.0f;
+
+
+			break;
+		case PlayerDirection.LEFT:
+			VecDirection = Vector2.left;
+			SkillRotation = 90.0f;
+			break;
+		}
+	}
+
+	void SetAnimDirection(float direction){
+		anim.SetFloat ("Direction", direction);
+
+
+	}
+	void SetAnimSpeed(float speed){
+		anim.SetFloat ("Speed",speed);
+
+
+	}
+
+
+
 }

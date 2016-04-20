@@ -8,6 +8,7 @@ public class WaterBalloons : MonoBehaviour {
 	ItemData itemData;
 	GameObject displays;
 	GameObject player;
+	public GameObject ImpactEffect;
 	// Use this for initialization
 	void Start () {
 
@@ -40,6 +41,13 @@ public class WaterBalloons : MonoBehaviour {
 			item.Duration = 5.0f;
 			item.openIt = false;
 			Destroy (this.gameObject);
+		}
+	}
+
+	void OnDestroy()
+	{
+		if (ImpactEffect) {
+			Instantiate (ImpactEffect, this.transform.position, Quaternion.identity);
 		}
 	}
 

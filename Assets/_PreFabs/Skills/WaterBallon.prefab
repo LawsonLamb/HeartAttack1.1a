@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21217426}
   - 58: {fileID: 5840832}
   - 50: {fileID: 5069540}
-  - 114: {fileID: 11471588}
+  - 114: {fileID: 11491222}
   m_Layer: 0
   m_Name: WaterBallon
   m_TagString: Untagged
@@ -62,7 +62,7 @@ CircleCollider2D:
   m_Offset: {x: -0.14, y: -0.13}
   serializedVersion: 2
   m_Radius: 0.7773485
---- !u!114 &11471588
+--- !u!114 &11491222
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -70,10 +70,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 172010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1122b466241274ed1862196584283a28, type: 3}
+  m_Script: {fileID: 11500000, guid: dfedd78b851304107a2e0f284a341d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeSpan: 75
   ImpactEffect: {fileID: 100000, guid: e96b09998929f7f4e891fbf57a018cca, type: 2}
 --- !u!212 &21217426
 SpriteRenderer:

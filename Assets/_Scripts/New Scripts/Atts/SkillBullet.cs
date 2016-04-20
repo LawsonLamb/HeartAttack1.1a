@@ -13,11 +13,12 @@ public class SkillBullet : MonoBehaviour {
 	Attacks att;
 	public int direction;
 	public float dmg;
+	float yRot;
 	UIScripts displays;
 	Animator ani;
 	// Use this for initialization
 	void Start () {
-
+		yRot = 0.0f;
 		database = GameObject.FindGameObjectWithTag ("Database");
 		attData = database.GetComponent<AttackDatabase>();
 		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
@@ -26,39 +27,53 @@ public class SkillBullet : MonoBehaviour {
 		speed = att.attSpeed;
 		switch (direction) {
 		case 0:
-			speedX = GetComponent<Rigidbody2D> ().velocity.x;
+			//speedX = GetComponent<Rigidbody2D> ().velocity.x;
+			if (this.name.Contains ("Blood")) {
+
+			}
 			speedY = speed;
 			break;
 		case 1:
-			speedX = GetComponent<Rigidbody2D> ().velocity.x;
+			if (this.name.Contains ("Blood")) {
+
+			}
+			//speedX = GetComponent<Rigidbody2D> ().velocity.x;
 			speedY = -speed;
 			break;
 		case 2:
 			speedX = speed;
-			speedY = GetComponent<Rigidbody2D> ().velocity.x;
+			if (this.name.Contains ("Blood")) {
+
+			}
+			//speedY = GetComponent<Rigidbody2D> ().velocity.x;
 			break;
 		case 3:
 			speedX = -speed;
-			speedY = GetComponent<Rigidbody2D> ().velocity.x;
+		//	speedY = GetComponent<Rigidbody2D> ().velocity.x;
 			break;
 		}
+	
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		speedY -= 0.025f;
+		//speedY -= 0.025f;
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (speedX, speedY);
 
 		lifeSpan -= 0.5f;
 		if (lifeSpan <= 0) {
-			ani.SetTrigger ("NoObjectHit");
+			//ani.SetTrigger ("NoObjectHit");
+			Splat();
 		}
+
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
 		if ((col.gameObject.tag == "Boss") || (col.gameObject.tag == "Foe")){
-			ani.SetTrigger ("ObjectHit");
+	//		ani.SetTrigger ("ObjectHit");
+			Splat();
 		}
 	}
 
@@ -69,7 +84,9 @@ public class SkillBullet : MonoBehaviour {
 
     void OnDestroy()
     {
-        Instantiate(ImpactEffect, this.transform.position, Quaternion.identity);
+		if (ImpactEffect) {
+			Instantiate (ImpactEffect, this.transform.position, Quaternion.identity);
+		}
     }
 
 }
