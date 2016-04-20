@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.88, y: 9.28, z: -3.03}
+  m_LocalPosition: {x: 11.911828, y: 8.076487, z: -3.03}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,11 +93,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 10
   damage: 10
-  whatToHit: {}
+  whatToHit:
+    serializedVersion: 2
+    m_Bits: 0
   VecDirection: {x: 0, y: 0}
   SkillRotation: 0
   rayDistince: 10
-  uiPlayer: {fileID: 0}
   sounds: {fileID: 0}
 --- !u!212 &21223944
 SpriteRenderer:
@@ -125,7 +126,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4657d4267c9c36645bffc72df3e671d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52fe087872844452a9d33f07711dbad1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

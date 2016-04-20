@@ -538,7 +538,11 @@ GameObject:
   - 222: {fileID: 22210282}
   - 114: {fileID: 11497700}
   - 114: {fileID: 11419372}
+<<<<<<< HEAD
   - 114: {fileID: 11497254}
+=======
+  - 114: {fileID: 11406410}
+>>>>>>> origin/master
   m_Layer: 5
   m_Name: Speed_Inc But
   m_TagString: Untagged
@@ -960,6 +964,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &170224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 408542}
+  - 50: {fileID: 5048086}
+  - 58: {fileID: 5853230}
+  - 114: {fileID: 11436608}
+  - 114: {fileID: 11408150}
+  - 114: {fileID: 11449602}
+  m_Layer: 0
+  m_Name: Background_Files
+  m_TagString: Background
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &170842
 GameObject:
   m_ObjectHideFlags: 1
@@ -1364,7 +1388,11 @@ GameObject:
   - 222: {fileID: 22218198}
   - 114: {fileID: 11490476}
   - 114: {fileID: 11497464}
+<<<<<<< HEAD
   - 114: {fileID: 11408894}
+=======
+  - 114: {fileID: 11493822}
+>>>>>>> origin/master
   m_Layer: 5
   m_Name: Skill_Inc But
   m_TagString: Untagged
@@ -1474,6 +1502,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &408542
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.7769985, y: 95.66153, z: 0}
+  m_LocalScale: {x: 1.0037642, y: 1.0037642, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22477630}
+  m_RootOrder: 0
 --- !u!4 &410132
 Transform:
   m_ObjectHideFlags: 1
@@ -1485,7 +1525,38 @@ Transform:
   m_LocalScale: {x: 1.2048193, y: 1.2048193, z: 1.2048193}
   m_Children: []
   m_Father: {fileID: 22477630}
-  m_RootOrder: 0
+  m_RootOrder: 1
+--- !u!50 &5048086
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170224}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &5853230
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170224}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &11400610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1594,6 +1665,36 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11406410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11436608}
+          m_MethodName: SpeedButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &11406864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1621,12 +1722,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+<<<<<<< HEAD
 --- !u!114 &11406896
+=======
+--- !u!114 &11408150
+>>>>>>> origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 135562}
+=======
+  m_GameObject: {fileID: 170224}
+>>>>>>> origin/master
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8d0f8e07c1ab487090d7f53ba3861bf, type: 3}
@@ -1634,6 +1743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wasActive: 0
   coolFactor: 0
+<<<<<<< HEAD
 --- !u!114 &11408894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1707,6 +1817,8 @@ MonoBehaviour:
   canvasRect: {fileID: 22477630}
   bossUIName: {fileID: 11495980}
   cupid: {fileID: 0}
+=======
+>>>>>>> origin/master
 --- !u!114 &11412454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2421,7 +2533,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 11436608}
           m_MethodName: HeartButton
           m_Mode: 1
           m_Arguments:
@@ -2462,6 +2574,49 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11436608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73494b174a86343f8bf056aff5a60eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sack: {fileID: 119160}
+  coinText: {fileID: 11489434}
+  coinIcon: {fileID: 11438084}
+  waterballonText: {fileID: 11451278}
+  waterballonIcon: {fileID: 11499480}
+  keyText: {fileID: 11400872}
+  keyIcon: {fileID: 11467490}
+  heartKeyText: {fileID: 11429288}
+  heartKeyIcon: {fileID: 11487288}
+  healthBar: {fileID: 11404154}
+  magicBar: {fileID: 11455468}
+  specialBar: {fileID: 11439204}
+  statText: {fileID: 11469358}
+  statusWin: {fileID: 107574}
+  pointText: {fileID: 11421536}
+  attackStatusArea: {fileID: 156148}
+  attPoints: 0
+  heartStatusArea: {fileID: 161700}
+  hpPoints: 0
+  skillStatusArea: {fileID: 126588}
+  skPoints: 0
+  speedStatusArea: {fileID: 141564}
+  spPoints: 0
+  permIcon: {fileID: 11418716, guid: 564498493987a4b77931c0390312fea0, type: 2}
+  transparent: {fileID: 21300000, guid: ca784fab6ab9d41d1a75e866310fa741, type: 3}
+  regSkill: {fileID: 11479016}
+  specSkill: {fileID: 11493378}
+  playerPos: {fileID: 0}
+  playerHealth: {fileID: 22411000}
+  canvasRect: {fileID: 22477630}
+  bossUIName: {fileID: 11495980}
+  cupid: {fileID: 0}
 --- !u!114 &11436776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2786,7 +2941,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 11436608}
           m_MethodName: AttackButton
           m_Mode: 1
           m_Arguments:
@@ -2881,6 +3036,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11449602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064dd685e08944ec89c3bfb673131360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniMap: {fileID: 173388}
 --- !u!114 &11449632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4073,6 +4240,36 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11493822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11436608}
+          m_MethodName: SkillButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &11495292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4842,6 +5039,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4908,7 +5106,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22477630}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 299, y: 165.35}
@@ -5042,7 +5240,7 @@ RectTransform:
   - {fileID: 22425634}
   - {fileID: 22471080}
   m_Father: {fileID: 22477630}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.5, y: -0.000015258789}
@@ -5149,7 +5347,7 @@ RectTransform:
   m_Children:
   - {fileID: 22417500}
   m_Father: {fileID: 22477630}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -300, y: 185.54}
@@ -5810,7 +6008,7 @@ RectTransform:
   - {fileID: 22481678}
   - {fileID: 22460998}
   m_Father: {fileID: 22477630}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -6086,6 +6284,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 408542}
   - {fileID: 410132}
   - {fileID: 22411060}
   - {fileID: 22415426}
@@ -6257,7 +6456,7 @@ RectTransform:
   - {fileID: 22485450}
   - {fileID: 22413264}
   m_Father: {fileID: 22477630}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 299, y: -31}
@@ -6335,7 +6534,7 @@ RectTransform:
   - {fileID: 22460568}
   - {fileID: 22446316}
   m_Father: {fileID: 22477630}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 44.999992, y: -187.5}

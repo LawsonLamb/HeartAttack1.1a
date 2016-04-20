@@ -12,7 +12,9 @@ public class UIScripts : MonoBehaviour {
 	GameObject database;
 	ItemData itemData;
 	AttackDatabase attData;
-
+	/// <summary>
+	///  COULD BE PUT IN ONE SCRIPT AND REUSED
+	/// </summary>
 	public Text coinText;
 	public Image coinIcon;
 	Item coin;
