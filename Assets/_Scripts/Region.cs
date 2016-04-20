@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 // trying to fix
-
+/*
 public enum RegionType
 {
     Door,
@@ -25,10 +25,10 @@ public class Region : MonoBehaviour {
     // Use this for initialization
     void Start() {
         flip = new bool[2];
-        //tiles = new Transform[3, 2];
+        tiles = new Transform[3, 2];
         tileset = TileSet.GetTileSet();
-        //_doorGO = this.transform.FindChild("Doors").gameObject;
-        //Wall = this.transform.FindChild("Wall").gameObject;
+        _doorGO = this.transform.FindChild("Doors").gameObject;
+        Wall = this.transform.FindChild("Wall").gameObject;
 
         SetType();
        
@@ -49,10 +49,10 @@ public class Region : MonoBehaviour {
             direction = Direction.North;
             flip[0] = false;
             flip[1] = true;
-            tiles = new Transform[3, 2];
+         
             setTiles();
          //   SetDoors(flip);
-            SetWall(false,false);
+         //   SetWall(false,false);
            
         }
 
@@ -61,10 +61,10 @@ public class Region : MonoBehaviour {
             direction = Direction.South;
             flip[0] = false;
             flip[1] = false;
-            tiles = new Transform[3, 2];
+           
             setTiles();
-          //  SetDoors(flip);
-            SetWall(true,true);
+           //SetDoors(flip);
+           //SetWall(true,true);
         }
 
         else if (gameObject.name.Equals("East"))
@@ -72,21 +72,21 @@ public class Region : MonoBehaviour {
             flip[0] = true;
             flip[1] = true;
             direction = Direction.East;
-            tiles = new Transform[3, 2];
-            setTiles();
-             setRegionEW(flip);
+          
+           setTiles();
+            // setRegionEW(flip);
            // setWallEW(true, true);
         }
 
         else if (gameObject.name.Equals("West"))
         {
-            tiles = new Transform[3, 2];
+          
             flip[0] = false;
             flip[1] = true;
             direction = Direction.West;
                setTiles();
-           // setWallEW(false, false);
-            setRegionEW(flip);
+            setWallEW(false, false);
+          //  setRegionEW(flip);
         }
 
 
@@ -194,13 +194,13 @@ public class Region : MonoBehaviour {
 
     void setTiles()
     {
-        //  print(gameObject.name);
+         print(gameObject.name);
         for (int row = 0; row < tiles.GetLength(0); row++)
         {
 
             for (int col = 0; col < tiles.GetLength(1); col++)
             { int temp = col % tiles.GetLength(0) + row * tiles.GetLength(1);
-             //   print(row + " ," +  col + ":" + temp);
+                print(row + " ," +  col + ":" + temp);
 
                 tiles[row, col] = transform.GetChild(temp);
               //   print(tiles[row, col].name);
@@ -388,5 +388,137 @@ public class Region : MonoBehaviour {
     }
 
 
+
+}
+
+    */
+
+public enum RegionType
+{
+
+    Door,
+    Wall,
+    Empty,
+}
+public class Region : MonoBehaviour
+{
+
+    public RegionType type;
+    public Direction direction;
+    GameObject _doorGO;
+    GameObject Wall;
+    Doors door;
+    public float portalAmount = 8.0f;
+    public Vector3 doorPos;
+    // Use this for initialization
+    void Start()
+    {
+        _doorGO = this.transform.FindChild("Doors").gameObject;
+
+        Wall = this.transform.FindChild("Wall").gameObject;
+        SetType();
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void SetType()
+    {
+        if (gameObject.name.Equals("North"))
+        {
+            direction = Direction.North;
+        }
+
+        else if (gameObject.name.Equals("South"))
+        {
+            direction = Direction.South;
+        }
+
+        else if (gameObject.name.Equals("East"))
+        {
+            direction = Direction.East;
+        }
+
+        else if (gameObject.name.Equals("West"))
+        {
+            direction = Direction.West;
+        }
+        switch (type)
+        {
+            case RegionType.Door:
+                Wall.SetActive(false);
+                _doorGO.SetActive(true);
+                door = _doorGO.GetComponentInChildren<Doors>();
+                doorPos = door.transform.position;
+                SetDoorPortal();
+                break;
+
+            case RegionType.Wall:
+                Wall.SetActive(true);
+                _doorGO.SetActive(false);
+                break;
+
+            case RegionType.Empty:
+                Wall.SetActive(false);
+                _doorGO.SetActive(false);
+                break;
+
+
+        }
+
+
+    }
+
+
+
+    void SetDoorPortal()
+    {
+
+        switch (direction)
+        {
+
+            case Direction.North:
+
+                door.postion.x = door.transform.position.x;
+
+                door.postion.y = (portalAmount + door.transform.position.y);
+
+
+
+                break;
+
+
+            case Direction.South:
+                door.postion.x = door.transform.position.x;
+
+                door.postion.y = (door.transform.position.y - portalAmount);
+
+                break;
+
+            case Direction.East:
+                door.postion.x = door.transform.position.x + portalAmount;
+
+                door.postion.y = door.transform.position.y;
+                break;
+
+
+
+            case Direction.West:
+                door.postion.x = door.transform.position.x - portalAmount;
+
+                door.postion.y = door.transform.position.y;
+                break;
+
+
+
+
+        }
+
+    }
 
 }

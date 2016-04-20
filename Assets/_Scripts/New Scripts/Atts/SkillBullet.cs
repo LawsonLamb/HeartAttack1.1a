@@ -61,6 +61,10 @@ public class SkillBullet : MonoBehaviour {
 			ani.SetTrigger ("ObjectHit");
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
 	public void Splat () {
 		Destroy (gameObject);
@@ -70,4 +74,8 @@ public class SkillBullet : MonoBehaviour {
     {
         Instantiate(ImpactEffect, this.transform.position, Quaternion.identity);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 }
