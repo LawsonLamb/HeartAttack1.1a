@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &153788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 453710}
+  - 114: {fileID: 11493860}
+  - 114: {fileID: 11487210}
+  - 60: {fileID: 6069980}
+  m_Layer: 0
+  m_Name: '@PolyNav2D'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &453710
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!60 &6069980
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 141.46217, y: 23.813984}
+      - {x: 136.3702, y: -137.79066}
+      - {x: 107.25935, y: -145.8882}
+      - {x: -31.788528, y: -161.55882}
+      - {x: -78.8634, y: -155.54303}
+      - {x: -64.39931, y: -146.40015}
+      - {x: -92.87471, y: -96.55885}
+      - {x: -98.16454, y: 42.0699}
+      - {x: 29.331432, y: 42.893234}
+--- !u!114 &11487210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f01b895e078212419b3a7c52085d19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateOnUpdate: 1
+  navObstacles: []
+  inflateRadius: 0.1
+  regenerateFlag: 1
+--- !u!114 &11493860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40eba157f36c44c08b3ff84dd0b2e553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomPrefab: {fileID: 113644, guid: 674ac7f6f7960004585eddda4dc5a81f, type: 2}
+  rooms: []
+  XOffset: 40
+  yOffset: 25
+  width: 3
+  height: 3
+  maximumNumberOfRooms: 12
+  minimumNumberOfRooms: 9
+  roomPositions: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 153788}
+  m_IsPrefabParent: 1
