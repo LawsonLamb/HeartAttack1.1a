@@ -378,7 +378,8 @@ public class ChamberGenerator : MonoBehaviour
         for (int i = 0; i < roomPositions.Count; i++)
         {
              rooms.Add((GameObject)Instantiate(RoomPrefab, new Vector3(roomPositions[i].x * XOffset, roomPositions[i].y * yOffset, 0.0f), Quaternion.identity));
-             
+            rooms[i].transform.SetParent(this.gameObject.transform);
+            rooms[i].name = "Room " + i;
 
         }
 

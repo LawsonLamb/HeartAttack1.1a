@@ -16,6 +16,7 @@ public class Room : MonoBehaviour {
    public RoomType type;
    public List<Region> Regions;
     GameObject regionsGO;
+    public List<GameObject> Enemies;
 
 	void Start () {
         findRegions();

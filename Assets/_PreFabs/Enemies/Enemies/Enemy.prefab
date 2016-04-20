@@ -1,0 +1,402 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &115566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22454714}
+  - 223: {fileID: 22368148}
+  - 114: {fileID: 11485724}
+  - 114: {fileID: 11413356}
+  m_Layer: 11
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &120726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 444184}
+  - 212: {fileID: 21228040}
+  - 114: {fileID: 11478982}
+  - 114: {fileID: 11428118}
+  - 95: {fileID: 9526268}
+  - 58: {fileID: 5885124}
+  - 114: {fileID: 11466972}
+  - 114: {fileID: 11407660}
+  - 114: {fileID: 11434104}
+  m_Layer: 11
+  m_Name: Enemy
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &144610
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22457842}
+  - 222: {fileID: 22204528}
+  - 114: {fileID: 11428414}
+  m_Layer: 11
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444184
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.080191, y: 8.321963, z: 0.015625}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children:
+  - {fileID: 22454714}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!58 &5885124
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.81754875
+--- !u!95 &9526268
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca0c4a5e8fb194eb7bfb5d63885cab35, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11407660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83f7078a148e426d843ddd96d25331d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  age: 0
+  health: 100
+  maxHealth: 100
+  damage: 50
+  effect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 2}
+  player: {fileID: 0}
+--- !u!114 &11413356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &11428118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cc6a4987f7c684798156c56d545838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 1
+  mass: 2
+  stoppingDistance: 0.4
+  slowingDistance: 1
+  decelerationRate: 2
+  rotateTransform: 0
+  rotateSpeed: 350
+  avoidRadius: 2
+  lookAheadDistance: 2
+  repath: 1
+  restrict: 0
+  closerPointOnInvalid: 0
+  debugPath: 0
+--- !u!114 &11428414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 48e1dcc1a760c6841bfb48f8e74bc870, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &11434104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c395ee46c904f43b0ac8f23ed3fe57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Letters: 15
+  DropableItems:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &11466972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7110276989d94e58ab20450d4d95b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Magnitude: 3
+  timeBetweenAttacks: 0.15
+--- !u!114 &11478982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWhenEnabled: 1
+  pauseWhenDisabled: 0
+  restartWhenComplete: 1
+  logTaskChanges: 0
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 0}
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: "{\n\t\"EntryTask\":{\n\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(0,0)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(2.77647877,136.303864)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Selector\",\n\t\t\"Instant\":true,\n\t\t\"BehaviorDesigner.Runtime.Tasks.AbortType,abortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-570.538,140.764954)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Sequence\",\n\t\t\t\"Instant\":true,\n\t\t\t\"BehaviorDesigner.Runtime.Tasks.AbortType,abortType\":\"Both\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-215,90)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":3,\n\t\t\t\t\"Name\":\"Within
+        Distance\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"System.Boolean,usePhysics2D\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,magnitude\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Single,mValue\":1.5\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedBool,lineOfSight\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Boolean,mValue\":false\n\t\t\t\t},\n\t\t\t\t\"UnityEngine.LayerMask,ignoreLayerMask\":4,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,offset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,targetOffset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObjectList,objects\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObjectList\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Collections.Generic.List`1[UnityEngine.GameObject],mValue\":[]\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedString,objectTag\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.String,mValue\":\"Player\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,returnedObject\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"\"\n\t\t\t\t}\n\t\t\t},{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator.SetBoolParameter\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-1.93452454,116.008118)\",\n\t\t\t\t\t\"Disabled\":true\n\t\t\t\t},\n\t\t\t\t\"ID\":4,\n\t\t\t\t\"Name\":\"Set
+        Bool Parameter\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,targetGameObject\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"UnityEngine.GameObject,mValue\":0\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedString,paramaterName\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"System.String,mValue\":\"Attack\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedBool,boolValue\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"System.Boolean,mValue\":true\n\t\t\t\t},\n\t\t\t\t\"System.Boolean,setOnce\":false\n\t\t\t},{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Idle\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(218.913635,74.50177)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":5,\n\t\t\t\t\"Name\":\"Idle\",\n\t\t\t\t\"Instant\":true\n\t\t\t}]\n\t\t},{\n\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-3.99194717,175.595551)\"\n\t\t\t},\n\t\t\t\"ID\":6,\n\t\t\t\"Name\":\"Sequence\",\n\t\t\t\"Instant\":true,\n\t\t\t\"BehaviorDesigner.Runtime.Tasks.AbortType,abortType\":\"Both\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-120.595352,112.976761)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":7,\n\t\t\t\t\"Name\":\"Within
+        Distance\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"System.Boolean,usePhysics2D\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,magnitude\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Single,mValue\":6\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedBool,lineOfSight\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Boolean,mValue\":false\n\t\t\t\t},\n\t\t\t\t\"UnityEngine.LayerMask,ignoreLayerMask\":4,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,offset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,targetOffset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObjectList,objects\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObjectList\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Collections.Generic.List`1[UnityEngine.GameObject],mValue\":[]\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedString,objectTag\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.String,mValue\":\"Player\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,returnedObject\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\"UnityEngine.GameObject,mValue\":1\n\t\t\t\t}\n\t\t\t},{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.PolyNav.Seek\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(134.312164,130.399109)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":8,\n\t\t\t\t\"Name\":\"Seek\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,target\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\"UnityEngine.GameObject,mValue\":2\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,targetPosition\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,speed\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"Speed\",\n\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\"System.Single,mValue\":2\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,angularSpeed\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"System.Single,mValue\":350\n\t\t\t\t}\n\t\t\t}]\n\t\t},{\n\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.PolyNav.Wander\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(355.1827,196.963318)\"\n\t\t\t},\n\t\t\t\"ID\":9,\n\t\t\t\"Name\":\"Wander\",\n\t\t\t\"Instant\":true,\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,wanderDistance\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":20\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,wanderRate\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":2\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,speed\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":5\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,angularSpeed\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":350\n\t\t\t}\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"Player\",\n\t\t\"IsShared\":true,\n\t\t\"UnityEngine.GameObject,mValue\":3\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\"Name\":\"Speed\",\n\t\t\"IsShared\":true,\n\t\t\"System.Single,mValue\":2\n\t}]\n}"
+      fieldSerializationData:
+        typeName: []
+        startIndex: 
+        dataPosition: 
+        unityObjects:
+        - {fileID: 120726}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        byteData: 
+        byteDataArray: 
+--- !u!114 &11485724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!212 &21228040
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120726}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300006, guid: 7b456fb1f919940ee8429f03552d13c9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!222 &22204528
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144610}
+--- !u!223 &22368148
+Canvas:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115566}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &22454714
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22457842}
+  m_Father: {fileID: 444184}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.02, y: 1.01}
+  m_SizeDelta: {x: 1.61, y: 0.34}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22457842
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22454714}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.0000002104789, y: 0.00000020675361}
+  m_SizeDelta: {x: 0, y: -0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: restartWhenComplete
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 113610, guid: 1f9145ec6aa4a4d45bef2ee9ecff6dbb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: mBehaviorSource.mTaskData.JSONSerialization
+      value: "{\n\t\"EntryTask\":{\n\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(0,0)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(2.77647877,136.303864)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Selector\",\n\t\t\"Instant\":true,\n\t\t\"BehaviorDesigner.Runtime.Tasks.AbortType,abortType\":\"None\",\n\t\t\"Children\":[{\n\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-570.538,140.764954)\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Sequence\",\n\t\t\t\"Instant\":true,\n\t\t\t\"BehaviorDesigner.Runtime.Tasks.AbortType,abortType\":\"Both\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-215,90)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":3,\n\t\t\t\t\"Name\":\"Within
+        Distance\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"System.Boolean,usePhysics2D\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,magnitude\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Single,mValue\":1.5\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedBool,lineOfSight\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Boolean,mValue\":false\n\t\t\t\t},\n\t\t\t\t\"UnityEngine.LayerMask,ignoreLayerMask\":4,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,offset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,targetOffset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObjectList,objects\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObjectList\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Collections.Generic.List`1[UnityEngine.GameObject],mValue\":[]\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedString,objectTag\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\"IsShared\":true\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,returnedObject\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"playerObject\",\n\t\t\t\t\t\"IsShared\":true\n\t\t\t\t}\n\t\t\t},{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator.SetBoolParameter\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-1.93452454,116.008118)\",\n\t\t\t\t\t\"Disabled\":true\n\t\t\t\t},\n\t\t\t\t\"ID\":4,\n\t\t\t\t\"Name\":\"Set
+        Bool Parameter\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,targetGameObject\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"UnityEngine.GameObject,mValue\":0\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedString,paramaterName\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"System.String,mValue\":\"Attack\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedBool,boolValue\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"System.Boolean,mValue\":true\n\t\t\t\t},\n\t\t\t\t\"System.Boolean,setOnce\":false\n\t\t\t},{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Idle\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(218.913635,74.50177)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":5,\n\t\t\t\t\"Name\":\"Idle\",\n\t\t\t\t\"Instant\":true\n\t\t\t}]\n\t\t},{\n\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-3.99194717,175.595551)\"\n\t\t\t},\n\t\t\t\"ID\":6,\n\t\t\t\"Name\":\"Sequence\",\n\t\t\t\"Instant\":true,\n\t\t\t\"BehaviorDesigner.Runtime.Tasks.AbortType,abortType\":\"Both\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-120.595352,112.976761)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":7,\n\t\t\t\t\"Name\":\"Within
+        Distance\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"System.Boolean,usePhysics2D\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,magnitude\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Single,mValue\":6\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedBool,lineOfSight\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Boolean,mValue\":false\n\t\t\t\t},\n\t\t\t\t\"UnityEngine.LayerMask,ignoreLayerMask\":4,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,offset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,targetOffset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObjectList,objects\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObjectList\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Collections.Generic.List`1[UnityEngine.GameObject],mValue\":[]\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedString,objectTag\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\"IsShared\":true\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,returnedObject\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"playerObject\",\n\t\t\t\t\t\"IsShared\":true\n\t\t\t\t}\n\t\t\t},{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.PolyNav.Seek\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(134.312164,130.399109)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":8,\n\t\t\t\t\"Name\":\"Seek\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,target\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"playerObject\",\n\t\t\t\t\t\"IsShared\":true\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,targetPosition\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,speed\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"Speed\",\n\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\"System.Single,mValue\":2\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,angularSpeed\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"System.Single,mValue\":350\n\t\t\t\t}\n\t\t\t}]\n\t\t},{\n\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.PolyNav.Wander\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(355.1827,196.963318)\"\n\t\t\t},\n\t\t\t\"ID\":9,\n\t\t\t\"Name\":\"Wander\",\n\t\t\t\"Instant\":true,\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,wanderDistance\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":5\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,wanderRate\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":4\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,speed\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":1\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,angularSpeed\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":45\n\t\t\t}\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"playerObject\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\"Name\":\"Speed\",\n\t\t\"IsShared\":true,\n\t\t\"System.Single,mValue\":2\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\"Name\":\"Player\",\n\t\t\"IsShared\":true\n\t}]\n}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0ff0440d5494e42a48359b348869da52, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 120726}
+  m_IsPrefabParent: 1
