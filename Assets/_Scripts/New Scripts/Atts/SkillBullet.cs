@@ -76,7 +76,10 @@ public class SkillBullet : MonoBehaviour {
 			Splat();
 		}
 	}
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
 
 	public void Splat () {
 		Destroy (gameObject);
@@ -88,5 +91,8 @@ public class SkillBullet : MonoBehaviour {
 			Instantiate (ImpactEffect, this.transform.position, Quaternion.identity);
 		}
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
 }

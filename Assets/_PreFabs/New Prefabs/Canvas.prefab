@@ -538,7 +538,11 @@ GameObject:
   - 222: {fileID: 22210282}
   - 114: {fileID: 11497700}
   - 114: {fileID: 11419372}
+<<<<<<< HEAD
+  - 114: {fileID: 11497254}
+=======
   - 114: {fileID: 11406410}
+>>>>>>> origin/master
   m_Layer: 5
   m_Name: Speed_Inc But
   m_TagString: Untagged
@@ -557,6 +561,9 @@ GameObject:
   - 223: {fileID: 22322244}
   - 114: {fileID: 11400610}
   - 114: {fileID: 11427578}
+  - 114: {fileID: 11409998}
+  - 114: {fileID: 11406896}
+  - 114: {fileID: 11470634}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1381,7 +1388,11 @@ GameObject:
   - 222: {fileID: 22218198}
   - 114: {fileID: 11490476}
   - 114: {fileID: 11497464}
+<<<<<<< HEAD
+  - 114: {fileID: 11408894}
+=======
   - 114: {fileID: 11493822}
+>>>>>>> origin/master
   m_Layer: 5
   m_Name: Skill_Inc But
   m_TagString: Untagged
@@ -1711,12 +1722,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+<<<<<<< HEAD
+--- !u!114 &11406896
+=======
 --- !u!114 &11408150
+>>>>>>> origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 135562}
+=======
   m_GameObject: {fileID: 170224}
+>>>>>>> origin/master
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8d0f8e07c1ab487090d7f53ba3861bf, type: 3}
@@ -1724,6 +1743,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wasActive: 0
   coolFactor: 0
+<<<<<<< HEAD
+--- !u!114 &11408894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SkillButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &11409998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73494b174a86343f8bf056aff5a60eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sack: {fileID: 119160}
+  coinText: {fileID: 11489434}
+  coinIcon: {fileID: 11438084}
+  waterballonText: {fileID: 11451278}
+  waterballonIcon: {fileID: 11499480}
+  keyText: {fileID: 11400872}
+  keyIcon: {fileID: 11467490}
+  heartKeyText: {fileID: 11429288}
+  heartKeyIcon: {fileID: 11487288}
+  healthBar: {fileID: 11404154}
+  magicBar: {fileID: 11455468}
+  specialBar: {fileID: 11439204}
+  statText: {fileID: 11469358}
+  statusWin: {fileID: 107574}
+  pointText: {fileID: 11421536}
+  attackStatusArea: {fileID: 156148}
+  attPoints: 0
+  heartStatusArea: {fileID: 161700}
+  hpPoints: 0
+  skillStatusArea: {fileID: 126588}
+  skPoints: 0
+  speedStatusArea: {fileID: 141564}
+  spPoints: 0
+  permIcon: {fileID: 11418716, guid: 564498493987a4b77931c0390312fea0, type: 2}
+  transparent: {fileID: 21300000, guid: ca784fab6ab9d41d1a75e866310fa741, type: 3}
+  regSkill: {fileID: 11479016}
+  specSkill: {fileID: 11493378}
+  playerPos: {fileID: 0}
+  playerHealth: {fileID: 22411000}
+  canvasRect: {fileID: 22477630}
+  bossUIName: {fileID: 11495980}
+  cupid: {fileID: 0}
+=======
+>>>>>>> origin/master
 --- !u!114 &11412454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3569,6 +3664,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11470634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064dd685e08944ec89c3bfb673131360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniMap: {fileID: 173388}
 --- !u!114 &11471264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4250,6 +4357,36 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11497254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SpeedButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &11497464
 MonoBehaviour:
   m_ObjectHideFlags: 1
