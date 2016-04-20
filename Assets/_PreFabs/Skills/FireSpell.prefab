@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455202}
-  - 114: {fileID: 11402056}
   - 58: {fileID: 5841690}
   - 50: {fileID: 5029340}
   m_Layer: 9
@@ -153,23 +152,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &11402056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f0e5683a3dc48afaa1382e01a192d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 0
-  Damage: 5
-  Duration: 5
-  Effect: {fileID: 100004, guid: 2a489509f13a8b24581cd3461743f726, type: 2}
-  ImpactEffect: {fileID: 100006, guid: 8a4aceaf2957c044480166b429f4c7d0, type: 2}
-  moveSpeed: 20
 --- !u!114 &11486892
 MonoBehaviour:
   m_ObjectHideFlags: 1

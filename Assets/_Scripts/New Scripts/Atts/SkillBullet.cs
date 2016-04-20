@@ -6,7 +6,8 @@ public class SkillBullet : MonoBehaviour {
 	float speed;
 	float speedX;
 	float speedY;
-	float lifeSpan = 75f;
+	public float lifeSpan = 75f;
+    public GameObject ImpactEffect;
 	GameObject database;
 	AttackDatabase attData;
 	Attacks att;
@@ -60,8 +61,15 @@ public class SkillBullet : MonoBehaviour {
 			ani.SetTrigger ("ObjectHit");
 		}
 	}
+<<<<<<< HEAD
 
 	public void Splat () {
 		Destroy (gameObject);
 	}
+=======
+    void OnDestroy()
+    {
+        Instantiate(ImpactEffect, this.transform.position, Quaternion.identity);
+    }
+>>>>>>> origin/master
 }
