@@ -54,6 +54,9 @@ public class UIScripts : MonoBehaviour {
 	GameObject speedButton;
 	public int spPoints;
 
+	GameObject amountBar;
+	Text pointDisplay;
+
 	public Image permIcon;
 	public Sprite transparent;
 	List<Image> icons = new List<Image> ();
@@ -76,6 +79,7 @@ public class UIScripts : MonoBehaviour {
 	Boss foeBoss;
 
 	public GameObject cupid; 
+
 	// Use this for initialization
 	void Start () {
 	
@@ -112,7 +116,7 @@ public class UIScripts : MonoBehaviour {
 		itemData.item [12].openIt = true;
 		itemData.item [15].openIt = true;
 
-		make = itemData.item [17];
+		make = itemData.item [10];
 		make.CreateGameObject ("blah", 1);
 
 		viewportPoint = Camera.main.WorldToViewportPoint(playerPos.transform.position);
@@ -125,10 +129,10 @@ public class UIScripts : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		print (player.coolDown);
 		if (Input.GetKeyDown (KeyCode.T)) {
 			sackactivity = !sackactivity;
 			sack.SetActive (sackactivity);
+			statusWin.SetActive (sackactivity);
 		}
 
 		//Just a display so I can check status stuff.
@@ -140,7 +144,7 @@ public class UIScripts : MonoBehaviour {
 			pointText.text = player.points + "/30";
 		}
 
-		if (player.points >= 30) {
+		if (player.points <= 0) {
 			attackButton.SetActive (false);
 			heartButton.SetActive (false);
 			skillButton.SetActive (false);
@@ -148,15 +152,23 @@ public class UIScripts : MonoBehaviour {
 		} else {
 			if (attPoints < 8) {
 				attackButton.SetActive (true);
-			} 
+			} else {
+				attackButton.SetActive (false);
+			}
 			if (hpPoints < 8) {
 				heartButton.SetActive (true);
+			} else {
+				heartButton.SetActive (false);
 			}
 			if (skPoints < 8) {
 				skillButton.SetActive (true);
+			} else {
+				skillButton.SetActive (false);
 			}
 			if (spPoints < 8) {
 				speedButton.SetActive (true);
+			} else {
+				speedButton.SetActive (false);
 			}
 		}
 
@@ -267,13 +279,13 @@ public class UIScripts : MonoBehaviour {
 		}
 	}
 
-	public void AttackButton() {
+	public void AttackButton () {
 
 		//Find the bar for attack
-		GameObject amountBar = attackStatusArea.transform.GetChild(0).gameObject;
+		amountBar = attackStatusArea.transform.GetChild(0).gameObject;
 
 		//Find the display for attack points
-		Text pointDisplay = attackStatusArea.transform.GetChild(1).GetComponent<Text>();
+		pointDisplay = attackStatusArea.transform.GetChild(1).GetComponent<Text>();
 
 		//Increase attack points and decrease player points
 		attPoints += 1;
@@ -302,10 +314,10 @@ public class UIScripts : MonoBehaviour {
 	public void HeartButton() {
 
 		//Find the bar for attack
-		GameObject amountBar = heartStatusArea.transform.GetChild(0).gameObject;
+		amountBar = heartStatusArea.transform.GetChild(0).gameObject;
 
 		//Find the display for attack points
-		Text pointDisplay = heartStatusArea.transform.GetChild(1).GetComponent<Text>();
+		pointDisplay = heartStatusArea.transform.GetChild(1).GetComponent<Text>();
 
 		//Increase attack points and decrease player points
 		hpPoints += 1;
@@ -334,10 +346,10 @@ public class UIScripts : MonoBehaviour {
 	public void SkillButton() {
 
 		//Find the bar for attack
-		GameObject amountBar = skillStatusArea.transform.GetChild(0).gameObject;
+		amountBar = skillStatusArea.transform.GetChild(0).gameObject;
 
 		//Find the display for attack points
-		Text pointDisplay = skillStatusArea.transform.GetChild(1).GetComponent<Text>();
+		pointDisplay = skillStatusArea.transform.GetChild(1).GetComponent<Text>();
 
 		//Increase attack points and decrease player points
 		skPoints += 1;
@@ -367,10 +379,10 @@ public class UIScripts : MonoBehaviour {
 	public void SpeedButton() {
 
 		//Find the bar for attack
-		GameObject amountBar = speedStatusArea.transform.GetChild(0).gameObject;
+		amountBar = speedStatusArea.transform.GetChild(0).gameObject;
 
 		//Find the display for attack points
-		Text pointDisplay = speedStatusArea.transform.GetChild(1).GetComponent<Text>();
+		pointDisplay = speedStatusArea.transform.GetChild(1).GetComponent<Text>();
 
 		//Increase attack points and decrease player points
 		spPoints += 1;
@@ -504,6 +516,9 @@ public class UIScripts : MonoBehaviour {
 		} 
 		if (foeBoss.health <= 0) {
 			print ("Boss is Dead");
+			Destroy (foeBoss.gameObject);
+			player.LevelManager (50);
+			player.enemyKillCount += 1;
 		}
 	}
 }

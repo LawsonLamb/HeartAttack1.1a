@@ -89,7 +89,7 @@ MonoBehaviour:
   statText: {fileID: 0}
   statusWin: {fileID: 0}
   pointText: {fileID: 0}
-  attackStatusArea: {fileID: 0}
+  attackStatusArea: {fileID: 191014, guid: 55540c07cebce4fc1b196585cb2fa574, type: 2}
   attPoints: 0
   heartStatusArea: {fileID: 0}
   hpPoints: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 064dd685e08944ec89c3bfb673131360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniMap: {fileID: 0}
 --- !u!114 &11498254
 MonoBehaviour:
   m_ObjectHideFlags: 1

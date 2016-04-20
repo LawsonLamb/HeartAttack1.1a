@@ -7,7 +7,7 @@ public class Boss : MonoBehaviour {
 
 	Foes thisfoe;
 	FoeDatabase foeData;
-	UIScripts display;
+	UIScripts displays;
 	Physical attributes;
 	public float health;
 	public float maxHealth;
@@ -18,10 +18,12 @@ public class Boss : MonoBehaviour {
 	public Image initBar;
 	public Image barArea;
 	Image currBar;
+	Player player;
 	// Use this for initialization
 	void Start () {
 
-		display = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
 		foeData = GameObject.FindGameObjectWithTag ("Database").GetComponent<FoeDatabase> ();
 		attributes = gameObject.GetComponent<Physical> ();
 		bossIsActive = true;
@@ -34,7 +36,7 @@ public class Boss : MonoBehaviour {
 			thisfoe = foeData.GetFoeByName (gameObject.name);
 			attributes.SetFoeStats (thisfoe);
 
-			display.bossUIName.text = attributes.name;
+			displays.bossUIName.text = attributes.name;
 			health = attributes.health;
 			maxHealth = health;
 
@@ -63,13 +65,15 @@ public class Boss : MonoBehaviour {
 			}
 			bossIsActive = false;
 		}
-			
-		if (Input.GetKeyDown (KeyCode.P)) {
-			if (barList [0] != null) {
-				currBar = barList [(barCount - 1)];
-				display.BossTakeDamage (5, currBar);
-			}
-		}
+		attributes.health = health;
 	}
 
+	void OnTriggerEnter2D (Collider2D col) {
+		if (col.gameObject.tag == "Blood") {
+			if (barList [0] != null) {
+				currBar = barList [(barCount - 1)];
+			}
+			displays.BossTakeDamage (player.dmg, currBar);
+		}
+	}
 }
