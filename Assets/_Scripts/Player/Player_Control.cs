@@ -16,6 +16,13 @@ public class Player_Control : MonoBehaviour {
 	public float SkillRotation;
 	int directionType;
 	public float rayDistince;
+    float speed;
+    float XDirection;
+    float YDirection;
+    float HorizontalAxis;
+    float VerticalAxis;
+    
+    
 
 	public GameObject sounds;
 	// Use this for initialization
@@ -26,13 +33,69 @@ public class Player_Control : MonoBehaviour {
 
 
 	void Update () {
+      //  HorizontalAxis = Input.GetAxis("Horizontal");
+      //  VerticalAxis = Input.GetAxis("Vertical");
 
-			Player_Option_Set_1 ();
+        SetAnimSpeed(HorizontalAxis);
+        
+        //	Player_Option_Set_1 ();
+       
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            direction = PlayerDirection.UP;
+            YDirection = 1.0f;
+            SetAnimDirection(1.0f);
+            // SetAnimSpeed(1.0f);
+            speed = 1.0f;
+            MoveY(playerSpeed);
+        }
 
-		///	HotbarInput();
+    else    if (Input.GetKey(KeyCode.DownArrow))
+        {
 
-			SetDirection();
-	}
+            direction = PlayerDirection.DOWN;
+          //  SetAnimDirection(-1.0f, true);
+            YDirection = -1.0f;
+            SetAnimDirection(-1.0f);
+            MoveY(-playerSpeed);
+            speed = 1.0f;
+        }
+
+     else   if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            direction = PlayerDirection.LEFT;
+            XDirection = -1.0f;
+            GetComponent<SpriteRenderer>().flipX = true;
+            SetAnimDirection(0.0f);
+            speed = 1.0f;
+        
+            MoveX(-playerSpeed);
+        }
+
+
+    else    if (Input.GetKey(KeyCode.RightArrow))
+        {
+            direction = PlayerDirection.RIGHT;
+            XDirection = 1.0f;
+            SetAnimDirection(0.0f);
+            GetComponent<SpriteRenderer>().flipX = false;
+            speed = 1.0f;
+          //  SetAnimSpeed(1.0f);
+            MoveX(playerSpeed);
+        }
+        else
+        {
+            speed = 0;
+            //SetAnimSpeed(0.0f);
+        }
+
+       SetAnimSpeed(speed);
+    
+        
+        ///	HotbarInput();
+
+        //SetDirection();
+    }
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.gameObject.tag == "Item") {
 
@@ -69,29 +132,35 @@ public class Player_Control : MonoBehaviour {
 
 	//Arrow Key Movement
 	void Player_Option_Set_1() {
-		
-		if (Input.GetKey (KeyCode.UpArrow)) {
+
+     HorizontalAxis=    Input.GetAxis("Horizontal");
+      VerticalAxis =   Input.GetAxis("Vertical");
+        
+        /*
+        if (Input.GetKey (KeyCode.UpArrow)) {
 			direction = PlayerDirection.UP;
-			SetAnimDirection(1.0f,true);
+            SetAnimDirection(1.0f);
 			MoveY(playerSpeed);
 		}
 
 		 if (Input.GetKey (KeyCode.DownArrow)) {
 			
 			direction = PlayerDirection.DOWN;
-			SetAnimDirection(-1.0f,true);
-			MoveY(-playerSpeed);
+            SetAnimDirection(-1.0f);
+            MoveY(-playerSpeed);
 		}
 
 		 if (Input.GetKey (KeyCode.LeftArrow)) {
 			direction = PlayerDirection.LEFT;
-			SetAnimSpeed(1.0f,false);
-			MoveX(-playerSpeed);
+			
+            SetAnimSpeed(1.0f);
+            MoveX(-playerSpeed);
 		}
 
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			direction = PlayerDirection.RIGHT;
-			SetAnimSpeed(-1.0f,false);
+
+			SetAnimSpeed(1.0f);
 			MoveX(playerSpeed);
 		}
 
@@ -110,6 +179,7 @@ public class Player_Control : MonoBehaviour {
 			canAttack = false;
 			anim.SetBool ("Attack", canAttack);
 		}
+        */
 	}
 
 
@@ -176,14 +246,14 @@ public class Player_Control : MonoBehaviour {
 
 
 	}
-	void SetAnimDirection(float direction,bool UP){
-		anim.SetFloat ("DIrection", direction);
-		anim.SetBool ("isUp",UP);
+	void SetAnimDirection(float direction){
+		anim.SetFloat ("Direction", direction);
+		
 
 	}
-	void SetAnimSpeed(float speed,bool UP){
+	void SetAnimSpeed(float speed){
 		anim.SetFloat ("Speed",speed);
-		anim.SetBool ("isUp",UP);
+		
 
 	}
 

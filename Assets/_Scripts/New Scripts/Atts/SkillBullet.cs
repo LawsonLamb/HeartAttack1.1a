@@ -6,7 +6,8 @@ public class SkillBullet : MonoBehaviour {
 	float speed;
 	float speedX;
 	float speedY;
-	float lifeSpan = 75f;
+	public float lifeSpan = 75f;
+    public GameObject ImpactEffect;
 	GameObject database;
 	AttackDatabase attData;
 	Attacks att;
@@ -56,4 +57,8 @@ public class SkillBullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+    void OnDestroy()
+    {
+        Instantiate(ImpactEffect, this.transform.position, Quaternion.identity);
+    }
 }
