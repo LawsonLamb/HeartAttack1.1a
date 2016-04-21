@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
+[System.Serializable]
 public class ChamberGenerator : MonoBehaviour
 {
     public GameObject RoomPrefab;
@@ -16,6 +16,7 @@ public class ChamberGenerator : MonoBehaviour
     public int height;
     public int maximumNumberOfRooms = 12;
     public int minimumNumberOfRooms = 9;
+   [SerializeField]
     public List<Vector2> roomPositions = new List<Vector2>();
     // Use this for initialization
     void Start()
@@ -171,7 +172,7 @@ public class ChamberGenerator : MonoBehaviour
     void RandomGEN()
     {
         int numberOfRooms = Random.Range(minimumNumberOfRooms, maximumNumberOfRooms + 1);
-        print(numberOfRooms);
+       // print(numberOfRooms);
         roomPositions.Add(Vector2.zero);
         int randomRoom;
         int i;
@@ -385,4 +386,9 @@ public class ChamberGenerator : MonoBehaviour
 
     }
 
+    public int getCount()
+    {
+
+        return roomPositions.Count;
+    }
 }

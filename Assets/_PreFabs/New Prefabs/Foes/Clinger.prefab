@@ -11,9 +11,10 @@ GameObject:
   - 212: {fileID: 21230736}
   - 114: {fileID: 11455036}
   - 58: {fileID: 5849444}
-  - 114: {fileID: 11486588}
   - 114: {fileID: 11406950}
   - 114: {fileID: 11494280}
+  - 114: {fileID: 11422866}
+  - 114: {fileID: 11400264}
   m_Layer: 0
   m_Name: Clinger
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: 6.844, z: 0}
+  m_LocalPosition: {x: 7.163, y: 12.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,6 +48,50 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &11400264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWhenEnabled: 1
+  pauseWhenDisabled: 0
+  restartWhenComplete: 1
+  logTaskChanges: 0
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 0}
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: "{\n\t\"EntryTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.EntryTask\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(80,20)\"\n\t\t},\n\t\t\"ID\":0,\n\t\t\"Name\":\"Entry\",\n\t\t\"Instant\":true\n\t},\n\t\"RootTask\":{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\"NodeData\":{\n\t\t\t\"Offset\":\"(0.5,121.5)\"\n\t\t},\n\t\t\"ID\":1,\n\t\t\"Name\":\"Selector\",\n\t\t\"Instant\":true,\n\t\t\"-847102732\":\"Both\",\n\t\t\"Children\":[{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(-489.5,111.5)\",\n\t\t\t\t\"Comment\":\"Chase
+        State\"\n\t\t\t},\n\t\t\t\"ID\":2,\n\t\t\t\"Name\":\"Sequence\",\n\t\t\t\"Instant\":true,\n\t\t\t\"-847102732\":\"LowerPriority\",\n\t\t\t\"Children\":[{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(-240,130)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":3,\n\t\t\t\t\"Name\":\"Within
+        Distance\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"-2099438310\":true,\n\t\t\t\t\"159479527\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"Follow
+        Magnitude\",\n\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\"1384598892\":3.81\n\t\t\t\t},\n\t\t\t\t\"-970574719\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"637395212\":false\n\t\t\t\t},\n\t\t\t\t\"1691495912\":4,\n\t\t\t\t\"-175506530\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"910474292\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"175909007\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"910474292\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"-2107846904\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObjectList\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"1184355859\":[]\n\t\t\t\t},\n\t\t\t\t\"1929712849\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\"Name\":\"PlayerTag\",\n\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\"IsGlobal\":true,\n\t\t\t\t\t\"1394878773\":\"Player\"\n\t\t\t\t},\n\t\t\t\t\"493184548\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\"IsShared\":true\n\t\t\t\t}\n\t\t\t},{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Selector\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(230,250)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":4,\n\t\t\t\t\"Name\":\"Selector\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"-847102732\":\"Both\",\n\t\t\t\t\"Children\":[{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Sequence\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(-280,160)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":5,\n\t\t\t\t\t\"Name\":\"Sequence\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"-847102732\":\"Both\",\n\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(-210,120)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":6,\n\t\t\t\t\t\t\"Name\":\"Within
+        Distance\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"-2099438310\":true,\n\t\t\t\t\t\t\"159479527\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\t\"Name\":\"Attack
+        Magnitude\",\n\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\"1384598892\":2.04\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"-970574719\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\t\t\"637395212\":false\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"1691495912\":4,\n\t\t\t\t\t\t\"-175506530\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\t\t\"910474292\":\"(0,0,0)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"175909007\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\t\t\"910474292\":\"(0,0,0)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"-2107846904\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObjectList\",\n\t\t\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\t\t\"1184355859\":[]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"1929712849\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\t\t\"Name\":\"PlayerTag\",\n\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\"IsGlobal\":true,\n\t\t\t\t\t\t\t\"1394878773\":\"Player\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"493184548\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\t\t\"IsShared\":true\n\t\t\t\t\t\t}\n\t\t\t\t\t},{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.PerformInterruption\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(1.984375,134.5)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":7,\n\t\t\t\t\t\t\"Name\":\"Perform
+        Interruption\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"-2099136560\":[9],\n\t\t\t\t\t\t\"-467222225\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\"637395212\":false\n\t\t\t\t\t\t}\n\t\t\t\t\t},{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Idle\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(190,120)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":8,\n\t\t\t\t\t\t\"Name\":\"Idle\",\n\t\t\t\t\t\t\"Instant\":true\n\t\t\t\t\t}]\n\t\t\t\t},{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Interrupt\",\n\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\"Offset\":\"(220,170)\"\n\t\t\t\t\t},\n\t\t\t\t\t\"ID\":9,\n\t\t\t\t\t\"Name\":\"Interrupt\",\n\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\"Children\":[{\n\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Movement.PolyNav.Seek\",\n\t\t\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\t\t\"Offset\":\"(0,160)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"ID\":10,\n\t\t\t\t\t\t\"Name\":\"Seek\",\n\t\t\t\t\t\t\"Instant\":true,\n\t\t\t\t\t\t\"19030471\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\t\t\"IsShared\":true\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"-6939\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\"910474292\":\"(0,0,0)\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"-2009062114\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\t\"Name\":\"Speed\",\n\t\t\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\t\t\"1384598892\":1\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"413713500\":{\n\t\t\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\t\t\"1384598892\":350\n\t\t\t\t\t\t}\n\t\t\t\t\t}]\n\t\t\t\t}]\n\t\t\t}]\n\t\t},{\n\t\t\t\"Type\":\"BehaviorDesigner.Runtime.Tasks.Idle\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(310,150)\"\n\t\t\t},\n\t\t\t\"ID\":11,\n\t\t\t\"Name\":\"Idle\",\n\t\t\t\"Instant\":true\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\"Name\":\"Speed\",\n\t\t\"IsShared\":true,\n\t\t\"1384598892\":1\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"Player\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\"Name\":\"Follow
+        Magnitude\",\n\t\t\"IsShared\":true,\n\t\t\"1384598892\":3.81\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\"Name\":\"Attack
+        Magnitude\",\n\t\t\"IsShared\":true,\n\t\t\"1384598892\":2.04\n\t}]\n}"
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.5.6
 --- !u!114 &11406950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,6 +101,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 859d20aefb37644cb80cd5bd9674beea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11422866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2012967667, guid: 1575c1ccf5c9d9b4880372d854f9fcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11455036
@@ -82,40 +138,6 @@ MonoBehaviour:
   restrict: 0
   closerPointOnInvalid: 0
   debugPath: 0
---- !u!114 &11486588
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startWhenEnabled: 1
-  pauseWhenDisabled: 0
-  restartWhenComplete: 1
-  logTaskChanges: 0
-  group: 0
-  resetValuesOnRestart: 0
-  externalBehavior: {fileID: 0}
-  mBehaviorSource:
-    behaviorName: 436c696e676572
-    behaviorDescription: 
-    mTaskData:
-      types: []
-      parentIndex: 
-      startIndex: 
-      variableStartIndex: 
-      JSONSerialization: 7b0a0922456e7472795461736b223a7b0a0909224f626a65637454797065223a224265686176696f7244657369676e65722e52756e74696d652e5461736b732e456e7472795461736b222c0a0909224e6f646544617461223a7b0a090909224f6666736574223a2228302c3029220a09097d2c0a0909224944223a302c0a0909224e616d65223a22456e747279222c0a090922496e7374616e74223a747275650a097d2c0a0922526f6f745461736b223a7b0a0909224f626a65637454797065223a224265686176696f7244657369676e65722e52756e74696d652e5461736b732e53656c6563746f72222c0a0909224e6f646544617461223a7b0a090909224f6666736574223a2228302c31323029220a09097d2c0a0909224944223a312c0a0909224e616d65223a2253656c6563746f72222c0a090922496e7374616e74223a747275652c0a0909224265686176696f7244657369676e65722e52756e74696d652e5461736b732e41626f7274547970652c61626f727454797065223a224e6f6e65222c0a0909224368696c6472656e223a5b7b0a090909224f626a65637454797065223a224265686176696f7244657369676e65722e52756e74696d652e5461736b732e53657175656e6365222c0a090909224e6f646544617461223a7b0a09090909224f6666736574223a22282d312e313631343339392c3136372e31393531313429220a0909097d2c0a090909224944223a322c0a090909224e616d65223a2253657175656e6365222c0a09090922496e7374616e74223a747275652c0a090909224265686176696f7244657369676e65722e52756e74696d652e5461736b732e41626f7274547970652c61626f727454797065223a224e6f6e65222c0a090909224368696c6472656e223a5b7b0a09090909224f626a65637454797065223a224265686176696f7244657369676e65722e52756e74696d652e5461736b732e4d6f76656d656e742e57697468696e44697374616e6365222c0a09090909224e6f646544617461223a7b0a0909090909224f6666736574223a22282d3132302c31313029220a090909097d2c0a09090909224944223a332c0a09090909224e616d65223a2257697468696e2044697374616e6365222c0a0909090922496e7374616e74223a747275652c0a090909092253797374656d2e426f6f6c65616e2c757365506879736963733244223a747275652c0a09090909224265686176696f7244657369676e65722e52756e74696d652e536861726564466c6f61742c6d61676e6974756465223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564466c6f6174222c0a0909090909224e616d65223a22222c0a09090909092253797374656d2e53696e676c652c6d56616c7565223a360a090909097d2c0a09090909224265686176696f7244657369676e65722e52756e74696d652e536861726564426f6f6c2c6c696e654f665369676874223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564426f6f6c222c0a0909090909224e616d65223a22222c0a09090909092253797374656d2e426f6f6c65616e2c6d56616c7565223a66616c73650a090909097d2c0a0909090922556e697479456e67696e652e4c617965724d61736b2c69676e6f72654c617965724d61736b223a342c0a09090909224265686176696f7244657369676e65722e52756e74696d652e536861726564566563746f72332c6f6666736574223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564566563746f7233222c0a0909090909224e616d65223a22222c0a090909090922556e697479456e67696e652e566563746f72332c6d56616c7565223a2228302c302c3029220a090909097d2c0a09090909224265686176696f7244657369676e65722e52756e74696d652e536861726564566563746f72332c7461726765744f6666736574223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564566563746f7233222c0a0909090909224e616d65223a22222c0a090909090922556e697479456e67696e652e566563746f72332c6d56616c7565223a2228302c302c3029220a090909097d2c0a09090909224265686176696f7244657369676e65722e52756e74696d652e53686172656447616d654f626a6563744c6973742c6f626a65637473223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e53686172656447616d654f626a6563744c697374222c0a0909090909224e616d65223a22222c0a09090909092253797374656d2e436f6c6c656374696f6e732e47656e657269632e4c69737460315b556e697479456e67696e652e47616d654f626a6563745d2c6d56616c7565223a5b5d0a090909097d2c0a09090909224265686176696f7244657369676e65722e52756e74696d652e536861726564537472696e672c6f626a656374546167223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564537472696e67222c0a0909090909224e616d65223a22222c0a09090909092253797374656d2e537472696e672c6d56616c7565223a22506c61796572220a090909097d2c0a09090909224265686176696f7244657369676e65722e52756e74696d652e53686172656447616d654f626a6563742c72657475726e65644f626a656374223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e53686172656447616d654f626a656374222c0a0909090909224e616d65223a22220a090909097d0a0909097d2c7b0a09090909224f626a65637454797065223a224265686176696f7244657369676e65722e52756e74696d652e5461736b732e4d6f76656d656e742e506f6c794e61762e5365656b222c0a09090909224e6f646544617461223a7b0a0909090909224f6666736574223a22283136352e373134322c3131382e30393532333829220a090909097d2c0a09090909224944223a342c0a09090909224e616d65223a225365656b222c0a0909090922496e7374616e74223a747275652c0a09090909224265686176696f7244657369676e65722e52756e74696d652e53686172656447616d654f626a6563742c746172676574223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e53686172656447616d654f626a656374222c0a0909090909224e616d65223a22506c61796572222c0a0909090909224973536861726564223a747275650a090909097d2c0a09090909224265686176696f7244657369676e65722e52756e74696d652e536861726564566563746f72332c746172676574506f736974696f6e223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564566563746f7233222c0a0909090909224e616d65223a22222c0a090909090922556e697479456e67696e652e566563746f72332c6d56616c7565223a2228302c302c3029220a090909097d2c0a09090909224265686176696f7244657369676e65722e52756e74696d652e536861726564466c6f61742c7370656564223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564466c6f6174222c0a0909090909224e616d65223a225370656564222c0a0909090909224973536861726564223a747275652c0a09090909092253797374656d2e53696e676c652c6d56616c7565223a310a090909097d2c0a09090909224265686176696f7244657369676e65722e52756e74696d652e536861726564466c6f61742c616e67756c61725370656564223a7b0a09090909092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564466c6f6174222c0a0909090909224e616d65223a22222c0a09090909092253797374656d2e53696e676c652c6d56616c7565223a3335300a090909097d0a0909097d5d0a09097d5d0a097d2c0a09225661726961626c6573223a5b7b0a09092254797065223a224265686176696f7244657369676e65722e52756e74696d652e536861726564466c6f6174222c0a0909224e616d65223a225370656564222c0a0909224973536861726564223a747275652c0a09092253797374656d2e53696e676c652c6d56616c7565223a310a097d2c7b0a09092254797065223a224265686176696f7244657369676e65722e52756e74696d652e53686172656447616d654f626a656374222c0a0909224e616d65223a22506c61796572222c0a0909224973536861726564223a747275650a097d5d0a7d
-      fieldSerializationData:
-        typeName: []
-        startIndex: 
-        dataPosition: 
-        unityObjects: []
-        byteData: []
-        byteDataArray: []
 --- !u!114 &11494280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +153,7 @@ MonoBehaviour:
   maxHealth: 100
   damage: 10
   speed: 0
+  id: 0
   player: {fileID: 0}
   damageEffect: {fileID: 0}
 --- !u!212 &21230736
@@ -159,7 +182,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8b599c5831fffa841b0f128b3a357a42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 657f8b96904c0428b95e79d74e6c2951, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,7 +192,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: externalBehavior
+      value: 
+      objectReference: {fileID: 11400000, guid: aa679bc677c513a4481d7fca896da99d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111846}

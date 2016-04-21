@@ -51,7 +51,6 @@ GameObject:
   - 50: {fileID: 5060600}
   - 114: {fileID: 11405988}
   - 114: {fileID: 11435484}
-  - 114: {fileID: 11416786}
   - 114: {fileID: 11425266}
   m_Layer: 11
   m_Name: EnemyRanged
@@ -113,7 +112,7 @@ Animator:
   m_GameObject: {fileID: 167266}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c091e17e1c12f4862a56bbd41631bd22, type: 2}
+  m_Controller: {fileID: 9100000, guid: cae0a2a0c1dac124e9c6f97b3738140d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -132,40 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63086c21358942ebb0d64b24cee7ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangeSpell: {fileID: 197074, guid: 843add50d963c455fa17692a1643d836, type: 2}
+  RangeSpell: {fileID: 0}
   timeBetweenSpells: 0.15
   damage: 10
   Magnitude: 5
---- !u!114 &11416786
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3ec4178462a341c4880a277aec14ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLevel:
-    xp: 5
-    Blood: 250
-    Love: 250
-    Strength: 5
-    Intelligence: 5
-    Dexterity: 5
-    Luck: 0
-  NextLevel:
-    xp: 15
-    Blood: 500
-    Love: 500
-    Strength: 15
-    Intelligence: 16
-    Dexterity: 15
-    Luck: 15
-  currentXp: 0
-  nextLevelID: 1
-  currentLevelID: 0
 --- !u!114 &11420692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,7 +320,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 7b456fb1f919940ee8429f03552d13c9, type: 3}
+  m_Sprite: {fileID: 21300026, guid: 657f8b96904c0428b95e79d74e6c2951, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
