@@ -26,7 +26,7 @@ public class CFX_SpawnSystem : MonoBehaviour
 		
 		if(!instance.poolCursors.ContainsKey(uniqueId))
 		{
-			Debug.LogError("[CFX_SpawnSystem.GetNextPoolObject()] Object hasn't been preloaded: " + sourceObj.name + " (ID:" + uniqueId + ")");
+			Debug.LogError("[CFX_SpawnSystem.GetNextPoolObject()] Object hasn't been preloaded: " + sourceObj.name+ " (ID:" + uniqueId + ")");
 			return null;
 		}
 		

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SkillBullet : MonoBehaviour {
 
-	float speed;
+	 float speed;
 	float speedX;
 	float speedY;
 	public float lifeSpan = 75f;
@@ -29,7 +29,7 @@ public class SkillBullet : MonoBehaviour {
 		case 0:
 			//speedX = GetComponent<Rigidbody2D> ().velocity.x;
 			if (this.name.Contains ("Blood")) {
-
+				
 			}
 			speedY = speed;
 			break;

@@ -56,7 +56,7 @@ public class TileMap : MonoBehaviour {
 		for(int x=0;x<mapWidth;x++){
 			for(int y=0; y<mapHeight;y++){
 				_map[x,y]= Instantiate(TileAsset,new Vector3(x*texWidth,y*texHeight,0.0f),Quaternion.identity)  as GameObject;
-                _map[x, y].name = "Tile " + x + " , " + y;
+                _map[x, y].name= "Tile " + x + " , " + y;
                 _map[x,y].transform.SetParent(this.transform);
 				
 

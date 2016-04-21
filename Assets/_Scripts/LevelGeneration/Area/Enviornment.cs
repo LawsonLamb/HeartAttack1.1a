@@ -38,7 +38,7 @@ public class Enviornment {
 	}
 
 	public void CreateGameObject() {
-	
+
 		obj = new GameObject ();
 		obj.name = objName;
 		obj.AddComponent<SpriteRenderer> ().sprite = objImage;

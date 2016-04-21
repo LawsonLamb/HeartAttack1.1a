@@ -25,9 +25,9 @@ public class Doors : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Player.transform.position = postion;
-        
+		if (collision.gameObject.tag == "Player") {
+			Player.transform.position = postion;
+		}
     }
 
     

@@ -13,12 +13,14 @@ public class Tile : MonoBehaviour {
    public SortingLayer Layer;
  
     TileSet set;
-   private SpriteRenderer renderer;
+   private SpriteRenderer Rend;
+
     private BoxCollider2D collider;
 	// Use this for initialization
 	void Start () {
         set = TileSet.GetTileSet();
-        renderer = GetComponent<SpriteRenderer>();
+	
+        Rend = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
 
     }
@@ -41,28 +43,28 @@ public class Tile : MonoBehaviour {
     public bool Flip_X
     {
 
-        get { return renderer.flipX; }
+        get { return Rend.flipX; }
 
 
-        set { renderer.flipX = value; }
+        set { Rend.flipX = value; }
 
     }
 
     public bool Flip_y
     {
 
-        get { return renderer.flipY; }
+		get { return Rend.flipY; }
 
-        set { renderer.flipY = value; }
+		set { Rend.flipY = value; }
     }
 
     public Sprite Image
     {
-        get { return renderer.sprite; }
+		get { return Rend.sprite; }
 
         set
         {
-           renderer.sprite = value;
+			Rend.sprite = value;
 
         }
 
@@ -71,9 +73,9 @@ public class Tile : MonoBehaviour {
     public string LayerName
     {
 
-        get { return renderer.sortingLayerName; }
+		get { return Rend.sortingLayerName; }
 
-            set{ renderer.sortingLayerName = value; }
+		set{ Rend.sortingLayerName = value; }
     }
 
 

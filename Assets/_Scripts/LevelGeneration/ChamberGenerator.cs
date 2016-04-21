@@ -182,7 +182,7 @@ public class ChamberGenerator : MonoBehaviour
         {
 
             randomRoom = Random.Range(0, roomPositions.Count);
-            print(randomRoom);
+//            print(randomRoom);
             //Adjacent Check-------------------------------------------------------------------------------------------
             if (!roomPositions.Contains(roomPositions[randomRoom] + Vector2.up))
             {
@@ -379,7 +379,7 @@ public class ChamberGenerator : MonoBehaviour
         {
              rooms.Add((GameObject)Instantiate(RoomPrefab, new Vector3(roomPositions[i].x * XOffset, roomPositions[i].y * yOffset, 0.0f), Quaternion.identity));
             rooms[i].transform.SetParent(this.gameObject.transform);
-            rooms[i].name = "Room " + i;
+			rooms[i].name = "Room " + i;
 
         }
 
