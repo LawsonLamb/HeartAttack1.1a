@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 657f8b96904c0428b95e79d74e6c2951
+timeCreated: 1461197897
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: EnemiesFrontWhite_0
+    21300002: EnemiesFrontWhite_1
+    21300004: EnemiesFrontWhite_2
+    21300006: EnemiesFrontWhite_3
+    21300008: EnemiesFrontWhite_4
+    21300010: EnemiesFrontWhite_5
+    21300012: EnemiesFrontWhite_6
+    21300014: EnemiesFrontWhite_7
+    21300016: EnemiesFrontWhite_8
+    21300018: EnemiesFrontWhite_10
+    21300020: EnemiesFrontWhite_11
+    21300022: EnemiesFrontWhite_12
+    21300024: EnemiesFrontWhite_13
+    21300026: EnemiesFrontWhite_14
+    21300028: EnemiesFrontWhite_15
+    21300030: EnemiesFrontWhite_16
+    21300032: EnemiesFrontWhite_17
+    21300034: EnemiesFrontWhite_18
+    21300036: EnemiesFrontWhite_19
+    21300038: EnemiesFrontWhite_20
+    21300040: EnemiesFrontWhite_21
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: EnemiesFrontWhite_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1279
+        width: 313
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.8375, y: 74.431274}
+        - {x: -27.162498, y: 74.431274}
+        - {x: -89.1625, y: -0.5687256}
+        - {x: -89.1625, y: -58.568726}
+        - {x: -81.1625, y: -73.568726}
+        - {x: 89.8375, y: -73.568726}
+        - {x: 89.8375, y: 12.431274}
+        - {x: 72.8375, y: 63.431274}
+    - name: EnemiesFrontWhite_1
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 1265
+        width: 313
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.906265, y: 78.46875}
+        - {x: -16.093735, y: 78.46875}
+        - {x: -89.093735, y: -6.53125}
+        - {x: -89.093735, y: -68.53125}
+        - {x: -85.093735, y: -77.53125}
+        - {x: 89.906265, y: -77.53125}
+        - {x: 89.906265, y: -5.53125}
+        - {x: 19.906265, y: 74.46875}
+    - name: EnemiesFrontWhite_2
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1265
+        width: 313
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.162476, y: 78.46875}
+        - {x: -89.162476, y: -13.53125}
+        - {x: -89.162476, y: -64.53125}
+        - {x: -87.162476, y: -72.53125}
+        - {x: -76.162476, y: -77.53125}
+        - {x: 89.837524, y: -77.53125}
+        - {x: 89.837524, y: 54.46875}
+        - {x: 37.837524, y: 78.46875}
+    - name: EnemiesFrontWhite_3
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 1240
+        width: 313
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.09375, y: 85.25}
+        - {x: -89.09375, y: 15.25}
+        - {x: -89.09375, y: -84.75}
+        - {x: 89.90625, y: -84.75}
+        - {x: 89.90625, y: 8.25}
+        - {x: 6.90625, y: 85.25}
+    - name: EnemiesFrontWhite_4
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 1279
+        width: 313
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.162476, y: 74.431274}
+        - {x: -89.162476, y: -8.568726}
+        - {x: -89.162476, y: -73.568726}
+        - {x: 81.837524, y: -73.568726}
+        - {x: 89.837524, y: -69.568726}
+        - {x: 89.837524, y: -7.5687256}
+        - {x: 15.837524, y: 74.431274}
+    - name: EnemiesFrontWhite_5
+      rect:
+        serializedVersion: 2
+        x: 2035
+        y: 1265
+        width: 313
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.09375, y: 78.46875}
+        - {x: -89.09375, y: -1.53125}
+        - {x: -89.09375, y: -55.53125}
+        - {x: -80.09375, y: -77.53125}
+        - {x: 89.90625, y: -77.53125}
+        - {x: 89.90625, y: -4.53125}
+        - {x: 37.90625, y: 78.46875}
+    - name: EnemiesFrontWhite_6
+      rect:
+        serializedVersion: 2
+        x: 2435
+        y: 1246
+        width: 312
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.59375, y: 84.16254}
+        - {x: -88.59375, y: -0.8374634}
+        - {x: -88.59375, y: -76.83746}
+        - {x: -76.59375, y: -82.83746}
+        - {x: 90.40625, y: -82.83746}
+        - {x: 90.40625, y: -6.8374634}
+        - {x: 81.40625, y: 11.162537}
+        - {x: 34.40625, y: 84.16254}
+    - name: EnemiesFrontWhite_7
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 1230
+        width: 313
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -88.662476, y: -76.4375}
+        - {x: -51.662476, y: -87.4375}
+        - {x: 90.337524, y: -87.4375}
+        - {x: 90.337524, y: -12.4375}
+        - {x: 65.337524, y: 66.5625}
+        - {x: 45.337524, y: 88.5625}
+        - {x: -28.662476, y: 88.5625}
+        - {x: -88.662476, y: 26.5625}
+    - name: EnemiesFrontWhite_8
+      rect:
+        serializedVersion: 2
+        x: 3235
+        y: 1205
+        width: 324
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24.906372, y: -21.65625}
+        - {x: 19.906372, y: -37.65625}
+        - {x: 19.906372, y: -80.65625}
+        - {x: 32.906372, y: -89.65625}
+        - {x: 73.90637, y: -89.65625}
+        - {x: 88.90637, y: -74.65625}
+        - {x: 88.90637, y: -27.65625}
+        - {x: 75.90637, y: -21.65625}
+      - - {x: 13.906372, y: 95.34375}
+        - {x: -12.093628, y: 95.34375}
+        - {x: -43.093628, y: 78.34375}
+        - {x: -92.09363, y: 13.34375}
+        - {x: -92.09363, y: -34.65625}
+        - {x: -85.09363, y: -53.65625}
+        - {x: -26.093628, y: -53.65625}
+        - {x: 21.906372, y: -37.65625}
+        - {x: 49.906372, y: -8.65625}
+        - {x: 49.906372, y: 50.34375}
+    - name: EnemiesFrontWhite_10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 880
+        width: 313
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14.837502, y: 74.50003}
+        - {x: -23.162498, y: 74.50003}
+        - {x: -89.1625, y: -18.49997}
+        - {x: -89.1625, y: -57.49997}
+        - {x: -75.1625, y: -73.49997}
+        - {x: 83.8375, y: -73.49997}
+        - {x: 89.8375, y: -60.49997}
+        - {x: 89.8375, y: 4.5000305}
+        - {x: 61.8375, y: 52.50003}
+    - name: EnemiesFrontWhite_11
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 884
+        width: 313
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.906265, y: 73.775024}
+        - {x: -31.093735, y: 73.775024}
+        - {x: -89.093735, y: -1.2249756}
+        - {x: -89.093735, y: -56.224976}
+        - {x: -82.093735, y: -72.224976}
+        - {x: 89.906265, y: -72.224976}
+        - {x: 89.906265, y: -7.2249756}
+        - {x: 53.906265, y: 46.775024}
+    - name: EnemiesFrontWhite_12
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 892
+        width: 313
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.162476, y: 70.82501}
+        - {x: -89.162476, y: 3.8250122}
+        - {x: -89.162476, y: -61.174988}
+        - {x: -83.162476, y: -70.17499}
+        - {x: 89.837524, y: -70.17499}
+        - {x: 89.837524, y: -11.174988}
+        - {x: 33.837524, y: 70.82501}
+    - name: EnemiesFrontWhite_13
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 901
+        width: 313
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.09375, y: 68.44379}
+        - {x: -89.09375, y: -11.556213}
+        - {x: -89.09375, y: -67.55621}
+        - {x: 89.90625, y: -67.55621}
+        - {x: 89.90625, y: 20.443787}
+        - {x: 13.90625, y: 68.44379}
+    - name: EnemiesFrontWhite_14
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 541
+        width: 227
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.675003, y: 39.693756}
+        - {x: -46.675003, y: 27.693756}
+        - {x: -64.675, y: 1.6937561}
+        - {x: -64.675, y: -28.306244}
+        - {x: -50.675003, y: -38.306244}
+        - {x: 63.324997, y: -38.306244}
+        - {x: 65.325, y: -32.306244}
+        - {x: 65.325, y: 39.693756}
+    - name: EnemiesFrontWhite_15
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 541
+        width: 227
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 65.39377, y: -3.306244}
+        - {x: 62.39377, y: 0.6937561}
+        - {x: 65.39377, y: 7.693756}
+        - {x: 65.39377, y: 40.693756}
+        - {x: -43.60623, y: 40.693756}
+        - {x: -64.60623, y: 16.693756}
+        - {x: -64.60623, y: -21.306244}
+        - {x: -41.60623, y: -39.306244}
+        - {x: 40.39377, y: -39.306244}
+        - {x: 58.39377, y: -25.306244}
+        - {x: 65.39377, y: -18.306244}
+    - name: EnemiesFrontWhite_16
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 541
+        width: 227
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60.325012, y: 41.693756}
+        - {x: 38.325012, y: 41.693756}
+        - {x: 34.325012, y: 40.693756}
+        - {x: -27.674988, y: 34.693756}
+        - {x: -36.674988, y: 21.693756}
+        - {x: -64.67499, y: 4.693756}
+        - {x: -64.67499, y: -34.306244}
+        - {x: -44.674988, y: -40.306244}
+        - {x: 64.32501, y: -40.306244}
+        - {x: 65.32501, y: -38.306244}
+        - {x: 65.32501, y: 37.693756}
+        - {x: 64.32501, y: 39.693756}
+    - name: EnemiesFrontWhite_17
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 541
+        width: 227
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32.3938, y: -16.806244}
+        - {x: 34.3938, y: -15.806244}
+        - {x: 36.3938, y: -17.806244}
+        - {x: 40.3938, y: -23.806244}
+        - {x: 58.3938, y: -22.806244}
+        - {x: 65.3938, y: -18.806244}
+        - {x: 65.3938, y: 38.193756}
+        - {x: 59.3938, y: 44.193756}
+        - {x: 33.3938, y: 44.193756}
+        - {x: -28.606201, y: 33.193756}
+        - {x: -64.6062, y: -2.806244}
+        - {x: -64.6062, y: -38.806244}
+        - {x: -49.6062, y: -42.806244}
+        - {x: 43.3938, y: -42.806244}
+        - {x: 42.3938, y: -26.806244}
+        - {x: 36.3938, y: -18.806244}
+        - {x: 34.3938, y: -16.806244}
+    - name: EnemiesFrontWhite_18
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 140
+        width: 227
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48.675003, y: 38.625}
+        - {x: -64.675, y: 9.625}
+        - {x: -64.675, y: -37.375}
+        - {x: 65.325, y: -37.375}
+        - {x: 65.325, y: 31.625}
+        - {x: 62.324997, y: 38.625}
+    - name: EnemiesFrontWhite_19
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 140
+        width: 227
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41.39377, y: 38.625}
+        - {x: -24.606232, y: 38.625}
+        - {x: -26.606232, y: 35.625}
+        - {x: -36.60623, y: 23.625}
+        - {x: -36.60623, y: 0.625}
+        - {x: -34.60623, y: -1.375}
+        - {x: -40.60623, y: 2.625}
+        - {x: -54.60623, y: 2.625}
+        - {x: -60.60623, y: -0.375}
+        - {x: -64.60623, y: -4.375}
+        - {x: -64.60623, y: -21.375}
+        - {x: -63.60623, y: -24.375}
+        - {x: -43.60623, y: -37.375}
+        - {x: 44.39377, y: -37.375}
+        - {x: 65.39377, y: -26.375}
+        - {x: 65.39377, y: 28.625}
+        - {x: 56.39377, y: 37.625}
+    - name: EnemiesFrontWhite_20
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 140
+        width: 227
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 64.32501, y: 35.625}
+        - {x: 62.325012, y: 38.625}
+        - {x: -29.674988, y: 38.625}
+        - {x: -64.67499, y: 2.625}
+        - {x: -64.67499, y: -35.375}
+        - {x: -51.674988, y: -37.375}
+        - {x: 58.325012, y: -37.375}
+        - {x: 60.325012, y: -36.375}
+        - {x: 65.32501, y: -24.375}
+        - {x: 65.32501, y: 32.625}
+    - name: EnemiesFrontWhite_21
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 140
+        width: 227
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21.606201, y: 39.625}
+        - {x: -36.6062, y: 35.625}
+        - {x: -64.6062, y: 8.625}
+        - {x: -64.6062, y: -15.375}
+        - {x: -62.6062, y: -19.375}
+        - {x: -39.6062, y: -38.375}
+        - {x: 42.3938, y: -38.375}
+        - {x: 65.3938, y: -21.375}
+        - {x: 65.3938, y: 39.625}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
