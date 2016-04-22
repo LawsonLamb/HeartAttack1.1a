@@ -78,24 +78,26 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		PlayerMovement ();
 
 		if (tranfusionActive == true) {
 			Transfusion ();
 		}
 
-		RegularAttack ();
-		SpecialAttack ();
+		if (displays.pause == false) {
+			PlayerMovement ();
+			RegularAttack ();
+			SpecialAttack ();
 
-		//Any Buff items that were picked up, so they can be cooled down.
-		if (buff.openIt == true) {
-			buffTimer -= 0.05f;
-			CoolDownBuff ();
-		}
+			//Any Buff items that were picked up, so they can be cooled down.
+			if (buff.openIt == true) {
+				buffTimer -= 0.05f;
+				CoolDownBuff ();
+			}
 
-		if (Input.GetKeyDown (KeyCode.Q)) {
-			if (itemData.item[8].Stock > 0) {
-				CreateWaterBallons(itemData.item[8]);
+			if (Input.GetKeyDown (KeyCode.Q)) {
+				if (itemData.item [8].Stock > 0) {
+					CreateWaterBallons (itemData.item [8]);
+				}
 			}
 		}
 	}
@@ -139,7 +141,7 @@ public class Player : MonoBehaviour {
 		if (specialCoolDown == false) {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				displays.UseSpecial ();
-				displays.specialBar.color = Color.gray;
+				displays.specialBar.color = Color.black;
 				specialTimer = resetSpecialTimer;
 				specialCoolDown = true;
 			}
@@ -191,28 +193,27 @@ public class Player : MonoBehaviour {
 		//Just a basic way for the player to move around the screen.
 		if (Input.GetKey (KeyCode.W)) {
 			animSpeed = 1.0f;
-			SetAnimDirection(1.0f);
+			SetAnimDirection (1.0f);
 			pos.y += speed;
 		} else if (Input.GetKey (KeyCode.A)) {
 			animSpeed = 1.0f;
-			SetAnimDirection(0.0f);
-			GetComponent<SpriteRenderer>().flipX = true;
+			SetAnimDirection (0.0f);
+			GetComponent<SpriteRenderer> ().flipX = true;
 			pos.x -= speed;
 		} else if (Input.GetKey (KeyCode.S)) {
-			
 			animSpeed = 1.0f;
-			SetAnimDirection(-1.0f);
+			SetAnimDirection (-1.0f);
 			pos.y -= speed;
 		} else if (Input.GetKey (KeyCode.D)) {
 			pos.x += speed;
 			SetAnimDirection (0.0f);
-			GetComponent<SpriteRenderer>().flipX = false;
+			GetComponent<SpriteRenderer> ().flipX = false;
 			animSpeed = 1.0f;
 		} else {
 			animSpeed = 0.0f;
 		}
 
-		SetAnimSpeed(animSpeed);
+		SetAnimSpeed (animSpeed);
 
 		gameObject.transform.position = pos;
 	}

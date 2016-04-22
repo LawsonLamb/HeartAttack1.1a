@@ -64,7 +64,6 @@ public class SkillBullet : MonoBehaviour {
 
 		lifeSpan -= 0.5f;
 		if (lifeSpan <= 0) {
-			//ani.SetTrigger ("NoObjectHit");
 			Splat();
 		}
 
@@ -72,7 +71,6 @@ public class SkillBullet : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col) {
 		if ((col.gameObject.tag == "Boss") || (col.gameObject.tag == "Foe")){
-	//		ani.SetTrigger ("ObjectHit");
 			Splat();
 		}
 	}

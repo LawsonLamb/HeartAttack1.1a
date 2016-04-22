@@ -372,10 +372,6 @@ Prefab:
       propertyPath: cupid
       value: 
       objectReference: {fileID: 1889464982}
-    - target: {fileID: 144878, guid: 251e9b22ea3424acd9ba64a9142608ef, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 251e9b22ea3424acd9ba64a9142608ef, type: 2}
   m_IsPrefabParent: 0
@@ -469,6 +465,14 @@ Prefab:
     - target: {fileID: 11442986, guid: 1f9145ec6aa4a4d45bef2ee9ecff6dbb, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441092, guid: 1f9145ec6aa4a4d45bef2ee9ecff6dbb, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441092, guid: 1f9145ec6aa4a4d45bef2ee9ecff6dbb, type: 2}
+      propertyPath: points
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f9145ec6aa4a4d45bef2ee9ecff6dbb, type: 2}

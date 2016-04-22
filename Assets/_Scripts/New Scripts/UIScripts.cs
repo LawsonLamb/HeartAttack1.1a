@@ -82,6 +82,10 @@ public class UIScripts : MonoBehaviour {
 
 	public GameObject cupid; 
 
+	public bool pause;
+	public GameObject pauseButton;
+	public GameObject pauseUI;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -126,16 +130,14 @@ public class UIScripts : MonoBehaviour {
 			((viewportPoint.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
 			((viewportPoint.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
 		playerHealth.anchoredPosition = healthBarPos;
+
+		pause = false;
+		pauseButton.SetActive (true);
+		pauseUI.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (Input.GetKeyDown (KeyCode.T)) {
-			sackactivity = !sackactivity;
-			sack.SetActive (sackactivity);
-			statusWin.SetActive (sackactivity);
-		}
 
 		//Just a display so I can check status stuff.
 		statText.text = "Your Current Stats are: " + "\n M.Dmg: " + player.mDmg  + "\n Dmg: " + player.dmg
@@ -176,6 +178,24 @@ public class UIScripts : MonoBehaviour {
 
 		UpdateHealthBarPosition ();
 
+		if(Input.GetKeyDown (KeyCode.P)) {
+			PauseButton();
+		}
+
+		if (pause) {
+			Time.timeScale = 0;
+			pauseButton.SetActive (false);
+			pauseUI.SetActive (true);
+		} else {
+			Time.timeScale = 1;
+			pauseButton.SetActive (true);
+			pauseUI.SetActive (false);
+			if (Input.GetKeyDown (KeyCode.E)) {
+				sackactivity = !sackactivity;
+				sack.SetActive (sackactivity);
+			}
+		}
+
 	}
 
 	void UpdateHealthBarPosition() {
@@ -214,6 +234,7 @@ public class UIScripts : MonoBehaviour {
 			player.health -= dmg;
 			float displayHealth = player.health / player.maxHealth;
 			healthBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
+			healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x + (20 / dmg), 0);
 		} else {
 			print ("You Have Died");
 		}
@@ -224,6 +245,7 @@ public class UIScripts : MonoBehaviour {
 			player.health += heal;
 			float displayHealth = player.health / player.maxHealth;
 			healthBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
+			healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x - (-20 / heal), 0);
 		}
 	}
 
@@ -231,7 +253,8 @@ public class UIScripts : MonoBehaviour {
 		if (player.magic > 0) {
 			player.magic -= cost;
 			float displayMagic = player.magic / player.maxMagic;
-			magicBar.transform.localScale = new Vector3 (1, displayMagic, 1);
+			magicBar.transform.localScale = new Vector3 (displayMagic, 1, 1);
+			magicBar.transform.localPosition = new Vector2 (magicBar.transform.localPosition.x + (30 / cost), 0);
 			player.UseRegularAttack ();
 		} else {
 			print ("You are out of magic");
@@ -242,7 +265,8 @@ public class UIScripts : MonoBehaviour {
 		if (player.magic < player.maxMagic) {
 			player.magic += restore;
 			float displayMagic = player.magic / player.maxMagic;
-			magicBar.transform.localScale = new Vector3 (1, displayMagic, 1);
+			magicBar.transform.localScale = new Vector3 (displayMagic, 1, 1);
+			magicBar.transform.localPosition = new Vector2 (magicBar.transform.localPosition.x - (30 / restore), 0);
 		} else {
 		}
 	}
@@ -250,7 +274,8 @@ public class UIScripts : MonoBehaviour {
 	public void UseSpecial() {
 		player.energy -= player.energy;
 		float displayEnergy = player.energy / player.maxEnergy;
-		specialBar.transform.localScale = new Vector3 (1, displayEnergy, 1);
+		specialBar.transform.localScale = new Vector3 (displayEnergy, 1, 1);
+		specialBar.transform.localPosition = new Vector2 (-150, 0);
 		if ((currSpecSkill.attID >= 25) && (currSpecSkill.attID <= 29)) {
 			cupid.SetActive (true);
 		}
@@ -262,10 +287,11 @@ public class UIScripts : MonoBehaviour {
 			player.coolDown += 1;
 			player.energy += restore;
 			float displayEnergy = player.energy / player.maxEnergy;
-			specialBar.transform.localScale = new Vector3 (1, displayEnergy, 1);
+			specialBar.transform.localScale = new Vector3 (displayEnergy, 1, 1);
+			specialBar.transform.localPosition = new Vector2 (specialBar.transform.localPosition.x - (30 / restore), 0);
 		} else {
 			player.coolDown = 0;
-			specialBar.color = Color.yellow;
+			specialBar.color = Color.green;
 			player.specialCoolDown = false;
 		}
 	}
@@ -510,6 +536,7 @@ public class UIScripts : MonoBehaviour {
 			foeBoss.barHealth -= dmg;
 			float displayHealth = foeBoss.barHealth / 100;
 			currBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
+			currBar.transform.localPosition = new Vector2 (currBar.transform.localPosition.x + (20 / dmg), 0);
 			if (currBar.transform.localScale.x <= 0) {
 				foeBoss.barCount -= 1;
 				foeBoss.barHealth = foeBoss.health / foeBoss.barCount;
@@ -522,5 +549,21 @@ public class UIScripts : MonoBehaviour {
 			player.LevelManager (50);
 			player.enemyKillCount += 1;
 		}
+	}
+
+	public void PauseButton () {
+		pause = !pause;
+	}
+
+	public void RestartButton () {
+		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	public void MainMenuButton() {
+		Application.LoadLevel (0);
+	}
+
+	public void QuitButton() {
+		Application.Quit();
 	}
 }
