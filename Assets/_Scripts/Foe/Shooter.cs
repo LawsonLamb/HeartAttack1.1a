@@ -10,15 +10,15 @@ public class Shooter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        behaviorTree = GetComponent<BehaviorTree>();
-        var sharedFloat = (SharedFloat)behaviorTree.GetVariable("ChaseMagnitude");
-        sharedFloat.Value = ChaseMagnitude;
+      //  behaviorTree = GetComponent<BehaviorTree>();
+       // var sharedFloat = (SharedFloat)behaviorTree.GetVariable("ChaseMagnitude");
+       /// sharedFloat.Value = ChaseMagnitude;
 
-        sharedFloat = (SharedFloat)behaviorTree.GetVariable("AttackMagnitude");
+       // sharedFloat = (SharedFloat)behaviorTree.GetVariable("AttackMagnitude");
    
-        sharedFloat.Value = AttackMagnitude;
-        var sharedGO = (SharedGameObject)behaviorTree.GetVariable("Player");
-        sharedGO.Value = GetComponent<Foe>().player;
+      //  sharedFloat.Value = AttackMagnitude;
+      //  var sharedGO = (SharedGameObject)behaviorTree.GetVariable("Player");
+     //   sharedGO.Value = GetComponent<Foe>().player;
 
     
 

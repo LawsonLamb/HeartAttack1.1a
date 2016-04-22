@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 	public Animator anim;
 	public Item buff = new Item();
 	//COULD BE PUT IN A STATS STRUCT
+	#region Stats
 	public float dmg = 7f;
 	public float defib = 0f;
 
@@ -33,10 +34,11 @@ public class Player : MonoBehaviour {
 	public float maxMagic;
 	public float energy = 100;
 	public float maxEnergy;
-
+	#endregion
 	public int enemyKillCount;
 	public bool tranfusionActive = false;
 
+	#region Timers
 	float magicTimer = 5.0f;
 	float resetMagicTimer;
 
@@ -46,14 +48,16 @@ public class Player : MonoBehaviour {
 
 	public float buffTimer;
 	float resetBuffTimer;
+	#endregion
 
+	#region CurrentInfo
 	public int currlv = 1;
 	public int currExp = 0;
 	public int maxExp = 50;
 	public int points;
 
 	public int coolDown;
-
+	#endregion
 	public Transform firePoint;
 	public GameObject blood;
 	int direction;
@@ -193,6 +197,7 @@ public class Player : MonoBehaviour {
 		//Just a basic way for the player to move around the screen.
 		if (Input.GetKey (KeyCode.W)) {
 			animSpeed = 1.0f;
+<<<<<<< HEAD
 			SetAnimDirection (1.0f);
 			pos.y += speed;
 		} else if (Input.GetKey (KeyCode.A)) {
@@ -200,22 +205,47 @@ public class Player : MonoBehaviour {
 			SetAnimDirection (0.0f);
 			GetComponent<SpriteRenderer> ().flipX = true;
 			pos.x -= speed;
+=======
+			SetAnimDirection(1.0f);
+			pos.y = speed;
+			pos.x = 0;
+		} else if (Input.GetKey (KeyCode.A)) {
+			animSpeed = 1.0f;
+			SetAnimDirection(0.0f);
+			GetComponent<SpriteRenderer>().flipX = true;
+			pos.x = -speed;
+			pos.y = 0;
+>>>>>>> origin/master
 		} else if (Input.GetKey (KeyCode.S)) {
 			animSpeed = 1.0f;
+<<<<<<< HEAD
 			SetAnimDirection (-1.0f);
 			pos.y -= speed;
+=======
+			SetAnimDirection(-1.0f);
+			pos.y = -speed;
+			pos.x = 0;
+>>>>>>> origin/master
 		} else if (Input.GetKey (KeyCode.D)) {
-			pos.x += speed;
+			pos.x = speed;
+			pos.y = 0;
 			SetAnimDirection (0.0f);
 			GetComponent<SpriteRenderer> ().flipX = false;
 			animSpeed = 1.0f;
 		} else {
+			pos.x = 0;
+			pos.y = 0;
 			animSpeed = 0.0f;
 		}
 
+<<<<<<< HEAD
 		SetAnimSpeed (animSpeed);
+=======
+		SetAnimSpeed(animSpeed);
+		transform.Translate (pos.x*Time.deltaTime,pos.y * Time.deltaTime, 0);
+>>>>>>> origin/master
 
-		gameObject.transform.position = pos;
+		//gameObject.transform.position = pos;
 	}
 
 	void CoolDownBuff () {
@@ -255,21 +285,33 @@ public class Player : MonoBehaviour {
 		case 0:
 			firePoint.localPosition = new Vector2 (0, 1.5f);
 			direction = 0;
+			VecDirection = Vector2.up;
+			SkillRotation = 90.0f;
 
 			break;
 		case 1:
 			firePoint.localPosition = new Vector2 (0, -1.5f);
+
 			firePoint.localRotation = new Quaternion (0, 0, 90, 0);
+
+			VecDirection = Vector2.down;
+			SkillRotation = -90.0f;
+		
 			direction = 1;
 			break;
 		case 2:
 			firePoint.localPosition = new Vector2 (1.5f, 0);
 			firePoint.localRotation = new Quaternion (0, 0, 270, 0);
+			VecDirection = Vector2.left;
+			SkillRotation = 0.0f;
+
 			direction = 2;
 			break;
 		case 3:
 			firePoint.localPosition = new Vector2 (-1.5f, 0);
 			firePoint.localRotation = new Quaternion (0, 0, 180, 0);
+			VecDirection = Vector2.right;
+			SkillRotation = 180.0f;
 			direction = 3;
 			break;
 		}

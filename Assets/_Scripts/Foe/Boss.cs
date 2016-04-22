@@ -36,7 +36,7 @@ public class Boss : MonoBehaviour {
 			thisfoe = foeData.GetFoeByName (gameObject.name);
 			attributes.SetFoeStats (thisfoe);
 
-			displays.bossUIName.text = attributes.name;
+			displays.bossUIName.text = attributes.m_name;
 			health = attributes.health;
 			maxHealth = health;
 

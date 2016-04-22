@@ -12,7 +12,7 @@ public class Physical : MonoBehaviour {
 	Foes thisFoe;
 	GenRandom npc;
 	public float health;
-	public string name;
+	public string m_name;
 	public int id;
 	float speed;
 	int dmg;
@@ -35,7 +35,7 @@ public class Physical : MonoBehaviour {
 		thisFoe = foe;
 		health = foe.foeHealth;
 		speed = foe.foeSpeed;
-		name = foe.foeName;
+		m_name = foe.foeName;
 		dmg = foe.foeDmg;
 		id = foe.foeID;
 	}

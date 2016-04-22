@@ -24,11 +24,7 @@ public class Foe : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 		database = GameObject.FindGameObjectWithTag ("Database");
-		foeData = database.GetComponent<FoeDatabase> ();
-		foe = foeData.GetFoeByName (this.gameObject.name);
-		id = foe.foeID;
-		SetFoeStats (foe, id);
-
+        getFoeData();
 	}
 
 	void SetFoeStats (Foes foe, int i) {
@@ -45,10 +41,25 @@ public class Foe : MonoBehaviour
 		speed = foe.foeSpeed;
 		damage = foe.foeDmg;
 	}
-
+    void getFoeData()
+    {
+        if (database)
+        {
+            foeData = database.GetComponent<FoeDatabase>();
+          //  foe = foeData.GetFoeByName(this.gameObject.name);
+          //  id = foe.foeID;
+          //8  SetFoeStats(foe, id);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+        if (!player)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            database = GameObject.FindGameObjectWithTag("Database");
+            getFoeData();
+        }
 
 		/* This is for making all the changes needed to happen for the bosses HUD.
 		 * if (bossIsAlive == true) {
@@ -99,8 +110,12 @@ public class Foe : MonoBehaviour
     {
 
         health -= dmg;
-        GameObject go = Instantiate(damageEffect, transform.position, Quaternion.identity) as GameObject;
-        Destroy(go, 1.0f);
+        if (damageEffect)
+        {
+            GameObject go = Instantiate(damageEffect, transform.position, Quaternion.identity) as GameObject;
+            Destroy(go, 1.0f);
+        }
+        
 
     }
 
