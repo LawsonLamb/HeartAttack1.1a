@@ -13,7 +13,7 @@ GameObject:
   - 50: {fileID: 5055794}
   - 114: {fileID: 11484676}
   - 95: {fileID: 9565040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Blood
   m_TagString: Blood
   m_Icon: {fileID: 0}
@@ -91,10 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1122b466241274ed1862196584283a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 15
   lifeSpan: 75
   ImpactEffect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 2}
-  direction: 2
-  dmg: 0
+  direction: 1
+  dmg: 50
 --- !u!212 &21235586
 SpriteRenderer:
   m_ObjectHideFlags: 1

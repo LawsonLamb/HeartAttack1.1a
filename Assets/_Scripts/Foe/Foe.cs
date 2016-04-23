@@ -21,7 +21,8 @@ public class Foe : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
+	{	//gameObject.tag = "Foe";
+		//gameObject.layer = "Foe";
         player = GameObject.FindGameObjectWithTag("Player");
 		database = GameObject.FindGameObjectWithTag ("Database");
         getFoeData();

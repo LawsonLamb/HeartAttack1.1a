@@ -13,11 +13,10 @@ GameObject:
   - 58: {fileID: 5849444}
   - 114: {fileID: 11406950}
   - 114: {fileID: 11494280}
-  - 114: {fileID: 11422866}
   - 114: {fileID: 11400264}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Clinger
-  m_TagString: Untagged
+  m_TagString: Foe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,17 +100,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 859d20aefb37644cb80cd5bd9674beea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11422866
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -2012967667, guid: 1575c1ccf5c9d9b4880372d854f9fcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11455036
