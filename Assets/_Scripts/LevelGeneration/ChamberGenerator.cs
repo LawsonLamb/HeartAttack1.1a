@@ -9,7 +9,7 @@ public class ChamberGenerator : MonoBehaviour
 
     public GameObject[,] Chamber;
     public List<GameObject> rooms;
-
+	public int TotalEnemies;
     public float XOffset;
     public float yOffset;
     public int width;

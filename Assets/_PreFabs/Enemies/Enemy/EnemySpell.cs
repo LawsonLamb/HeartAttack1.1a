@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemySpell : MonoBehaviour {
 
-	public int Damage;
+	public float Damage;
 	public int Duration;
 	private Transform child;
 	public GameObject ImpactEffect;
@@ -38,20 +38,12 @@ public class EnemySpell : MonoBehaviour {
 	
 	
 	
-	void OnCollisionEnter2D(Collision2D col){
-		
-	
-	
-			Destroy(this.gameObject);
 
-		
-
-	}
 	void OnTriggerEnter2D(Collider2D  col){
 		enemy = col.gameObject;
 		if(enemy.tag =="Player"){
 
-	
+			GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ().TakeDamage (Damage);
 			Destroy(this.gameObject);
 			
 		}

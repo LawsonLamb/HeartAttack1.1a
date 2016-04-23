@@ -27,8 +27,7 @@ GameObject:
   - 95: {fileID: 9530146}
   - 50: {fileID: 5065904}
   - 58: {fileID: 5893972}
-  - 114: {fileID: 11442986}
-  - 114: {fileID: 11441092}
+  - 114: {fileID: 11467950}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -36,6 +35,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &132408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 414204}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414204
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 430140}
+  m_RootOrder: 0
 --- !u!4 &430140
 Transform:
   m_ObjectHideFlags: 1
@@ -43,9 +69,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.14, y: 5.55, z: 0}
+  m_LocalPosition: {x: 11.911828, y: 8.076487, z: -3.03}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_Children:
+  - {fileID: 414204}
   - {fileID: 494786}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +87,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 430140}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!50 &5065904
 Rigidbody2D:
   serializedVersion: 2
@@ -109,18 +136,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11441092
+--- !u!114 &11467950
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113610}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22cda9c217c484a4bad9385d6bd14089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 9530146}
   buff:
     item: {fileID: 0}
     priceDisplay: {fileID: 0}
@@ -139,7 +166,7 @@ MonoBehaviour:
   aVera: 0
   def: 1
   pMaker: 0
-  speed: 0.1
+  speed: 0.05
   adren: 0
   health: 100
   maxHealth: 0
@@ -156,28 +183,8 @@ MonoBehaviour:
   maxExp: 50
   points: 0
   coolDown: 0
-  firePoint: {fileID: 494786}
+  firePoint: {fileID: 414204}
   blood: {fileID: 105004, guid: 183f76912384146d984ddfce66dad88d, type: 2}
---- !u!114 &11442986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 113610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f329ab9d4524816acbf3dd685af4c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 10
-  damage: 10
-  whatToHit:
-    serializedVersion: 2
-    m_Bits: 0
-  VecDirection: {x: 0, y: 0}
-  SkillRotation: 0
-  rayDistince: 10
-  sounds: {fileID: 0}
 --- !u!212 &21223944
 SpriteRenderer:
   m_ObjectHideFlags: 1

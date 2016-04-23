@@ -8133,7 +8133,14 @@ MonoBehaviour:
   - {fileID: 11497026}
   - {fileID: 11470210}
   - {fileID: 11498586}
-  Enemies: []
+  Enemies:
+  - {fileID: 111846, guid: 3be4e33cf26ce3c4da76a66c0caf120a, type: 2}
+  - {fileID: 169880, guid: fa7c88b0760bfac44883568054a6b8e4, type: 2}
+  minimumNumberOfEnemies: 2
+  maximumNumberOfEnemies: 5
+  EnemiesInRoom:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11474872
 MonoBehaviour:
   m_ObjectHideFlags: 1
