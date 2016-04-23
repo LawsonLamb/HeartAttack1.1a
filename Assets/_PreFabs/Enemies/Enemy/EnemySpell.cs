@@ -43,7 +43,7 @@ public class EnemySpell : MonoBehaviour {
 		enemy = col.gameObject;
 		if(enemy.tag =="Player"){
 
-			GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ().TakeDamage (Damage);
+		//	GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ().TakeDamage (Damage);
 			Destroy(this.gameObject);
 			
 		}
