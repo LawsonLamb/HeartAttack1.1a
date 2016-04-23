@@ -85,6 +85,8 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
+=======
 --- !u!1001 &27305562
 Prefab:
   m_ObjectHideFlags: 0
@@ -1020,3 +1022,4 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 132302, guid: a019779211d7b426b9270a01ee25fa49, type: 2}
   m_PrefabInternal: {fileID: 27305562}
+>>>>>>> origin/master
