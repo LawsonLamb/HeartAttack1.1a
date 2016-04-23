@@ -197,35 +197,24 @@ public class Player : MonoBehaviour {
 		//Just a basic way for the player to move around the screen.
 		if (Input.GetKey (KeyCode.W)) {
 			animSpeed = 1.0f;
-<<<<<<< HEAD
+
 			SetAnimDirection (1.0f);
 			pos.y += speed;
-		} else if (Input.GetKey (KeyCode.A)) {
-			animSpeed = 1.0f;
-			SetAnimDirection (0.0f);
-			GetComponent<SpriteRenderer> ().flipX = true;
-			pos.x -= speed;
-=======
-			SetAnimDirection(1.0f);
-			pos.y = speed;
 			pos.x = 0;
+		
 		} else if (Input.GetKey (KeyCode.A)) {
 			animSpeed = 1.0f;
 			SetAnimDirection(0.0f);
 			GetComponent<SpriteRenderer>().flipX = true;
 			pos.x = -speed;
 			pos.y = 0;
->>>>>>> origin/master
+
 		} else if (Input.GetKey (KeyCode.S)) {
 			animSpeed = 1.0f;
-<<<<<<< HEAD
-			SetAnimDirection (-1.0f);
-			pos.y -= speed;
-=======
 			SetAnimDirection(-1.0f);
 			pos.y = -speed;
 			pos.x = 0;
->>>>>>> origin/master
+
 		} else if (Input.GetKey (KeyCode.D)) {
 			pos.x = speed;
 			pos.y = 0;
@@ -238,12 +227,10 @@ public class Player : MonoBehaviour {
 			animSpeed = 0.0f;
 		}
 
-<<<<<<< HEAD
-		SetAnimSpeed (animSpeed);
-=======
+
 		SetAnimSpeed(animSpeed);
 		transform.Translate (pos.x*Time.deltaTime,pos.y * Time.deltaTime, 0);
->>>>>>> origin/master
+
 
 		//gameObject.transform.position = pos;
 	}
