@@ -47,7 +47,7 @@ public class Boss : MonoBehaviour {
 				newBar.name = "Boss Health_Bar" + i;
 				newBar.transform.SetParent (barArea.transform);
 				newBar.transform.localScale = new Vector3 (1, 1, 1);
-				newBar.transform.localPosition = new Vector3 (-245, 0, 0);
+				newBar.transform.localPosition = new Vector3 (-270, 0, 0);
 				if (i == 0) {
 					newBar.color = Color.red;
 				} else if (i == 1) {
