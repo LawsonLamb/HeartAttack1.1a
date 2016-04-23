@@ -65,8 +65,11 @@ public class Player : MonoBehaviour {
 	void Start () {
 
 		database = GameObject.FindGameObjectWithTag ("Database");
-		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
-		spec = GameObject.FindGameObjectWithTag ("Background").GetComponent<Specials> ();
+		if (GameObject.FindGameObjectWithTag ("Background")) {
+			displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
+			spec = GameObject.FindGameObjectWithTag ("Background").GetComponent<Specials> ();
+		}
+
 		itemData = database.GetComponent<ItemData> ();
 		maxHealth = health;
 		maxMagic = magic;
@@ -86,21 +89,23 @@ public class Player : MonoBehaviour {
 		if (tranfusionActive == true) {
 			Transfusion ();
 		}
+	
+		if (displays) {
+			if (displays.pause == false) {
+				PlayerMovement ();
+				RegularAttack ();
+				SpecialAttack ();
 
-		if (displays.pause == false) {
-			PlayerMovement ();
-			RegularAttack ();
-			SpecialAttack ();
+				//Any Buff items that were picked up, so they can be cooled down.
+				if (buff.openIt == true) {
+					buffTimer -= 0.05f;
+					CoolDownBuff ();
+				}
 
-			//Any Buff items that were picked up, so they can be cooled down.
-			if (buff.openIt == true) {
-				buffTimer -= 0.05f;
-				CoolDownBuff ();
-			}
-
-			if (Input.GetKeyDown (KeyCode.Q)) {
-				if (itemData.item [8].Stock > 0) {
-					CreateWaterBallons (itemData.item [8]);
+				if (Input.GetKeyDown (KeyCode.Q)) {
+					if (itemData.item [8].Stock > 0) {
+						CreateWaterBallons (itemData.item [8]);
+					}
 				}
 			}
 		}

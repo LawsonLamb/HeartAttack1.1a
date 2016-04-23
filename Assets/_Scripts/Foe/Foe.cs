@@ -114,6 +114,7 @@ public class Foe : MonoBehaviour
         if (damageEffect)
         {
             GameObject go = Instantiate(damageEffect, transform.position, Quaternion.identity) as GameObject;
+			GameObject.FindGameObjectWithTag ("GameController").GetComponent<Gauntlet> ().EnemyKilled ();
             Destroy(go, 1.0f);
         }
         
