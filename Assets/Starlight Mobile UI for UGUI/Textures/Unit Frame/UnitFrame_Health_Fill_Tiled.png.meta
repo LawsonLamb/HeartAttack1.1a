@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: fb0418fbad4c4c443a14e61c1e8309ce
-timeCreated: 1444498222
-licenseType: Store
+timeCreated: 1461444971
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -17,7 +17,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -42,14 +42,15 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 48, y: 0, z: 48, w: 0}
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 48, y: 47, z: 48, w: 47}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites: []
+    outline: []
   spritePackingTag: Starlight UI
   userData: 
   assetBundleName: 
