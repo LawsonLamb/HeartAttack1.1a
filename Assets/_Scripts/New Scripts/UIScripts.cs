@@ -237,7 +237,7 @@ public class UIScripts : MonoBehaviour {
 			//healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x + (20 / dmg), 0);
 			player.GetComponent<SoundEffects> ().PlaySound (0);
 		} else {
-			//Application.LoadLevel (3);
+			Application.LoadLevel (3);
 			print ("You Have Died");
 		}
 	}
