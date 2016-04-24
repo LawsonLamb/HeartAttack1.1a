@@ -236,7 +236,7 @@ public class UIScripts : MonoBehaviour {
 			healthBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
 			healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x + (20 / dmg), 0);
 		} else {
-			//Application.LoadLevel (3);
+			Application.LoadLevel (3);
 			print ("You Have Died");
 		}
 	}
