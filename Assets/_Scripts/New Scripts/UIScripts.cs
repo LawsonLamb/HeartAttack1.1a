@@ -238,7 +238,7 @@ public class UIScripts : MonoBehaviour {
 			player.GetComponent<SoundEffects> ().PlaySound (0);
 		} else {
 			Application.LoadLevel (3);
-			print ("You Have Died");
+			//print ("You Have Died");
 		}
 	}
 
@@ -260,7 +260,7 @@ public class UIScripts : MonoBehaviour {
 			player.GetComponent<SoundEffects> ().PlaySound (1);
 			player.UseRegularAttack ();
 		} else {
-			print ("You are out of magic");
+			//print ("You are out of magic");
 		}
 	}
 

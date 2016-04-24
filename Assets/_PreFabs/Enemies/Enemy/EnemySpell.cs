@@ -48,7 +48,7 @@ public class EnemySpell : MonoBehaviour {
 			
 		}
 			if (enemy.tag == "polyNav") {
-			print ("Destory");
+			//print ("Destory");
 			Destroy (this.gameObject);
 		}
 

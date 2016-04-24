@@ -8,7 +8,7 @@ public class FireProjectile : Action
 
     public SharedGameObject Projectile;
     public SharedGameObject Target;
-    public SharedFloat timeBetweenSpell;
+    //public SharedFloat timeBetweenSpell;
     private Vector3 direction;
 
     public override TaskStatus OnUpdate()

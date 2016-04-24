@@ -294,6 +294,7 @@ public class ChamberGenerator : MonoBehaviour
         CreateRooms();
         ConstructRooms();
 
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<Gauntlet>().GetEnemyCount();
 
     }
     void ConstructRooms()
