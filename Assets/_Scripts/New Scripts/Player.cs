@@ -203,7 +203,8 @@ public class Player : MonoBehaviour {
 		if (Input.GetKey (KeyCode.W)) {
 			animSpeed = 1.0f;
 			SetAnimDirection (1.0f);
-			pos.y += speed;
+			pos.y = speed;
+			pos.x = 0;
 
 	
 		} else if (Input.GetKey (KeyCode.A)) {

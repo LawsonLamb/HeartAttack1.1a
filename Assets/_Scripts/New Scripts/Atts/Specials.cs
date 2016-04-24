@@ -4,7 +4,11 @@ using System.Collections;
 
 public class Specials : MonoBehaviour {
 
-	string name;
+	string name{ 
+		get { return gameObject.name; } 
+		set{ gameObject.name = value; }
+	
+	}
 	GameObject database;
 	AttackDatabase attData;
 	UIScripts displays;

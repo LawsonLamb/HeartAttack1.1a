@@ -16,6 +16,7 @@ TagManager:
   - Boss
   - Cupid
   - Map
+  - polyNav
   layers:
   - Default
   - TransparentFX

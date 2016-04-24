@@ -41,11 +41,15 @@ public class EnemySpell : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D  col){
 		enemy = col.gameObject;
-		if(enemy.tag =="Player"){
+		if (enemy.tag == "Player") {
 
-		//	GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ().TakeDamage (Damage);
-			Destroy(this.gameObject);
+			GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ().TakeDamage (Damage);
+			Destroy (this.gameObject);
 			
+		}
+			if (enemy.tag == "polyNav") {
+			print ("Destory");
+			Destroy (this.gameObject);
 		}
 
 		

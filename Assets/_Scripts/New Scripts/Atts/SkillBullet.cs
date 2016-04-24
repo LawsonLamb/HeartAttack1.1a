@@ -77,6 +77,12 @@ public class SkillBullet : MonoBehaviour {
 	//		ani.SetTrigger ("ObjectHit");
 			Splat();
 		}
+
+		if (col.gameObject.tag.Equals ("polyNav")) {
+
+			Splat ();
+
+		}
 	
 //	Splat();
 

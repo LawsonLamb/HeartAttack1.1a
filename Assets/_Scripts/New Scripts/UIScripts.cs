@@ -124,13 +124,13 @@ public class UIScripts : MonoBehaviour {
 
 		make = itemData.item [10];
 		make.CreateGameObject ("blah", 1);
-
+		/*
 		viewportPoint = Camera.main.WorldToViewportPoint(playerPos.transform.position);
 		healthBarPos = new Vector2 (
 			((viewportPoint.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
 			((viewportPoint.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
 		playerHealth.anchoredPosition = healthBarPos;
-
+*/
 		pause = false;
 		pauseButton.SetActive (true);
 		pauseUI.SetActive (false);
@@ -176,7 +176,7 @@ public class UIScripts : MonoBehaviour {
 			}
 		}
 
-		UpdateHealthBarPosition ();
+		//UpdateHealthBarPosition ();
 
 		if(Input.GetKeyDown (KeyCode.P)) {
 			PauseButton();
@@ -234,7 +234,8 @@ public class UIScripts : MonoBehaviour {
 			player.health -= dmg;
 			float displayHealth = player.health / player.maxHealth;
 			healthBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
-			healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x + (20 / dmg), 0);
+			//healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x + (20 / dmg), 0);
+			player.GetComponent<SoundEffects> ().PlaySound (0);
 		} else {
 			//Application.LoadLevel (3);
 			print ("You Have Died");
@@ -246,7 +247,7 @@ public class UIScripts : MonoBehaviour {
 			player.health += heal;
 			float displayHealth = player.health / player.maxHealth;
 			healthBar.transform.localScale = new Vector3 (displayHealth, 1, 1);
-			healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x - (-20 / heal), 0);
+		//	healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x - (-20 / heal), 0);
 		}
 	}
 
@@ -254,8 +255,9 @@ public class UIScripts : MonoBehaviour {
 		if (player.magic > 0) {
 			player.magic -= cost;
 			float displayMagic = player.magic / player.maxMagic;
-			magicBar.transform.localScale = new Vector3 (displayMagic, 1, 1);
-			magicBar.transform.localPosition = new Vector2 (magicBar.transform.localPosition.x + (30 / cost), 0);
+			magicBar.transform.localScale = new Vector3 (1, displayMagic, 1);
+			//magicBar.transform.localPosition = new Vector2 (magicBar.transform.localPosition.x + (30 / cost), 0);
+			player.GetComponent<SoundEffects> ().PlaySound (1);
 			player.UseRegularAttack ();
 		} else {
 			print ("You are out of magic");
@@ -266,8 +268,8 @@ public class UIScripts : MonoBehaviour {
 		if (player.magic < player.maxMagic) {
 			player.magic += restore;
 			float displayMagic = player.magic / player.maxMagic;
-			magicBar.transform.localScale = new Vector3 (displayMagic, 1, 1);
-			magicBar.transform.localPosition = new Vector2 (magicBar.transform.localPosition.x - (30 / restore), 0);
+			magicBar.transform.localScale = new Vector3 (1, displayMagic, 1);
+		//	magicBar.transform.localPosition = new Vector2 (magicBar.transform.localPosition.x - (30 / restore), 0);
 		} else {
 		}
 	}

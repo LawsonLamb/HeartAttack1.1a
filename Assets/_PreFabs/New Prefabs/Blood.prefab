@@ -94,8 +94,8 @@ MonoBehaviour:
   speed: 15
   lifeSpan: 75
   ImpactEffect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 2}
-  direction: 1
-  dmg: 50
+  direction: 3
+  dmg: 25
 --- !u!212 &21235586
 SpriteRenderer:
   m_ObjectHideFlags: 1
