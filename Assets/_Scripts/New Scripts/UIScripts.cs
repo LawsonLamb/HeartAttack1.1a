@@ -277,8 +277,8 @@ public class UIScripts : MonoBehaviour {
 	public void UseSpecial() {
 		player.energy -= player.energy;
 		float displayEnergy = player.energy / player.maxEnergy;
-		specialBar.transform.localScale = new Vector3 (displayEnergy, 1, 1);
-		specialBar.transform.localPosition = new Vector2 (-150, 0);
+		specialBar.transform.localScale = new Vector3 (1, displayEnergy, 1);
+	//	specialBar.transform.localPosition = new Vector2 (-150, 0);
 		if ((currSpecSkill.attID >= 25) && (currSpecSkill.attID <= 29)) {
 			cupid.SetActive (true);
 		}
@@ -290,8 +290,8 @@ public class UIScripts : MonoBehaviour {
 			player.coolDown += 1;
 			player.energy += restore;
 			float displayEnergy = player.energy / player.maxEnergy;
-			specialBar.transform.localScale = new Vector3 (displayEnergy, 1, 1);
-			specialBar.transform.localPosition = new Vector2 (specialBar.transform.localPosition.x - (30 / restore), 0);
+			specialBar.transform.localScale = new Vector3 (1, displayEnergy, 1);
+		//	specialBar.transform.localPosition = new Vector2 (specialBar.transform.localPosition.x - (30 / restore), 0);
 		} else {
 			player.coolDown = 0;
 			specialBar.color = Color.green;

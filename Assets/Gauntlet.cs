@@ -41,7 +41,9 @@ public class Gauntlet : MonoBehaviour {
 
 
 	public void EnemyKilled(){
-
-		EnemyCount -= 1;
+		
+		EnemyCount--;
 	}
+
+
 }

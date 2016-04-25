@@ -14,6 +14,7 @@ public class GameOver : MonoBehaviour {
 	}
 
 	public void RestartButton() {
+		Application.LoadLevel (2);
 		if (Application.loadedLevel == 2) {
 			Application.LoadLevel (2);
 		} else {

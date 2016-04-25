@@ -178,7 +178,7 @@ MonoBehaviour:
   Damage: 0.5
   Duration: 5
   ImpactEffect: {fileID: 100006, guid: 8a4aceaf2957c044480166b429f4c7d0, type: 2}
-  moveSpeed: 25
+  moveSpeed: 10
 --- !u!198 &19847042
 ParticleSystem:
   m_ObjectHideFlags: 1
