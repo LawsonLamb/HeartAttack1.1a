@@ -151,7 +151,13 @@ public class PickedItem : MonoBehaviour {
 		drop.item.AddComponent<PickedItem> ();
 		drop.item.AddComponent<BoxCollider2D> ();
 		drop.item.AddComponent<Rigidbody2D> ();
-		drop.item.transform.localScale = new Vector3 (5, 5, 1);
+		if ((drop.ID == 2) || (drop.ID == 7) || (drop.ID == 8)) {
+			drop.item.transform.localScale = new Vector3(0.1f, 0.1f, 1);
+		} else if (drop.ID == 17) {
+			drop.item.transform.localScale = new Vector3(3, 3, 1);
+		} else {
+			drop.item.transform.localScale = new Vector3(1, 1, 1);
+		}
 		drop.item.transform.localPosition = new Vector3 (GameObject.Find ("Player").transform.localPosition.x, GameObject.Find ("Player").transform.localPosition.y - 5, 0);
 	}
 

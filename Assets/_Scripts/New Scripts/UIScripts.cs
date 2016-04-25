@@ -122,8 +122,6 @@ public class UIScripts : MonoBehaviour {
 		itemData.item [12].openIt = true;
 		itemData.item [15].openIt = true;
 
-		make = itemData.item [10];
-		make.CreateGameObject ("blah", 1);
 		/*
 		viewportPoint = Camera.main.WorldToViewportPoint(playerPos.transform.position);
 		healthBarPos = new Vector2 (
@@ -237,7 +235,7 @@ public class UIScripts : MonoBehaviour {
 			//healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x + (20 / dmg), 0);
 			player.GetComponent<SoundEffects> ().PlaySound (0);
 		} else {
-			Application.LoadLevel (3);
+			Application.LoadLevel (4);
 			print ("You Have Died");
 		}
 	}

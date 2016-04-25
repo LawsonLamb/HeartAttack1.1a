@@ -46,7 +46,7 @@ public class Item
 
     }
 
-    public void CreateGameObject(string name, int i)
+	public void CreateGameObject(string name, int i, int ID)
     {
         item = new GameObject();
         item.name = Name;
@@ -54,7 +54,13 @@ public class Item
         item.AddComponent<PickedItem>();
         item.AddComponent<BoxCollider2D>();
         item.AddComponent<Rigidbody2D>();
-        item.transform.localScale = new Vector3(5, 5, 1);
+		if ((ID == 2) || (ID == 7) || (ID == 8)) {
+			item.transform.localScale = new Vector3(0.1f, 0.1f, 1);
+		} else if (ID == 17) {
+			item.transform.localScale = new Vector3(3, 3, 1);
+		} else {
+			item.transform.localScale = new Vector3(1, 1, 1);
+		}
         if (name == "LoveBooth")
         {
             item.transform.localPosition = new Vector3(GameObject.Find(name).transform.localPosition.x + 3, GameObject.Find(name).transform.localPosition.y, 0);

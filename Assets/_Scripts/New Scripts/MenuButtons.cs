@@ -36,7 +36,7 @@ public class MenuButtons : MonoBehaviour {
 	}
 
 	public void GauntletButton() {
-		Application.LoadLevel (2);
+		Application.LoadLevel (3);
 	}
 
 	public void ReturnButton() {

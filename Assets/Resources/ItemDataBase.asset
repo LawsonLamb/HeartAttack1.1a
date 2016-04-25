@@ -99,7 +99,7 @@ MonoBehaviour:
     Change: 0
     openIt: 0
     Icon: {fileID: 21300000, guid: 060752a21e87641a18deff6c9398ff63, type: 3}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Waterballoon
@@ -110,7 +110,7 @@ MonoBehaviour:
     Change: 50
     openIt: 0
     Icon: {fileID: 21300000, guid: 749c786d1c9ca47dda145e2c84c23eee, type: 3}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Discounter
@@ -121,7 +121,7 @@ MonoBehaviour:
     Change: 0
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Map
@@ -132,7 +132,7 @@ MonoBehaviour:
     Change: 0
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Hidden Passage
@@ -143,7 +143,7 @@ MonoBehaviour:
     Change: 0
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Regular Shot_1
@@ -154,7 +154,7 @@ MonoBehaviour:
     Change: 0
     openIt: 0
     Icon: {fileID: 21300032, guid: b18d5ab41447843ab9c9e32c65f81ab4, type: 3}
-    Type: 0
+    Type: 2
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Double Shot_1
@@ -165,7 +165,7 @@ MonoBehaviour:
     Change: 0
     openIt: 0
     Icon: {fileID: 21300042, guid: b18d5ab41447843ab9c9e32c65f81ab4, type: 3}
-    Type: 0
+    Type: 2
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Barrage_1
@@ -176,7 +176,7 @@ MonoBehaviour:
     Change: 0
     openIt: 0
     Icon: {fileID: 21300044, guid: b18d5ab41447843ab9c9e32c65f81ab4, type: 3}
-    Type: 0
+    Type: 2
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Enrage_1
@@ -186,8 +186,8 @@ MonoBehaviour:
     Duration: 0
     Change: 0
     openIt: 0
-    Icon: {fileID: 0}
-    Type: 0
+    Icon: {fileID: 21300000, guid: 07cd35c4ecc31a347a6b4bfa24209576, type: 3}
+    Type: 2
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Restore_1
@@ -197,8 +197,8 @@ MonoBehaviour:
     Duration: 0
     Change: 0
     openIt: 0
-    Icon: {fileID: 0}
-    Type: 0
+    Icon: {fileID: 21300000, guid: 4ef5a3d38c06d3640951c504cef2f429, type: 3}
+    Type: 2
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Cupid_1
@@ -206,10 +206,10 @@ MonoBehaviour:
     Price: 50
     Stock: 0
     Duration: 0
-    Change: 10
+    Change: 0
     openIt: 0
-    Icon: {fileID: 0}
-    Type: 0
+    Icon: {fileID: 21300000, guid: d82a2a89056b5420ca49361efed9287c, type: 3}
+    Type: 2
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Transfusion
@@ -220,7 +220,7 @@ MonoBehaviour:
     Change: 10
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Adrenalin
@@ -231,7 +231,7 @@ MonoBehaviour:
     Change: 0.125
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Pace Maker
@@ -242,7 +242,7 @@ MonoBehaviour:
     Change: 1.25
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Defibrillator
@@ -253,7 +253,7 @@ MonoBehaviour:
     Change: 2.5
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3
   - item: {fileID: 0}
     priceDisplay: {fileID: 0}
     Name: Aloe Vera
@@ -264,4 +264,4 @@ MonoBehaviour:
     Change: 2.5
     openIt: 0
     Icon: {fileID: 0}
-    Type: 0
+    Type: 3

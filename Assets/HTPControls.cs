@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameOver : MonoBehaviour {
+public class HTPControls : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,13 +13,11 @@ public class GameOver : MonoBehaviour {
 	
 	}
 
-	public void RestartButton() {
-		Application.LoadLevel (2);
-	}
-	public void MainMenuButton() {
+	public void HomeButton() {
 		Application.LoadLevel (0);
 	}
-	public void QuitButton() {
-		Application.Quit ();
+
+	public void PlayButton() {
+		Application.LoadLevel (2);
 	}
 }

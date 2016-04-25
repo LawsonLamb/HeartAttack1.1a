@@ -18,6 +18,7 @@ public class Foe : MonoBehaviour
 	Foes foe;
     public GameObject player;
     public GameObject damageEffect;
+	private GenRandom npc;
 
     // Use this for initialization
     void Start()
@@ -25,6 +26,7 @@ public class Foe : MonoBehaviour
 		//gameObject.layer = "Foe";
         player = GameObject.FindGameObjectWithTag("Player");
 		database = GameObject.FindGameObjectWithTag ("Database");
+		npc = GameObject.FindGameObjectWithTag ("Background").GetComponent<GenRandom> ();
         getFoeData();
 	}
 
@@ -103,6 +105,7 @@ public class Foe : MonoBehaviour
 		miniFoeHUD.SetActive (!mainHUDopen);
 		foeHUD.SetActive (!mainHUDopen);
 		bossIsAlive = false;*/
+		npc.GuantletGen (gameObject.tag);
         Destroy(this.gameObject);
     }
 

@@ -61,7 +61,7 @@ public class AttackDatabase : MonoBehaviour {
 		//Searches throught the folders for the att_(att ID) for each attack.
 		for (int i = 0; i < attacks.Count; i++) {
 			if (attacks[i].attID == i) {
-				attacks[i].attIcon = Resources.Load <Sprite> ("Icons/Attacks/Att_" + i); 
+				attacks[i].attIcon = Resources.Load <Sprite> ("Icons/Attacks/" + attacks[i].attName); 
 			}
 		}
 	}
