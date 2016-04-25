@@ -22,12 +22,12 @@ public class Loot : MonoBehaviour {
 	
 	}
 	public  void DropLoot(){
-		PlayerState.letters+=Letters;
+		
 		int ran = 	Random.Range(0,DropableItems.Count);
 		Instantiate(DropableItems[ran],transform.position,Quaternion.identity);
 	}
 	void OnDestroy(){
-	
+		DropLoot ();
 
 	}
 

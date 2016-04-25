@@ -389,8 +389,8 @@ MonoBehaviour:
   adren: 0
   health: 100
   maxHealth: 0
-  magic: 100
-  maxMagic: 0
+  magic: 700
+  maxMagic: 1000
   energy: 100
   maxEnergy: 0
   enemyKillCount: 0

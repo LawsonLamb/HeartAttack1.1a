@@ -1502,7 +1502,7 @@ GameObject:
   - 61: {fileID: 6194002}
   - 114: {fileID: 11467386}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CameraTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8028,6 +8028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442116d6e52ff49b49184f0d94091678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerInTrigger: 0
 --- !u!114 &11467738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8209,7 +8210,7 @@ MonoBehaviour:
   - {fileID: 111846, guid: 3be4e33cf26ce3c4da76a66c0caf120a, type: 2}
   - {fileID: 169880, guid: fa7c88b0760bfac44883568054a6b8e4, type: 2}
   minimumNumberOfEnemies: 2
-  maximumNumberOfEnemies: 5
+  maximumNumberOfEnemies: 4
   EnemiesInRoom:
   - {fileID: 0}
   - {fileID: 0}
@@ -13664,7 +13665,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 174542, guid: 81b8656dfe1a84f3bb5a4dfc9a957776, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 113644}

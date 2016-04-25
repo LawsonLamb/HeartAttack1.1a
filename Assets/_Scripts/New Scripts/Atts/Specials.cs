@@ -53,31 +53,31 @@ public class Specials : MonoBehaviour {
 	void Enrage () {
 
 		if (att.attName == "Enrage_1") {
-			player.speed += .250f;
+			player.speed += 5;
 			player.def += 2.50f;
 			player.dmg += 5f;
 			player.mDmg += 5f;
 			coolFactor = 2;
 		} else if (att.attName == "Enrage_2") {
-			player.speed += .3f;
+			player.speed += 5;
 			player.def += 3f;
 			player.dmg += 5.5f;
 			player.mDmg += 5.5f;
 			coolFactor = 4;
 		} else if (att.attName == "Enrage_3") {
-			player.speed += .35f;
+			player.speed += 5;
 			player.def += 3.5f;
 			player.dmg += 6f;
 			player.mDmg += 6f;
 			coolFactor = 6;
 		} else if (att.attName == "Enrage_4") {
-			player.speed += .4f;
+			player.speed += 5;
 			player.def += 4f;
 			player.dmg += 6.5f;
 			player.mDmg += 6.5f;
 			coolFactor = 8;
 		} else {
-			player.speed += .45f;
+			player.speed += 5;
 			player.def += 4.5f;
 			player.dmg += 7f;
 			player.mDmg += 7f;

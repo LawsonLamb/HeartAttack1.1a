@@ -18,12 +18,19 @@ public class Foe : MonoBehaviour
 	Foes foe;
     public GameObject player;
     public GameObject damageEffect;
+<<<<<<< HEAD
 	private GenRandom npc;
 
+=======
+    Animator anim;
+    bool attack = false;
+>>>>>>> origin/master
     // Use this for initialization
     void Start()
-	{	//gameObject.tag = "Foe";
-		//gameObject.layer = "Foe";
+	{   //gameObject.tag = "Foe";
+        //gameObject.layer = "Foe";
+       // gameObject.AddComponent<Animator>();
+     //   anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
 		database = GameObject.FindGameObjectWithTag ("Database");
 		npc = GameObject.FindGameObjectWithTag ("Background").GetComponent<GenRandom> ();
@@ -33,6 +40,7 @@ public class Foe : MonoBehaviour
 	void SetFoeStats (Foes foe, int i) {
 		health = foe.foeHealth;
 		maxHealth = foe.foeHealth;
+      
 		if ((i >= 8) && (i <= 10)) {
 			print ("Boss");
 			//healthBarAmount = health / 100;
@@ -57,6 +65,12 @@ public class Foe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (attack)
+        {
+
+           // attack = false;
+            //anim.SetBool("Attack", attack);
+        }
         if (!player)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -82,7 +96,7 @@ public class Foe : MonoBehaviour
 
             Death();
         }
-
+       // anim.SetBool("Attack", attack);
     }
     void OnEnable()
     {
@@ -105,7 +119,14 @@ public class Foe : MonoBehaviour
 		miniFoeHUD.SetActive (!mainHUDopen);
 		foeHUD.SetActive (!mainHUDopen);
 		bossIsAlive = false;*/
+<<<<<<< HEAD
 		npc.GuantletGen (gameObject.tag);
+=======
+
+
+
+		GameObject.FindGameObjectWithTag ("GameController").GetComponent<Gauntlet> ().EnemyKilled ();
+>>>>>>> origin/master
         Destroy(this.gameObject);
     }
 
@@ -117,7 +138,7 @@ public class Foe : MonoBehaviour
         if (damageEffect)
         {
             GameObject go = Instantiate(damageEffect, transform.position, Quaternion.identity) as GameObject;
-			GameObject.FindGameObjectWithTag ("GameController").GetComponent<Gauntlet> ().EnemyKilled ();
+
             Destroy(go, 1.0f);
         }
         
@@ -127,13 +148,29 @@ public class Foe : MonoBehaviour
     public void RangeAttack(GameObject Projectile, Vector3 direction)
     {
 
-        Instantiate(Projectile, this.transform.position, Quaternion.LookRotation(direction));
+        GameObject go = (GameObject)Instantiate(Projectile, this.transform.position, Quaternion.LookRotation(direction));
+        go.GetComponent<EnemySpell>().Damage = damage;
     }
 
     void SetType()
     {
-
+        
     }
+
+    public void MeleeAttack(Vector3 direction)
+    {
+
+        GameObject.FindGameObjectWithTag("Background").GetComponent<UIScripts>().TakeDamage(damage);
+        attack = true;
+        //anim.SetBool("Attack", false);
+        
+        
+    }
+
+	 void OnDestory(){
+
+
+	}
 
 
 

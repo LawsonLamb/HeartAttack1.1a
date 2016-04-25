@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 public class MiniMap : MonoBehaviour
 {
 
@@ -20,10 +21,12 @@ public class MiniMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rooms.Count == 0 && gameObject.activeSelf)
-        {
-            SetRooms();
-        }
+		
+		if (rooms.Count == 0 && gameObject.activeSelf) {
+			SetRooms ();
+		} else {
+			GetCurrentRoom ();
+		}
 
     }
 
@@ -84,6 +87,27 @@ public class MiniMap : MonoBehaviour
 
 
     }
+
+
+
+	void GetCurrentRoom(){
+
+		for (int i = 0; i < chamber.GetComponent<ChamberGenerator> ().getCount (); i++) {
+			if (chamber.GetComponent<ChamberGenerator> ().rooms [i].GetComponent<Room> ().PlayerInRoom) {
+
+				rooms [i].GetComponent<Image> ().color = Color.red;
+
+			} else {
+
+				rooms [i].GetComponent<Image> ().color = Color.white;
+
+			}
+
+
+		}
+
+
+	}
 
 
 

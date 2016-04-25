@@ -15,6 +15,14 @@ public class GameOver : MonoBehaviour {
 
 	public void RestartButton() {
 		Application.LoadLevel (2);
+<<<<<<< HEAD
+=======
+		if (Application.loadedLevel == 2) {
+			Application.LoadLevel (2);
+		} else {
+			//Load story mode level
+		}
+>>>>>>> origin/master
 	}
 	public void MainMenuButton() {
 		Application.LoadLevel (0);
