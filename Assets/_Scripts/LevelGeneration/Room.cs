@@ -71,6 +71,6 @@ public class Room : MonoBehaviour {
 
     }
 
-
-
+	public bool PlayerInRoom{ get { return 
+			gameObject.transform.GetComponentInChildren<CameraTrigger>().PlayerInTrigger; } }
 }
