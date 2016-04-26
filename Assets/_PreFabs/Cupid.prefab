@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425322}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5082302936091411984, guid: 0000000000000000d000000000000000, type: 0}
@@ -27,13 +27,13 @@ GameObject:
   - 58: {fileID: 5818614}
   - 50: {fileID: 5038060}
   - 114: {fileID: 11457904}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cupid
   m_TagString: Cupid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &425322
 Transform:
   m_ObjectHideFlags: 1

@@ -120,14 +120,7 @@ public class Foe : MonoBehaviour
 		foeHUD.SetActive (!mainHUDopen);
 		bossIsAlive = false;*/
 
-
-//		npc.GuantletGen (gameObject.tag);
-
-
-
-
-
-//		npc.GuantletGen (gameObject);
+		npc.GuantletGen (gameObject);
 
 		GameObject.FindGameObjectWithTag ("GameController").GetComponent<Gauntlet> ().EnemyKilled ();
 
