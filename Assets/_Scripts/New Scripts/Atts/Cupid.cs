@@ -13,11 +13,14 @@ public class Cupid : MonoBehaviour {
 	public Transform firePoint;
 	public GameObject arrow;
 	int direction;
+	private float SkillRotation;
+	private Vector2 VecDirection;
+
 	// Use this for initialization
 	void Start () {
 
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player>();
-		pos = gameObject.transform.position;
+		gameObject.transform.localScale = new Vector3(3, 3, 1);
 	}
 	
 	// Update is called once per frame
@@ -28,18 +31,19 @@ public class Cupid : MonoBehaviour {
 
 	void Fly(){
 
-		if (Input.GetKey (KeyCode.W)) {
-			pos.y += player.speed;
+		pos = new Vector2(player.gameObject.transform.localPosition.x + 2, player.gameObject.transform.localPosition.y + 1) ;
+		/*if (Input.GetKey (KeyCode.W)) {
+			pos.y += player.gameObject.transform.position.y;
 		} else if (Input.GetKey (KeyCode.A)) {
 			pos.x -= player.speed;
 		} else if (Input.GetKey (KeyCode.S)) {
-			pos.y -= player.speed;
+			pos.y -= player.gameObject.transform.position.y;
 		} else if (Input.GetKey (KeyCode.D)) {
 			pos.x += player.speed;
 		} else {
-		}
+		}*/
 
-		gameObject.transform.position = pos;
+		gameObject.transform.localPosition = pos;
 
 	}
 
@@ -66,20 +70,33 @@ public class Cupid : MonoBehaviour {
 		case 0:
 			firePoint.localPosition = new Vector2 (0, 1.5f);
 			direction = 0;
+			VecDirection = Vector2.up;
+			SkillRotation = 90.0f;
+
 			break;
 		case 1:
 			firePoint.localPosition = new Vector2 (0, -1.5f);
-			firePoint.localRotation = new Quaternion (0, 0, 89, 0);
+
+			firePoint.localRotation = new Quaternion (0, 0, 90, 0);
+
+			VecDirection = Vector2.down;
+			SkillRotation = -90.0f;
+
 			direction = 1;
 			break;
 		case 2:
 			firePoint.localPosition = new Vector2 (1.5f, 0);
-			firePoint.localRotation = new Quaternion (0, 0, 0, 0);
+			firePoint.localRotation = new Quaternion (0, 0, 270, 0);
+			VecDirection = Vector2.left;
+			SkillRotation = 0.0f;
+
 			direction = 2;
 			break;
 		case 3:
 			firePoint.localPosition = new Vector2 (-1.5f, 0);
-			firePoint.localRotation = new Quaternion (0, 180, 0, 0);
+			firePoint.localRotation = new Quaternion (0, 0, 180, 0);
+			VecDirection = Vector2.right;
+			SkillRotation = 180.0f;
 			direction = 3;
 			break;
 		}
@@ -88,7 +105,7 @@ public class Cupid : MonoBehaviour {
 	void Arrows (float fa) {
 		arrow.GetComponent<SkillBullet> ().direction = direction;
 		for (int i = 0; i < fa; i++) {
-			Instantiate (arrow, firePoint.position, firePoint.rotation);
+			Instantiate (arrow,this.transform.position,Quaternion.Euler(0,0,SkillRotation) );
 		}
 	}
 

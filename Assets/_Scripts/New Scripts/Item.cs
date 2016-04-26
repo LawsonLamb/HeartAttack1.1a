@@ -46,7 +46,7 @@ public class Item
 
     }
 
-	public void CreateGameObject(string name, int i, int ID)
+	public void CreateGameObject(GameObject npc, int i, int ID)
     {
         item = new GameObject();
         item.name = Name;
@@ -61,17 +61,8 @@ public class Item
 		} else {
 			item.transform.localScale = new Vector3(1, 1, 1);
 		}
-        if (name == "LoveBooth")
-        {
-            item.transform.localPosition = new Vector3(GameObject.Find(name).transform.localPosition.x + 3, GameObject.Find(name).transform.localPosition.y, 0);
-        }
-        else if (name == "Foe")
-        {
-            item.transform.localPosition = new Vector3(GameObject.FindGameObjectWithTag(name).transform.localPosition.x, GameObject.FindGameObjectWithTag(name).transform.localPosition.y, 0);
-        }
-        else {
-            item.transform.localPosition = new Vector3(5 * i, 0, 0);
-        }
+        item.transform.position = new Vector3(npc.transform.position.x, npc.transform.position.y, 0);
+       
     }
 
 }

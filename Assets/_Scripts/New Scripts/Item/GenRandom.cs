@@ -43,12 +43,12 @@ public class GenRandom : MonoBehaviour {
 
 	}
 
-	public void GuantletGen (string name) {
+	public void GuantletGen (GameObject npc) {
 
 		for (int i = 0; i < 1; i++) {
 			int j = Random.Range (0, 9);
 			int k = itemIDs [j];
-			itemData.item [k].CreateGameObject (name, i, k);
+			itemData.item [k].CreateGameObject (npc, i, k);
 		}
 	}
 

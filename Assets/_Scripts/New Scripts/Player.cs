@@ -190,6 +190,7 @@ public class Player : MonoBehaviour {
 		item.item.AddComponent<Rigidbody2D> ();
 		item.item.AddComponent<WaterBalloons> ();
 		item.item.transform.localScale = new Vector3 (0.1f, 0.1f, 1);
+		item.item.transform.localPosition = new Vector3 (gameObject.transform.localPosition.x - 1, gameObject.transform.localPosition.y, 0);
 		item.openIt = true;
 		item.Stock -= 1;
 		displays.SackUpdate ();

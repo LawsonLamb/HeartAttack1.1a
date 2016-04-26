@@ -158,7 +158,7 @@ public class PickedItem : MonoBehaviour {
 		} else {
 			drop.item.transform.localScale = new Vector3(1, 1, 1);
 		}
-		drop.item.transform.localPosition = new Vector3 (GameObject.Find ("Player").transform.localPosition.x, GameObject.Find ("Player").transform.localPosition.y - 5, 0);
+		drop.item.transform.localPosition = new Vector3 (GameObject.Find ("Player").transform.localPosition.x - Random.Range (2, 3), GameObject.Find ("Player").transform.localPosition.y - Random.Range (2, 3), 0);
 	}
 
 	void QuickBuff (Item item) {

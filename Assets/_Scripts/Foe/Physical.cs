@@ -52,7 +52,7 @@ public class Physical : MonoBehaviour {
 					//Spliter.Split (id);
 					//Spliter.Split (id);
 				}
-				npc.GuantletGen (gameObject.tag);
+				npc.GuantletGen (gameObject);
 				player.enemyKillCount += 1;
 				Destroy (gameObject);
 			}
