@@ -17,9 +17,8 @@ public class Explosion : MonoBehaviour {
 				hit.gameObject.GetComponent<Foe> ().Hit (damage);
 
 			}
-			if (hit.gameObject.tag == "Player") {
-				GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ().TakeDamage (damage / 4);
-			}
+		
+
 	}
 	}
 	
