@@ -2,9 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 public class Gauntlet : MonoBehaviour {
-    public int EnemyCount = 1;
+    public int EnemyCount = 0;
 	public GameObject Chamber;
     public Text text;
+	GameObject[] Foes;
 	// Use this for initialization
 	void Start () {
 
@@ -17,27 +18,25 @@ public class Gauntlet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		GetEnemyCount ();
         text.text = EnemyCount.ToString();
+
         if (EnemyCount == 0)
         {
            
-            Application.LoadLevel(4);
+
+       //     Application.LoadLevel(2);
+
         }
 	}
 
 	[ContextMenu("Enemy Count")]
 	public void GetEnemyCount(){
 		
-		ChamberGenerator cg = Chamber.GetComponent<ChamberGenerator> ();
-		EnemyCount = 0;
-		for (int i = 0; i<cg.rooms.Count; i++) {
-
-			EnemyCount += cg.rooms [i].GetComponent<Room> ().EnemiesInRoom.Count;
-		}
-
-        
-
+		Foes = GameObject.FindGameObjectsWithTag ("Foe");
+		EnemyCount = Foes.Length;
 	}
+
 
 
 	public void EnemyKilled(){

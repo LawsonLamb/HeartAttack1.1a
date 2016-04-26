@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	private float animSpeed =0.0f;
 	public Animator anim;
 	public Item buff = new Item();
+	public GameObject WaterBallon;
 	//COULD BE PUT IN A STATS STRUCT
 	#region Stats
 	public float dmg = 7f;
@@ -104,7 +105,8 @@ public class Player : MonoBehaviour {
 
 				if (Input.GetKeyDown (KeyCode.Q)) {
 					if (itemData.item [8].Stock > 0) {
-						CreateWaterBallons (itemData.item [8]);
+					//CreateWaterBallons (itemData.item [8]);
+						Instantiate(WaterBallon,new Vector3 (gameObject.transform.position.x - 1, gameObject.transform.position.y, 0),Quaternion.identity);
 					}
 				}
 			}

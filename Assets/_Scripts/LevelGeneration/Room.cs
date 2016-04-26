@@ -19,6 +19,7 @@ public class Room : MonoBehaviour {
 	public List<GameObject> Enemies;
 	public int minimumNumberOfEnemies =0;
 	public int maximumNumberOfEnemies =0;
+	int numberOfEnemies= 0;
 	public List<GameObject> EnemiesInRoom;
 
 	void Start () {
@@ -57,7 +58,7 @@ public class Room : MonoBehaviour {
 
     public void setupRoom()
     {
-		int numberOfEnemies = Random.Range (minimumNumberOfEnemies, maximumNumberOfEnemies);
+		 numberOfEnemies = Random.Range (minimumNumberOfEnemies, maximumNumberOfEnemies);
 		int e = 0;
 		for (int i = 0; i < numberOfEnemies; i++) {
 
@@ -73,4 +74,10 @@ public class Room : MonoBehaviour {
 
 	public bool PlayerInRoom{ get { return 
 			gameObject.transform.GetComponentInChildren<CameraTrigger>().PlayerInTrigger; } }
+
+	public int NumberOfEnemies{ get { return numberOfEnemies; }
+
+
+
+	}
 }

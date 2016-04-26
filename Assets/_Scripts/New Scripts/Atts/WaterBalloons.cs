@@ -9,6 +9,7 @@ public class WaterBalloons : MonoBehaviour {
 	GameObject displays;
 	GameObject player;
 	public GameObject ImpactEffect;
+	public float duration;
 	// Use this for initialization
 	void Start () {
 
@@ -20,6 +21,9 @@ public class WaterBalloons : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Destroy (this.gameObject, duration);
+
+	
 
 		//If there is a bomb that is active it will count down till explosion
 		if (itemData.item [8].openIt == true) {
@@ -47,8 +51,10 @@ public class WaterBalloons : MonoBehaviour {
 	void OnDestroy()
 	{
 		if (ImpactEffect) {
-			Instantiate (ImpactEffect, this.transform.position, Quaternion.identity);
+			GameObject go = (GameObject)Instantiate (ImpactEffect, this.transform.position, Quaternion.identity);
+			go.AddComponent<Explosion> ();
 		}
-	}
+			
+}
 
 }
