@@ -106,10 +106,16 @@ public class Player : MonoBehaviour {
 				if (Input.GetKeyDown (KeyCode.Q)) {
 					if (itemData.item [8].Stock > 0) {
 					//CreateWaterBallons (itemData.item [8]);
+						itemData.item [8].Stock -= 1;
 						Instantiate(WaterBallon,new Vector3 (gameObject.transform.position.x - 1, gameObject.transform.position.y, 0),Quaternion.identity);
 					}
 				}
 			}
+		}
+
+		if (health <= 0) {
+			Application.LoadLevel (4);
+			//print ("You Have Died");
 		}
 	}
 
