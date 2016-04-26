@@ -23,10 +23,7 @@ public class Gauntlet : MonoBehaviour {
 
         if (EnemyCount == 0)
         {
-           
-
-       //     Application.LoadLevel(2);
-
+			Application.LoadLevel(2);
         }
 	}
 
