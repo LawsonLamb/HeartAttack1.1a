@@ -5,23 +5,23 @@ public class Physical : MonoBehaviour {
 
 	/*All that is missing now is the movement for the enemy. Speed is already set depending on the foe.
 	This is a base Script since all enemeies will have a physcail script to them.*/
-	FoeDatabase foeData;
+//	FoeDatabase foeData;
 	UIScripts displays;
 	Player player;
 
 	Foes thisFoe;
-	GenRandom npc;
+//private GenRandom npc;
 	public float health;
 	public string m_name;
 	public int id;
-	float speed;
+//	float speed;
 	int dmg;
 
 
 	// Use this for initialization
 	void Start () {
 
-		foeData = GameObject.FindGameObjectWithTag ("Database").GetComponent<FoeDatabase>();
+		//foeData = GameObject.FindGameObjectWithTag ("Database").GetComponent<FoeDatabase>();
 		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts>();
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player>();
 
@@ -34,7 +34,7 @@ public class Physical : MonoBehaviour {
 	public void SetFoeStats (Foes foe) {
 		thisFoe = foe;
 		health = foe.foeHealth;
-		speed = foe.foeSpeed;
+		//speed = foe.foeSpeed;
 		m_name = foe.foeName;
 		dmg = foe.foeDmg;
 		id = foe.foeID;
@@ -52,7 +52,7 @@ public class Physical : MonoBehaviour {
 					//Spliter.Split (id);
 					//Spliter.Split (id);
 				}
-				npc.GuantletGen (gameObject);
+				//npc.GuantletGen (gameObject);
 				player.enemyKillCount += 1;
 				Destroy (gameObject);
 			}

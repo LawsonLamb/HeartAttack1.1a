@@ -6,14 +6,15 @@ public class NPCs : MonoBehaviour {
 
 	GameObject database;
 	EnviornmentDatabase areaData;
-	string name;
+
+	string Name{ get { return gameObject.name; } set { gameObject.name = value; } }
 
 	// Use this for initialization
 	void Start () {
 
 		database = GameObject.FindGameObjectWithTag ("Database");
 		areaData = database.GetComponent<EnviornmentDatabase> ();
-		name = gameObject.name;
+	
 	}
 	
 	// Update is called once per frame
@@ -38,9 +39,9 @@ public class NPCs : MonoBehaviour {
 	void OnTriggerStay2D (Collider2D col) {
 		if (col.gameObject.tag == "Player") {
 			if (Input.GetKeyDown(KeyCode.Return)) {
-				if (name == "SaveGuy") {
+				if (Name == "SaveGuy") {
 					SaveGuy ();
-				} else if (name == "StatusGuy") {
+				} else if (Name == "StatusGuy") {
 					StatusGuy ();
 				} else {
 					LoveBooth ();

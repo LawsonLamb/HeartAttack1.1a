@@ -12,7 +12,7 @@ public class ItemDataBase:ScriptableObject{
 	[SerializeField]
 	private List<Item> database;
 
-	private List<Item> testDataBase = new List<Item>();
+//	private List<Item> testDataBase = new List<Item>();
 
 
 

@@ -4,13 +4,13 @@ using System.Collections;
 
 public class Specials : MonoBehaviour {
 
-	string name{ 
+	string Name{ 
 		get { return gameObject.name; } 
 		set{ gameObject.name = value; }
 	
 	}
-	GameObject database;
-	AttackDatabase attData;
+//	GameObject database;
+//	AttackDatabase attData;
 	UIScripts displays;
 	Attacks att;
 	Player player;
@@ -21,11 +21,11 @@ public class Specials : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
-		database = GameObject.FindGameObjectWithTag ("Database");
-		attData = database.GetComponent<AttackDatabase> ();
+	//	database = GameObject.FindGameObjectWithTag ("Database");
+		//attData = database.GetComponent<AttackDatabase> ();
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
-		name = gameObject.name;
+	
 	}
 	
 	// Update is called once per frame

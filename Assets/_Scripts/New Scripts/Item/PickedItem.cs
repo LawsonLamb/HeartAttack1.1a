@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class PickedItem : MonoBehaviour {
 
-	string name;
+	string Name{ get { return gameObject.name; } set { gameObject.name = value; } }
 	GameObject database;
 	ItemData itemData;
 	AttackDatabase attData;
@@ -26,7 +26,7 @@ public class PickedItem : MonoBehaviour {
 		itemData = database.GetComponent<ItemData> ();
 		attData = database.GetComponent<AttackDatabase> ();
 
-		name = gameObject.name;
+	
 	}
 	
 	// Update is called once per frame
@@ -61,7 +61,7 @@ public class PickedItem : MonoBehaviour {
 					QuickBuff (item);
 					i = 7;
 				} else {
-					DropItem (item);
+					//DropItem (item);
 					i = 7;
 				}
 			}
@@ -84,7 +84,7 @@ public class PickedItem : MonoBehaviour {
 				PermItems (item);
 				item.Stock += 1;
 			} else {
-				DropItem (item);
+				///DropItem (item);
 			}
 		}
 	}
@@ -99,17 +99,17 @@ public class PickedItem : MonoBehaviour {
 		item.openIt = true;
 		Attacks newAtt = attData.GetAttByName (item.Name);
 		Attacks oldAtt = new Attacks ();
-		Item oldItem = new Item ();
+//		Item oldItem = new Item ();
 
 		if (newAtt.attType == Attacks.AttackType.Regular) {
 			oldAtt = displays.currRegSkill;
 
 			if ((oldAtt.attID >= 0) && (oldAtt.attID <= 4)) {
-				oldItem = itemData.GetItemByName(attData.attacks [0].attName);
+				//oldItem = itemData.GetItemByName(attData.attacks [0].attName);
 			} else if ((oldAtt.attID >= 10) && (oldAtt.attID <= 14)) {
-				oldItem = itemData.GetItemByName(attData.attacks [10].attName);
+				//oldItem = itemData.GetItemByName(attData.attacks [10].attName);
 			} else if ((oldAtt.attID >= 20) && (oldAtt.attID <= 24)) {
-				oldItem = itemData.GetItemByName(attData.attacks [20].attName);
+				//oldItem = itemData.GetItemByName(attData.attacks [20].attName);
 			}
 			displays.currRegSkill = newAtt;
 			displays.regSkill.sprite = displays.currRegSkill.attIcon;
@@ -120,25 +120,25 @@ public class PickedItem : MonoBehaviour {
 			spec.RemoveSkill (oldAtt);
 
 			if ((oldAtt.attID >= 5) && (oldAtt.attID <= 9)) {
-				oldItem = itemData.GetItemByName(attData.attacks [5].attName);
+				//oldItem = itemData.GetItemByName(attData.attacks [5].attName);
 			} else if ((oldAtt.attID >= 15) && (oldAtt.attID <= 19)) {
-				oldItem = itemData.GetItemByName(attData.attacks [15].attName);
+				//oldItem = itemData.GetItemByName(attData.attacks [15].attName);
 			} else if ((oldAtt.attID >= 25) && (oldAtt.attID <= 29)) {
-				oldItem = itemData.GetItemByName(attData.attacks [25].attName);
+				//oldItem = itemData.GetItemByName(attData.attacks [25].attName);
 			}
 			displays.currSpecSkill = newAtt;
 			displays.specSkill.sprite = displays.currSpecSkill.attIcon;
 			displays.ChangeSpecAtt (displays.skPoints);
 		}
 
-		DropItem(oldItem);
+		//DropItem(oldItem);
 	}
 
 	void PickUpHealth (Item item) {
 		if (player.health < player.maxHealth) {
 			displays.RestoreHealth (item.Change);
 		} else {
-			DropItem (item);
+			//DropItem (item);
 		}
 	}
 

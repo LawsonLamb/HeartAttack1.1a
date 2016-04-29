@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Gauntlet : MonoBehaviour {
-    public int EnemyCount = 0;
+    public int EnemyCount = 1;
 	public GameObject Chamber;
     public Text text;
 	GameObject[] Foes;
+	//
 	// Use this for initialization
 	void Start () {
 
@@ -23,7 +25,8 @@ public class Gauntlet : MonoBehaviour {
 
         if (EnemyCount == 0)
         {
-			Application.LoadLevel(2);
+			//Application.LoadLevel(2);
+			SceneManager.LoadScene (2);
         }
 	}
 

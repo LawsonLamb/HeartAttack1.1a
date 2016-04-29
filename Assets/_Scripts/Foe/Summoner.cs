@@ -10,8 +10,8 @@ public class Summoner : MonoBehaviour {
 
     public GameObject test;
     public int xRange = 3;
-    int oldXran;
-    int oldYran;
+	int oldXran =0;
+	int oldYran=0;
 
 	GameObject database;
 	FoeDatabase foeData;
@@ -20,12 +20,14 @@ public class Summoner : MonoBehaviour {
 	GameObject parentFoe;
 
 	float magic;
-	float fullMagic = 500;
+//	float fullMagic = 500;
 	public static float fullHealth;
 
 
 	// Use this for initialization
 	void Start () {
+		oldXran = oldXran + 0;
+		oldYran = oldYran + 0;
 	}
 	
 	// Update is called once per frame

@@ -14,7 +14,7 @@ public class Foe : MonoBehaviour
     public float speed;
 	public int id;
 	GameObject database;
-	FoeDatabase foeData;
+//FoeDatabase foeData;
 	Foes foe;
     public GameObject player;
     public GameObject damageEffect;
@@ -56,7 +56,7 @@ public class Foe : MonoBehaviour
     {
         if (database)
         {
-            foeData = database.GetComponent<FoeDatabase>();
+            //foeData = database.GetComponent<FoeDatabase>();
           //  foe = foeData.GetFoeByName(this.gameObject.name);
           //  id = foe.foeID;
           //8  SetFoeStats(foe, id);

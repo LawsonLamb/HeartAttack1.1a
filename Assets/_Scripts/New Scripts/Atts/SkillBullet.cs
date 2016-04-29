@@ -8,22 +8,22 @@ public class SkillBullet : MonoBehaviour {
 	float speedY;
 	public float lifeSpan = 75f;
     public GameObject ImpactEffect;
-	GameObject database;
-	AttackDatabase attData;
-	Attacks att;
+//	GameObject database;
+//	AttackDatabase attData;
+//	Attacks att;
 	public int direction;
 	public float dmg;
 
-	UIScripts displays;
+//	UIScripts displays;
 
 	// Use this for initialization
 	void Start () {
 		
-		database = GameObject.FindGameObjectWithTag ("Database");
-		attData = database.GetComponent<AttackDatabase>();
-		displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
+		//database = GameObject.FindGameObjectWithTag ("Database");
+		//attData = database.GetComponent<AttackDatabase>();
+		//displays = GameObject.FindGameObjectWithTag ("Background").GetComponent<UIScripts> ();
 
-		att = attData.GetAttByID (displays.currRegSkill.attID);
+		//att = attData.GetAttByID (displays.currRegSkill.attID);
 		//speed = att.attSpeed;
 		switch (direction) {
 		case 0:

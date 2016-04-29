@@ -12,16 +12,16 @@ public class Tile : MonoBehaviour {
 
    public SortingLayer Layer;
  
-    TileSet set;
+
    private SpriteRenderer Rend;
 
-    private BoxCollider2D collider;
+   
 	// Use this for initialization
 	void Start () {
-        set = TileSet.GetTileSet();
+   
 	
         Rend = GetComponent<SpriteRenderer>();
-        collider = GetComponent<BoxCollider2D>();
+       
 
     }
 	

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 public class UIScripts : MonoBehaviour {
 
 	public GameObject sack;
@@ -235,7 +235,8 @@ public class UIScripts : MonoBehaviour {
 			//healthBar.transform.localPosition = new Vector2 (healthBar.transform.localPosition.x + (20 / dmg), 0);
 			player.GetComponent<SoundEffects> ().PlaySound (0);
 		} else {
-			Application.LoadLevel (4);
+			//Application.LoadLevel (4);
+			SceneManager.LoadScene (4);
 			//print ("You Have Died");
 		}
 	}
@@ -557,11 +558,14 @@ public class UIScripts : MonoBehaviour {
 	}
 
 	public void RestartButton () {
-		Application.LoadLevel (Application.loadedLevel);
+		//Application.LoadLevel (Application.loadedLevel);
+		SceneManager.LoadScene (SceneManager.GetActiveScene().ToString());
+
 	}
 
 	public void MainMenuButton() {
-		Application.LoadLevel (0);
+		//Application.LoadLevel (0);
+		SceneManager.LoadScene (0);
 	}
 
 	public void QuitButton() {

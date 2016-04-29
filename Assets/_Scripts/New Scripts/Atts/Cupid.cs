@@ -14,7 +14,7 @@ public class Cupid : MonoBehaviour {
 	public GameObject arrow;
 	int direction;
 	private float SkillRotation;
-	private Vector2 VecDirection;
+	//private Vector2 VecDirection;
 
 	// Use this for initialization
 	void Start () {
@@ -70,7 +70,7 @@ public class Cupid : MonoBehaviour {
 		case 0:
 			firePoint.localPosition = new Vector2 (0, 1.5f);
 			direction = 0;
-			VecDirection = Vector2.up;
+			//VecDirection = Vector2.up;
 			SkillRotation = 90.0f;
 
 			break;
@@ -79,7 +79,7 @@ public class Cupid : MonoBehaviour {
 
 			firePoint.localRotation = new Quaternion (0, 0, 90, 0);
 
-			VecDirection = Vector2.down;
+			//VecDirection = Vector2.down;
 			SkillRotation = -90.0f;
 
 			direction = 1;
@@ -87,7 +87,7 @@ public class Cupid : MonoBehaviour {
 		case 2:
 			firePoint.localPosition = new Vector2 (1.5f, 0);
 			firePoint.localRotation = new Quaternion (0, 0, 270, 0);
-			VecDirection = Vector2.left;
+			//VecDirection = Vector2.left;
 			SkillRotation = 0.0f;
 
 			direction = 2;
@@ -95,7 +95,7 @@ public class Cupid : MonoBehaviour {
 		case 3:
 			firePoint.localPosition = new Vector2 (-1.5f, 0);
 			firePoint.localRotation = new Quaternion (0, 0, 180, 0);
-			VecDirection = Vector2.right;
+			//VecDirection = Vector2.right;
 			SkillRotation = 180.0f;
 			direction = 3;
 			break;

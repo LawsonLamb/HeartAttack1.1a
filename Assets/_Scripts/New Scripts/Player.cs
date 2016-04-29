@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
 
 	GameObject database;
@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	Vector3 pos;
 	private float SkillRotation;
 	private PlayerDirection player_direction;
-	private Vector2 VecDirection;
+//	private Vector2 VecDirection;
 	private float animSpeed =0.0f;
 	public Animator anim;
 	public Item buff = new Item();
@@ -114,7 +114,8 @@ public class Player : MonoBehaviour {
 		}
 
 		if (health <= 0) {
-			Application.LoadLevel (4);
+			//Application.LoadLevel (4);
+			SceneManager.LoadScene (4);
 			//print ("You Have Died");
 		}
 	}
@@ -289,7 +290,7 @@ public class Player : MonoBehaviour {
 		case 0:
 			firePoint.localPosition = new Vector2 (0, 1.5f);
 			direction = 0;
-			VecDirection = Vector2.up;
+			//VecDirection = Vector2.up;
 			SkillRotation = 90.0f;
 
 			break;
@@ -298,7 +299,7 @@ public class Player : MonoBehaviour {
 
 			firePoint.localRotation = new Quaternion (0, 0, 90, 0);
 
-			VecDirection = Vector2.down;
+			//VecDirection = Vector2.down;
 			SkillRotation = -90.0f;
 		
 			direction = 1;
@@ -306,7 +307,7 @@ public class Player : MonoBehaviour {
 		case 2:
 			firePoint.localPosition = new Vector2 (1.5f, 0);
 			firePoint.localRotation = new Quaternion (0, 0, 270, 0);
-			VecDirection = Vector2.left;
+			//VecDirection = Vector2.left;
 			SkillRotation = 0.0f;
 
 			direction = 2;
@@ -314,7 +315,7 @@ public class Player : MonoBehaviour {
 		case 3:
 			firePoint.localPosition = new Vector2 (-1.5f, 0);
 			firePoint.localRotation = new Quaternion (0, 0, 180, 0);
-			VecDirection = Vector2.right;
+			//VecDirection = Vector2.right;
 			SkillRotation = 180.0f;
 			direction = 3;
 			break;
@@ -348,24 +349,24 @@ public class Player : MonoBehaviour {
 
 		switch (player_direction) {
 		case PlayerDirection.UP:
-			VecDirection = Vector2.up;
+			//VecDirection = Vector2.up;
 			SkillRotation = 0.0f;
 
 			break;
 		case PlayerDirection.DOWN:
-			VecDirection = Vector2.down;
+			//VecDirection = Vector2.down;
 			SkillRotation = 180.0f;
 
 
 			break;
 		case PlayerDirection.RIGHT:
-			VecDirection = Vector2.right;
+			//VecDirection = Vector2.right;
 			SkillRotation = -90.0f;
 
 
 			break;
 		case PlayerDirection.LEFT:
-			VecDirection = Vector2.left;
+			//VecDirection = Vector2.left;
 			SkillRotation = 90.0f;
 			break;
 		}

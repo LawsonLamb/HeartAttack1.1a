@@ -1,14 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/Explosion.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/PauseMenu.cs">
     <Files>
-      <File FileName="Assets/Gauntlet.cs" Line="28" Column="10" />
-      <File FileName="Assets/_Scripts/LevelGeneration/ChamberGenerator.cs" Line="297" Column="3" />
-      <File FileName="Assets/_Scripts/LevelGeneration/Room.cs" Line="80" Column="3" />
-      <File FileName="Assets/_Scripts/Foe/Foe.cs" Line="36" Column="69" />
-      <File FileName="Assets/_Scripts/New Scripts/Player.cs" Line="110" Column="75" />
-      <File FileName="Assets/_Scripts/New Scripts/Atts/WaterBalloons.cs" Line="55" Column="34" />
-      <File FileName="Assets/_Scripts/Explosion.cs" Line="20" Column="3" />
+      <File FileName="Assets/_Scripts/PauseMenu.cs" Line="25" Column="29" />
+      <File FileName="Assets/_Scripts/New Scripts/Item/PickedItem.cs" Line="64" Column="8" />
+      <File FileName="Assets/_Scripts/LevelGeneration/ChamberGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/LevelGeneration/Room.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/Foe/Foe.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/New Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/New Scripts/Atts/WaterBalloons.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/Explosion.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

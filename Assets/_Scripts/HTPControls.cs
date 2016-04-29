@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class HTPControls : MonoBehaviour {
 
 	// Use this for initialization
@@ -14,10 +14,12 @@ public class HTPControls : MonoBehaviour {
 	}
 
 	public void HomeButton() {
-		Application.LoadLevel (0);
+		//Application.LoadLevel (0);
+		SceneManager.LoadScene (0);
 	}
 
 	public void PlayButton() {
-		Application.LoadLevel (2);
+	//	Application.LoadLevel (2);
+		SceneManager.LoadScene (2);
 	}
 }

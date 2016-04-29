@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour {
 
@@ -24,7 +25,8 @@ public class MenuButtons : MonoBehaviour {
 	}
 
 	public void CreditButton() {
-		Application.LoadLevel (1);
+		//Application.LoadLevel (1);
+		SceneManager.LoadScene (1);
 	}
 
 	public void QuitButton() {
@@ -36,7 +38,8 @@ public class MenuButtons : MonoBehaviour {
 	}
 
 	public void GauntletButton() {
-		Application.LoadLevel (3);
+		//Application.LoadLevel (3);
+		SceneManager.LoadScene (3);
 	}
 
 	public void ReturnButton() {

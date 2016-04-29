@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour {
 
@@ -42,6 +43,7 @@ public class Credits : MonoBehaviour {
 	}
 
 	public void ReturnButton() {
-		Application.LoadLevel (0);
+		//Application.LoadLevel (0);
+		SceneManager.LoadScene (0);
 	}
 }

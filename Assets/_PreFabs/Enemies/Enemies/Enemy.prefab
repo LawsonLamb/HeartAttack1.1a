@@ -31,8 +31,6 @@ GameObject:
   - 114: {fileID: 11428118}
   - 95: {fileID: 9526268}
   - 58: {fileID: 5885124}
-  - 114: {fileID: 11466972}
-  - 114: {fileID: 11407660}
   - 114: {fileID: 11434104}
   m_Layer: 11
   m_Name: Enemy
@@ -102,24 +100,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11407660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83f7078a148e426d843ddd96d25331d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  age: 0
-  health: 100
-  maxHealth: 100
-  damage: 50
-  effect: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 2}
-  player: {fileID: 0}
 --- !u!114 &11413356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,19 +182,6 @@ MonoBehaviour:
   DropableItems:
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &11466972
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7110276989d94e58ab20450d4d95b33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Magnitude: 3
-  timeBetweenAttacks: 0.15
 --- !u!114 &11478982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,12 +214,14 @@ MonoBehaviour:
         Distance\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"System.Boolean,usePhysics2D\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,magnitude\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Single,mValue\":6\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedBool,lineOfSight\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedBool\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Boolean,mValue\":false\n\t\t\t\t},\n\t\t\t\t\"UnityEngine.LayerMask,ignoreLayerMask\":4,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,offset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,targetOffset\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObjectList,objects\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObjectList\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.Collections.Generic.List`1[UnityEngine.GameObject],mValue\":[]\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedString,objectTag\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedString\",\n\t\t\t\t\t\"Name\":\"\",\n\t\t\t\t\t\"System.String,mValue\":\"Player\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,returnedObject\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\"IsShared\":true\n\t\t\t\t}\n\t\t\t},{\n\t\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.PolyNav.Seek\",\n\t\t\t\t\"NodeData\":{\n\t\t\t\t\t\"Offset\":\"(134.312164,130.399109)\"\n\t\t\t\t},\n\t\t\t\t\"ID\":8,\n\t\t\t\t\"Name\":\"Seek\",\n\t\t\t\t\"Instant\":true,\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedGameObject,target\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\t\t\t\"Name\":\"Player\",\n\t\t\t\t\t\"IsShared\":true\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedVector3,targetPosition\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedVector3\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"UnityEngine.Vector3,mValue\":\"(0,0,0)\"\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,speed\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":\"Speed\",\n\t\t\t\t\t\"IsShared\":true,\n\t\t\t\t\t\"System.Single,mValue\":2\n\t\t\t\t},\n\t\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,angularSpeed\":{\n\t\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\t\"Name\":null,\n\t\t\t\t\t\"System.Single,mValue\":350\n\t\t\t\t}\n\t\t\t}]\n\t\t},{\n\t\t\t\"ObjectType\":\"BehaviorDesigner.Runtime.Tasks.Movement.PolyNav.Wander\",\n\t\t\t\"NodeData\":{\n\t\t\t\t\"Offset\":\"(355.1827,196.963318)\"\n\t\t\t},\n\t\t\t\"ID\":9,\n\t\t\t\"Name\":\"Wander\",\n\t\t\t\"Instant\":true,\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,wanderDistance\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":20\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,wanderRate\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":2\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,speed\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":5\n\t\t\t},\n\t\t\t\"BehaviorDesigner.Runtime.SharedFloat,angularSpeed\":{\n\t\t\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\t\t\"Name\":null,\n\t\t\t\t\"System.Single,mValue\":350\n\t\t\t}\n\t\t}]\n\t},\n\t\"Variables\":[{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedGameObject\",\n\t\t\"Name\":\"Player\",\n\t\t\"IsShared\":true\n\t},{\n\t\t\"Type\":\"BehaviorDesigner.Runtime.SharedFloat\",\n\t\t\"Name\":\"Speed\",\n\t\t\"IsShared\":true,\n\t\t\"System.Single,mValue\":2\n\t}]\n}"
       fieldSerializationData:
         typeName: []
+        fieldNameHash: 
         startIndex: 
         dataPosition: 
         unityObjects:
         - {fileID: 120726}
         byteData: 
         byteDataArray: 
+      Version: 
 --- !u!114 &11485724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,6 +294,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
