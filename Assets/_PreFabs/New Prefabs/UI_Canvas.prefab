@@ -833,13 +833,14 @@ GameObject:
   - 224: {fileID: 22426022}
   - 222: {fileID: 22245816}
   - 114: {fileID: 11422116}
+  - 114: {fileID: 11421534}
   m_Layer: 5
   m_Name: Pause_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &140078
 GameObject:
   m_ObjectHideFlags: 1
@@ -1500,13 +1501,14 @@ GameObject:
   - 224: {fileID: 22451358}
   - 222: {fileID: 22229548}
   - 114: {fileID: 11427954}
+  - 114: {fileID: 11482280}
   m_Layer: 5
   m_Name: Sack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &185048
 GameObject:
   m_ObjectHideFlags: 1
@@ -2824,6 +2826,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11421534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e48dea10901440e9d6017b4ea7f6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11421832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4418,7 +4431,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131648}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73494b174a86343f8bf056aff5a60eee, type: 3}
   m_Name: 
@@ -4566,6 +4579,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11482280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9bbbbd15fca4bbc9e08750c84552b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 0}
+  waterBallon: {fileID: 0}
+  Key: {fileID: 0}
+  HeartKey: {fileID: 0}
 --- !u!114 &11483046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4691,7 +4719,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11465990}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11421534}
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11485524

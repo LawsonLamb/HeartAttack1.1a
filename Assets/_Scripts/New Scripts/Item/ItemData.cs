@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ItemData : MonoBehaviour {
+	
+
 
 	public List <Item> item = new List<Item> ();
 
